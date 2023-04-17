@@ -1,20 +1,20 @@
 //
-//  ex.swift
+//  PUIex.swift
 //  Zen-u
 //
-//  Created by Sitanshu Pokalwar on 17/04/23.
+//  Created by Tanvi Gupta on 18/04/23.
 //
 
 import SwiftUI
 
-struct ex: View {
+struct PUIex: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ex_Previews: PreviewProvider {
+struct PUIex_Previews: PreviewProvider {
     static var previews: some View {
-        ex()
+        PUIex()
     }
 }

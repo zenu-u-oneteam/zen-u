@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DECE12129EDDA060021BE41 /* Aex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12029EDDA060021BE41 /* Aex.swift */; };
+		2DECE12329EDDA160021BE41 /* Pex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12229EDDA160021BE41 /* Pex.swift */; };
+		2DECE12529EDDA3A0021BE41 /* Dex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12429EDDA3A0021BE41 /* Dex.swift */; };
+		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
+		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
+		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
 		3874751529ED603800CCA151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751429ED603800CCA151 /* ContentView.swift */; };
 		3874751729ED603900CCA151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3874751629ED603900CCA151 /* Assets.xcassets */; };
@@ -16,21 +22,21 @@
 		3874753629ED639700CCA151 /* PSpecialists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874753529ED639700CCA151 /* PSpecialists.swift */; };
 		3874753829ED63AA00CCA151 /* PScheduleSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874753729ED63AA00CCA151 /* PScheduleSettings.swift */; };
 		3874753B29ED662E00CCA151 /* PBookingSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874753A29ED662E00CCA151 /* PBookingSummary.swift */; };
-		3874753D29ED665400CCA151 /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874753C29ED665400CCA151 /* example.swift */; };
 		3874753F29ED669100CCA151 /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874753E29ED669100CCA151 /* example.swift */; };
 		3874754129ED66D400CCA151 /* DSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754029ED66D400CCA151 /* DSchedule.swift */; };
 		3874754329ED66DD00CCA151 /* DHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754229ED66DD00CCA151 /* DHome.swift */; };
 		3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */; };
 		3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754629ED673500CCA151 /* DPrescriptionsView.swift */; };
-		3874754929ED678500CCA151 /* Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754829ED678500CCA151 /* Example.swift */; };
-		3874754B29ED679600CCA151 /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754A29ED679600CCA151 /* example.swift */; };
-		38ED412229ED684D005E182A /* ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED412129ED684D005E182A /* ex.swift */; };
-		38ED412429ED6855005E182A /* ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED412329ED6855005E182A /* ex.swift */; };
-		38ED412629ED6860005E182A /* ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED412529ED6860005E182A /* ex.swift */; };
 		38ED412829ED6870005E182A /* exx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ED412729ED6870005E182A /* exx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DECE12029EDDA060021BE41 /* Aex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aex.swift; sourceTree = "<group>"; };
+		2DECE12229EDDA160021BE41 /* Pex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pex.swift; sourceTree = "<group>"; };
+		2DECE12429EDDA3A0021BE41 /* Dex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dex.swift; sourceTree = "<group>"; };
+		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
+		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
+		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3874751229ED603800CCA151 /* Zen_uApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_uApp.swift; sourceTree = "<group>"; };
 		3874751429ED603800CCA151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,17 +47,11 @@
 		3874753529ED639700CCA151 /* PSpecialists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSpecialists.swift; sourceTree = "<group>"; };
 		3874753729ED63AA00CCA151 /* PScheduleSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PScheduleSettings.swift; sourceTree = "<group>"; };
 		3874753A29ED662E00CCA151 /* PBookingSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBookingSummary.swift; sourceTree = "<group>"; };
-		3874753C29ED665400CCA151 /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 		3874753E29ED669100CCA151 /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 		3874754029ED66D400CCA151 /* DSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSchedule.swift; sourceTree = "<group>"; };
 		3874754229ED66DD00CCA151 /* DHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHome.swift; sourceTree = "<group>"; };
 		3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppointmentDetails.swift; sourceTree = "<group>"; };
 		3874754629ED673500CCA151 /* DPrescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPrescriptionsView.swift; sourceTree = "<group>"; };
-		3874754829ED678500CCA151 /* Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example.swift; sourceTree = "<group>"; };
-		3874754A29ED679600CCA151 /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
-		38ED412129ED684D005E182A /* ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ex.swift; sourceTree = "<group>"; };
-		38ED412329ED6855005E182A /* ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ex.swift; sourceTree = "<group>"; };
-		38ED412529ED6860005E182A /* ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ex.swift; sourceTree = "<group>"; };
 		38ED412729ED6870005E182A /* exx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = exx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,7 +144,7 @@
 		3874752629ED609C00CCA151 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3874754A29ED679600CCA151 /* example.swift */,
+				2DECE12829EDDA830021BE41 /* AHome.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 		3874752729ED60A400CCA151 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				3874754829ED678500CCA151 /* Example.swift */,
+				2DECE12629EDDA610021BE41 /* AUIex.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 		3874752B29ED614800CCA151 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				3874753C29ED665400CCA151 /* example.swift */,
+				2DECE12A29EDDAA10021BE41 /* PUIex.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 		3874752D29ED617100CCA151 /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
-				38ED412529ED6860005E182A /* ex.swift */,
+				2DECE12429EDDA3A0021BE41 /* Dex.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 		3874752E29ED618000CCA151 /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				38ED412329ED6855005E182A /* ex.swift */,
+				2DECE12229EDDA160021BE41 /* Pex.swift */,
 			);
 			path = Patient;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 		3874752F29ED618A00CCA151 /* Admin */ = {
 			isa = PBXGroup;
 			children = (
-				38ED412129ED684D005E182A /* ex.swift */,
+				2DECE12029EDDA060021BE41 /* Aex.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -308,25 +308,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38ED412229ED684D005E182A /* ex.swift in Sources */,
-				3874754B29ED679600CCA151 /* example.swift in Sources */,
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
-				38ED412629ED6860005E182A /* ex.swift in Sources */,
+				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
+				2DECE12329EDDA160021BE41 /* Pex.swift in Sources */,
+				2DECE12129EDDA060021BE41 /* Aex.swift in Sources */,
+				2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */,
 				3874753B29ED662E00CCA151 /* PBookingSummary.swift in Sources */,
 				38ED412829ED6870005E182A /* exx.swift in Sources */,
 				3874753829ED63AA00CCA151 /* PScheduleSettings.swift in Sources */,
 				3874754129ED66D400CCA151 /* DSchedule.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
-				3874753D29ED665400CCA151 /* example.swift in Sources */,
-				3874754929ED678500CCA151 /* Example.swift in Sources */,
+				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,
+				2DECE12529EDDA3A0021BE41 /* Dex.swift in Sources */,
 				3874753629ED639700CCA151 /* PSpecialists.swift in Sources */,
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
-				38ED412429ED6855005E182A /* ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +471,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sitz.Zen-u";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -501,6 +504,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sitz.Zen-u";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
