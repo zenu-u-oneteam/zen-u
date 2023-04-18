@@ -11,6 +11,7 @@ import UIKit
 var color = #colorLiteral(red: 0.9625412822, green: 0.9625412822, blue: 0.9625412822, alpha: 1)
 var blueLabelcColor = #colorLiteral(red: 0.2392156863, green: 0.4431372549, blue: 0.7529411765, alpha: 1)
 var doctorTypeBgColor = #colorLiteral(red: 0.1882352941, green: 0.5333333333, blue: 1, alpha: 1)
+var buttonColor = #colorLiteral(red: 0.1882352941, green: 0.5333333333, blue: 1, alpha: 1)
 
 struct PBookingAppointments: View {
     @State private var symtomText: String = ""
@@ -56,21 +57,59 @@ struct PBookingAppointments: View {
                 .fontWeight(.bold)
                 .font(.system(size: 20))
                 .foregroundColor(Color(blueLabelcColor))
-            HStack {
-                RoundedRectangle(cornerRadius: 60).frame(width: 150 , height: 50).foregroundColor(Color(doctorTypeBgColor))
-                    .overlay( Text("General").foregroundColor(.white))
+                .padding(.bottom , 10)
+            HStack (spacing: 12){
+                RoundedRectangle(cornerRadius: 60)
+                    
+                    .foregroundColor(Color(doctorTypeBgColor))
+                    .frame(width: 150 , height: 50)
+                    
+                    .overlay( Text("General").foregroundColor(.white)).background {
+                        RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color.secondary, lineWidth: 4)
+                    }
+                RoundedRectangle(cornerRadius: 60)
+                    
+                    .foregroundColor(Color(color))
+                    .frame(width: 150 , height: 50)
+                    
+                    .overlay( Text("Specialist").foregroundColor(Color(doctorTypeBgColor)))
+                    .background {
+                        RoundedRectangle(cornerRadius: 30)
+                                .stroke(Color(doctorTypeBgColor), lineWidth: 4)
+                    }
 
-            }.padding(.bottom , 20)
+            }.padding(.bottom , 40)
             Text("Specify Reason (if Any)")
                 .fontWeight(.bold)
                 .font(.system(size: 20))
                 .foregroundColor(Color(blueLabelcColor))
+                .padding(.bottom,30)
             
             TextField(
               "Mention any symtoms....",
               text: $symtomText
-            ).padding()
-                .border(.secondary)
+             
+            )
+            .multilineTextAlignment(.leading)
+            .frame(height: 200.0 , alignment: .topLeading)
+            .padding()
+            .background(Color(color))
+            .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.secondary, lineWidth: 1)
+                ).padding(.bottom , 40)
+               
+            Button {
+                
+            } label: {
+                Text("Continue" )
+            }.padding()
+                .padding(.horizontal,122)
+                .background(Color(buttonColor)
+                    .cornerRadius(10))
+                .foregroundColor(.white)
+
             
                 
                 
