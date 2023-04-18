@@ -51,11 +51,11 @@ struct PBookingAppointments: View {
             }.padding(.bottom , 20)
             Text("Booking Appointments")
                 .fontWeight(.bold)
-                .font(.system(size: 24))
+                .font(.custom("Gilroy-Bold", size: 24))
                 .padding(.bottom , 40)
             Text("Choose Type of Doctor")
                 .fontWeight(.bold)
-                .font(.system(size: 20))
+                .font(.custom("Gilroy-Bold", size: 20))
                 .foregroundColor(Color(blueLabelcColor))
                 .padding(.bottom , 10)
             HStack (spacing: 12){
@@ -64,7 +64,7 @@ struct PBookingAppointments: View {
                     .foregroundColor(Color(doctorTypeBgColor))
                     .frame(width: 150 , height: 50)
                     
-                    .overlay( Text("General").foregroundColor(.white)).background {
+                    .overlay( Text("General").font(.custom("Averta-Semibold", size: 14)).foregroundColor(.white)).background {
                         RoundedRectangle(cornerRadius: 30)
                                 .stroke(Color.secondary, lineWidth: 4)
                     }
@@ -73,7 +73,9 @@ struct PBookingAppointments: View {
                     .foregroundColor(Color(color))
                     .frame(width: 150 , height: 50)
                     
-                    .overlay( Text("Specialist").foregroundColor(Color(doctorTypeBgColor)))
+                    .overlay( Text("Specialist")
+                        .font(.custom("Averta-Semibold", size: 14))
+                        .foregroundColor(Color(doctorTypeBgColor)))
                     .background {
                         RoundedRectangle(cornerRadius: 30)
                                 .stroke(Color(doctorTypeBgColor), lineWidth: 4)
@@ -82,7 +84,7 @@ struct PBookingAppointments: View {
             }.padding(.bottom , 40)
             Text("Specify Reason (if Any)")
                 .fontWeight(.bold)
-                .font(.system(size: 20))
+                .font(.custom("Gilroy-Bold", size: 20))
                 .foregroundColor(Color(blueLabelcColor))
                 .padding(.bottom,30)
             
@@ -104,6 +106,7 @@ struct PBookingAppointments: View {
                 
             } label: {
                 Text("Continue" )
+                    .font(.custom("Averta-Semibold", size: 16))
             }.padding()
                 .padding(.horizontal,122)
                 .background(Color(buttonColor)
