@@ -29,18 +29,18 @@ struct OnBoardingScreen: View {
                 
                 Spacer()
                 
-                HStack(alignment: .center){
+                HStack(spacing: 25){
                     Button {
                     }label: {
                         Text("  Log in   ")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .fontWeight(.regular)
                             .foregroundColor(.white)
 
 
                         Image(systemName: "arrow.right")
                             .font(.title2)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 25)
                             .foregroundColor(.black)
                             .clipShape(Circle())
                             .background(Color.white, in: Circle())
@@ -49,18 +49,21 @@ struct OnBoardingScreen: View {
                     .background(Color.black)
                     .cornerRadius(40)
                     .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.white, lineWidth:5))
+                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                    .hTrailing()
+                    
+                    
                     
                     Button {
                     }label: {
                         Text(" Sign up ")
                             .font(.title2)
-                            .fontWeight(.bold)
+                            .fontWeight(.regular)
                             .foregroundColor(.white)
                             
                         Image(systemName: "arrow.right")
                             .font(.title2)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 35, height: 25)
                             .foregroundColor(.black)
                             .clipShape(Circle())
                             .background(Color.white, in: Circle())
@@ -69,14 +72,14 @@ struct OnBoardingScreen: View {
                     .background(Color.black)
                     .cornerRadius(40)
                     .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 40).stroke(Color.white, lineWidth:5))
-                        
-                    }
+                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                    .hLeading()
+                }
                     
             
                 }
-            .hCenter()
-            .padding(2)
+            
+            
         }
     }
 }
@@ -85,6 +88,16 @@ extension View{
     func hCenter()-> some View{
         self
             .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    func hTrailing()-> some View{
+        self
+            .frame(maxWidth: .infinity, alignment: .trailing)
+    }
+    
+    func hLeading()-> some View{
+        self
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
