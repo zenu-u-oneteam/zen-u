@@ -13,8 +13,8 @@ struct OnBoardingScreen: View {
         
         
         ZStack(alignment: .trailing){
-            
-            Image("Group 64").resizable().aspectRatio(contentMode: .fit)
+        
+            Image("Group 64").resizable().aspectRatio(contentMode: .fit).padding(.top, 42.0)
         
             VStack(alignment: .center){
                 Text("zen-u")
@@ -24,8 +24,7 @@ struct OnBoardingScreen: View {
                     .multilineTextAlignment(.center)
                 
                 
-                Text("Transforming Healthcare").font(.system(size:18.5)).font(.title2).foregroundColor(.black)
-                
+                Text("Transforming Healthcare").font(.system(size:16)).font(.title2).foregroundColor(.black)
                 
                 Spacer()
                 
@@ -33,8 +32,8 @@ struct OnBoardingScreen: View {
                     Button {
                     }label: {
                         Text("  Log in   ")
-                            .font(.title2)
-                            .fontWeight(.regular)
+                            .font(.title3)
+                            .fontWeight(.medium)
                             .foregroundColor(.white)
 
 
@@ -44,7 +43,7 @@ struct OnBoardingScreen: View {
                             .foregroundColor(.black)
                             .clipShape(Circle())
                             .background(Color.white, in: Circle())
-                    }
+                    }.frame(width: 120, height: 20)
                     .padding()
                     .background(Color.black)
                     .cornerRadius(40)
@@ -57,8 +56,8 @@ struct OnBoardingScreen: View {
                     Button {
                     }label: {
                         Text(" Sign up ")
-                            .font(.title2)
-                            .fontWeight(.regular)
+                            .font(.title3)
+                            .fontWeight(.medium)
                             .foregroundColor(.white)
                             
                         Image(systemName: "arrow.right")
@@ -67,7 +66,7 @@ struct OnBoardingScreen: View {
                             .foregroundColor(.black)
                             .clipShape(Circle())
                             .background(Color.white, in: Circle())
-                    }
+                    }.frame(width: 120, height: 20)
                     .padding()
                     .background(Color.black)
                     .cornerRadius(40)
