@@ -20,13 +20,12 @@ struct ContentView: View {
                         }
                     }
             } else {
-                // Add your main view here
-                Text("Hello, World!")
+                OnBoardingScreen()
             }
         }
     }
 }
-
+    
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
