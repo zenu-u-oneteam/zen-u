@@ -11,10 +11,12 @@ struct OnBoardingScreen: View {
     
     var body: some View {
         
-        
         ZStack(alignment: .trailing){
         
-            Image("Group 64").resizable().aspectRatio(contentMode: .fit).padding(.top, 42.0)
+            Image("Group 64")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.top, 42.0)
         
             VStack(alignment: .center){
                 Text("zen-u")
@@ -23,62 +25,70 @@ struct OnBoardingScreen: View {
                     .font(.largeTitle).foregroundColor(.black)
                     .multilineTextAlignment(.center)
                 
-                
-                Text("Transforming Healthcare").font(.system(size:16)).font(.title2).foregroundColor(.black)
+                Text("Transforming  Healthcare")
+                    .font(.system(size:18.5))
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .fontWeight(.light)
                 
                 Spacer()
                 
                 HStack(spacing: 25){
+                    
                     Button {
-                    }label: {
-                        Text("  Log in   ")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-
-
-                        Image(systemName: "arrow.right")
-                            .font(.title2)
-                            .frame(width: 35, height: 25)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .background(Color.white, in: Circle())
-                    }.frame(width: 120, height: 20)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(40)
-                    .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                        print("Login button")
+                    } label: {
+                        HStack(alignment: .center, spacing: 13){
+                        
+                            Text("Log in")
+                                .font(.callout)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(.leading, 30)
+                            
+                            
+                            Image(systemName: "arrow.right")
+                                .font(.callout)
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.black)
+                                .clipShape(Circle())
+                                .background(Color.white, in: Circle())
+                        }
+                        .frame(width: 150, height: 50)
+                        .background(Color.black)
+                        .cornerRadius(60)
+                        .foregroundColor(.white)
+                        .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                    }
                     .hTrailing()
                     
-                    
-                    
                     Button {
-                    }label: {
-                        Text(" Sign up ")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
+                        print("Sign Up button")
+                    } label: {
+                        HStack(alignment: .center, spacing: 12){
+                            Text("Sign Up")
+                                .font(.callout)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(.leading, 15)
                             
-                        Image(systemName: "arrow.right")
-                            .font(.title2)
-                            .frame(width: 35, height: 25)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .background(Color.white, in: Circle())
-                    }.frame(width: 120, height: 20)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(40)
-                    .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                            
+                            Image(systemName: "arrow.right")
+                                .font(.callout)
+                                .frame(width: 35, height: 35)
+                                .foregroundColor(.black)
+                                .clipShape(Circle())
+                                .background(Color.white, in: Circle())
+                        }
+                        .frame(width: 150, height: 50)
+                        .background(Color.black)
+                        .cornerRadius(60)
+                        .foregroundColor(.white)
+                        .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                    }
                     .hLeading()
                 }
-                    
-            
-                }
-            
-            
+            }
         }
     }
 }

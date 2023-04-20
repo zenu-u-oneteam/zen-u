@@ -9,14 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack{
-        }
+        OnBoardingScreen()
     }
 }
     
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            OnBoardingScreen()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
-
+}
