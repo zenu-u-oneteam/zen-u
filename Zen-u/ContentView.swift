@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingSplash = true
+    
     var body: some View {
-        OnBoardingScreen()
+        ZStack {
+            if isShowingSplash {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isShowingSplash = false
+                        }
+                    }
+            } else {
+                OnBoardingScreen()
+            }
+        }
     }
 }
     
