@@ -74,31 +74,11 @@ struct SignupPage: View {
                 Button {
                     // Perform signup action here
                 } label: {
-                    HStack(alignment: .center, spacing: 12){
-                        Text("Sign Up")
-                            .font(.callout)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .padding(.leading, 15)
-                        
-                        
-                        
-                        Image(systemName: "arrow.right")
-                            .font(.callout)
-                            .frame(width: 35, height: 35)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .background(Color.white, in: Circle())
-                    }
-                    .frame(width: 150, height: 50)
-                    .background(agreedToTerms ? Color(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0) : Color.gray)
-                    .cornerRadius(60)
-                    .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                    ActionButton(text: "Sign Up", disabled: !agreedToTerms)
                 }
                 .disabled(!agreedToTerms)
                 
-//                                Spacer()  //remove for bringing everything down
+                Spacer()  //remove for bringing everything down
                 
             }
             .padding()
