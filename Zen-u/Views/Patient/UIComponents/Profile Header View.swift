@@ -30,6 +30,27 @@ struct Profile_Header_View: View {
                     .aspectRatio( 1.5, contentMode: .fill)
                     .frame(width: 120, height: 120)
                     .cornerRadius(120)
+            VStack(alignment: .leading) {
+                Text(name)
+                    .font(.title).bold()
+                HStack(spacing: 15) {
+                    switch gender {
+                    case .male:
+                        Text("Male").font(.title).bold()
+                    case .female:
+                        Text("Female").font(.title).bold()
+                    case .others:
+                        Text("Other").font(.title).bold()
+                    }
+                    Text(String(age))
+                        .font(.title).bold()
+                }
+            }
+            
+                
+            
+            
+             
                      
                     
     
