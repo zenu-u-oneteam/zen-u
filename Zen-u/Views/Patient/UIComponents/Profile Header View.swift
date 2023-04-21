@@ -7,9 +7,21 @@
 
 import SwiftUI
 
+var patient = Patient(id: 2023007, name: "Jonathan Cole", age: 32, gender: .male , bloodGroup: "AB+", height: 160.0, weight: 80.0)
+
 struct Profile_Header_View: View {
+    
+     
+    
+    var image = URL(string: "https://unsplash.com/photos/pRLLvgZ1Is4")
+    var name = patient.name
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        
+        
+        
     }
 }
 

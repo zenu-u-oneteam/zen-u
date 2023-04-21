@@ -9,6 +9,7 @@ import Foundation
 
 struct Patient: Hashable, Codable, Identifiable {
     var id: Int
+    var name: String
     var age: Int
     var gender: Gender
     var bloodGroup: String
