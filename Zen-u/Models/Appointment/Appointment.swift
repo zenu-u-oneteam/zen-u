@@ -12,6 +12,6 @@ struct Appointment: Hashable, Codable, Identifiable {
     var appointmentTime: DateComponents
     var patient: Patient
     var doctor: Doctor
-    var department: Department
+    var type: AppointmentType
     var bill: Bill
 }
