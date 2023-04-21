@@ -35,7 +35,7 @@ struct SignupPage: View {
                     .background(Color(.systemGray5))
                     .cornerRadius(12)
                 }
-
+                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "envelope")
@@ -48,7 +48,7 @@ struct SignupPage: View {
                     .cornerRadius(12)
                 }
                 
-
+                
                 HStack(alignment: .center, spacing: 13) {
                     Image(systemName: "lock")
                         .foregroundColor(.black)
@@ -59,7 +59,7 @@ struct SignupPage: View {
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(12)
-
+                
                 VStack(alignment: .leading) {
                     HStack {
                         CheckBoxView(checked: $agreedToTerms)
@@ -69,47 +69,41 @@ struct SignupPage: View {
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
+                
 
-//                Spacer()
-
-                Button(action: {
+                Button {
                     // Perform signup action here
-                }) {
-                    HStack {
-                        Text("SIGN UP")
-                            .foregroundColor(.white)
+                } label: {
+                    HStack(alignment: .center, spacing: 12){
+                        Text("Sign Up")
+                            .font(.callout)
                             .fontWeight(.semibold)
-                            .frame(maxWidth: 150, maxHeight: 20)
-                            .padding()
-                            .background(agreedToTerms ? Color(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0) : Color.gray)
-                            .cornerRadius(60)
-                        Image(systemName: "arrow.right")
-                            .foregroundColor(.black)
-                            .font(.system(size: 17, weight: .semibold))
-                            
+                            .foregroundColor(.white)
+                            .padding(.leading, 15)
                         
+                        
+                        
+                        Image(systemName: "arrow.right")
+                            .font(.callout)
+                            .frame(width: 35, height: 35)
+                            .foregroundColor(.black)
+                            .clipShape(Circle())
+                            .background(Color.white, in: Circle())
                     }
+                    .frame(width: 150, height: 50)
+                    .background(agreedToTerms ? Color(red: 30.0/255.0, green: 30.0/255.0, blue: 30.0/255.0) : Color.gray)
+                    .cornerRadius(60)
+                    .foregroundColor(.white)
+                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
                 }
                 .disabled(!agreedToTerms)
-
-                Spacer()     //remove for bringing everything down
-
+                
+//                                Spacer()  //remove for bringing everything down
+                
             }
             .padding()
             .navigationBarTitle("zen-u", displayMode: .inline)
-            .navigationBarItems(leading: Button(action: {
-                // Navigate back to onboarding screen
-            }) {
-                Image(systemName: "chevron.left")
-                    .foregroundColor(.black)
-                    .font(.system(size: 16))
-            })
         }
-//        .navigationViewStyle(StackNavigationViewStyle())
-//        .accentColor(.black)
-//        .onAppear {
-//            UINavigationBar.appearance().largeTitleTextAttributes = [                .foregroundColor: UIColor.black,                .font : UIFont.systemFont(ofSize: 64, weight: .black)            ]
-//        }
     }
 }
 
