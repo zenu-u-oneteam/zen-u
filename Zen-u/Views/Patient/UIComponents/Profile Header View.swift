@@ -13,11 +13,28 @@ struct Profile_Header_View: View {
     
      
     
-    var image = URL(string: "https://unsplash.com/photos/pRLLvgZ1Is4")
+    var image = Image("dummy profile image")
     var name = patient.name
+    var age = patient.age
+    var gender = patient.gender
+    var bloodGroup = patient.bloodGroup
+    var height = patient.height
+    var weight = patient.height
     
     
     var body: some View {
+        
+        HStack(spacing: 20){
+            Image("dummy profile image")
+                     .resizable()
+                    .aspectRatio( 1.5, contentMode: .fill)
+                    .frame(width: 120, height: 120)
+                    .cornerRadius(120)
+                     
+                    
+    
+            
+        }
         
         
         
