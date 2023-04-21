@@ -27,7 +27,7 @@ struct PBookingAppointments: View {
                         .font(.system(size: 20))
                     
                         .padding(.bottom , 20)
-                    HStack (spacing: 12){
+                    HStack (spacing: 16){
                         RoundedRectangle(cornerRadius: 60)
                             
                             .foregroundColor(showModel == false ? Color(doctorTypeBgColor) : Color(color))
