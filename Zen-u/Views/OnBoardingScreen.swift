@@ -40,7 +40,9 @@ struct OnBoardingScreen: View {
                         Button {
                             print("Login button")
                         } label: {
-                            ActionButton(text: "Log in")
+                            NavigationLink(destination: LoginPage()) {
+                                ActionButton(text: "Log in")
+                            }
                         }
                         .hTrailing()
                         
