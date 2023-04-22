@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct AppointmentCard: View {
-    var text: String
+    var name: String
+    var tags : [String]
+    var time: String
+    var doctorName: String
     var highlited: Bool = false
-    var tags : [String] = ["Live", "General"]
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("PSV23 (Pneumo)")
+                Text(name)
                     .font(.body.weight(.semibold))
                 HStack {
                     ForEach(tags, id:  \.self) {tag in
@@ -26,9 +28,9 @@ struct AppointmentCard: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text("9:30")
+                Text(time)
                     .font(.largeTitle.bold())
-                Text("Dr. Hanna Fiegel")
+                Text(doctorName)
                     .font(.subheadline.bold())
             }
         }
@@ -63,6 +65,6 @@ struct AppointmentCard: View {
 
 struct AppointmentCard_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentCard(text: "Continue")
+        AppointmentCard(name: "PSV23 (Pneumo)", tags: ["Live", "General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
     }
 }
