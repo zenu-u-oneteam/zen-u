@@ -40,27 +40,7 @@ struct OnBoardingScreen: View {
                         Button {
                             print("Login button")
                         } label: {
-                            HStack(alignment: .center, spacing: 13){
-                            
-                                Text("Log in")
-                                    .font(.callout)
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(.white)
-                                    .padding(.leading, 30)
-                                
-                                
-                                Image(systemName: "arrow.right")
-                                    .font(.callout)
-                                    .frame(width: 35, height: 35)
-                                    .foregroundColor(.black)
-                                    .clipShape(Circle())
-                                    .background(Color.white, in: Circle())
-                            }
-                            .frame(width: 150, height: 50)
-                            .background(Color.black)
-                            .cornerRadius(60)
-                            .foregroundColor(.white)
-                            .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                            ActionButton(text: "Log in")
                         }
                         .hTrailing()
                         
@@ -68,26 +48,7 @@ struct OnBoardingScreen: View {
                             print("Sign Up button")
                         } label: {
                             NavigationLink(destination: SignupPage()) {
-                                HStack(alignment: .center, spacing: 12){
-                                    Text("Sign Up")
-                                        .font(.callout)
-                                        .fontWeight(.semibold)
-                                        .foregroundColor(.white)
-                                        .padding(.leading, 15)
-                                    
-                                    
-                                    Image(systemName: "arrow.right")
-                                        .font(.callout)
-                                        .frame(width: 35, height: 35)
-                                        .foregroundColor(.black)
-                                        .clipShape(Circle())
-                                        .background(Color.white, in: Circle())
-                                }
-                                .frame(width: 150, height: 50)
-                                .background(Color.black)
-                                .cornerRadius(60)
-                                .foregroundColor(.white)
-                            .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
+                                ActionButton(text: "Sign Up")
                             }
                         }
                         .hLeading()
