@@ -10,20 +10,20 @@ import SwiftUI
 struct ViewButton: View {
     var text: String
     var selected: Bool = false
-    var selectable: Bool = true
+    var selectable: Bool = false
     var rIcon: String = "none"
     var lIcon: String = "none"
     
     var body: some View {
         HStack(spacing: 10){
-            if rIcon != "none" {
-                Image(systemName: rIcon)
+            if lIcon != "none" {
+                Image(systemName: lIcon)
             }
 
             Text(text)
 
-            if lIcon != "none" {
-                Image(systemName: lIcon)
+            if rIcon != "none" {
+                Image(systemName: rIcon)
             }
         }
         .font(.footnote)
