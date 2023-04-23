@@ -17,7 +17,7 @@ struct HealthKitView: View {
                 .foregroundColor(Color("AccentColor 1"))
                 .cornerRadius(18)
             
-            VStack(spacing: 22){
+            VStack(spacing: 18){
                 
                 Text("72 bpm")
                     .font(.system(size: 15))
