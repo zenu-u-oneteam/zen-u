@@ -9,39 +9,22 @@ import SwiftUI
 
 struct HealthKitView: View {
     var body: some View {
-        ZStack{
+        VStack(spacing: 18) {
+            Text("72 bpm")
+                .font(.subheadline.bold())
             
-            Rectangle()
-                .frame(width: 158, height: 151)
-                 
-                .foregroundColor(Color("AccentColor 1"))
-                .cornerRadius(18)
+            Image(systemName: "waveform.path.ecg")
+                .resizable()
+                .frame(width: 65, height: 65)
             
-            VStack(spacing: 18){
-                
-                Text("72 bpm")
-                    .font(.system(size: 15))
-                    .foregroundColor(Color(UIColor.white)).bold()
-                    
-                Image(systemName: "waveform.path.ecg")
-                    .resizable()
-                    .frame(width: 75, height: 66)
-                    .foregroundColor(Color(UIColor.white))
-                   
-                Text("Heart Rate")
-                    .font(.system(size: 15))
-                    .foregroundColor(Color(UIColor.white)).bold()
-                
-            }
-              
-            
-            
-            
-        }.padding()
-       
-        
-       
-        
+            Text("Heart Rate")
+                .font(.subheadline.bold())
+        }
+        .padding()
+        .foregroundColor(Color.white)
+        .frame(width: 158, height: 151)
+        .background(Color("AccentColor"))
+        .cornerRadius(18)
     }
 }
 
