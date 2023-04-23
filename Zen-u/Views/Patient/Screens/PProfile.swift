@@ -59,19 +59,7 @@ struct PProfile: View {
                                   , height: 13)
                            .padding(.all, 20)
         }
-                // Image and label for the button
-//                HStack(alignment: .center){
-//                    Image(systemName: "line.horizontal.3")
-//                        .resizable()
-//                        .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-////                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 15
-//                               , height: 13)
-//                        .padding(.all, 20)
-//
-//
-//
-//                }
+               
             }
         }
     
