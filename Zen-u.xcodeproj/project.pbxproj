@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E6429F52D7D008DF13F /* HealthKitView.swift */; };
+		06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */; };
 		2340535029F24D29003A0063 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340534F29F24D29003A0063 /* Appointment.swift */; };
 		2340535229F24E43003A0063 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535129F24E43003A0063 /* Doctor.swift */; };
 		2340535429F24E79003A0063 /* AppointmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535329F24E79003A0063 /* AppointmentType.swift */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06A06E6429F52D7D008DF13F /* HealthKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitView.swift; sourceTree = "<group>"; };
+		06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		2340534F29F24D29003A0063 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		2340535129F24E43003A0063 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		2340535329F24E79003A0063 /* AppointmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentType.swift; sourceTree = "<group>"; };
@@ -252,6 +256,8 @@
 			children = (
 				2DECE12A29EDDAA10021BE41 /* PUIex.swift */,
 				23B4BD3D29F4353F00665006 /* AppointmentCard.swift */,
+				06A06E6429F52D7D008DF13F /* HealthKitView.swift */,
+				06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -364,9 +370,11 @@
 				2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */,
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
 				2340535029F24D29003A0063 /* Appointment.swift in Sources */,
+				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
+				06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,
 				23BC07BF29F14059009FA528 /* Patient.swift in Sources */,
 				23BC07BA29F13A61009FA528 /* User.swift in Sources */,
