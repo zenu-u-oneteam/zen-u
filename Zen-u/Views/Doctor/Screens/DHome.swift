@@ -19,13 +19,29 @@ struct DHome: View {
                 Spacer()
                 //profile buttonz
                 ZStack{
-
+                    
                     Circle().fill(.gray.opacity(0.1))
                         .frame(width: 50, height: 50)
                     
                     Image(systemName: "person.fill")
                         .font(.system(size: 24, weight: .light))
                 }
+            }
+            
+            //working shifts
+            
+            ZStack(alignment: .leading){
+                Rectangle().fill(.gray.opacity(0.1)).frame(width: .infinity, height: 60).cornerRadius(10)
+                
+                HStack{
+                    Text("Working Hours").fontWeight(.light).font(.callout).padding(.leading)
+                    Spacer()
+                    HStack{
+                        Image(systemName: "clock").foregroundColor(.blue)
+                        Text("09:00am - 04:00pm").fontWeight(.light).foregroundColor(.blue).font(.callout)
+                    }.padding(.trailing)
+                }
+                
             }
             
             //today's agenda
@@ -40,7 +56,7 @@ struct DHome: View {
                             Text("16").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                             
                             Text("Total patients").fontWeight(.thin).font(.footnote)
-                        }.frame(width: 100, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
+                        }.frame(width: 95, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
                     }
                     
                     ZStack{
@@ -53,7 +69,7 @@ struct DHome: View {
                                 
                             }
                             Spacer()
-                            Rectangle().frame(width: 1).foregroundColor(.gray).padding([.top, .bottom], 20)
+                            Rectangle().frame(width: 0.75).foregroundColor(.gray).padding([.top, .bottom], 20)
                             Spacer()
                             VStack{
                                 Text("06").font(.largeTitle).fontWeight(.heavy).foregroundColor(.notblack)
@@ -61,7 +77,7 @@ struct DHome: View {
                                 Text("Meetings").fontWeight(.thin).font(.footnote)
                             }
                             Spacer()
-                            Rectangle().frame(width: 1).foregroundColor(.gray).padding([.top, .bottom], 20)
+                            Rectangle().frame(width: 0.75).foregroundColor(.gray).padding([.top, .bottom], 20)
                             Spacer()
                             VStack{
                                 Text("02").font(.largeTitle).fontWeight(.heavy).foregroundColor(.notblack)
@@ -69,7 +85,7 @@ struct DHome: View {
                                 Text("Operations").fontWeight(.thin).font(.footnote)
                             }
                         }.padding([.leading, .trailing], 15)
-                    }.frame(width:256, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
+                    }.frame(width:.infinity, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
                     
                 }
                 // upcoming patient tile
@@ -77,6 +93,7 @@ struct DHome: View {
                     Text("Upcoming patient").fontWeight(.semibold).font(.title3).padding([.bottom, .top], 10).foregroundColor(.notblack)
                     
                     ZStack{
+                        Rectangle().fill(.gray.opacity(0.1)).frame(width: .infinity, height: 140).cornerRadius(13)
                         HStack{
                             VStack{
                                 ZStack{
@@ -104,12 +121,12 @@ struct DHome: View {
                             }.padding(.leading, 35)
                         }
                         
-                    }.frame(width: 360, height: 140).background(.gray.opacity(0.1)).cornerRadius(13)
+                    }
                 }
                 
             }
             Spacer()
-        }.padding([.trailing, .leading], 15)
+        }.padding([.trailing, .leading], 20)
         
     }
 }
