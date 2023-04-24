@@ -34,10 +34,7 @@ struct PBookingAppointments: View {
                             .frame(width: 150 , height: 50)
                             
                             .overlay( Text("General").font(.custom("Averta-Semibold", size: 14)).foregroundColor(showModel == false ? .white : .black))
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 30)
-////                                        .stroke(Color.secondary, lineWidth: 4)
-//                            }
+
                         RoundedRectangle(cornerRadius: 60)
                             
                             .foregroundColor(showModel == true ? Color(doctorTypeBgColor) : Color(color))
@@ -46,10 +43,7 @@ struct PBookingAppointments: View {
                             .overlay( Text("Specialist")
                                 .font(.custom("Averta-Semibold", size: 14))
                                 .foregroundColor(showModel == true ? .white : .black))
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 30)
-//                                        .stroke(Color(doctorTypeBgColor), lineWidth: 4)
-//                            }
+
 
                     }.padding(.bottom , 60)
                         .onTapGesture {
@@ -101,11 +95,11 @@ struct PBookingAppointments: View {
                         
                
                 Spacer()
-    //            SpecialistModelView(isShowing: $showModel)
+   
                 }.padding(24)
                 SpecialistModelView(isShowing: $showModel)
             }
-//                .navigationTitle(Text("Booking Consultation"))
+
         }
         
     }

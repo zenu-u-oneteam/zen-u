@@ -28,10 +28,7 @@ struct PDepartmentDetails: View {
                         .frame(width: 150 , height: 50)
                         
                         .overlay( Text("General").font(.custom("Averta-Semibold", size: 14)).foregroundColor(isDepartmentSelected == false ? .white : .black))
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 30)
-////                                        .stroke(Color.secondary, lineWidth: 4)
-//                            }
+
                     RoundedRectangle(cornerRadius: 60)
                         
                         .foregroundColor(isDepartmentSelected == true ? Color(doctorTypeBgColor) : Color(color))
@@ -40,10 +37,6 @@ struct PDepartmentDetails: View {
                         .overlay( Text("Specialist")
                             .font(.custom("Averta-Semibold", size: 14))
                             .foregroundColor(isDepartmentSelected == true ? .white : .black))
-//                            .background {
-//                                RoundedRectangle(cornerRadius: 30)
-//                                        .stroke(Color(doctorTypeBgColor), lineWidth: 4)
-//                            }
 
                 }.padding(.bottom , 60)
                     
@@ -77,11 +70,9 @@ struct PDepartmentDetails: View {
                     
            
             
-//            SpecialistModelView(isShowing: $showModel)
             }.padding(24)
             
         }
-//                .navigationTitle(Text("Booking Consultation"))
     }
     }
 
