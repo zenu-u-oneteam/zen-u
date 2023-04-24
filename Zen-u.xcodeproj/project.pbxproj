@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D241F8829F144F8007827F6 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D241F8729F144F8007827F6 /* SpecialistModelView.swift */; };
 		2D241F8A29F28508007827F6 /* PDepartmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D241F8929F28507007827F6 /* PDepartmentDetails.swift */; };
+		2D241F8C29F2AE88007827F6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D241F8B29F2AE88007827F6 /* Colors.swift */; };
 		2DECE12129EDDA060021BE41 /* Aex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12029EDDA060021BE41 /* Aex.swift */; };
 		2DECE12329EDDA160021BE41 /* Pex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12229EDDA160021BE41 /* Pex.swift */; };
 		2DECE12529EDDA3A0021BE41 /* Dex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12429EDDA3A0021BE41 /* Dex.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		2D241F8729F144F8007827F6 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
 		2D241F8929F28507007827F6 /* PDepartmentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDepartmentDetails.swift; sourceTree = "<group>"; };
+		2D241F8B29F2AE88007827F6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2DECE12029EDDA060021BE41 /* Aex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aex.swift; sourceTree = "<group>"; };
 		2DECE12229EDDA160021BE41 /* Pex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pex.swift; sourceTree = "<group>"; };
 		2DECE12429EDDA3A0021BE41 /* Dex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dex.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF0600129EE8E7E00DCBBBE /* Fonts */,
+				2D241F8B29F2AE88007827F6 /* Colors.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
+				2D241F8C29F2AE88007827F6 /* Colors.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
 				2DECE12329EDDA160021BE41 /* Pex.swift in Sources */,
