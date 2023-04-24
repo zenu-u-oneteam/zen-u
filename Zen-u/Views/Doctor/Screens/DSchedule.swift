@@ -23,7 +23,7 @@ struct DSchedule: View {
                                     Button {
                                         self.selectedMonth = index
                                     } label: {
-                                        Text(months[index]).foregroundColor(self.selectedMonth == index ? Color(buttonColor): Color.gray)
+                                        Text(months[index]).foregroundColor(self.selectedMonth == index ? Color(buttonColor) : Color.gray)
                                     }
 
                                     
@@ -33,9 +33,9 @@ struct DSchedule: View {
                             }
                 }.frame(height: 20).padding(.bottom , 30)
                 HStack{
-                    VStack(alignment: .leading){
-                        LazyVStack{
-                            ForEach(0...0 , id: \.self){
+                    ScrollView(.vertical){
+                        LazyVStack(spacing: 40){
+                            ForEach(0...days[selectedMonth] , id: \.self){
                                 index in
                                 Button {
                                     
@@ -43,16 +43,20 @@ struct DSchedule: View {
                                     VStack {
                                         Text("24")
                                             .foregroundColor(Color.white)
+                                            .font(.system(size: 24))
                                         Text("Thrus")
+                                            .font(.system(size: 16))
                                             .foregroundColor(Color.white)
                                         
-                                    }.background(RoundedRectangle(cornerRadius: 12).frame(width: 48 ,height: 65))
+                                    }
+                                    .background(RoundedRectangle(cornerRadius: 12).frame(width: 55 ,height: 70))
                                 }
 
                             }
 //
                         }
                     }
+                    
                  Spacer()
                 }
                 Spacer()
