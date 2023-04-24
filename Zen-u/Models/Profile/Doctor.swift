@@ -11,7 +11,6 @@ struct Doctor: Hashable, Codable, Identifiable {
     var id: Int
     var age: Int
     var gender: Gender
-    var department : Department
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"
