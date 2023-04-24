@@ -6,18 +6,14 @@
 //
 
 import Foundation
-import SwiftUI
 
 struct PUpcomingAppointmentDoctorDetails{
-    
-    
     
     let drName: String
     let drField: String
     let cabinNo: String
     let appointmentTime: String
     let appointmentDate: String
-    
     
 }
 
