@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingSplash = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            if isShowingSplash {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isShowingSplash = false
+                        }
+                    }
+            } else {
+                OnBoardingScreen()
+            }
         }
-        .padding()
     }
 }
-
+    
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
