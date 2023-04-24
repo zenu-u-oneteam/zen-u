@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-let months = ["January" , "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
+let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
+let days = [31, 28, 31 , 30 , 31 , 30 , 31, 31 , 30 , 31, 30 , 31]
 struct DSchedule: View {
     @State var selectedMonth: Int = 0
     
@@ -31,18 +32,12 @@ struct DSchedule: View {
                                     
                             }
                 }.frame(height: 20)
-                VStack{
-                    HStack{
-                        ScrollView(.vertical) {
-                                    // 2
-                                    LazyVStack {
-                                        ForEach(1...31, id: \.self) { index in
-                                        
-                                                
-                                                }
-                                            
-                                    }
-                                }
+                HStack{
+                    VStack{
+                        LazyVStack{
+//                            ForEach(0...)
+//
+                        }
                     }
                 }
                 Spacer()
