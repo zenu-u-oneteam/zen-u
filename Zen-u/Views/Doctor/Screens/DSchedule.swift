@@ -31,14 +31,29 @@ struct DSchedule: View {
                                 }
                                     
                             }
-                }.frame(height: 20)
+                }.frame(height: 20).padding(.bottom , 30)
                 HStack{
-                    VStack{
+                    VStack(alignment: .leading){
                         LazyVStack{
-//                            ForEach(0...)
+                            ForEach(0...0 , id: \.self){
+                                index in
+                                Button {
+                                    
+                                } label: {
+                                    VStack {
+                                        Text("24")
+                                            .foregroundColor(Color.white)
+                                        Text("Thrus")
+                                            .foregroundColor(Color.white)
+                                        
+                                    }.background(RoundedRectangle(cornerRadius: 12).frame(width: 48 ,height: 65))
+                                }
+
+                            }
 //
                         }
                     }
+                 Spacer()
                 }
                 Spacer()
             }.padding(24)
