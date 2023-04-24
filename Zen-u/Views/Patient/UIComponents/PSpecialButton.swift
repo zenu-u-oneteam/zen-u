@@ -12,7 +12,7 @@ struct PSpecialButton: View {
     var buttonColor = Color("Blue")
     var active = false
     
-    var body: some View{
+    var body: some View {
         
         ZStack{
             
@@ -23,14 +23,15 @@ struct PSpecialButton: View {
                     .background(Color.blue, in: RoundedRectangle(cornerRadius: 25))
                 Text(buttonText).bold().foregroundColor(.white)
                 
-            }
-            else{
+            } else {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 107, height: 35)
                     .foregroundColor(Color("Black"))
                     .background(Color("Secondary"), in: RoundedRectangle(cornerRadius: 25))
                 
-                Text(buttonText).bold().foregroundColor(Color(red: 140/255, green: 146/255, blue: 172/255))
+                Text(buttonText)
+                    .bold()
+                    .foregroundColor(Color("Heading"))
                 
             }
         }
@@ -40,15 +41,5 @@ struct PSpecialButton: View {
 struct PSpecialButton_Previews: PreviewProvider {
     static var previews: some View {
         PSpecialButton()
-    }
-}
-
-struct BlueButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(Color(red: 0, green: 0, blue: 0.5))
-            .foregroundColor(.white)
-            .clipShape(Capsule())
     }
 }

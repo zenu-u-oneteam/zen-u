@@ -20,17 +20,17 @@ struct PScheduleSettings: View {
     var body: some View{
         NavigationView {
             ScrollView(.vertical,showsIndicators: false) {
-                LazyVStack(spacing: 30, pinnedViews: [.sectionHeaders]){
+                LazyVStack(spacing: 30, pinnedViews: [.sectionHeaders]) {
                     
                     Section{
                         
-                        ScrollView(.horizontal, showsIndicators: false){
+                        ScrollView(.horizontal, showsIndicators: false) {
                             
-                            HStack(spacing: 12){
+                            HStack(spacing: 12) {
                                 
                                 ForEach(appointmentViewModel.currentWeek, id:  \.self){day in
                                     
-                                    VStack(spacing: 10){
+                                    VStack(spacing: 10) {
                                         
                                         Text(appointmentViewModel.extractDate(date: day, format: "dd"))
                                             .font(.system(size: 15))
@@ -45,7 +45,7 @@ struct PScheduleSettings: View {
                                     .foregroundColor(appointmentViewModel.isToday(date: day) ? .white : .black)
                                     .frame(width: 60, height: 80)
                                     .background(
-                                        ZStack{
+                                        ZStack {
                                             if appointmentViewModel.isToday(date: day){
                                                 Rectangle()
                                                     .fill(.blue)
@@ -66,11 +66,7 @@ struct PScheduleSettings: View {
                                     }
                                     
                                 }
-                              
-                                
                             }
-                            .padding()
-                            .padding(.horizontal)
                         }
                         Divider()
                         TaskView()
@@ -89,11 +85,9 @@ struct PScheduleSettings: View {
     
    
     
-    func TaskView()->some View{
+    func TaskView() -> some View {
         
-        VStack( spacing:25){
-            
-           
+        VStack(spacing:25) {
             
             Text("Select a slot")
                 .font(.title2).hLeading()
@@ -122,23 +116,18 @@ struct PScheduleSettings: View {
         .hCenter()
     }
     
-    func headerView() ->some View{
-        HStack(spacing: 10){
+    func headerView() -> some View {
+        HStack(spacing: 10) {
             VStack(alignment: .leading, spacing: 10) {
                 
                 Button(action: {
                     
                 }, label: {
-                    
                     Image("chevron.left")
-                    
                 })
                 
-                VStack(spacing: 40){
-                    Text("Booking Consultation").font(.largeTitle.bold()).hLeading()
-                    
+                VStack(spacing: 40) {
                     Text("Select Schedule").font(.title2).hLeading()
-                    
                 }
             }
             .padding(.top)
