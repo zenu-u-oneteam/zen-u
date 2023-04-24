@@ -10,12 +10,9 @@ import SwiftUI
 
 class ViewModel: ObservableObject{
     
-    
     @Published var currentWeek: [Date] = []
     
     @Published var currentDay: Date = Date()
-    
-    
     
     init(){
         fetchCurrentWeek()
@@ -40,14 +37,14 @@ class ViewModel: ObservableObject{
             }
         }
     }
+    
+    func extractDate(date:Date, format:String)->String{
+        let formatter = DateFormatter()
         
-        func extractDate(date:Date, format:String)->String{
-            let formatter = DateFormatter()
-            
-            formatter.dateFormat = format
-            
-            return formatter.string(from: date)
-        }
+        formatter.dateFormat = format
+        
+        return formatter.string(from: date)
+    }
     
     func isToday(date: Date)->Bool{
         
@@ -65,4 +62,3 @@ class ViewModel: ObservableObject{
         return hour == currentHour
     }
 }
-

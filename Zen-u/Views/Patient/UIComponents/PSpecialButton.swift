@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct PSpecialButton: View {
-    var buttonText = "Time Slot"
+    var buttonText = "1"
     var buttonColor = Color("Blue")
     var active = false
     
     var body: some View{
         
         ZStack{
+            
             if active {
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundColor(buttonColor)
                     .frame(width: 105, height: 35)
                     .background(Color.blue, in: RoundedRectangle(cornerRadius: 25))
                 Text(buttonText).bold().foregroundColor(.white)
-                    
+                
             }
             else{
                 RoundedRectangle(cornerRadius: 15)
@@ -33,10 +34,9 @@ struct PSpecialButton: View {
                 
             }
         }
-        
     }
-    
 }
+
 struct PSpecialButton_Previews: PreviewProvider {
     static var previews: some View {
         PSpecialButton()
