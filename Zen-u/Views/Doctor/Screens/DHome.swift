@@ -100,7 +100,7 @@ struct DHome: View {
                                     Circle().fill(.white)
                                         .frame(width: 70, height: 70)
                                     Image("Image").resizable().frame(width: 55, height: 50)
-                                }.padding(.bottom,5)
+                                }.padding(.bottom,10)
                                 ZStack{
                                     Text("New Patient").foregroundColor(.white).font(.footnote)
                                 }.frame(width: 85, height: 22).background(.black.opacity(0.4)).cornerRadius(5)
@@ -115,10 +115,15 @@ struct DHome: View {
                                 HStack{
                                     Image(systemName: "clock").foregroundColor(.blue)
                                     Text("09:30").font(.callout).foregroundColor(.blue)
-                                }.padding(.bottom, 80)
-                                Text("See Details").font(.footnote)
+                                }.padding(.bottom, 65)
+                                HStack{
+                                    Text("See Details").font(.footnote)
+                                    Image(systemName: "chevron.right")
+                                }
                                 
-                            }.padding(.leading, 35)
+                                
+                                
+                            }.padding(.leading, 20)
                         }
                         
                     }
