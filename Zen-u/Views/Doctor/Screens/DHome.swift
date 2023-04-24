@@ -19,7 +19,7 @@ struct DHome: View {
                 Spacer()
                 //profile buttonz
                 ZStack{
-                    
+
                     Circle().fill(.gray.opacity(0.1))
                         .frame(width: 50, height: 50)
                     
@@ -33,20 +33,17 @@ struct DHome: View {
             VStack(alignment: .leading){
                 Text("Today's agenda").fontWeight(.semibold).font(.title3).padding([.bottom, .top], 10)
                 
-                
                 HStack{
                     ZStack{
-                        Rectangle().fill(.gray.opacity(0.1)).frame(width: 100, height: 90).cornerRadius(13)
                         
                         VStack{
                             Text("16").font(.largeTitle).fontWeight(.heavy).foregroundColor(.blue)
                             
                             Text("Total patients").fontWeight(.thin).font(.footnote)
-                        }
+                        }.frame(width: 100, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
                     }
                     
                     ZStack{
-                        Rectangle().fill(.gray.opacity(0.1)).frame(width:256, height: 90).cornerRadius(13)
                         HStack{
                             VStack{
                                 Text("08").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
@@ -68,7 +65,7 @@ struct DHome: View {
                                 Text("Operations").fontWeight(.thin).font(.footnote)
                             }
                         }.padding([.leading, .trailing], 15)
-                    }
+                    }.frame(width:256, height: 90).background(.gray.opacity(0.1)).cornerRadius(13)
                     
                 }
                 // upcoming patient tile
@@ -76,8 +73,6 @@ struct DHome: View {
                     Text("Upcoming patient").fontWeight(.semibold).font(.title3).padding([.bottom, .top], 10)
                     
                     ZStack{
-                        Rectangle().fill(.gray.opacity(0.1)).frame(width:.infinity, height: 140).cornerRadius(13)
-                        
                         HStack{
                             VStack{
                                 ZStack{
@@ -86,10 +81,8 @@ struct DHome: View {
                                     Image("Image").resizable().frame(width: 55, height: 50)
                                 }.padding(.bottom,5)
                                 ZStack{
-                                    
-                                    Rectangle().fill(.gray.opacity(0.5)).frame(width: 80, height: 22).cornerRadius(4)
                                     Text("New Patient").foregroundColor(.white).font(.footnote)
-                                }
+                                }.frame(width: 85, height: 22).background(.black.opacity(0.4)).cornerRadius(5)
                             }
                             VStack(alignment: .leading){
                                 Text("Jonathon Cole").fontWeight(.bold)
@@ -103,11 +96,11 @@ struct DHome: View {
                                     Text("09:30").font(.callout).foregroundColor(.blue)
                                 }.padding(.bottom, 80)
                                 Text("See Details").font(.footnote)
-                               
-                            }.padding(.leading, 45)
+                                
+                            }.padding(.leading, 35)
                         }
                         
-                    }
+                    }.frame(width: 360, height: 140).background(.gray.opacity(0.1)).cornerRadius(13)
                 }
                 
             }
@@ -116,6 +109,8 @@ struct DHome: View {
         
     }
 }
+
+
 
 struct DHome_Previews: PreviewProvider {
     static var previews: some View {
