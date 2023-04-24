@@ -19,14 +19,14 @@ struct PSpecialButton: View {
             if active {
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundColor(buttonColor)
-                    .frame(width: 105, height: 35)
+                    .frame(width: 107, height: 35)
                     .background(Color.blue, in: RoundedRectangle(cornerRadius: 25))
                 Text(buttonText).bold().foregroundColor(.white)
                 
             }
             else{
                 RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 105, height: 35)
+                    .frame(width: 107, height: 35)
                     .foregroundColor(Color("Black"))
                     .background(Color(red: 239/255, green: 239/255, blue: 239/255), in: RoundedRectangle(cornerRadius: 25))
                 

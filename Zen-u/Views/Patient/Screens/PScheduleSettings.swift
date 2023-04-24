@@ -18,8 +18,8 @@ struct PScheduleSettings: View {
     }
     
     var body: some View{
-        NavigationView() {
-            ScrollView(.vertical,showsIndicators: false){
+        NavigationView {
+            ScrollView(.vertical,showsIndicators: false) {
                 LazyVStack(spacing: 30, pinnedViews: [.sectionHeaders]){
                     
                     Section{
@@ -53,9 +53,8 @@ struct PScheduleSettings: View {
                                                 
                                             } else {
                                                 Rectangle()
-                                                    .fill((Color(red: 239/255, green: 239/255, blue: 239/255)))
+                                                    .fill((Color("Secondary")))
                                                     .cornerRadius(20)
-                                                
                                             }
                                         }
                                     )
@@ -65,71 +64,62 @@ struct PScheduleSettings: View {
                                     }
                                     
                                 }
+                              
                                 
                             }
-                            .padding()
-                            .padding(.horizontal)
-                        }.padding(-30)
+                        }
+                        Divider()
                         TaskView()
-                        
-                        
                     } header: {
                         headerView()
                     }
                 }
             }
             .ignoresSafeArea(.container, edges: .trailing)
-            .padding()
+            .padding(20)
+            .navigationTitle("Booking Consultation")
             
         }
     }
     
+   
+    
     func TaskView()->some View{
         
-        VStack(alignment : .leading , spacing:25){
+        VStack( spacing:25){
             
-            Divider()
+           
             
             Text("Select a slot")
-                .font(.title2)
+                .font(.title2).hLeading()
             
             VStack {
                 ForEach(availableSlots.chunked(into: 3), id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { slot in
+                        HStack(spacing: 15) {
+                            ForEach(row, id: \.self) { slot in
+                                
+                                Button (action: {checkActive(slot)}){
+                                    PSpecialButton(buttonText: "\(slot)", buttonColor: Color.accentColor, active: (selectedSlot == slot))}
+                                
+                            }
                             
-                            Button (action: {checkActive(slot)}){
-                                PSpecialButton(buttonText: "\(slot)", buttonColor: Color.accentColor, active: (selectedSlot == slot))}
                         }
-                        Spacer()
                     }
                 }
-            }
-            VStack(){
+            
+            Spacer()
+            Button(action: {
                 
-                Spacer()
-                Button(action: {
-                    
-                }, label: {
-                    Text("Continue")
-                        .fontWeight(.semibold)
-                        .frame(maxWidth: .infinity)
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .frame(width: 341 , height: 50)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                })
-            }
+            }, label: {
+                TabButton(text: "Continue")
+            })
         }
-        .hCenter()
     }
     
     func headerView() ->some View{
         HStack(spacing: 10){
             VStack(alignment: .leading, spacing: 10) {
                 VStack(spacing: 40){
-                    Text("Booking Consultation").font(.largeTitle.bold()).hLeading()
                     
                     Text("Select Schedule").font(.title2).hLeading()
                     
