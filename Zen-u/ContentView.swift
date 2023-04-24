@@ -8,15 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isShowingSplash = true
+    
     var body: some View {
-        HStack{
+        ZStack {
+            if isShowingSplash {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isShowingSplash = false
+                        }
+                    }
+            } else {
+                OnBoardingScreen()
+            }
         }
     }
 }
     
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            OnBoardingScreen()
-        }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
-
+}

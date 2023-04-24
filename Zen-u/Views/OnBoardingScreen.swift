@@ -11,74 +11,52 @@ struct OnBoardingScreen: View {
     
     var body: some View {
         
-        
-        ZStack(alignment: .trailing){
-        
-            Image("Group 64").resizable().aspectRatio(contentMode: .fit).padding(.top, 42.0)
-        
-            VStack(alignment: .center){
-                Text("zen-u")
-                    .fontWeight(.heavy)
-                    .font(.system(size: 75).weight(.heavy))
-                    .font(.largeTitle).foregroundColor(.black)
-                    .multilineTextAlignment(.center)
-                
-                
-                Text("Transforming Healthcare").font(.system(size:16)).font(.title2).foregroundColor(.black)
-                
-                Spacer()
-                
-                HStack(spacing: 25){
-                    Button {
-                    }label: {
-                        Text("  Log in   ")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-
-
-                        Image(systemName: "arrow.right")
-                            .font(.title2)
-                            .frame(width: 35, height: 25)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .background(Color.white, in: Circle())
-                    }.frame(width: 120, height: 20)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(40)
-                    .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
-                    .hTrailing()
+        NavigationView {
+            
+            ZStack(alignment: .trailing) {
+            
+                Image("Group 64")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.top, 42.0)
+            
+                VStack(alignment: .center){
+                    Text("zen-u")
+                        .fontWeight(.heavy)
+                        .font(.system(size: 75).weight(.heavy))
+                        .font(.largeTitle).foregroundColor(.black)
+                        .multilineTextAlignment(.center)
                     
+                    Text("Transforming  Healthcare")
+                        .font(.system(size:18.5))
+                        .font(.title2)
+                        .foregroundColor(.black)
+                        .fontWeight(.light)
                     
+                    Spacer()
                     
-                    Button {
-                    }label: {
-                        Text(" Sign up ")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(.white)
-                            
-                        Image(systemName: "arrow.right")
-                            .font(.title2)
-                            .frame(width: 35, height: 25)
-                            .foregroundColor(.black)
-                            .clipShape(Circle())
-                            .background(Color.white, in: Circle())
-                    }.frame(width: 120, height: 20)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(40)
-                    .foregroundColor(.white)
-                    .overlay(RoundedRectangle(cornerRadius: 60).stroke(Color.white))
-                    .hLeading()
+                    HStack(spacing: 25){
+                        
+                        Button {
+                            print("Login button")
+                        } label: {
+                            NavigationLink(destination: LoginPage()) {
+                                ActionButton(text: "Log in")
+                            }
+                        }
+                        .hTrailing()
+                        
+                        Button {
+                            print("Sign Up button")
+                        } label: {
+                            NavigationLink(destination: SignupPage()) {
+                                ActionButton(text: "Sign Up")
+                            }
+                        }
+                        .hLeading()
+                    }
                 }
-                    
-            
-                }
-            
-            
+            }
         }
     }
 }
