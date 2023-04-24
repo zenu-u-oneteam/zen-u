@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Group 99.png",
+      "filename" : "AppointmentConfirmedx1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +10,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "AppointmentConfirmed.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
