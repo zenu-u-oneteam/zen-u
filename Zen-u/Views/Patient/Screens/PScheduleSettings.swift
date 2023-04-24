@@ -38,6 +38,7 @@ struct PScheduleSettings: View {
                                         
                                         Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
                                             .font(.system(size: 14))
+                                        
                                     }
                                     
                                     .foregroundStyle(appointmentViewModel.isToday(date: day) ? .primary : .secondary)
@@ -55,6 +56,7 @@ struct PScheduleSettings: View {
                                                 Rectangle()
                                                     .fill((Color("Secondary")))
                                                     .cornerRadius(20)
+                                                
                                             }
                                         }
                                     )
@@ -67,9 +69,12 @@ struct PScheduleSettings: View {
                               
                                 
                             }
+                            .padding()
+                            .padding(.horizontal)
                         }
                         Divider()
                         TaskView()
+                        
                     } header: {
                         headerView()
                     }
@@ -114,12 +119,23 @@ struct PScheduleSettings: View {
                 TabButton(text: "Continue")
             })
         }
+        .hCenter()
     }
     
     func headerView() ->some View{
         HStack(spacing: 10){
             VStack(alignment: .leading, spacing: 10) {
+                
+                Button(action: {
+                    
+                }, label: {
+                    
+                    Image("chevron.left")
+                    
+                })
+                
                 VStack(spacing: 40){
+                    Text("Booking Consultation").font(.largeTitle.bold()).hLeading()
                     
                     Text("Select Schedule").font(.title2).hLeading()
                     

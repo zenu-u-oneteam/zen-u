@@ -28,7 +28,7 @@ struct PSpecialButton: View {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: 107, height: 35)
                     .foregroundColor(Color("Black"))
-                    .background(Color(red: 239/255, green: 239/255, blue: 239/255), in: RoundedRectangle(cornerRadius: 25))
+                    .background(Color("Secondary"), in: RoundedRectangle(cornerRadius: 25))
                 
                 Text(buttonText).bold().foregroundColor(Color(red: 140/255, green: 146/255, blue: 172/255))
                 
