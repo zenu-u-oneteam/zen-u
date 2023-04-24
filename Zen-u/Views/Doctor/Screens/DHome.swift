@@ -13,8 +13,8 @@ struct DHome: View {
             HStack{
                 VStack(alignment: .leading){
                     Text("Today is a good day")
-                        .fontWeight(.light).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
-                    Text("Dr. Weather").font(.largeTitle).fontWeight(.bold).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
+                        .fontWeight(.light).foregroundColor(.notblack)
+                    Text("Dr. Weather").font(.largeTitle).fontWeight(.bold).foregroundColor(.notblack)
                 }
                 Spacer()
                 //profile buttonz
@@ -46,21 +46,25 @@ struct DHome: View {
                     ZStack{
                         HStack{
                             VStack{
-                                Text("08").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
+                                Text("08").font(.largeTitle).fontWeight(.heavy).foregroundColor(.notblack)
                                 
                                 Text("OPDs").fontWeight(.thin).font(.footnote)
                                 
+                                
                             }
                             Spacer()
-                            
+                            Rectangle().frame(width: 1).foregroundColor(.gray).padding([.top, .bottom], 20)
+                            Spacer()
                             VStack{
-                                Text("06").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
+                                Text("06").font(.largeTitle).fontWeight(.heavy).foregroundColor(.notblack)
                                 
                                 Text("Meetings").fontWeight(.thin).font(.footnote)
                             }
                             Spacer()
+                            Rectangle().frame(width: 1).foregroundColor(.gray).padding([.top, .bottom], 20)
+                            Spacer()
                             VStack{
-                                Text("02").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color( red: 0.11764705882352941, green: 0.11764705882352941, blue: 0.0))
+                                Text("02").font(.largeTitle).fontWeight(.heavy).foregroundColor(.notblack)
                                 
                                 Text("Operations").fontWeight(.thin).font(.footnote)
                             }
@@ -70,7 +74,7 @@ struct DHome: View {
                 }
                 // upcoming patient tile
                 VStack(alignment: .leading){
-                    Text("Upcoming patient").fontWeight(.semibold).font(.title3).padding([.bottom, .top], 10)
+                    Text("Upcoming patient").fontWeight(.semibold).font(.title3).padding([.bottom, .top], 10).foregroundColor(.notblack)
                     
                     ZStack{
                         HStack{
@@ -85,7 +89,7 @@ struct DHome: View {
                                 }.frame(width: 85, height: 22).background(.black.opacity(0.4)).cornerRadius(5)
                             }
                             VStack(alignment: .leading){
-                                Text("Jonathon Cole").fontWeight(.bold)
+                                Text("Jonathon Cole").fontWeight(.bold).foregroundColor(.notblack)
                                 Text("28 years old").font(.callout).fontWeight(.thin)
                                 Text("Male").font(.callout).fontWeight(.thin)
                                 
@@ -110,6 +114,9 @@ struct DHome: View {
     }
 }
 
+extension Color {
+    static let notblack = Color("notBlack")
+}
 
 
 struct DHome_Previews: PreviewProvider {
