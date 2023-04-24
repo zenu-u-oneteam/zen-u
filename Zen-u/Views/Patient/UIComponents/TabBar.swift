@@ -8,30 +8,38 @@
 import SwiftUI
 
 struct TabBar: View {
+    @State private var selectedTab = 0
+    
     var body: some View {
-        TabView{
-            Text("Home")
-                .tabItem{
-                Image(systemName: "house")
-                Text("Home")
-            }
-            Text("Appointment")
-                .tabItem{
-                    Image(systemName: "calendar")
-                    Text("Appointment")
+        TabView(selection: $selectedTab) {
+            Text("First View")
+                .tabItem {
+                    Label("Home", systemImage: "house")
                 }
-            Text("Records")
-                .tabItem{
-                    Image(systemName: "doc")
-                    Text("Records")
+                .tag(0)
+            
+            Text("Second View")
+                .tabItem {
+                    Label("Appointment", systemImage: "calendar")
                 }
-            Text("Reminders").tabItem{
-                Image(systemName: "bell")
-                Text("Reminders")
-            }
+                .tag(1)
+            
+            Text("Third View")
+                .tabItem {
+                    Label("Records", systemImage: "doc")
+                }
+                .tag(2)
+            
+            Text("Fourth View")
+                .tabItem {
+                    Label("Reminder", systemImage: "bell")
+                }
+                .tag(3)
         }
+        .accentColor(.black)
     }
 }
+
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
