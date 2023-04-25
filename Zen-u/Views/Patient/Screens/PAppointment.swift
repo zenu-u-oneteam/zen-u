@@ -91,6 +91,7 @@ struct PAppointment: View {
             }
             .padding()
         }
+        .accentColor(Color("Accent"))
     }
 }
 

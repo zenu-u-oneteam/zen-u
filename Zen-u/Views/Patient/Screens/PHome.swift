@@ -15,15 +15,18 @@ struct PHome: View {
                     Button{
                         
                     }label: {
-                        
-                        Image(systemName: "person.fill")
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 18,height: 18)
-                            .background(Circle()
-                                .stroke(Color.white,lineWidth: 3)
-                                .background(Circle().fill(Color("Secndary")))
-                                .frame(width: 40,height: 40)
-                            )
+                        NavigationLink(destination: PProfile()) {
+                            
+                            
+                            Image(systemName: "person.fill")
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 18,height: 18)
+                                .background(Circle()
+                                    .stroke(Color.white,lineWidth: 3)
+                                    .background(Circle().fill(Color("Secndary")))
+                                    .frame(width: 40,height: 40)
+                                )
+                        }
                     }
                     
                     VStack(alignment: .leading){
@@ -119,6 +122,7 @@ struct PHome: View {
             Spacer()
             
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

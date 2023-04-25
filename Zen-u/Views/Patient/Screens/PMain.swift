@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct TabBar: View {
+struct PMain: View {
     @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("First View")
+            PHome()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
                 .tag(0)
             
-            Text("Second View")
+            PAppointment()
                 .tabItem {
                     Label("Appointment", systemImage: "calendar")
                 }
@@ -37,13 +37,14 @@ struct TabBar: View {
                 .tag(3)
         }
         .accentColor(.black)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 
-struct TabBar_Previews: PreviewProvider {
+struct PMain_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        PMain()
     }
 }
 
