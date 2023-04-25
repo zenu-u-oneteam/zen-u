@@ -6,11 +6,38 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginPage: View {
     
     @State private var email = ""
     @State private var password = ""
+    
+    let db = FirebaseConfig().db
+    
+    func passwordLogin() {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            } else {
+                let currentUserID = Auth.auth().currentUser?.uid
+                if let currentUserID = currentUserID {
+                    print(currentUserID)
+                    db.collection("Users").document(currentUserID).getDocument {
+                        (document, error) in
+                        if let document = document, document.exists {
+                            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                            print(dataDescription)
+                            UserDefaults.standard.set(dataDescription, forKey: "currentUser")
+                        } else {
+                            print("Document does not exist")
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -22,6 +49,7 @@ struct LoginPage: View {
                             .foregroundColor(.black)
                         TextField("Enter your email", text: $email)
                             .font(.system(size: 17, weight: .light))
+                            .textInputAutocapitalization(.never)
                     }
                     .padding()
                     .background(Color(.systemGray5))
@@ -35,6 +63,7 @@ struct LoginPage: View {
                         .foregroundColor(.black)
                     SecureField("Enter your password", text: $password)
                         .font(.system(size: 17, weight: .light))
+                        .textInputAutocapitalization(.never)
                 }
                 .padding()
                 .background(Color(.systemGray5))
@@ -51,7 +80,7 @@ struct LoginPage: View {
                 .padding(.trailing, 30)
                 
                 Button {
-                    // Perform login action here
+                    passwordLogin()
                 } label: {
                     ActionButton(text: "Log in")
                 }
