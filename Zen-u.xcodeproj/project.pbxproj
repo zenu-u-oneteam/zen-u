@@ -15,6 +15,7 @@
 		2340535429F24E79003A0063 /* AppointmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535329F24E79003A0063 /* AppointmentType.swift */; };
 		2340535629F24F09003A0063 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535529F24F09003A0063 /* Department.swift */; };
 		23457E7029F257A500715DD9 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23457E6F29F257A500715DD9 /* Bill.swift */; };
+		2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */; };
 		2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C67C29F2845300CEA6F6 /* ActionButton.swift */; };
 		2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68229F2933300CEA6F6 /* TabButton.swift */; };
 		2386C68529F2957800CEA6F6 /* ViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68429F2957800CEA6F6 /* ViewButton.swift */; };
@@ -64,6 +65,7 @@
 		2340535329F24E79003A0063 /* AppointmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentType.swift; sourceTree = "<group>"; };
 		2340535529F24F09003A0063 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		23457E6F29F257A500715DD9 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DScheduleTaskCard.swift; sourceTree = "<group>"; };
 		2386C67C29F2845300CEA6F6 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2386C68229F2933300CEA6F6 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		2386C68429F2957800CEA6F6 /* ViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewButton.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				3874753E29ED669100CCA151 /* example.swift */,
+				2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
+				2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */,
 				A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */,
 				BE773F2729F2ACB200C3C6CF /* LoginPage.swift in Sources */,
 				2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */,
