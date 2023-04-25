@@ -1,0 +1,6 @@
+# Temporary Data
+.DS_Store
+
+# User Data
+/Zen-u.xcodeproj/xcuserdata
+/Zen-u.xcodeproj/project.xcworkspace/xcuserdata
