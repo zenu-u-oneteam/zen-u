@@ -4,3 +4,6 @@
 # User Data
 /Zen-u.xcodeproj/xcuserdata
 /Zen-u.xcodeproj/project.xcworkspace/xcuserdata
+
+# Firebase Config
+GoogleService-Info.plist
