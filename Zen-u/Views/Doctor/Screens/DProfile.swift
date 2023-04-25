@@ -14,7 +14,7 @@ struct DoctorProfile: View {
         VStack(alignment: .leading, spacing: 20) {
             HStack {
                 Text("Profile")
-                    .font(.system(size: 34, weight: .heavy))
+                    .font(.largeTitle.weight(.heavy))
                 
                 Spacer()
                 
@@ -34,161 +34,174 @@ struct DoctorProfile: View {
                 Image(systemName: "line.horizontal.3")
                     .resizable()
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                //                        .aspectRatio(contentMode: .fit)
                     .frame(width: 15
                            , height: 13)
                     .padding(.all, 20)
             }
             }
             
-            ZStack {
-                RoundedRectangle(cornerRadius: 13).fill(Color(.systemGray5)).frame(width: 347, height: 220)
+            VStack(alignment: .leading , spacing: 10) {
                 
-                VStack(alignment: .leading , spacing: 10) {
+                HStack(spacing : 20) {
                     
-                    HStack(spacing : 20){
-                        
-                        Image("profileImage")
-                            .resizable()
-                            .frame(width: 105, height: 105)
-                            .clipShape(Circle())
-                            .aspectRatio(contentMode: .fill)
-                            .padding(.trailing, 10)
-                        
-                        VStack(alignment: .leading){
-                            Text("Dr. P Lawrence")
-                                .font(.system(size: 20, weight: .bold))
-                            
-                            Text("Diabetology")
-                                .font(.system(size: 12, weight: .semibold))
-                                .padding(.bottom, 10)
-                            Text("38 years experience")
-                                .font(.system(size: 12, weight: .light))
-                                .padding(.bottom, 2)
-                            
-                            Text("MD (General Med)")
-                                .font(.system(size: 12, weight: .light))
-                        }
-                    }
+                    Image("profileImage")
+                        .resizable()
+                        .frame(width: 105, height: 105)
+                        .clipShape(Circle())
+                        .aspectRatio(contentMode: .fill)
+                        .padding(.horizontal, 15)
                     
-                    VStack{
-                        
-                        HStack(alignment: .top){
-                            HStack (spacing: 5){
-                                Image(systemName: "graduationcap")
-                                    .font(.system(size: 13))
-                                
-                                Text("Education:")
-                                    .font(.system(size:12 , weight: .bold))
-                            }
-                            
-                            Text("MBBS, MRCP, MRCGP, PGD ( Diabetology & Endocrinology)")
-                                .font(.system(size:12 , weight: .light))
-                                .lineLimit(nil)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                        
-                        HStack(alignment: .top){
-                            HStack (spacing: 5){
-                                Image(systemName: "globe")
-                                    .font(.footnote)
-                                
-                                Text("Languages:")
-                                    .font(.callout.bold())
-                            }
-                            Text("English, Hindi, Malayalam")
-                                .font(.system(size:12, weight: .light))
-                                .lineLimit(nil)
-                                .multilineTextAlignment(.leading)
-                                .fixedSize(horizontal: false, vertical: true)
-                            
-                        }
-                        
-                        //                        HStack {
-                        //                            Image(systemName: "globe")
-                        //                                .font(.system(size: 13))
-                        //
-                        //                            Text("Languages:")
-                        //                                .font(.system(size:12 , weight: .bold))
-                        //
-                        //                            Text("English, Hindi, Malayalam")
-                        //                                .font(.system(size:12, weight: .light))
-                        //                                .lineLimit(nil)
-                        //                                .multilineTextAlignment(.leading)
-                        //                                .fixedSize(horizontal: false, vertical: true)
-                        //                        }
-                    }
-                    
-                }.padding(10)
-            }
-            
-            ZStack {
-                HStack (spacing : 8){
-                    
-                    HStack {
-                        Image(systemName: "phone.circle.fill")
-                            .font(.system(size: 32))
-                            .foregroundColor(.blue)
-                            .padding(.leading, 5)
-                        
-                        
-                        Text("+91 7858897916")
-                            .font(.system(size:12 , weight: .light))
-                            .foregroundColor(.black)
+                    VStack(alignment: .leading){
+                        Text("Dr. P Lawrence")
+                            .font(.title3.bold())
+                        Text("Diabetology")
+                            .font(.caption.weight(.semibold))
+                            .padding(.bottom, 10)
+                        Text("38 years experience")
+                            .font(.caption.weight(.light))
+                            .padding(.bottom, 2)
+                        Text("MD (General Med)")
+                            .font(.caption.weight(.light))
                     }
                     Spacer()
-                    HStack{
-                        Image(systemName: "envelope.circle.fill")
-                            .font(.system(size: 32, weight: .light))
-                            .foregroundColor(.blue)
+                }
+                
+                VStack(alignment: .leading){
+                    
+                    HStack(alignment: .top){
+                        HStack (spacing: 5){
+                            Image(systemName: "graduationcap")
+                                .font(.footnote)
+                                .frame(width: 20)
+                            
+                            Text("Education:")
+                                .font(.caption.weight(.semibold))
+                            
+                        }
+                        .frame(width: 95)
                         
-                        Text("i.haqcs@gmailcom").foregroundColor(.black)
-                            .font(.system(size:12 , weight: .light))
+                        Text("MBBS, MRCP, MRCGP, PGD (Diabetology & Endocrinology)")
+                            .font(.caption.weight(.light))
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    .padding(.bottom, 2)
+                    .padding(.horizontal, 15)
+
+                    
+                    HStack(alignment: .top){
+                        HStack (spacing: 5){
+                            Image(systemName: "globe")
+                                .font(.footnote)
+                                .frame(width: 20)
+
+                            Text("Languages:")
+                                .font(.caption.weight(.semibold))
+                        }
+                        .frame(width: 95)
+                        
+                        Text("English, Hindi, Malayalam")
+                            .font(.caption.weight(.light))
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                     }
-                }.padding(10)
-                    .background(RoundedRectangle(cornerRadius: 13).fill(Color(.systemGray5)).frame(width: 347, height: 60))
+                    .padding(.horizontal, 15)
+                }
+                .padding(.trailing, 20)
             }
+            .padding(10)
+            .frame(width: 347, height: 220)
+            .background(Color("Secondary"))
+            .cornerRadius(13)
+            
+            
+            
+            HStack (spacing : 8){
+                
+                HStack {
+                    Image(systemName: "phone.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.accentColor)
+                        .padding(.leading, 5)
+                    
+                    
+                    Text("+91 7858897916")
+                        .font(.caption.weight(.light))
+                        .foregroundColor(Color("Heading"))
+                }
+
+                HStack{
+                    Image(systemName: "envelope.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.accentColor)
+                    
+                    Text("i.haqcs@gmail.com")
+                        .foregroundColor(Color("Heading"))
+                        .font(.caption.weight(.light))
+                    
+                }
+            }
+            .padding(10)
+            .background(Color("Secondary"))
+            .cornerRadius(13)
+            .frame(width: .infinity, height: 60)
             
             VStack(alignment: .leading , spacing: 20) {
                 
                 Text("Schedules")
-                    .font(.system(size: 20, weight: .bold))
+                    .font(.title3.bold())
                 
                 HStack {
                     
                     Text("Slot Changes")
-                        .font(.system(size:14 , weight: .regular))
-                        .foregroundColor(.black)
+                        .font(.footnote)
+                        .foregroundColor(Color("Heading"))
+                    
                     Spacer()
+                    
                     Button {
                         
                     } label: {
-                        Text("Request").font(.system(size:14 , weight: .regular)).foregroundColor(.white).background( RoundedRectangle(cornerRadius: 25).fill(.black).frame(width : 93 , height: 30))
-                        
-                    }.padding(.trailing , 16)
+                        Text("Request")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    }
+                    .background(RoundedRectangle(cornerRadius: 25)
+                        .fill(Color("Heading"))
+                        .frame(minWidth : 93 , minHeight: 30))
+                    .padding(.trailing , 16)
                     
                 }.padding(.bottom, 10)
                 
                 HStack {
                     
                     Text("Apply for Leaves")
-                        .font(.system(size:14 , weight: .regular))
-                        .foregroundColor(.black)
+                        .font(.footnote)
+                        .foregroundColor(Color("Heading"))
+                    
                     Spacer()
                     
                     Button {
                         
                     } label: {
-                        Text("Request").font(.system(size:14 , weight: .regular)).foregroundColor(.white).background( RoundedRectangle(cornerRadius: 25).fill(.black).frame(width : 93 , height: 30))
-                        
-                    }.padding(.trailing , 16)
+                        Text("Request")
+                            .font(.footnote)
+                            .foregroundColor(.white)
+                    }
+                    .background(RoundedRectangle(cornerRadius: 25)
+                        .fill(Color("Heading"))
+                        .frame(minWidth : 93 , minHeight: 30))
+                    .padding(.trailing , 16)
                     
-                }
+                }.padding(.bottom, 10)
+                
             }
             
-            .background(RoundedRectangle(cornerRadius: 13).fill(Color(.systemGray5)).frame(width: 347, height: 147))
+            .background(RoundedRectangle(cornerRadius: 13).fill(Color("Secondary"))
+                .frame(width: 347, height: 147))
             .padding(20)
             Spacer()
         }.padding(24)
