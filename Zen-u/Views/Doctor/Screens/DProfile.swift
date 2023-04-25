@@ -44,7 +44,7 @@ struct DoctorProfile: View {
                 
                 HStack(spacing : 20) {
                     
-                    Image("profileImage")
+                    Image("ProfileImage")
                         .resizable()
                         .frame(width: 105, height: 105)
                         .clipShape(Circle())
@@ -88,14 +88,13 @@ struct DoctorProfile: View {
                     }
                     .padding(.bottom, 2)
                     .padding(.horizontal, 15)
-
                     
                     HStack(alignment: .top){
                         HStack (spacing: 5){
                             Image(systemName: "globe")
                                 .font(.footnote)
                                 .frame(width: 20)
-
+                            
                             Text("Languages:")
                                 .font(.caption.weight(.semibold))
                         }
@@ -103,9 +102,7 @@ struct DoctorProfile: View {
                         
                         Text("English, Hindi, Malayalam")
                             .font(.caption.weight(.light))
-                            .lineLimit(nil)
                             .multilineTextAlignment(.leading)
-                            .fixedSize(horizontal: false, vertical: true)
                         
                     }
                     .padding(.horizontal, 15)
@@ -113,11 +110,9 @@ struct DoctorProfile: View {
                 .padding(.trailing, 20)
             }
             .padding(10)
-            .frame(width: 347, height: 220)
+            .frame(minWidth: 347, minHeight: 220)
             .background(Color("Secondary"))
             .cornerRadius(13)
-            
-            
             
             HStack (spacing : 8){
                 
@@ -125,14 +120,12 @@ struct DoctorProfile: View {
                     Image(systemName: "phone.circle.fill")
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
-                        .padding(.leading, 5)
-                    
                     
                     Text("+91 7858897916")
                         .font(.caption.weight(.light))
                         .foregroundColor(Color("Heading"))
                 }
-
+                
                 HStack{
                     Image(systemName: "envelope.circle.fill")
                         .font(.largeTitle)
@@ -141,13 +134,12 @@ struct DoctorProfile: View {
                     Text("i.haqcs@gmail.com")
                         .foregroundColor(Color("Heading"))
                         .font(.caption.weight(.light))
-                    
                 }
             }
             .padding(10)
+            .frame(width: 347, height: 60)
             .background(Color("Secondary"))
             .cornerRadius(13)
-            .frame(width: .infinity, height: 60)
             
             VStack(alignment: .leading , spacing: 20) {
                 
