@@ -35,7 +35,7 @@ struct DSchedule: View {
                 HStack{
                     ScrollView(.vertical){
                         LazyVStack( alignment: .leading, spacing: 10){
-                            ForEach(0...days[selectedMonth] , id: \.self){
+                            ForEach(1...days[selectedMonth] , id: \.self){
                                 index in
                                 Button {
                                     self.selectedDate = index
@@ -67,40 +67,20 @@ struct DSchedule: View {
                                         Button {
                                             self.selectedMonth = index
                                         } label: {
-                                            ZStack(alignment: .leading ){
-                                                RoundedRectangle(cornerRadius: 20).fill(Color(color))
-                                                VStack(alignment: .leading , spacing: 10){
-                                                    HStack(alignment: .top , spacing : 40){
-                                                        Text("9:30").font(.system(size: 34 , weight: .heavy)).foregroundColor(.black)
-                                                        VStack(alignment: .leading , spacing: 4){
-                                                            Text("Stefania Keller").font(.system(size: 16 , weight: .bold)).foregroundColor(.black)
-                                                            Text("Age: 30 years").font(.system(size: 10 , weight: .light)).foregroundColor(.black)
-                                                            Text("Gender: Female").font(.system(size: 10 , weight: .light)).foregroundColor(.black)
-                                                        }
-                                                    }
-                                                    HStack {
-                                                        TagLabel(labelText: "New Patient")
-                                                        TagLabel(labelText: "OPD")
-                                                        
-                                                    }
-                                                    
-                                                }.padding(16)
-                                            }
-                                            
-                                            .frame(width: 290)
+                                            TaskCard()
                                         }
-
-                                        
-                                            
                                     }
                                         
                                 }
                     }.frame(width: 300)
                     
-                    
-//                 Spacer()
+//
                 }
-//                Spacer()
+                HStack(spacing : 20){
+                    FilterButton(filterTypeText: "OPD")
+                    FilterButton(filterTypeText: "Operation")
+                    FilterButton(filterTypeText: "Meeting")
+                }.padding(8)
             }.padding(24)
             .navigationTitle("Schedule")
         }
@@ -120,10 +100,40 @@ struct TagLabel: View {
 struct FilterButton: View {
     @State var filterTypeText : String
     var body: some View {
-        Button{} label: { Text(filterTypeText)
-                .font(.system(size: 13 , weight: .semibold))
+        Button{} label: { ZStack {
+            RoundedRectangle(cornerRadius: 50).fill(Color(.black))
+            Text(filterTypeText)
+                .font(.system(size: 14 , weight: .semibold)).foregroundColor(.white)
                 .padding(16)
-            .foregroundColor(.black).background(RoundedRectangle(cornerRadius: 50).fill(Color(color)).frame(height: 44)) }
+                .foregroundColor(.black)
+        }.frame(width: 105 , height: 40 )
+        }
+    }
+    
+}
+struct TaskCard: View {
+    var body: some View {
+        ZStack(alignment: .leading ){
+            RoundedRectangle(cornerRadius: 20).fill(Color(color))
+            VStack(alignment: .leading , spacing: 10){
+                HStack(alignment: .top , spacing : 40){
+                    Text("9:30").font(.system(size: 34 , weight: .heavy)).foregroundColor(.black)
+                    VStack(alignment: .leading , spacing: 4){
+                        Text("Stefania Keller").font(.system(size: 16 , weight: .bold)).foregroundColor(.black)
+                        Text("Age: 30 years").font(.system(size: 10 , weight: .light)).foregroundColor(.black)
+                        Text("Gender: Female").font(.system(size: 10 , weight: .light)).foregroundColor(.black)
+                    }
+                }
+                HStack {
+                    TagLabel(labelText: "New Patient")
+                    TagLabel(labelText: "OPD")
+                    
+                }
+                
+            }.padding(16)
+        }
+        
+        .frame(width: 290)
     }
 }
 
