@@ -24,6 +24,8 @@
 		23BC07BF29F14059009FA528 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BC07BE29F14059009FA528 /* Patient.swift */; };
 		23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CBF1DD29F554F400318ED4 /* PAppointment.swift */; };
 		23CBF1E029F55DC000318ED4 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */; };
+		2D05739E29F7EEBF000DF182 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D05739D29F7EEBF000DF182 /* SpecialistModelView.swift */; };
+		2D0573A029F7EEFD000DF182 /* PDepartmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D05739F29F7EEFD000DF182 /* PDepartmentDetails.swift */; };
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
@@ -71,6 +73,8 @@
 		23BC07BE29F14059009FA528 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		23CBF1DD29F554F400318ED4 /* PAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointment.swift; sourceTree = "<group>"; };
 		23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
+		2D05739D29F7EEBF000DF182 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
+		2D05739F29F7EEFD000DF182 /* PDepartmentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDepartmentDetails.swift; sourceTree = "<group>"; };
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 				23B4BD3D29F4353F00665006 /* AppointmentCard.swift */,
 				06A06E6429F52D7D008DF13F /* HealthKitView.swift */,
 				06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */,
+				2D05739D29F7EEBF000DF182 /* SpecialistModelView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */,
 				23CBF1DD29F554F400318ED4 /* PAppointment.swift */,
 				06A06E6629F55DFF008DF13F /* PProfile.swift */,
+				2D05739F29F7EEFD000DF182 /* PDepartmentDetails.swift */,
 				A73E214E29F0223800EDB68D /* PPayment.swift */,
 			);
 			path = Screens;
@@ -410,6 +416,7 @@
 				2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */,
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
 				2340535029F24D29003A0063 /* Appointment.swift in Sources */,
+				2D05739E29F7EEBF000DF182 /* SpecialistModelView.swift in Sources */,
 				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
@@ -426,6 +433,7 @@
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
+				2D0573A029F7EEFD000DF182 /* PDepartmentDetails.swift in Sources */,
 				3054D5F429EE75D7000A8858 /* TabBar.swift in Sources */,
 				2340535629F24F09003A0063 /* Department.swift in Sources */,
 				2386C68529F2957800CEA6F6 /* ViewButton.swift in Sources */,
