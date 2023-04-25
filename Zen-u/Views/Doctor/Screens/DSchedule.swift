@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+
 let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
 let days = [31, 28, 31 , 30 , 31 , 30 , 31, 31 , 30 , 31, 30 , 31]
 struct DSchedule: View {
     @State var selectedMonth: Int = 0
     @State var selectedDate: Int = 0
+    
     var body: some View {
          
         NavigationView(){
@@ -31,7 +33,7 @@ struct DSchedule: View {
                                 }
                                     
                             }.frame(height: 20)
-                }
+                }.padding(.bottom, 8)
                 HStack{
                     ScrollView(.vertical){
                         LazyVStack( alignment: .leading, spacing: 10){
