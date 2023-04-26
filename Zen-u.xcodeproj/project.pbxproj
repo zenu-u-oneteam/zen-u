@@ -34,7 +34,7 @@
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
-		3054D5F429EE75D7000A8858 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* TabBar.swift */; };
+		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
 		3874751529ED603800CCA151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751429ED603800CCA151 /* ContentView.swift */; };
 		3874751729ED603900CCA151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3874751629ED603900CCA151 /* Assets.xcassets */; };
@@ -57,7 +57,10 @@
 		A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4850129F2595A009DA356 /* PViewModel.swift */; };
 		BE773F2729F2ACB200C3C6CF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE773F2629F2ACB200C3C6CF /* LoginPage.swift */; };
 		BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8567D929F12EEC00B7206B /* SplashScreen.swift */; };
+		BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */; };
+		BE94A55729F932E500E4FBE5 /* LabTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94A55629F932E500E4FBE5 /* LabTest.swift */; };
 		BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1315629F13A7E008A9432 /* SignupPage.swift */; };
+		C941A99829F6A90B0018069F /* DProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941A99729F6A90B0018069F /* DProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +87,7 @@
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
-		3054D5F329EE75D7000A8858 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3874751229ED603800CCA151 /* Zen_uApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_uApp.swift; sourceTree = "<group>"; };
 		3874751429ED603800CCA151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,7 +112,10 @@
 		A9F4850129F2595A009DA356 /* PViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PViewModel.swift; sourceTree = "<group>"; };
 		BE773F2629F2ACB200C3C6CF /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		BE8567D929F12EEC00B7206B /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
+		BE94A55629F932E500E4FBE5 /* LabTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabTest.swift; sourceTree = "<group>"; };
 		BEF1315629F13A7E008A9432 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
+		C941A99729F6A90B0018069F /* DProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,11 +133,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23027B5629F91F3900F71A39 /* PBooking */ = {
+			isa = PBXGroup;
+			children = (
+				3874753329ED638500CCA151 /* PBookingAppointments.swift */,
+				3874753729ED63AA00CCA151 /* PScheduleSettings.swift */,
+				3874753A29ED662E00CCA151 /* PBookingSummary.swift */,
+				A73E214E29F0223800EDB68D /* PPayment.swift */,
+			);
+			path = PBooking;
+			sourceTree = "<group>";
+		};
 		2340534E29F24D10003A0063 /* Appointment */ = {
 			isa = PBXGroup;
 			children = (
 				2340534F29F24D29003A0063 /* Appointment.swift */,
 				2340535329F24E79003A0063 /* AppointmentType.swift */,
+				BE94A55629F932E500E4FBE5 /* LabTest.swift */,
 			);
 			path = Appointment;
 			sourceTree = "<group>";
@@ -291,6 +309,7 @@
 				3874754229ED66DD00CCA151 /* DHome.swift */,
 				3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
+				C941A99729F6A90B0018069F /* DProfile.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -298,7 +317,6 @@
 		3874752B29ED614800CCA151 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				3054D5F329EE75D7000A8858 /* TabBar.swift */,
 				2DECE12A29EDDAA10021BE41 /* PUIex.swift */,
 				A9F484FF29F25938009DA356 /* PSpecialButton.swift */,
 				A9F4850129F2595A009DA356 /* PViewModel.swift */,
@@ -306,6 +324,7 @@
 				23B4BD3D29F4353F00665006 /* AppointmentCard.swift */,
 				06A06E6429F52D7D008DF13F /* HealthKitView.swift */,
 				06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */,
+				BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -313,15 +332,13 @@
 		3874752C29ED614F00CCA151 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3054D5F329EE75D7000A8858 /* PMain.swift */,
 				3874753129ED628200CCA151 /* PHome.swift */,
-				3874753329ED638500CCA151 /* PBookingAppointments.swift */,
+				23027B5629F91F3900F71A39 /* PBooking */,
 				3874753529ED639700CCA151 /* PSpecialists.swift */,
-				3874753729ED63AA00CCA151 /* PScheduleSettings.swift */,
-				3874753A29ED662E00CCA151 /* PBookingSummary.swift */,
 				A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */,
 				23CBF1DD29F554F400318ED4 /* PAppointment.swift */,
 				06A06E6629F55DFF008DF13F /* PProfile.swift */,
-				A73E214E29F0223800EDB68D /* PPayment.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -437,6 +454,7 @@
 				38ED412829ED6870005E182A /* exx.swift in Sources */,
 				3874753829ED63AA00CCA151 /* PScheduleSettings.swift in Sources */,
 				3874754129ED66D400CCA151 /* DSchedule.swift in Sources */,
+				C941A99829F6A90B0018069F /* DProfile.swift in Sources */,
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
 				23457E7029F257A500715DD9 /* Bill.swift in Sources */,
 				06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */,
@@ -447,6 +465,7 @@
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
 				2340535029F24D29003A0063 /* Appointment.swift in Sources */,
 				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
+				BE94A55729F932E500E4FBE5 /* LabTest.swift in Sources */,
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
@@ -459,11 +478,12 @@
 				23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */,
 				BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */,
 				2386C68729F29FE700CEA6F6 /* PrimaryButton.swift in Sources */,
+				BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */,
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
 				23408A5429F6EA6C00E581ED /* FirebaseConfig.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
-				3054D5F429EE75D7000A8858 /* TabBar.swift in Sources */,
+				3054D5F429EE75D7000A8858 /* PMain.swift in Sources */,
 				2340535629F24F09003A0063 /* Department.swift in Sources */,
 				2386C68529F2957800CEA6F6 /* ViewButton.swift in Sources */,
 			);
@@ -594,7 +614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = TBCL3BV72X;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -602,7 +622,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +647,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = TBCL3BV72X;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -635,7 +655,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

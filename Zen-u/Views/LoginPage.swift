@@ -82,7 +82,9 @@ struct LoginPage: View {
                 Button {
                     passwordLogin()
                 } label: {
-                    ActionButton(text: "Log in")
+                    NavigationLink(destination: PMain()) {
+                        ActionButton(text: "Log in")
+                    }
                 }
                 .padding(.top, 20)
                 
