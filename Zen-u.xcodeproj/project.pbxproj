@@ -53,6 +53,7 @@
 		BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */; };
 		BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF1315629F13A7E008A9432 /* SignupPage.swift */; };
 		C941A99829F6A90B0018069F /* DProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941A99729F6A90B0018069F /* DProfile.swift */; };
+		C993EE4B29F916D8003DA95E /* Vaccination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C993EE4A29F916D8003DA95E /* Vaccination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
 		BEF1315629F13A7E008A9432 /* SignupPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupPage.swift; sourceTree = "<group>"; };
 		C941A99729F6A90B0018069F /* DProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DProfile.swift; sourceTree = "<group>"; };
+		C993EE4A29F916D8003DA95E /* Vaccination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				23BC07BE29F14059009FA528 /* Patient.swift */,
 				2340535129F24E43003A0063 /* Doctor.swift */,
 				2340535529F24F09003A0063 /* Department.swift */,
+				C993EE4A29F916D8003DA95E /* Vaccination.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				3874754129ED66D400CCA151 /* DSchedule.swift in Sources */,
 				C941A99829F6A90B0018069F /* DProfile.swift in Sources */,
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
+				C993EE4B29F916D8003DA95E /* Vaccination.swift in Sources */,
 				23457E7029F257A500715DD9 /* Bill.swift in Sources */,
 				06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
