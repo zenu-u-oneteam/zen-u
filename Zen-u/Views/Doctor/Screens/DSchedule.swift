@@ -115,7 +115,6 @@ struct FilterButton: View {
     }
 }
 
-
 struct DSchedule_Previews: PreviewProvider {
     static var previews: some View {
         DSchedule()
