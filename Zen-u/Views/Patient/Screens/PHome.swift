@@ -26,104 +26,107 @@ struct PHome: View {
     @State private var selectedItem: EducationTopics?
     
     var body: some View {
-        VStack{
-            VStack(alignment: .leading) {
-                HStack(spacing:40){
-                    Button{
+        NavigationStack {
+            VStack {
+                VStack(alignment: .leading) {
+                    HStack(spacing:40){
+                        Button{
+                            
+                        } label: {
+                            NavigationLink(destination: PProfile()) {
+                                Image(systemName: "person.fill")
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 18,height: 18)
+                                    .background(Circle()
+                                        .stroke(Color.white,lineWidth: 3)
+                                        .background(Circle().fill(Color("Secndary")))
+                                        .frame(width: 40,height: 40)
+                                    )
+                            }
+                        }
                         
-                    }label: {
+                        VStack(alignment: .leading){
+                            Text("Good Morning")
+                                .font(.caption2)
+                            Text("Reze")
+                                .font(.title3.bold())
+                        }
+                        Spacer()
                         
-                        Image(systemName: "person.fill")
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 18,height: 18)
-                            .background(Circle()
-                                .stroke(Color.white,lineWidth: 3)
-                                .background(Circle().fill(Color("Secndary")))
-                                .frame(width: 40,height: 40)
-                            )
+                        Button(){
+                            
+                        }label: {
+                            
+                            Image(systemName: "phone.fill")
+                                .resizable()
+                                .foregroundColor(Color.blue)
+                                .frame(width: 20,height: 20.03)
+                                .background(Circle()
+                                    .stroke(Color.white,lineWidth: 3)
+                                    .background(Circle().fill(Color("Secndary")))
+                                    .frame(width: 40,height: 40)
+                                )
+                                .padding(.leading)
+                        }
                     }
+                    .padding(.init(top: 80, leading: 30, bottom: 0, trailing: 30))
                     
-                    VStack(alignment: .leading){
-                        Text("Good Morning")
-                            .font(.caption2)
-                        Text("Reze")
-                            .font(.title3.bold())
-                    }
-                    Spacer()
+                    Text("How are you feeling today?")
+                        .font(.system(size: 41,weight: .semibold))
+                        .padding(.horizontal, 24)
                     
-                    Button(){
-                        
-                    }label: {
-                        
-                        Image(systemName: "phone.fill")
-                            .resizable()
-                            .foregroundColor(Color.blue)
-                            .frame(width: 20,height: 20.03)
-                            .background(Circle()
-                                .stroke(Color.white,lineWidth: 3)
-                                .background(Circle().fill(Color("Secndary")))
-                                .frame(width: 40,height: 40)
-                            )
-                            .padding(.leading)
+                    HStack(alignment: .center,spacing: 20) {
+                        Spacer()
+                        Button {
+
+                        } label: {
+                            NavigationLink(destination: PBookingAppointments()) {
+                                Text("Consult")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 99,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
+                        }
+                        Button {
+                            
+                        } label: {
+                            Text("Lab")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 68,height: 50)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(.white)
+                                )
+                                .font(.callout.weight(.semibold))
+                        }
+                        Button {
+                            
+                        } label: {
+                            Text("Vaccination")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 128,height: 50)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(.white)
+                                )
+                                .font(.callout.weight(.semibold))
+                        }
+                        Spacer()
                     }
                 }
-                .padding(.init(top: 80, leading: 30, bottom: 0, trailing: 30))
                 
-                Text("How are you feeling today?")
-                    .font(.system(size: 41,weight: .semibold))
-                    .padding(.horizontal, 24)
+                .background(Rectangle().foregroundColor(Color("Secondary"))
+                    .frame(height: 344)
+                    .cornerRadius(50))
+                .ignoresSafeArea()
                 
-                HStack(alignment: .center,spacing: 20) {
-                    Spacer()
-                    Button {
-                        
-                    } label: {
-                        Text("Consult")
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 99,height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(.white)
-                            )
-                            .font(.callout.weight(.semibold))
-                    }
-                    Button {
-                        
-                    } label: {
-                        Text("Lab")
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 68,height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(.white)
-                            )
-                            .font(.callout.weight(.semibold))
-                    }
-                    Button {
-                        
-                    } label: {
-                        Text("Vaccination")
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 128,height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(.white)
-                            )
-                            .font(.callout.weight(.semibold))
-                    }
-                    Spacer()
-                }
-            }
-            
-            .background(Rectangle().foregroundColor(Color("Secondary"))
-                .frame(height: 344)
-                .cornerRadius(50))
-            .ignoresSafeArea()
-            
-            ScrollView{
                 VStack(alignment: .leading,spacing: 20) {
                     Text("Upcoming Appointments")
                         .font(.body.weight(.semibold))
@@ -200,6 +203,9 @@ struct PHome: View {
                     .padding(.init(top: 0, leading: 24, bottom: 0, trailing: 24))
                 
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.large)
+            .accentColor(Color("Accent"))
         }
     }
 }

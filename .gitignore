@@ -1,6 +1,9 @@
-# Temperary Data
+# Temporary Data
 .DS_Store
 
 # User Data
 /Zen-u.xcodeproj/xcuserdata
 /Zen-u.xcodeproj/project.xcworkspace/xcuserdata
+
+# Firebase Config
+/Zen-u/GoogleService-Info.plist
