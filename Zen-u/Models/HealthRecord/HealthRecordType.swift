@@ -9,7 +9,6 @@ import Foundation
 struct HealthRecordType: Hashable, Codable, Identifiable {
     var id: Int
     var title: String
-    var amount: Float
     var category: HealthCategory
     var image: String
     var description: String
