@@ -2,7 +2,7 @@
 //  SpecialistModelView.swift
 //  Zen-u
 //
-//  Created by Tanvi Gupta on 20/04/23.
+//  Created by Prakhar Singh on 25/04/23.
 //
 
 import SwiftUI
@@ -38,7 +38,7 @@ struct SpecalistContent: View {
                 Spacer()
                 Image(systemName: "xmark").background(
                     Circle()
-                        .fill(Color(color))
+                        .fill(Color("Primary"))
                         .frame(width: 40, height: 40)
                     
                 ).onTapGesture {
@@ -107,7 +107,7 @@ struct DepartmentLabel: View {
         Button{} label: { Text(labelText)
                 .font(.system(size: 13 , weight: .semibold))
                 .padding(16)
-            .foregroundColor(.black).background(RoundedRectangle(cornerRadius: 50).fill(Color(color)).frame(height: 44)) }
+            .foregroundColor(.black).background(RoundedRectangle(cornerRadius: 50).fill(Color("Primary")).frame(height: 44)) }
         
     }
 }
