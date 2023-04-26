@@ -20,7 +20,10 @@ struct ContentView: View {
                         }
                     }
             } else {
-                OnBoardingScreen()
+//                NavigationView {
+//                OnBoardingScreen()
+                PMain()
+//                }
             }
         }
     }

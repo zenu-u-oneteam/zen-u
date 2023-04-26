@@ -38,6 +38,7 @@ struct PMain: View {
         }
         .accentColor(.black)
         .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

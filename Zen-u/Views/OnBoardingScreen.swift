@@ -11,53 +11,51 @@ struct OnBoardingScreen: View {
     
     var body: some View {
         
-        NavigationView {
+        ZStack(alignment: .trailing) {
             
-            ZStack(alignment: .trailing) {
+            Image("Group 64")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.top, 42.0)
             
-                Image("Group 64")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.top, 42.0)
-            
-                VStack(alignment: .center){
-                    Text("zen-u")
-                        .fontWeight(.heavy)
-                        .font(.system(size: 75).weight(.heavy))
-                        .font(.largeTitle).foregroundColor(.black)
-                        .multilineTextAlignment(.center)
+            VStack(alignment: .center){
+                Text("zen-u")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 75).weight(.heavy))
+                    .font(.largeTitle).foregroundColor(.black)
+                    .multilineTextAlignment(.center)
+                
+                Text("Transforming  Healthcare")
+                    .font(.system(size:18.5))
+                    .font(.title2)
+                    .foregroundColor(.black)
+                    .fontWeight(.light)
+                
+                Spacer()
+                
+                HStack(spacing: 25){
                     
-                    Text("Transforming  Healthcare")
-                        .font(.system(size:18.5))
-                        .font(.title2)
-                        .foregroundColor(.black)
-                        .fontWeight(.light)
-                    
-                    Spacer()
-                    
-                    HStack(spacing: 25){
-                        
-                        Button {
-                            print("Login button")
-                        } label: {
-                            NavigationLink(destination: LoginPage()) {
-                                ActionButton(text: "Log in")
-                            }
+                    Button {
+                        print("Login button")
+                    } label: {
+                        NavigationLink(destination: LoginPage()) {
+                            ActionButton(text: "Log in")
                         }
-                        .hTrailing()
-                        
-                        Button {
-                            print("Sign Up button")
-                        } label: {
-                            NavigationLink(destination: SignupPage()) {
-                                ActionButton(text: "Sign Up")
-                            }
-                        }
-                        .hLeading()
                     }
+                    .hTrailing()
+                    
+                    Button {
+                        print("Sign Up button")
+                    } label: {
+                        NavigationLink(destination: SignupPage()) {
+                            ActionButton(text: "Sign Up")
+                        }
+                    }
+                    .hLeading()
                 }
             }
         }
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

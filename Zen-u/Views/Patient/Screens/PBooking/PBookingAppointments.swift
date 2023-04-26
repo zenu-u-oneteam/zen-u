@@ -90,11 +90,11 @@ struct PBookingAppointments: View {
             .padding(24)
             SpecialistModelView(isShowing: $showModel)
         }
-        .navigationTitle(Text("Booking Consultation"))
+        .navigationTitle("Booking Consultation")
     }
 }
 
-struct BookingAppointments_Previews: PreviewProvider {
+struct PBookingAppointments_Previews: PreviewProvider {
     static var previews: some View {
         PBookingAppointments()
     }
