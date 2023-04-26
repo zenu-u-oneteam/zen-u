@@ -7,9 +7,26 @@
 
 import SwiftUI
 
+struct EducationTopics: Identifiable{
+    let id = UUID()
+    var educationTitle: String
+    var educationContent: String
+    var educzationImage: String
+}
+
 struct PHome: View {
+    let items: [EducationTopics] = [
+        EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "ayurveda is the oldest blah blah bddbvyufvbiuvbfvbuuvbvubvvburvb vuinufbvduy usbvuysbivbu shujbvusvbisd subivu", educzationImage: "ayurveda"),
+        EducationTopics(educationTitle: "First aid during accidents", educationContent: "Drive slowly, stay alert, you won't need first-aid", educzationImage: "firstaid"),
+        EducationTopics(educationTitle: "Better the Immunity, Lesser the Diseases ", educationContent: "Immunity is the key to success ", educzationImage: "immunity"),
+        EducationTopics(educationTitle: "Daily Tips to Improve Heart's Health ", educationContent: "A daily morning empty stomach cardio serve as the best way to keep your heart healthy.", educzationImage: "heart")
+        
+        
+    ]
+    @State private var selectedItem: EducationTopics?
+    
     var body: some View {
-        VStack {
+        VStack{
             VStack(alignment: .leading) {
                 HStack(spacing:40){
                     Button{
@@ -106,18 +123,83 @@ struct PHome: View {
                 .cornerRadius(50))
             .ignoresSafeArea()
             
-            VStack(alignment: .leading,spacing: 20) {
-                Text("Upcoming Appointments")
-                    .font(.system(size: 17,weight: .semibold))
+            ScrollView{
+                VStack(alignment: .leading,spacing: 20) {
+                    Text("Upcoming Appointments")
+                        .font(.body.weight(.semibold))
+                    
+                    AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel", highlited: true)
+                    
+                    AppointmentCard(name: "PSV23 (Pneumo)", tags: ["Vaccination"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
+                }
+                .padding(.init(top: 0, leading: 24, bottom: 24, trailing: 24))
                 
-                AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel", highlited: true)
+                Spacer()
                 
-                AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
+                VStack(alignment: .leading,spacing: 20) {
+                    Text("Patient Education")
+                        .font(.body.weight(.semibold))
+                    ScrollView(.horizontal,showsIndicators: false){
+                        HStack(spacing: 20) {
+                            ForEach(items) { item in
+                                Rectangle()
+                                    .foregroundColor(Color("Secondary"))
+                                    .frame(width: 200, height: 100)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        ZStack(alignment: .topLeading) {
+                                            Image(item.educzationImage)
+                                                .resizable()
+                                                .frame(width: 200, height: 100)
+                                                .cornerRadius(20)
+                                            
+                                            Text(item.educationTitle)
+                                                .foregroundColor(.black)
+                                                .background(.thinMaterial)
+                                                .foregroundStyle(.secondary)
+                                                .font(.headline .weight(.semibold))
+                                            
+                                            Spacer()
+                                        }
+                                    )
+                                    .onTapGesture {
+                                        self.selectedItem = item
+                                    }
+                            }
+                        }
+                    }
+                    .sheet(item: $selectedItem) { item in
+                        VStack {
+                            Image(item.educzationImage)
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                                .shadow(radius: 10)
+                            
+                            ZStack() {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color("Secondary"))
+                                
+                                VStack{
+                                    
+                                    
+                                    Text(item.educationTitle)
+                                        .font(.headline)
+                                        .padding()
+                                    
+                                    Text(item.educationContent)
+                                        .font(.body)
+                                        .padding()
+                                    Spacer()
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                }.hLeading()
+                    .padding(.init(top: 0, leading: 24, bottom: 0, trailing: 24))
+                
             }
-            .padding(.init(top: 0, leading: 24, bottom: 24, trailing: 24))
-            
-            Spacer()
-            
         }
     }
 }
@@ -127,6 +209,7 @@ struct PatientHomeScreens_Previews: PreviewProvider {
         PHome()
     }
 }
+
 
 struct AppTypeTag: View {
     @State var labetText : String
