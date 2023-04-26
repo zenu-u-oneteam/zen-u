@@ -27,12 +27,16 @@ struct PPayment: View {
                     Button {
                         print(" Return to Home button")
                     }label: {
-                        TabButton(text: "Return to Home")
+                        NavigationLink(destination: PMain()) {
+                            TabButton(text: "Return to Home")
+                        }
                     }
                     Button {
                         print("View Upcoming Appointments button")
                     }label: {
-                        TabButton(text: "View Upcoming Appointments", selected: false)
+                        NavigationLink(destination: PAppointment()) {
+                            TabButton(text: "View Upcoming Appointments", selected: false)
+                        }
                     }
                 }
                 

@@ -64,15 +64,17 @@ struct PHome: View {
                     Button {
                         
                     } label: {
-                        Text("Consult")
-                            .fontWeight(.semibold)
-                            .foregroundColor(Color("Heading"))
-                            .frame(width: 99,height: 50)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(.white)
-                            )
-                            .font(.callout.weight(.semibold))
+                        NavigationLink(destination: PBookingAppointments()) {
+                            Text("Consult")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 99,height: 50)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .fill(.white)
+                                )
+                                .font(.callout.weight(.semibold))
+                        }
                     }
                     Button {
                         

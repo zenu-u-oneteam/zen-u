@@ -18,72 +18,69 @@ struct PScheduleSettings: View {
     }
     
     var body: some View{
-        NavigationView {
-            ScrollView(.vertical,showsIndicators: false) {
-                LazyVStack(spacing: 30, pinnedViews: [.sectionHeaders]) {
+        ScrollView(.vertical,showsIndicators: false) {
+            LazyVStack(spacing: 30, pinnedViews: [.sectionHeaders]) {
+                
+                Section{
                     
-                    Section{
+                    ScrollView(.horizontal, showsIndicators: false) {
                         
-                        ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
                             
-                            HStack(spacing: 12) {
+                            ForEach(appointmentViewModel.currentWeek, id:  \.self){day in
                                 
-                                ForEach(appointmentViewModel.currentWeek, id:  \.self){day in
+                                VStack(spacing: 10) {
                                     
-                                    VStack(spacing: 10) {
-                                        
-                                        Text(appointmentViewModel.extractDate(date: day, format: "dd"))
-                                            .font(.system(size: 15))
-                                            .fontWeight(.semibold)
-                                        
-                                        Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
-                                            .font(.system(size: 14))
-                                        
-                                    }
+                                    Text(appointmentViewModel.extractDate(date: day, format: "dd"))
+                                        .font(.system(size: 15))
+                                        .fontWeight(.semibold)
                                     
-                                    .foregroundStyle(appointmentViewModel.isToday(date: day) ? .primary : .secondary)
-                                    .foregroundColor(appointmentViewModel.isToday(date: day) ? .white : .black)
-                                    .frame(width: 60, height: 80)
-                                    .background(
-                                        ZStack {
-                                            if appointmentViewModel.isToday(date: day){
-                                                Rectangle()
-                                                    .fill(.blue)
-                                                    .cornerRadius(20)
-                                                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
-                                                
-                                            } else {
-                                                Rectangle()
-                                                    .fill((Color("Secondary")))
-                                                    .cornerRadius(20)
-                                                
-                                            }
-                                        }
-                                    )
-                                    .contentShape(Capsule())
-                                    .onTapGesture {
-                                        appointmentViewModel.currentDay = day
-                                    }
+                                    Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
+                                        .font(.system(size: 14))
                                     
                                 }
+                                
+                                .foregroundStyle(appointmentViewModel.isToday(date: day) ? .primary : .secondary)
+                                .foregroundColor(appointmentViewModel.isToday(date: day) ? .white : .black)
+                                .frame(width: 60, height: 80)
+                                .background(
+                                    ZStack {
+                                        if appointmentViewModel.isToday(date: day){
+                                            Rectangle()
+                                                .fill(.blue)
+                                                .cornerRadius(20)
+                                                .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                            
+                                        } else {
+                                            Rectangle()
+                                                .fill((Color("Secondary")))
+                                                .cornerRadius(20)
+                                            
+                                        }
+                                    }
+                                )
+                                .contentShape(Capsule())
+                                .onTapGesture {
+                                    appointmentViewModel.currentDay = day
+                                }
+                                
                             }
                         }
-                        Divider()
-                        TaskView()
-                        
-                    } header: {
-                        headerView()
                     }
+                    Divider()
+                    TaskView()
+                    
+                } header: {
+                    headerView()
                 }
             }
-            .ignoresSafeArea(.container, edges: .trailing)
-            .padding(20)
-            .navigationTitle("Booking Consultation")
-            
         }
+        .ignoresSafeArea(.container, edges: .trailing)
+        .padding(20)
+        .navigationBarTitle("Booking Consultation", displayMode: .large)
     }
     
-   
+    
     
     func TaskView() -> some View {
         
@@ -94,23 +91,25 @@ struct PScheduleSettings: View {
             
             VStack {
                 ForEach(availableSlots.chunked(into: 3), id: \.self) { row in
-                        HStack(spacing: 15) {
-                            ForEach(row, id: \.self) { slot in
-                                
-                                Button (action: {checkActive(slot)}){
-                                    PSpecialButton(buttonText: "\(slot)", buttonColor: Color.accentColor, active: (selectedSlot == slot))}
-                                
-                            }
+                    HStack(spacing: 15) {
+                        ForEach(row, id: \.self) { slot in
+                            
+                            Button (action: {checkActive(slot)}){
+                                PSpecialButton(buttonText: "\(slot)", buttonColor: Color.accentColor, active: (selectedSlot == slot))}
                             
                         }
+                        
                     }
                 }
+            }
             
             Spacer()
             Button(action: {
                 
             }, label: {
-                TabButton(text: "Continue")
+                NavigationLink(destination: PBookingSummary()){
+                    TabButton(text: "Continue")
+                }
             })
         }
         .hCenter()
