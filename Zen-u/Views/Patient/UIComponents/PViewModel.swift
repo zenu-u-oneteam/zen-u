@@ -10,14 +10,30 @@ import SwiftUI
 
 class ViewModel: ObservableObject{
     
+    @Published var currentMonth: [Date] = []
     @Published var currentWeek: [Date] = []
-    
     @Published var currentDay: Date = Date()
     
     init(){
+        fetchCurrentMonth()
         fetchCurrentWeek()
     }
     
+    func fetchCurrentMonth(){
+        
+        let today = Date()
+        let calendar = Calendar.current
+        
+        let interval = calendar.dateInterval(of: .month, for: today)!
+        
+        let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
+        
+        for day in 0..<days {
+            if let weekday = calendar.date(byAdding: .day, value: day, to: interval.start) {
+                currentMonth.append(weekday)
+            }
+        }
+    }
     
     func fetchCurrentWeek(){
         

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct DSchedule: View {
+    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+
     @State var selectedMonth: Int = 0
-    @State var selectedDate: Int = 1
+    @State var selectedDate: Date = ViewModel().currentDay
     @State var filterMode: String = "none"
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
@@ -39,22 +41,23 @@ struct DSchedule: View {
                     Spacer()
                     ScrollView(.vertical) {
                         LazyVStack(alignment: .leading, spacing: 10) {
-                            ForEach(1...days[selectedMonth] , id: \.self) {
-                                index in
+                            ForEach(appointmentViewModel.currentMonth, id: \.self){ day in
                                 Button {
-                                    self.selectedDate = index
+                                    print(day)
+                                    print(selectedDate)
                                 } label: {
                                     VStack {
-                                        Text(String(index))
+                                        Text(appointmentViewModel.extractDate(date: day, format: "dd"))
                                             .font(.title2.bold())
-                                        Text("Thu")
+                                        Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
                                             .font(.callout.weight(.light))
                                     }
-                                    .foregroundColor(self.selectedDate == index ? Color.white : Color("Subheadings"))
+                                    .foregroundColor(Color("Subheadings"))
+                                    .foregroundColor(selectedDate == day ? Color.white : Color("Subheadings"))
                                     .frame(width: 50 ,height: 70)
-                                    .background(self.selectedDate == index ? Color("Accent") : .white)
-                                    .cornerRadius(12)
                                 }
+//                                .background(self.selectedDate == index ? Color("Accent") : .white)
+                                .cornerRadius(12)
                             }
                         }
                         .frame(width: 60)
