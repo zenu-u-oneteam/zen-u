@@ -95,7 +95,7 @@ struct PScheduleSettings: View {
                         ForEach(row, id: \.self) { slot in
                             
                             Button (action: {checkActive(slot)}){
-                                PSpecialButton(buttonText: "\(slot)", buttonColor: Color.accentColor, active: (selectedSlot == slot))}
+                                PSpecialButton(buttonText: "\(slot)", buttonColor: Color("Accent"), active: (selectedSlot == slot))}
                             
                         }
                         

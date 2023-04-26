@@ -20,15 +20,12 @@ struct ContentView: View {
                         }
                     }
             } else {
-//                NavigationView {
-//                OnBoardingScreen()
-                PMain()
-//                }
+                OnBoardingScreen()
             }
         }
     }
 }
-    
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

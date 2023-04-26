@@ -32,8 +32,8 @@ struct PPayment: View {
                 }
                 Button {
                     print("View Upcoming Appointments button")
-                }label: {
-                    NavigationLink(destination: PMain().tag(1)) {
+                } label: {
+                    NavigationLink(destination: PAppointment().tag(1)) {
                         TabButton(text: "View Upcoming Appointments", selected: false)
                     }
                 }

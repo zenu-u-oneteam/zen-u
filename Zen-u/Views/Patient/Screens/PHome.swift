@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PHome: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 VStack(alignment: .leading) {
                     HStack(spacing:40){
@@ -125,6 +125,7 @@ struct PHome: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarTitleDisplayMode(.large)
+            .accentColor(Color("Accent"))
         }
     }
 }
