@@ -7,27 +7,16 @@
 
 import SwiftUI
 
-
 struct PBookingSummary: View {
     var body: some View {
         VStack{
-            HeaderView()
             Spacer(minLength: 60)
             BookingInfoView()
             Spacer(minLength: 100)
             PaymentView()
         }
+        .navigationTitle("Summary")
         .padding(24)
-    }
-}
-
-
-func HeaderView() -> some View {
-    HStack(spacing: 10) {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Summary").font(.largeTitle.bold())
-        }
-        .hLeading()
     }
 }
 
@@ -122,7 +111,9 @@ func PaymentView() -> some View {
         Button {
             print("Pay Now")
         } label: {
-            TabButton(text: "Pay Now")
+            NavigationLink(destination: PPayment()) {
+                TabButton(text: "Pay Now")
+            }
         }
     }
 }

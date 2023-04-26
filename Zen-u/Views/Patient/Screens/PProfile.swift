@@ -21,9 +21,6 @@ struct PProfile: View {
                 HealthKitView().hLeading().padding()
                 HealthKitView().hLeading().padding()
             }
-            
-            
-            
         }
         .padding(2)
 
