@@ -9,4 +9,13 @@ import Foundation
 
 struct Doctor: Hashable, Codable, Identifiable {
     var id: Int
+    var age: Int
+    var gender: Gender
+    
+    enum Gender: String, CaseIterable, Codable {
+        case male = "Male"
+        case female = "Female"
+        case others = "Others"
+    }
+    
 }
