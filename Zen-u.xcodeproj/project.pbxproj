@@ -251,9 +251,9 @@
 				3874752229ED605E00CCA151 /* Doctor */,
 				3874752129ED605100CCA151 /* Patient */,
 				A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */,
+				BE773F2629F2ACB200C3C6CF /* LoginPage.swift */,
 				BE8567D929F12EEC00B7206B /* SplashScreen.swift */,
 				BEF1315629F13A7E008A9432 /* SignupPage.swift */,
-				BE773F2629F2ACB200C3C6CF /* LoginPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
