@@ -16,10 +16,10 @@ struct EducationTopics: Identifiable{
 
 struct PHome: View {
     let items: [EducationTopics] = [
-        EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "ayurveda is the oldest blah blah bddbvyufvbiuvbfvbuuvbvubvvburvb vuinufbvduy usbvuysbivbu shujbvusvbisd subivu", educzationImage: "ayurveda"),
-        EducationTopics(educationTitle: "First aid during accidents", educationContent: "Drive slowly, stay alert, you won't need first-aid", educzationImage: "firstaid"),
-        EducationTopics(educationTitle: "Better the Immunity, Lesser the Diseases ", educationContent: "Immunity is the key to success ", educzationImage: "immunity"),
-        EducationTopics(educationTitle: "Daily Tips to Improve Heart's Health ", educationContent: "A daily morning empty stomach cardio serve as the best way to keep your heart healthy.", educzationImage: "heart")
+        EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "Ayurveda is an ancient system of medicine that originated in India more than 5000 years ago. The word Ayurveda is derived from Sanskrit, and it means knowledge of life or science of life. It is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit.", educzationImage: "ayurveda"),
+        EducationTopics(educationTitle: "First aid during accidents", educationContent: "First aid is the initial care given to a person who has been injured or has fallen ill suddenly. It aims to preserve life, prevent the condition from worsening, and promote recovery. First aid should be administered as soon as possible after an accident or injury occurs, and before medical professionals arrive.i", educzationImage: "firstaid"),
+        EducationTopics(educationTitle: "Improving Immunity", educationContent: "It is well known that a healthy immune system is vital for overall health and well-being. The immune system plays a critical role in protecting the body against infections, diseases, and other harmful substances. A strong immune system is better able to defend the body against infections and diseases, and also aids in faster recovery from illness. In contrast, a weakened immune system can leave the body vulnerable to infections and diseases, and can prolong the recovery process.", educzationImage: "immunity"),
+        EducationTopics(educationTitle: "Daily Tips to Improve Heart's Health ", educationContent: "A daily morning empty stomach cardio serve as the best way to keep your heart healthy.Heart health is crucial to overall well-being as the heart plays a critical role in maintaining the proper functioning of the body. ", educzationImage: "heart")
         
         
     ]
@@ -147,23 +147,25 @@ struct PHome: View {
                             ForEach(items) { item in
                                 Rectangle()
                                     .foregroundColor(Color("Secondary"))
-                                    .frame(width: 200, height: 100)
+                                    .frame(width: 165, height: 100)
                                     .cornerRadius(20)
                                     .overlay(
                                         ZStack(alignment: .topLeading) {
                                             Image(item.educzationImage)
                                                 .resizable()
-                                                .frame(width: 200, height: 100)
+                                                .frame(width: 165, height: 100)
                                                 .cornerRadius(20)
-                                            
-                                            Text(item.educationTitle)
+                                            Text(item.educationTitle).padding(4)
+                                                .frame(width: 165,height: 55)
                                                 .foregroundColor(.black)
-                                                .background(.thinMaterial)
-                                                .foregroundStyle(.secondary)
+                                               .background(.thinMaterial)
+                                              // .foregroundStyle(.secondary)
                                                 .font(.headline .weight(.semibold))
+                                                .opacity(0.6)
+                                                
                                             
                                             Spacer()
-                                        }
+                                        }.cornerRadius(20)
                                     )
                                     .onTapGesture {
                                         self.selectedItem = item
