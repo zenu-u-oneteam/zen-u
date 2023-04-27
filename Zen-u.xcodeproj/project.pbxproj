@@ -56,6 +56,8 @@
 		A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */; };
 		A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */; };
 		A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854729F289670063A223 /* PAppointmentDetailsModel.swift */; };
+		A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9847CE829FA519000292A26 /* PLabTestRecommended.swift */; };
+		A9847CEB29FA741200292A26 /* PLabTestVitalOrgan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9847CEA29FA741200292A26 /* PLabTestVitalOrgan.swift */; };
 		A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */; };
 		A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */; };
 		A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F484FF29F25938009DA356 /* PSpecialButton.swift */; };
@@ -116,6 +118,8 @@
 		A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsUpcoming.swift; sourceTree = "<group>"; };
 		A975854729F289670063A223 /* PAppointmentDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsModel.swift; sourceTree = "<group>"; };
+		A9847CE829FA519000292A26 /* PLabTestRecommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestRecommended.swift; sourceTree = "<group>"; };
+		A9847CEA29FA741200292A26 /* PLabTestVitalOrgan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestVitalOrgan.swift; sourceTree = "<group>"; };
 		A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestBooking.swift; sourceTree = "<group>"; };
 		A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestcard.swift; sourceTree = "<group>"; };
 		A9F484FF29F25938009DA356 /* PSpecialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSpecialButton.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				3874753729ED63AA00CCA151 /* PScheduleSettings.swift */,
 				3874753A29ED662E00CCA151 /* PBookingSummary.swift */,
 				A73E214E29F0223800EDB68D /* PPayment.swift */,
+				A9847CE829FA519000292A26 /* PLabTestRecommended.swift */,
+				A9847CEA29FA741200292A26 /* PLabTestVitalOrgan.swift */,
 			);
 			path = PBooking;
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			files = (
 				2340535229F24E43003A0063 /* Doctor.swift in Sources */,
 				BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */,
+				A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */,
 				A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */,
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
@@ -493,6 +500,7 @@
 				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
 				BE94A55729F932E500E4FBE5 /* LabTest.swift in Sources */,
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
+				A9847CEB29FA741200292A26 /* PLabTestVitalOrgan.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
