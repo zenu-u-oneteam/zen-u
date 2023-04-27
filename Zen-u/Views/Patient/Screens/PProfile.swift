@@ -12,10 +12,11 @@ struct PProfile: View {
     @State var showMenu = false
     @State private var selectedOption = "Option 1"
     @State var userType: UserType = .none
+   
     
     var body: some View {
         VStack{
-            HeaderView()
+            
             
             ProfileHeaderView()
             SubHeadingView().padding(.bottom, 17)

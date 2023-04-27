@@ -6,23 +6,54 @@
 //
 
 import SwiftUI
+import Firebase
+
 
 var user = User(id: "2023007", name: "Jonathan Cole", email: "jonathan@gmail.com", userType: .patient, profileImage: "dummy profile image", mobileNumber: "+91 8017217468")
-var patient = Patient(id: 2023007, age: 32, gender: .male , bloodGroup: "AB+", height: 160, weight: 80)
-
+var patient = Patient(id: 2023007, age: 32, gender: .male , bloodGroup: .ABPositive , height: 160, weight: 80)
 struct ProfileHeaderView: View {
     
-    var image = Image(user.profileImage)
-    var name = user.name
-    var age = patient.age
-    var gender = patient.gender
-    var bloodGroup = patient.bloodGroup
-    var height = patient.height
-    var weight = patient.weight
+    @EnvironmentObject var appState: AppState
+    @State private var name = user.name
+    @State private var age = String(patient.age)
+    @State private var isEditing = false
+    
+    @State private var image = Image(user.profileImage)
+    @State private var gender = patient.gender
+    @State private var bloodGroup = patient.bloodGroup.rawValue.codingKey.stringValue
+    @State private var height = String(patient.height)
+    @State private var weight = String(patient.weight)
+    
+    @State var showMenu = false
+    @State private var selectedOption = "Option 1"
+    @State var userType: UserType = .none
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 32) {
+            
+            Menu {
+                Button("Edit") {
+                    self.selectedOption = "Option 1"
+                }
+                Button("Settings") {
+                    self.selectedOption = "Option 2"
+                }
+                Button("Log Out") {
+                    self.selectedOption = "Option 3"
+                    print("LOGOUT!!!")
+                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    appState.rootViewId = UUID()
+                }
+            }
+        label: {
+            Image(systemName: "line.horizontal.3")
+                .resizable()
+                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .frame(width: 15, height: 13)
+                .padding(.all, 20)
+        }.hTrailing()
+        .padding()
             
             HStack(spacing: 16) {
                 image
@@ -33,30 +64,50 @@ struct ProfileHeaderView: View {
                 VStack(alignment: .leading, spacing: 18) {
                     VStack(alignment: .leading, spacing: 5) {
                         
-                        Text(name)
-                            .font(.callout.bold())
+                        TextField("Name", text: $name)
+                            .disabled(!isEditing)
                         
+                        
+                            .font(.callout.bold())
+                            .padding(.bottom, 5)
                         VStack(alignment: .leading, spacing: 3) {
-                            Text(String(age) + " years old")
-                            switch gender {
-                            case .male:
-                                Text("Male")
-                            case .female:
-                                Text("Female")
-                            case .others:
-                                Text("Other")
+                            HStack{
+                                Text("Age:").padding(.leading, 3).fontWeight(.semibold)
+
+                                TextField("Age (in years)", text: $age) .keyboardType(.numberPad)
                                 
+                                    .padding(.leading, 3)
                             }
+                                
+                            HStack{
+                                Text("Gender:").padding(.leading, 3).fontWeight(.semibold)
+                                switch gender {
+                                case .male:
+                                    Text("Male")
+                                case .female:
+                                    Text("Female")
+                                case .others:
+                                    Text("Other")
+                                    
+                                }
+                            }
+                            HStack{
+                                Text("Bloodgroup:").padding(.leading, 3).fontWeight(.semibold)
+                                TextField("Blood", text: $bloodGroup)
+                                    .padding(.leading, 3)
+                            }
+                                
+                               
+                                 
+//                                .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+//                                .cornerRadius(30)
                         }
                     }
                     
                     HStack(spacing: 10) {
-                        Text(bloodGroup)
-                            .padding(10)
-                            .background(Color(red: 1.0, green: 1.0, blue: 1.0))
-                            .cornerRadius(30)
                         
-                        Text(String(height))
+                        
+                        TextField("Height (in cms)", text: $height)
                             .padding(10)
                             .background(Color(red: 1.0, green: 1.0, blue: 1.0))
                             .cornerRadius(30)

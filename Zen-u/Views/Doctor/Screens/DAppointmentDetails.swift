@@ -14,7 +14,7 @@ var numberOfCapsules: [Int] = [1, 2, 3, 4, 5]
 struct DAppointmentDetails: View {
     
     var user = User(id: "2023007", name: "Jonathan Cole", email: "jonathan@gmail.com", userType: .patient, profileImage: "dummy profile image", mobileNumber: "+91 8017217468")
-    var patient = Patient(id: 2023007, age: 32, gender: .male , bloodGroup: "AB+", height: 160, weight: 80)
+    var patient = Patient(id: 2023007, age: 32, gender: .male , bloodGroup: .BNegative, height: 160, weight: 80)
     
     @State var statusIndex: Int = 0
     var statusSelections: [String] = ["Active Medication", "Records"]
@@ -73,7 +73,7 @@ struct DAppointmentDetails: View {
                             }
                             
                             HStack(spacing: 10) {
-                                Text(patient.bloodGroup)
+                                Text(patient.bloodGroup.rawValue.codingKey.stringValue)
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
                                     .cornerRadius(30)

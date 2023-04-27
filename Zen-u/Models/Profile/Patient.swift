@@ -11,7 +11,7 @@ struct Patient: Hashable, Codable, Identifiable {
     var id: Int
     var age: Int
     var gender: Gender
-    var bloodGroup: String
+    var bloodGroup: BloodGroup
     var height: Float
     var weight: Float
     
@@ -20,6 +20,7 @@ struct Patient: Hashable, Codable, Identifiable {
         case female = "Female"
         case others = "Others"
     }
+}
     
     enum BloodGroup: String, CaseIterable, Codable {
         case APositive = "A+"
@@ -31,4 +32,4 @@ struct Patient: Hashable, Codable, Identifiable {
         case OPositive = "O+"
         case ONegative = "O-"
     }
-}
+

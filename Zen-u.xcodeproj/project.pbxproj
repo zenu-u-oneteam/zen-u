@@ -10,6 +10,7 @@
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
+		0691A74229FAA0380005357B /* TestProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691A74129FAA0380005357B /* TestProfile.swift */; };
 		069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */; };
 		069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */; };
 		06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */; };
@@ -77,6 +78,7 @@
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
+		0691A74129FAA0380005357B /* TestProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProfile.swift; sourceTree = "<group>"; };
 		069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecordsUploadView.swift; sourceTree = "<group>"; };
 		069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerCustom.swift; sourceTree = "<group>"; };
 		06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				061DE92D29F96C8C00AB896A /* PHealthRecords.swift */,
 				069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */,
 				A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */,
+				0691A74129FAA0380005357B /* TestProfile.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
 				A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */,
+				0691A74229FAA0380005357B /* TestProfile.swift in Sources */,
 				06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,
 				069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */,
