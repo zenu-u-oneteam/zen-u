@@ -7,9 +7,10 @@
 
 import SwiftUI
 struct PProfile: View {
+    @EnvironmentObject var appState: AppState
+
     @State var showMenu = false
     @State private var selectedOption = "Option 1"
-    @State var logout = false
     @State var userType: UserType = .none
     
     var body: some View {
@@ -49,7 +50,7 @@ struct PProfile: View {
                     self.selectedOption = "Option 3"
                     print("LOGOUT!!!")
                     UserDefaults.standard.removeObject(forKey: "currentUser")
-                    logout = true
+                    appState.rootViewId = UUID()
                 }
             }
         label: {
@@ -61,9 +62,6 @@ struct PProfile: View {
         }
             
         }
-        .navigationDestination(isPresented: $logout, destination: {
-            ContentView(userType: .none)
-        })
     }
     
     

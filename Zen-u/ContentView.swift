@@ -20,8 +20,11 @@ func getUsetType() -> UserType {
 }
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+    
     @State private var isShowingSplash = true
     @State var userType: UserType = getUsetType()
+    @State var path: NavigationPath = NavigationPath()
     
     var body: some View {
         ZStack {
@@ -33,9 +36,13 @@ struct ContentView: View {
                         }
                     }
             } else {
-                NavigationStack {
+                NavigationStack(path: $path) {
                     if userType == .patient {
                         PMain()
+                    } else if userType == .doctor {
+                        DHome()
+                    } else if userType == .admin {
+                        AHome()
                     } else {
                         OnBoardingScreen()
                     }

@@ -22,6 +22,7 @@
 		23408A5729F6EAB500E581ED /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23408A5629F6EAB500E581ED /* FirebaseFirestoreSwift */; };
 		23408A5929F7AA7B00E581ED /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 23408A5829F7AA7B00E581ED /* .gitignore */; };
 		23457E7029F257A500715DD9 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23457E6F29F257A500715DD9 /* Bill.swift */; };
+		236D49D529FA712A00212E97 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D49D429FA712A00212E97 /* AppState.swift */; };
 		2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C67C29F2845300CEA6F6 /* ActionButton.swift */; };
 		2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68229F2933300CEA6F6 /* TabButton.swift */; };
 		2386C68529F2957800CEA6F6 /* ViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68429F2957800CEA6F6 /* ViewButton.swift */; };
@@ -77,6 +78,7 @@
 		23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfig.swift; sourceTree = "<group>"; };
 		23408A5829F7AA7B00E581ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23457E6F29F257A500715DD9 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		236D49D429FA712A00212E97 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2386C67C29F2845300CEA6F6 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2386C68229F2933300CEA6F6 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		2386C68429F2957800CEA6F6 /* ViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewButton.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */,
 				3874751829ED603900CCA151 /* Preview Content */,
 				23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */,
+				236D49D429FA712A00212E97 /* AppState.swift */,
 			);
 			path = "Zen-u";
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
 				23408A5429F6EA6C00E581ED /* FirebaseConfig.swift in Sources */,
+				236D49D529FA712A00212E97 /* AppState.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
 				3054D5F429EE75D7000A8858 /* PMain.swift in Sources */,
 				2340535629F24F09003A0063 /* Department.swift in Sources */,

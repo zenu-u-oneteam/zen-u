@@ -9,7 +9,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginPage: View {
-    
+    @EnvironmentObject var appState: AppState
+
     @State private var email = ""
     @State private var password = ""
     @State var isLoggedIn = false
@@ -43,7 +44,7 @@ struct LoginPage: View {
                                 UserDefaults.standard.set(currentUserData, forKey: "currentUser")
                                 print(currentUser.userType)
                                 userType = currentUser.userType
-                                isLoggedIn = true
+                                appState.rootViewId = UUID()
                             }
                         } else {
                             print("Document does not exist")
@@ -57,7 +58,6 @@ struct LoginPage: View {
     var body: some View {
         ZStack {
             VStack {
-                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "envelope")
@@ -136,6 +136,7 @@ struct LoginPage: View {
                 VStack(spacing: 20) {
                     Button(action: {
                         // Perform Google sign-in action here
+                        appState.rootViewId = UUID()
                     }) {
                         HStack {
                             Image("google")
@@ -178,6 +179,7 @@ struct LoginPage: View {
                     }
                     Button(action: {
                         // Perform Facebook sign-in action here
+//                        popToRootViewController(animated: false)
                     }) {
                         HStack {
                             Image("facebook")
@@ -199,11 +201,7 @@ struct LoginPage: View {
                     }
                 }
                 .padding(.horizontal, 30)
-                
             }
-            .navigationDestination(isPresented: $isLoggedIn, destination: {
-                ContentView(userType: userType)
-            })
             .navigationBarTitle("zen-u", displayMode: .inline)
         }
     }
