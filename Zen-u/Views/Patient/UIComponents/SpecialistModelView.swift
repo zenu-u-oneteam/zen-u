@@ -93,7 +93,6 @@ struct SpecalistContent: View {
     
 }
     
-
     struct SpecialistModelView_Previews: PreviewProvider {
         static var previews: some View {
             //        SpecialistModelView(isShowing: .constant(true))
