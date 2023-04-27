@@ -40,7 +40,7 @@ struct PAppointment: View {
                         }
                     }
                 }
-                .searchable(text: $searchText)
+//                .searchable(text: $searchText)
                 .navigationTitle("Booked Appointments")
                 VStack {
                     if book == true {

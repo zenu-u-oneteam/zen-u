@@ -27,11 +27,11 @@ struct PHealthRecords: View {
                         .frame(width: 346, height: 340)
                         .foregroundColor(Color("Secondary"))
                         .cornerRadius(15)
-                        .hLeading()
+                        .hCenter()
                         .padding(.horizontal,20)
                     
-                    VStack(alignment: .leading, spacing: 16){
-                       
+                    VStack(alignment: .center, spacing: 16){
+                        
                         ForEach(tableHeadings, id: \.self) { item in
                             Button {
                                 
@@ -56,7 +56,7 @@ struct PHealthRecords: View {
                                     
                                     //                                        .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
                                     //                                                }
-
+                                    
                                 }.padding(.leading, 10)//tableviewcell
                                 
                             }   

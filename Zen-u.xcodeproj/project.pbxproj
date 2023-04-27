@@ -27,6 +27,8 @@
 		23408A5729F6EAB500E581ED /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 23408A5629F6EAB500E581ED /* FirebaseFirestoreSwift */; };
 		23408A5929F7AA7B00E581ED /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 23408A5829F7AA7B00E581ED /* .gitignore */; };
 		23457E7029F257A500715DD9 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23457E6F29F257A500715DD9 /* Bill.swift */; };
+		236D49D529FA712A00212E97 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D49D429FA712A00212E97 /* AppState.swift */; };
+		2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */; };
 		2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C67C29F2845300CEA6F6 /* ActionButton.swift */; };
 		2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68229F2933300CEA6F6 /* TabButton.swift */; };
 		2386C68529F2957800CEA6F6 /* ViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2386C68429F2957800CEA6F6 /* ViewButton.swift */; };
@@ -58,6 +60,7 @@
 		A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */; };
 		A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */; };
 		A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854729F289670063A223 /* PAppointmentDetailsModel.swift */; };
+		A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9847CE829FA519000292A26 /* PLabTestRecommended.swift */; };
 		A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */; };
 		A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */; };
 		A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F484FF29F25938009DA356 /* PSpecialButton.swift */; };
@@ -87,6 +90,8 @@
 		23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfig.swift; sourceTree = "<group>"; };
 		23408A5829F7AA7B00E581ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23457E6F29F257A500715DD9 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		236D49D429FA712A00212E97 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DScheduleTaskCard.swift; sourceTree = "<group>"; };
 		2386C67C29F2845300CEA6F6 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2386C68229F2933300CEA6F6 /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		2386C68429F2957800CEA6F6 /* ViewButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewButton.swift; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsUpcoming.swift; sourceTree = "<group>"; };
 		A975854729F289670063A223 /* PAppointmentDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsModel.swift; sourceTree = "<group>"; };
+		A9847CE829FA519000292A26 /* PLabTestRecommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestRecommended.swift; sourceTree = "<group>"; };
 		A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestBooking.swift; sourceTree = "<group>"; };
 		A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestcard.swift; sourceTree = "<group>"; };
 		A9F484FF29F25938009DA356 /* PSpecialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSpecialButton.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 				3874753729ED63AA00CCA151 /* PScheduleSettings.swift */,
 				3874753A29ED662E00CCA151 /* PBookingSummary.swift */,
 				A73E214E29F0223800EDB68D /* PPayment.swift */,
+				A9847CE829FA519000292A26 /* PLabTestRecommended.swift */,
 			);
 			path = PBooking;
 			sourceTree = "<group>";
@@ -238,6 +245,7 @@
 				23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */,
 				3874751829ED603900CCA151 /* Preview Content */,
 				23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */,
+				236D49D429FA712A00212E97 /* AppState.swift */,
 			);
 			path = "Zen-u";
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				3874753E29ED669100CCA151 /* example.swift */,
+				2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -471,10 +480,12 @@
 			files = (
 				2340535229F24E43003A0063 /* Doctor.swift in Sources */,
 				BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */,
+				A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */,
 				A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */,
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
+				2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */,
 				A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */,
 				A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */,
 				BE773F2729F2ACB200C3C6CF /* LoginPage.swift in Sources */,
@@ -518,6 +529,7 @@
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
 				23408A5429F6EA6C00E581ED /* FirebaseConfig.swift in Sources */,
+				236D49D529FA712A00212E97 /* AppState.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
 				3054D5F429EE75D7000A8858 /* PMain.swift in Sources */,
 				2340535629F24F09003A0063 /* Department.swift in Sources */,
@@ -658,6 +670,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,6 +704,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,9 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
+func getUsetType() -> UserType {
+    if let currentUserData = UserDefaults.standard.data(forKey: "currentUser") {
+        let decoder = JSONDecoder()
+        if let currentUser1 = try? decoder.decode(User.self, from: currentUserData) {
+            print(currentUser1)
+            return currentUser1.userType
+        }
+    }
+    return .none
+}
 
 struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+    
     @State private var isShowingSplash = true
+    @State var userType: UserType = getUsetType()
     
     var body: some View {
         ZStack {
@@ -20,9 +35,18 @@ struct ContentView: View {
                         }
                     }
             } else {
-                OnBoardingScreen()
+                if userType == .patient {
+                    PMain()
+                } else if userType == .doctor {
+                    DHome()
+                } else if userType == .admin {
+                    AHome()
+                } else {
+                    OnBoardingScreen()
+                }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -31,3 +55,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
