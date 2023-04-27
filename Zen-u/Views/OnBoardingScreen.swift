@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct OnBoardingScreen: View {
-    
     var body: some View {
-        
         NavigationStack {
             ZStack(alignment: .trailing) {
                 
@@ -57,6 +55,7 @@ struct OnBoardingScreen: View {
                 }
             }
             .navigationBarTitleDisplayMode(.large)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }

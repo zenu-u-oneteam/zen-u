@@ -8,16 +8,18 @@
 import Foundation
 
 struct User: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var name: String
     var email: String
     var userType: UserType
     var profileImage: String
     var mobileNumber: String
 
-    enum UserType: String, CaseIterable, Codable {
-        case patient = "Patient"
-        case doctor = "Doctor"
-        case admin = "Admin"
-    }
+}
+
+enum UserType: String, CaseIterable, Codable {
+    case patient = "Patient"
+    case doctor = "Doctor"
+    case admin = "Admin"
+    case none = "None"
 }
