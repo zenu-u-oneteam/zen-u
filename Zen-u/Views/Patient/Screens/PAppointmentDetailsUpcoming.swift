@@ -111,7 +111,7 @@ func PAppointmentDetailsCardView() -> some View{
                     .font(.body.weight(.semibold))
                     .foregroundColor(.white)
                     .frame(width: 165 , height: 50)
-                    .background(Color.accentColor)
+                    .background(Color("Accent"))
                     .cornerRadius(10)
             })
         }
