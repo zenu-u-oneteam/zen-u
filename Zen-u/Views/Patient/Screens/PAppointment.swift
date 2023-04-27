@@ -18,7 +18,7 @@ struct PAppointment: View {
     @State private var book: Bool = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading, spacing: 20) {
                     SegmentedPicker($statusIndex, selections: statusSelections)
@@ -48,7 +48,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -56,7 +56,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -64,7 +64,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -81,7 +81,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -91,6 +91,7 @@ struct PAppointment: View {
             }
             .padding()
         }
+        .accentColor(Color("Accent"))
     }
 }
 
