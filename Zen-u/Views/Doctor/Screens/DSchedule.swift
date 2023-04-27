@@ -103,7 +103,7 @@ struct DSchedule: View {
                     .frame(width: 300)
                     Spacer()
                 }
-                HStack {
+                HStack(alignment: .center, spacing: 10) {
                     FilterButton(text: "OPD", selected: $filterMode)
                     FilterButton(text: "Operation", selected: $filterMode)
                     FilterButton(text: "Meeting", selected: $filterMode)

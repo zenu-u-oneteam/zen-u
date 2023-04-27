@@ -76,7 +76,7 @@ class ViewModel: ObservableObject{
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale
-        let week = calendar.dateInterval(of: .weekOfMonth, for: today)
+    let week = calendar.dateInterval(of: .weekOfMonth, for: today)
         
         guard let firstWeekDay = week?.start else{
             return

@@ -11,19 +11,18 @@ struct ContentView: View {
     @State private var isShowingSplash = true
     
     var body: some View {
-//        ZStack {
-//            if isShowingSplash {
-//                SplashScreen()
-//                    .onAppear {
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                            isShowingSplash = false
-//                        }
-//                    }
-//            } else {
-//                OnBoardingScreen()
-//            }
-//        }
-        DSchedule()
+        ZStack {
+            if isShowingSplash {
+                SplashScreen()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            isShowingSplash = false
+                        }
+                    }
+            } else {
+                OnBoardingScreen()
+            }
+        }
     }
 }
     
