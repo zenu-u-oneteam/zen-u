@@ -11,14 +11,30 @@ import UniformTypeIdentifiers
 struct PHealthRecordsUploadView: View {
     var healthrecord: [HealthRecord]
     var selections = ["Pending", "Past"]
+    
     @State var statusIndex: Int = 1
     @State private var searchText = ""
     
-    @State private var ButtonClicked = "Prescriptions"
+    
+    
+    
+    @State private var ButtonClicked = "none"
+    let dateComponents = DateComponents(year: 2023, month: 4, day: 28, hour: 15, minute: 30)
+    func formattedDateComponents(dateComponents: DateComponents) -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+            let calendar = Calendar.current
+            let date = calendar.date(from: dateComponents) ?? Date()
+            return dateFormatter.string(from: date)
+        }
+
+    
+    
     var body: some View {
         
             
             VStack(alignment: .leading){
+                
                 
                 SegmentedPicker($statusIndex, selections: selections).padding()
                     .padding(.bottom, 20)
@@ -65,7 +81,7 @@ struct PHealthRecordsUploadView: View {
                                                 .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                                                 .padding(1)
                                                  
-                                            Text(Date.now, format: .dateTime.day().month().year()).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
+                                            Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
                                             
                                         }
                                         
@@ -89,13 +105,8 @@ struct PHealthRecordsUploadView: View {
                         }.padding(.top, 12)
                     }//tableView
                 }//Scrollview end
-                Button{
-                    
-                } label: {
-                    TabButton(text: "Upload New").padding()
-                    
-                }
-                
+                DocumentPickerCustom().padding()
+                    .padding(.bottom, 20)
                 
             }//initial Vstack
             
@@ -112,11 +123,11 @@ struct PHealthRecordsUploadView_Previews: PreviewProvider {
         let components = DateComponents(year: 2023, month: 4, day: 27, hour: 12, minute: 0, second: 0)
         let date = calendar.date(from: components)
         var healthRecords : [HealthRecord] = [
-            HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: components , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: components , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: components , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: components , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: components , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
+            HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+            HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+            HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+            HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+            HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
         ]
         
         PHealthRecordsUploadView(healthrecord: healthRecords)

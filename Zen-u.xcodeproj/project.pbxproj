@@ -11,6 +11,7 @@
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
 		069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */; };
+		069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */; };
 		06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */; };
 		06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E6429F52D7D008DF13F /* HealthKitView.swift */; };
 		06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E6629F55DFF008DF13F /* PProfile.swift */; };
@@ -74,6 +75,7 @@
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
 		069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecordsUploadView.swift; sourceTree = "<group>"; };
+		069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerCustom.swift; sourceTree = "<group>"; };
 		06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		06A06E6429F52D7D008DF13F /* HealthKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitView.swift; sourceTree = "<group>"; };
 		06A06E6629F55DFF008DF13F /* PProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PProfile.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				2386C67C29F2845300CEA6F6 /* ActionButton.swift */,
 				2386C68229F2933300CEA6F6 /* TabButton.swift */,
 				2386C68429F2957800CEA6F6 /* ViewButton.swift */,
+				069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */,
 				2386C68629F29FE700CEA6F6 /* PrimaryButton.swift */,
 				23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */,
 			);
@@ -503,6 +506,7 @@
 				A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */,
 				06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,
+				069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */,
 				061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */,
 				23BC07BF29F14059009FA528 /* Patient.swift in Sources */,
 				A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */,
