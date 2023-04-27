@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PHome: View {
+    @State var path: NavigationPath = NavigationPath()
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             VStack {
                 VStack(alignment: .leading) {
                     HStack(spacing:40){
@@ -61,7 +63,7 @@ struct PHome: View {
                     HStack(alignment: .center,spacing: 20) {
                         Spacer()
                         Button {
-
+                            
                         } label: {
                             NavigationLink(destination: PBookingAppointments()) {
                                 Text("Consult")

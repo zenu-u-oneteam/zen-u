@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnBoardingScreen: View {
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             ZStack(alignment: .trailing) {
                 
                 Image("Group 64")

@@ -24,7 +24,6 @@ struct ContentView: View {
     
     @State private var isShowingSplash = true
     @State var userType: UserType = getUsetType()
-    @State var path: NavigationPath = NavigationPath()
     
     var body: some View {
         ZStack {
@@ -36,16 +35,14 @@ struct ContentView: View {
                         }
                     }
             } else {
-                NavigationStack(path: $path) {
-                    if userType == .patient {
-                        PMain()
-                    } else if userType == .doctor {
-                        DHome()
-                    } else if userType == .admin {
-                        AHome()
-                    } else {
-                        OnBoardingScreen()
-                    }
+                if userType == .patient {
+                    PMain()
+                } else if userType == .doctor {
+                    DHome()
+                } else if userType == .admin {
+                    AHome()
+                } else {
+                    OnBoardingScreen()
                 }
             }
         }
