@@ -21,12 +21,12 @@ struct ViewButton: View {
             }
 
             Text(text)
+                .font(.footnote)
 
             if rIcon != "none" {
                 Image(systemName: rIcon)
             }
         }
-        .font(.footnote)
         .padding(.horizontal, 10)
         .frame(minWidth: 60, minHeight: 30)
         .foregroundColor(selected ? .white : selectable ? Color("Accent") : Color("Heading"))
