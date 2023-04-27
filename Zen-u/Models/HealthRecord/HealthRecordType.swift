@@ -13,11 +13,4 @@ struct HealthRecordType: Hashable, Codable, Identifiable {
     var image: String
     var description: String
 
-    
-    enum HealthCategory: String, CaseIterable, Codable {
-        case prescription = "Prescription"
-        case labreports = "Lab Reports"
-        case vaccinationreports = "Vaccination Reports"
-        case hospitalization = "Hospitalization"
-    }
 }

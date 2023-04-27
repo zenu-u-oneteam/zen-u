@@ -15,6 +15,7 @@ struct HealthRecord: Hashable, Codable, Identifiable {
     var type: HealthCategory
     var document: String
 }
+
 enum HealthCategory: String, CaseIterable, Codable {
     case prescription = "Prescription"
     case labreports = "Lab Reports"
