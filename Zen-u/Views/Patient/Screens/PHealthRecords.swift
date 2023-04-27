@@ -56,35 +56,19 @@ struct PHealthRecords: View {
                                     
                                     //                                        .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
                                     //                                                }
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+
                                 }.padding(.leading, 10)//tableviewcell
                                 
-                            }
-                            
-                            
-                            
-                            
+                            }   
                             Divider().frame(width: 314)
                                 .padding(.leading, 30)
                         }
                     }//tableView
-                }
-                
-                
-                
-                
+                }          
             }
             Spacer(minLength: 200)
             
         }//main VStack
-        
-        
-        
     }
     func HeaderView() -> some View {
         HStack{
@@ -102,9 +86,6 @@ struct PHealthRecords: View {
             Text("Detail view")
         }
     }
-    
-    
-    
     struct PHealthRecords_Previews: PreviewProvider {
         static var previews: some View {
             var sectionHeadings : [HealthRecordType] = [
