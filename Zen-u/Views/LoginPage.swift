@@ -12,6 +12,8 @@ struct LoginPage: View {
     
     @State private var email = ""
     @State private var password = ""
+    @State var isLoggedIn = false
+    @State var userType: UserType = .none
     
     let db = FirebaseConfig().db
     
@@ -26,13 +28,26 @@ struct LoginPage: View {
                     db.collection("Users").document(currentUserID).getDocument {
                         (document, error) in
                         if let document = document, document.exists {
-                            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                            print(dataDescription)
-                            UserDefaults.standard.set(dataDescription, forKey: "currentUser")
+                            let dataDescription = document.data()!
+                            let currentUser = User(
+                                id: currentUserID,
+                                name: dataDescription["name"] as! String,
+                                email: dataDescription["email"] as! String,
+                                userType: UserType(rawValue: dataDescription["userType"] as! String) ?? .admin,
+                                profileImage: dataDescription["profileImage"] as! String,
+                                mobileNumber: dataDescription["mobileNumber"] as! String
+                            )
+                            print(currentUser)
+                            let encoder = JSONEncoder()
+                            if let currentUserData = try? encoder.encode(currentUser) {
+                                UserDefaults.standard.set(currentUserData, forKey: "currentUser")
+                                print(currentUser.userType)
+                                userType = currentUser.userType
+                                isLoggedIn = true
+                            }
                         } else {
                             print("Document does not exist")
                         }
-                        
                     }
                 }
             }
@@ -82,12 +97,10 @@ struct LoginPage: View {
                 Button {
                     passwordLogin()
                 } label: {
-                    NavigationLink(destination: PMain()) {
-                        ActionButton(text: "Log in")
-                    }
+                    ActionButton(text: "Log in")
                 }
                 .padding(.top, 20)
-                
+                                
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.gray)
@@ -119,9 +132,7 @@ struct LoginPage: View {
                 }
                 .padding(.vertical)
                 .padding(.bottom)
-                
-                //                    Spacer()
-                
+                                
                 VStack(spacing: 20) {
                     Button(action: {
                         // Perform Google sign-in action here
@@ -190,6 +201,9 @@ struct LoginPage: View {
                 .padding(.horizontal, 30)
                 
             }
+            .navigationDestination(isPresented: $isLoggedIn, destination: {
+                ContentView(userType: userType)
+            })
             .navigationBarTitle("zen-u", displayMode: .inline)
         }
     }

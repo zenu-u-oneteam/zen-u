@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
-
 struct PProfile: View {
     @State var showMenu = false
     @State private var selectedOption = "Option 1"
+    @State var logout = false
+    @State var userType: UserType = .none
+    
     var body: some View {
         VStack{
             HeaderView()
@@ -23,7 +25,7 @@ struct PProfile: View {
             }
         }
         .padding(2)
-
+        
     }
     
     func HeaderView() -> some View {
@@ -35,30 +37,34 @@ struct PProfile: View {
             }
             .hLeading()
             
-                
+            
             Menu {
-                       Button("Edit") {
-                           self.selectedOption = "Option 1"
-                       }
-                       Button("Settings") {
-                           self.selectedOption = "Option 2"
-                       }
-                       Button("Log Out") {
-                           self.selectedOption = "Option 3"
-                       }
+                Button("Edit") {
+                    self.selectedOption = "Option 1"
+                }
+                Button("Settings") {
+                    self.selectedOption = "Option 2"
+                }
+                Button("Log Out") {
+                    self.selectedOption = "Option 3"
+                    print("LOGOUT!!!")
+                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    logout = true
+                }
             }
         label: {
-                       Image(systemName: "line.horizontal.3")
-                           .resizable()
-                           .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-       //                        .aspectRatio(contentMode: .fit)
-                           .frame(width: 15
-                                  , height: 13)
-                           .padding(.all, 20)
+            Image(systemName: "line.horizontal.3")
+                .resizable()
+                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .frame(width: 15, height: 13)
+                .padding(.all, 20)
         }
-               
-            }
+            
         }
+        .navigationDestination(isPresented: $logout, destination: {
+            ContentView(userType: .none)
+        })
+    }
     
     
     func SubHeadingView() -> some View {
