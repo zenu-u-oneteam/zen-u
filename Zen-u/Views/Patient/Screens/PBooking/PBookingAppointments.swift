@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct PBookingAppointments: View {
     @State var symtomText: String = ""
     @State var showModel: Bool = false
