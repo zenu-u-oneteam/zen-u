@@ -10,67 +10,80 @@ import SwiftUI
 struct DSchedule: View {
     @StateObject var appointmentViewModel: ViewModel = ViewModel()
 
-    @State var selectedMonth: Int = 0
-    @State var selectedDate: Date = Date()
+    @State var selectedMonth: Int = ViewModel().currentMonthValue()
+    @State var selectedDate: Int = 0
     @State var currentDate: Date = ViewModel().currentDay
+    @State var currentDateIndex: Int = ViewModel().currentDateValue()
     @State var datesofMonth : [Date] = ViewModel().currentMonth
     @State var filterMode: String = "none"
-    
+     
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
-//    let days = [31, 28, 31 , 30 , 31 , 30 , 31, 31 , 30 , 31, 30 , 31]
-    
+
     var body: some View {
         
         NavigationView {
             VStack {
-                ScrollView(.horizontal) {
-                    LazyHStack(spacing: 25) {
-                        ForEach(months.indices, id: \.self) {index in
-                            Button {
-                                self.selectedMonth = index
-                                self.datesofMonth = appointmentViewModel.fetchRequestedMonth(month: selectedMonth + 1)
-                                appointmentViewModel.update()
-                            } label: {
-                                Text(months[index])
-                                    .foregroundColor(selectedMonth == index ? Color("Accent") : Color("Subheadings"))
-                                    .font(.headline.bold())
+                ScrollViewReader {
+                    value in
+                    ScrollView(.horizontal) {
+                        LazyHStack(spacing: 25) {
+                            ForEach(months.indices, id: \.self) {index in
+                                Button {
+                                    self.selectedMonth = index
+                                    self.datesofMonth = appointmentViewModel.fetchRequestedMonth(month: selectedMonth + 1)
+                                    appointmentViewModel.update()
+                                    value.scrollTo(selectedMonth , anchor: .leading)
+                                } label: {
+                                    Text(months[index])
+                                        .foregroundColor(selectedMonth == index ? Color("Accent") : Color("Subheadings"))
+                                        .font(.headline.bold())
+                                }
                             }
                         }
+                        .frame(height: 20)
+                        .padding(.bottom, 8)
+                    }.onAppear{
+                        value.scrollTo(selectedMonth , anchor: .leading)
                     }
-                    .frame(height: 20)
-                    .padding(.bottom, 8)
                 }
                 
                 HStack(spacing: 0) {
                     Spacer()
-                    ScrollView(.vertical) {
-                        LazyVStack(alignment: .leading, spacing: 10) {
-                            ForEach(datesofMonth, id: \.self){ day in
-                                Button {
-                                    self.selectedDate = day
-                                    print("Day \(day)")
-                                    print("selected \(currentDate)")
-                                } label: {
-                                    VStack {
-                                        Text(appointmentViewModel.extractDate(date: day, format: "dd"))
-                                            .font(.title2.bold())
-                                            .foregroundColor(selectedDate == day || currentDate == day ? .white :
-                                                                Color("Subheadings"))
-                                        
-                                        Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
-                                            .font(.callout.weight(.light))
-                                            .foregroundColor(selectedDate == day || currentDate == day ? .white : Color("Subheadings"))
+                    ScrollViewReader {
+                        value in
+                        ScrollView(.vertical) {
+                            LazyVStack(alignment: .leading, spacing: 10) {
+                                ForEach(datesofMonth.indices, id: \.self){ day in
+                                    Button {
+                                        self.selectedDate = day
+//                                        print("Day \(day)")
+//                                        print("selected \(currentDate)")
+                                        value.scrollTo(selectedDate , anchor: .top)
+                                    } label: {
+                                        VStack {
+                                            Text(appointmentViewModel.extractDate(date: datesofMonth[day], format: "dd"))
+                                                .font(.title2.bold())
+                                                .foregroundColor(selectedDate == day || currentDateIndex == day ?  .white :
+                                                                    Color("Subheadings"))
+                                            
+                                            Text(appointmentViewModel.extractDate(date: datesofMonth[day] , format: "EEE"))
+                                                .font(.callout.weight(.light))
+                                                .foregroundColor(selectedDate == day || currentDateIndex == day ? .white : Color("Subheadings"))
+                                        }
+                                        .foregroundColor(Color("Subheadings"))
+                                        .frame(width: 50 ,height: 70)
                                     }
-                                    .foregroundColor(Color("Subheadings"))
-//                                    .foregroundColor(selectedDate == day ? Color.white : Color("Subheadings"))
-                                    .frame(width: 50 ,height: 70)
+                                    .background(selectedDate == day || currentDateIndex == day ? Color("Accent") : .white)
+                                    .cornerRadius(12)
                                 }
-                                .background(selectedDate == day || currentDate == day ? Color("Accent") : .white)
-                                .cornerRadius(12)
                             }
+                            .frame(width: 60)
+                        }.onAppear{
+                            value.scrollTo(currentDateIndex , anchor: .top)
+                        }.onChange(of: selectedMonth) { _ in
+                            value.scrollTo(0 , anchor: .top)
                         }
-                        .frame(width: 60)
                     }
                     
                     Spacer()

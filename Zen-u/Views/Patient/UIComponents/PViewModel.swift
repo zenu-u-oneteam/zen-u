@@ -15,13 +15,13 @@ class ViewModel: ObservableObject{
     @Published var currentWeek: [Date] = []
     @Published var requestedWeek: [Date] = []
     @Published var currentDay: Date = Date()
+    
     @State var refresh: Bool = false
 
     
     init(){
         fetchCurrentMonth()
         fetchCurrentWeek()
-        //        fetchRequestedMonth(month: 4)
     }
     func update() {
         refresh.toggle()
@@ -33,9 +33,6 @@ class ViewModel: ObservableObject{
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale
-        
-        //        calendar.timeZone = TimeZone(abbreviation: "IST")!
-        
         let interval = calendar.dateInterval(of: .month, for: today)!
         
         let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
@@ -79,10 +76,6 @@ class ViewModel: ObservableObject{
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale
-        
-        //        calendar.timeZone = TimeZone(abbreviation: "IST")!
-        
-        
         let week = calendar.dateInterval(of: .weekOfMonth, for: today)
         
         guard let firstWeekDay = week?.start else{
@@ -97,7 +90,25 @@ class ViewModel: ObservableObject{
         }
     }
     
+    func currentMonthValue()-> Int {
+        let today = Date()
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.month], from: today)
+        let month = components.month
+        return month! - 1
+        
+    }
     
+    func currentDateValue()-> Int {
+        let today = Date()
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.day], from: today)
+        let day = components.day
+        return day! - 1
+        
+    }
         func extractDate(date:Date, format:String)->String{
             let formatter = DateFormatter()
             
