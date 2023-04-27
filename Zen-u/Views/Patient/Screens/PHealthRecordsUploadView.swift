@@ -14,106 +14,77 @@ struct PHealthRecordsUploadView: View {
     
     @State var statusIndex: Int = 1
     @State private var searchText = ""
-    
-    
-    
-    
     @State private var ButtonClicked = "none"
-    let dateComponents = DateComponents(year: 2023, month: 4, day: 28, hour: 15, minute: 30)
-    func formattedDateComponents(dateComponents: DateComponents) -> String {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
-            let calendar = Calendar.current
-            let date = calendar.date(from: dateComponents) ?? Date()
-            return dateFormatter.string(from: date)
-        }
-
     
+    let dateComponents = DateComponents(year: 2023, month: 4, day: 28, hour: 15, minute: 30)
+    
+    func formattedDateComponents(dateComponents: DateComponents) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
+        let calendar = Calendar.current
+        let date = calendar.date(from: dateComponents) ?? Date()
+        return dateFormatter.string(from: date)
+    }
     
     var body: some View {
-        
+        VStack(alignment: .leading){
             
-            VStack(alignment: .leading){
-                
-                
-                SegmentedPicker($statusIndex, selections: selections).padding()
-                    .padding(.bottom, 20)
-                    .padding(.top, 20)
-//                Button {
-//                    print(selections[statusIndex])
-//                }
-//                label :{
-//                    Text("Yay")
-//
-//
-//                }
-//
-                     
-                ScrollView{
-                    ZStack{
-                        Rectangle()
-                            .frame(width: .infinity, height: 400)
-                            .foregroundColor(Color("Secondary"))
-                            .cornerRadius(15)
-                            .hLeading()
-                            .padding(.horizontal,20)
-//                            .padding(.top, 15)
-                        VStack(alignment: .leading, spacing: 16){
+            SegmentedPicker($statusIndex, selections: selections).padding()
+                .padding(.bottom, 20)
+                .padding(.top, 20)
+            
+            ScrollView {
+                ZStack {
+                    Rectangle()
+                        .frame(width: .infinity, height: 400)
+                        .foregroundColor(Color("Secondary"))
+                        .cornerRadius(15)
+                        .hLeading()
+                        .padding(.horizontal,20)
+                    
+                    VStack(alignment: .leading, spacing: 16){
+                        
+                        ForEach(healthrecord, id: \.self) { item in
                             
-                            ForEach(healthrecord, id: \.self) { item in
-                                //                        let calendar = Calendar.current
-                                //                        let date = calendar.date(from: item.appointmentTime)
+                            Button {
                                 
-                                Button {
+                                ButtonClicked = item.name
+                                print(ButtonClicked)
+                                
+                            } label: {
+                                HStack(alignment: .center, spacing: 12){
                                     
-                                    ButtonClicked = item.name
-                                    print(ButtonClicked)
+                                    Image(systemName: "doc.circle.fill").resizable()
+                                        .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                                        .frame(width: 40, height: 40)
                                     
-                                } label: {
-                                    HStack(alignment: .center, spacing: 12){
-                                        
-                                        Image(systemName: "doc.circle.fill").resizable()
+                                    VStack(alignment: .leading){
+                                        Text(item.name).font(.system(size: 17)).bold()
                                             .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                            .frame(width: 40, height: 40)
+                                            .padding(1)
                                         
-                                        VStack(alignment: .leading){
-                                            Text(item.name).font(.system(size: 17)).bold()
-                                                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                                .padding(1)
-                                                 
-                                            Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
-                                            
-                                        }
+                                        Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
                                         
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right").foregroundColor(Color.gray)
-                                        
-                                        //                                        .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-                                        //                                                }
-                                        
-                                    }//tableviewcell
-                                    .padding(.horizontal, 40)
-//                                    .padding(.top, 12)
+                                    }
                                     
+                                    Spacer()
+                                    
+                                    Image(systemName: "chevron.right").foregroundColor(Color.gray)
                                     
                                 }
-                                Divider().frame(width: 314)
-                                    .padding(.leading, 30)
-//                                    .padding(.top, 12)
+                                //tableviewcell
+                                .padding(.horizontal, 40)
                             }
-                        }.padding(.top, 12)
-                    }//tableView
-                }//Scrollview end
-                DocumentPickerCustom().padding()
-                    .padding(.bottom, 20)
-                
-            }//initial Vstack
+                            Divider().frame(width: 314)
+                                .padding(.leading, 30)
+                        }
+                    }.padding(.top, 12)
+                }//tableView
+            }//Scrollview end
+            DocumentPickerCustom().padding()
+                .padding(.bottom, 20)
             
-            
-            
-            
-       
+        }//initial Vstack
     }
 }
 
@@ -129,10 +100,6 @@ struct PHealthRecordsUploadView_Previews: PreviewProvider {
             HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
             HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
         ]
-        
         PHealthRecordsUploadView(healthrecord: healthRecords)
     }
 }
-
-
-
