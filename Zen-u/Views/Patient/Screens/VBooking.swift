@@ -85,8 +85,11 @@ struct VBooking: View {
             .background(Color("Secondary"))
             .cornerRadius(10)
             .contextMenu{
-                Text("Hi Baby")
+               Text("Hi Baby\n asfjka\ndsafjajs\nkajfkasj")
+                    .frame(width: 230, height: 60)
                     .onLongPressGesture {
+                       
+                        
                                    isShowingPopover = true
                                }
                                .popover(isPresented: $isShowingPopover) {
@@ -99,7 +102,7 @@ struct VBooking: View {
                                    .padding()
                                }
                 
-            }
+              }
             
             
             HStack{
