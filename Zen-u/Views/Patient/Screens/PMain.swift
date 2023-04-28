@@ -24,7 +24,13 @@ struct PMain: View {
                 }
                 .tag(1)
             
-            Text("Third View")
+//            Text("Third View")
+            PHealthRecords(tableHeadings: [
+                HealthRecordType(id: 1, title: "Prescriptions", category: .prescription, image: "stethoscope.circle.fill" , description: "All your details in one place"),
+                HealthRecordType(id: 2, title: "Lab Reports", category: .labreports, image: "doc.circle.fill" , description: "All your details in one place"),
+                HealthRecordType(id: 3, title: "Vaccination Reports", category: .vaccinationreports, image: "syringe.fill" , description: "All your details in one place"),
+                HealthRecordType(id: 4, title: "Hospitalizations", category: .hospitalization, image: "bed.double.circle.fill" , description: "All your details in one place")
+            ])
                 .tabItem {
                     Label("Records", systemImage: "doc")
                 }
