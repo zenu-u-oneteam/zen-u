@@ -28,6 +28,7 @@
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
 		3054D5F429EE75D7000A8858 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* TabBar.swift */; };
+		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
 		3874751529ED603800CCA151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751429ED603800CCA151 /* ContentView.swift */; };
 		3874751729ED603900CCA151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3874751629ED603900CCA151 /* Assets.xcassets */; };
@@ -77,6 +78,7 @@
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
 		3054D5F329EE75D7000A8858 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3874751229ED603800CCA151 /* Zen_uApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_uApp.swift; sourceTree = "<group>"; };
 		3874751429ED603800CCA151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
 				C941A99729F6A90B0018069F /* DProfile.swift */,
+				30F810A029FB8CC700E200F7 /* DColorAlert.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
 				23457E7029F257A500715DD9 /* Bill.swift in Sources */,
 				06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */,
+				30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
 				A73E214F29F0223800EDB68D /* PPayment.swift in Sources */,
 				23B4BD3E29F4353F00665006 /* AppointmentCard.swift in Sources */,
