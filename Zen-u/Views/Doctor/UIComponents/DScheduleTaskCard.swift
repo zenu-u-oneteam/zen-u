@@ -16,7 +16,7 @@ struct DScheduleTaskCard: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 15) {
                 Text(time)
                     .font(.largeTitle.weight(.heavy))
                 HStack {
@@ -40,8 +40,8 @@ struct DScheduleTaskCard: View {
             .foregroundColor(Color("Subheadings"))
             .padding(.trailing, 10)
         }
-        .padding()
-        .frame(width: 295)
+        .padding(10)
+//        .frame(width: 295)
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
         .cornerRadius(20)
@@ -53,10 +53,10 @@ struct DScheduleTaskCard: View {
         var body: some View {
             Text(text)
                 .font(.caption2.weight(.semibold))
-                .padding(.horizontal, 5)
-                .padding(.vertical, 5)
+                .padding(4)
                 .background(Color("Tag"))
                 .foregroundColor(Color.white)
+                .frame(height: 16)
                 .cornerRadius(5)
         }
     }
@@ -64,6 +64,6 @@ struct DScheduleTaskCard: View {
 
 struct DScheduleTaskCard_Previews: PreviewProvider {
     static var previews: some View {
-        DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "OPD"], time: "9:30", age: 30, gender: "Female")
+        DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "Operation"], time: "9:30", age: 30, gender: "Female")
     }
 }

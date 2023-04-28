@@ -16,7 +16,7 @@ struct DSchedule: View {
     @State var currentDateIndex: Int = ViewModel().currentDateValue()
     @State var datesofMonth : [Date] = ViewModel().currentMonth
     @State var filterMode: String = "none"
-     
+    var appList : [Appointment] = []
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
 
@@ -95,7 +95,7 @@ struct DSchedule: View {
                                 Button {
                                     self.selectedMonth = index
                                 } label: {
-                                    DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "OPD"], time: "9:30", age: 30, gender: "Female")
+                                    DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "Operation"], time: "9:30", age: 30, gender: "Female")
                                 }
                             }
                         }
