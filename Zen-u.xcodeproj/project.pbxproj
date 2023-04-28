@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0444998B29FBA12200C9A8BB /* DPatientRecordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */; };
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
@@ -69,6 +70,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPatientRecordScreen.swift; sourceTree = "<group>"; };
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
 				C941A99729F6A90B0018069F /* DProfile.swift */,
+				0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */,
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
+				0444998B29FBA12200C9A8BB /* DPatientRecordScreen.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
 				A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */,
 				A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */,
