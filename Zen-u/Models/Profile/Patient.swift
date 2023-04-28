@@ -8,7 +8,7 @@
 import Foundation
 
 struct Patient: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var age: Int
     var gender: Gender
     var bloodGroup: BloodGroup
@@ -20,7 +20,10 @@ struct Patient: Hashable, Codable, Identifiable {
         case female = "Female"
         case others = "Others"
     }
+    
+   
 }
+
     
     enum BloodGroup: String, CaseIterable, Codable {
         case APositive = "A+"
