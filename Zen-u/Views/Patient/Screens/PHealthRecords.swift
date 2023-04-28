@@ -61,9 +61,6 @@ struct PHealthRecords: View {
                                         }
                                         Image(systemName: "chevron.right").foregroundColor(Color.gray).padding(.leading, 35)
                                         
-                                        //                                        .position(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-                                        //                                                }
-                                        
                                     }.padding(.leading, 10)//tableviewcell
                                     
                                 }
