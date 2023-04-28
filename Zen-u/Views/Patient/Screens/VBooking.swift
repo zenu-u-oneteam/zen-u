@@ -85,7 +85,7 @@ struct VBooking: View {
             .background(Color("Secondary"))
             .cornerRadius(10)
             .contextMenu{
-               Text("Hi Baby\n asfjka\ndsafjajs\nkajfkasj")
+               Text(" asfjka\ndsafjajs\nkajfkasj")
                     .frame(width: 230, height: 60)
                     .onLongPressGesture {
                        
