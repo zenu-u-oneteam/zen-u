@@ -84,12 +84,10 @@ struct VBooking: View {
             .padding()
             .background(Color("Secondary"))
             .cornerRadius(10)
-            .contextMenu{
+            .contextMenu(){
                Text(" asfjka\ndsafjajs\nkajfkasj")
                     .frame(width: 230, height: 60)
                     .onLongPressGesture {
-                       
-                        
                                    isShowingPopover = true
                                }
                                .popover(isPresented: $isShowingPopover) {
