@@ -40,7 +40,7 @@ struct PAppointment: View {
                         }
                     }
                 }
-//                .searchable(text: $searchText)
+                .searchable(text: $searchText)
                 .navigationTitle("Booked Appointments")
                 VStack {
                     if book == true {
@@ -89,7 +89,7 @@ struct PAppointment: View {
                 }
                 
             }
-            .padding()
+            .padding(20)
         }
         .accentColor(Color("Accent"))
     }

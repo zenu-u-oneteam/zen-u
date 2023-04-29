@@ -35,7 +35,6 @@ struct AppointmentCard: View {
             }
         }
         .padding()
-        .frame(width: 350)
         .foregroundColor(highlited ? .white : Color("Heading"))
         .background(highlited ? Color("Accent") : Color("Secondary"))
         .cornerRadius(17)
