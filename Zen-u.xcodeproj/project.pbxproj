@@ -167,6 +167,7 @@
 		063DC33F29FC1CB600810542 /* HealthRecords */ = {
 			isa = PBXGroup;
 			children = (
+				061DE92D29F96C8C00AB896A /* PHealthRecords.swift */,
 				069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */,
 			);
 			path = HealthRecords;
@@ -386,7 +387,6 @@
 				A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */,
 				23CBF1DD29F554F400318ED4 /* PAppointment.swift */,
 				06A06E6629F55DFF008DF13F /* PProfile.swift */,
-				061DE92D29F96C8C00AB896A /* PHealthRecords.swift */,
 				A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */,
 			);
 			path = Screens;
