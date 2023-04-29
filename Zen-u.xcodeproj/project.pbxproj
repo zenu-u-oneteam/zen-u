@@ -10,6 +10,7 @@
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
+		063DC34129FC1E4F00810542 /* CustomPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 063DC34029FC1E4F00810542 /* CustomPDFView.swift */; };
 		069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */; };
 		069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */; };
 		06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */; };
@@ -77,6 +78,7 @@
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
+		063DC34029FC1E4F00810542 /* CustomPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPDFView.swift; sourceTree = "<group>"; };
 		069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecordsUploadView.swift; sourceTree = "<group>"; };
 		069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPickerCustom.swift; sourceTree = "<group>"; };
 		06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,15 @@
 			path = HealthRecord;
 			sourceTree = "<group>";
 		};
+		063DC33F29FC1CB600810542 /* HealthRecords */ = {
+			isa = PBXGroup;
+			children = (
+				061DE92D29F96C8C00AB896A /* PHealthRecords.swift */,
+				069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */,
+			);
+			path = HealthRecords;
+			sourceTree = "<group>";
+		};
 		23027B5629F91F3900F71A39 /* PBooking */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +211,7 @@
 				069BFE4C29FA55FB002F9534 /* DocumentPickerCustom.swift */,
 				2386C68629F29FE700CEA6F6 /* PrimaryButton.swift */,
 				23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */,
+				063DC34029FC1E4F00810542 /* CustomPDFView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -367,6 +379,7 @@
 		3874752C29ED614F00CCA151 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				063DC33F29FC1CB600810542 /* HealthRecords */,
 				3054D5F329EE75D7000A8858 /* PMain.swift */,
 				3874753129ED628200CCA151 /* PHome.swift */,
 				23027B5629F91F3900F71A39 /* PBooking */,
@@ -374,8 +387,6 @@
 				A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */,
 				23CBF1DD29F554F400318ED4 /* PAppointment.swift */,
 				06A06E6629F55DFF008DF13F /* PProfile.swift */,
-				061DE92D29F96C8C00AB896A /* PHealthRecords.swift */,
-				069BFE4A29FA36B5002F9534 /* PHealthRecordsUploadView.swift */,
 				A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */,
 			);
 			path = Screens;
@@ -509,6 +520,7 @@
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
 				2340535029F24D29003A0063 /* Appointment.swift in Sources */,
 				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
+				063DC34129FC1E4F00810542 /* CustomPDFView.swift in Sources */,
 				BE94A55729F932E500E4FBE5 /* LabTest.swift in Sources */,
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
