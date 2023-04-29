@@ -14,7 +14,6 @@ struct User: Hashable, Codable, Identifiable {
     var userType: UserType
     var profileImage: String
     var mobileNumber: String
-
 }
 
 enum UserType: String, CaseIterable, Codable {

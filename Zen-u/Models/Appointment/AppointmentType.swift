@@ -8,11 +8,11 @@
 import Foundation
 
 struct AppointmentType: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var name: String
     var amount: Float
-    var category: Category
-    var department: Department
+    var category: String
+    var department: String
     
     enum Category: String, CaseIterable, Codable {
         case consultation = "Consultation"

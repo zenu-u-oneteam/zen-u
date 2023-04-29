@@ -8,12 +8,14 @@
 import Foundation
 
 struct Patient: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var age: Int
     var gender: Gender
     var bloodGroup: String
     var height: Float
     var weight: Float
+    var appointments: [String]?
+    var pastAppointments: [String]?
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"

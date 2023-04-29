@@ -8,9 +8,10 @@
 import Foundation
 
 struct Doctor: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var age: Int
     var gender: Gender
+    var appointment: [String]?
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"
