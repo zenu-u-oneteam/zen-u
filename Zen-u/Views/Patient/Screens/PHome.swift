@@ -16,6 +16,8 @@ struct EducationTopics: Identifiable{
 
 struct PHome: View {
     @State var path: NavigationPath = NavigationPath()
+    @StateObject private var viewModel = ViewModel()
+    
     let items: [EducationTopics] = [
         EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "Ayurveda is an ancient system of medicine that originated in India more than 5000 years ago. The word Ayurveda is derived from Sanskrit, and it means knowledge of life or science of life. It is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit.", educzationImage: "ayurveda"),
         EducationTopics(educationTitle: "First aid during accidents", educationContent: "First aid is the initial care given to a person who has been injured or has fallen ill suddenly. It aims to preserve life, prevent the condition from worsening, and promote recovery. First aid should be administered as soon as possible after an accident or injury occurs, and before medical professionals arrive.i", educzationImage: "firstaid"),
@@ -32,7 +34,7 @@ struct PHome: View {
                 VStack(alignment: .leading) {
                     HStack(spacing:40){
                         Button{
-                            
+
                         } label: {
                             NavigationLink(destination: PProfile()) {
                                 Image(systemName: "person.fill")
@@ -47,9 +49,9 @@ struct PHome: View {
                         }
                         
                         VStack(alignment: .leading){
-                            Text("Good Morning")
+                            Text(viewModel.greeting)
                                 .font(.caption2)
-                            Text("Reze")
+                            Text(viewModel.userName)
                                 .font(.title3.bold())
                         }
                         Spacer()
