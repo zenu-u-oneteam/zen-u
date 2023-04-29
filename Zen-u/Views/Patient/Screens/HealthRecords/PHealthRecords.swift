@@ -9,6 +9,13 @@ import SwiftUI
 
 struct PHealthRecords: View {
     var tableHeadings: [HealthRecordType]
+    var healthRecords : [HealthRecord] = [
+        HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+        HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+        HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+        HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
+        HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
+    ]
     @State private var ButtonClicked = "Prescriptions"
     @State private var isActive: Bool = false
     var body: some View {
@@ -38,13 +45,7 @@ struct PHealthRecords: View {
                                     
                                     
                                 } label: {
-                                    NavigationLink(destination: PHealthRecordsUploadView(healthrecord: [
-                                        HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-                                        HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-                                        HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-                                        HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-                                        HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
-                                    ], heading: item.title) ) {
+                                    NavigationLink(destination: PHealthRecordsUploadView(healthrecord: healthRecords, heading: item.title) ) {
                                         HStack(alignment: .center, spacing: 12){
                                             
                                             Image(systemName: item.image).resizable()

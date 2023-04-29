@@ -54,27 +54,30 @@ struct PHealthRecordsUploadView: View {
                                 Button {
                                     
                                     ButtonClicked = item.name
+                                   
                                     print(ButtonClicked)
                                     
                                 } label: {
-                                    HStack(alignment: .center, spacing: 12){
-                                        
-                                        Image(systemName: "doc.circle.fill").resizable()
-                                            .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                            .frame(width: 40, height: 40)
-                                        
-                                        VStack(alignment: .leading){
-                                            Text(item.name).font(.system(size: 17)).bold()
+                                    NavigationLink(destination:  CustomPDFView(title: item.name, url: item.document)) {
+                                        HStack(alignment: .center, spacing: 12){
+                                            
+                                            Image(systemName: "doc.circle.fill").resizable()
                                                 .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                                .padding(1)
+                                                .frame(width: 40, height: 40)
                                             
-                                            Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
+                                            VStack(alignment: .leading){
+                                                Text(item.name).font(.system(size: 17)).bold()
+                                                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                                                    .padding(1)
+                                                
+                                                Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
+                                                
+                                            }
                                             
+                                            Spacer()
+                                            
+                                            Image(systemName: "chevron.right").foregroundColor(Color.gray)
                                         }
-                                        
-                                        Spacer()
-                                        
-                                        Image(systemName: "chevron.right").foregroundColor(Color.gray)
                                         
                                     }
                                     //tableviewcell
@@ -98,11 +101,11 @@ struct PHealthRecordsUploadView: View {
 struct PHealthRecordsUploadView_Previews: PreviewProvider {
     static var previews: some View {
         var healthRecords : [HealthRecord] = [
-            HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: ""),
-            HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "")
+            HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+            HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+            HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+            HealthRecord(id: 1, name: "H1PVC Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
+            HealthRecord(id: 1, name: "Gall Bladder Test", appointmentTime: DateComponents(year: 2021, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf")
         ]
         PHealthRecordsUploadView(healthrecord: healthRecords, heading: "Lab Reports")
     }
