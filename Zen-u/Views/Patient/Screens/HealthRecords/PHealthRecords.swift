@@ -22,70 +22,62 @@ struct PHealthRecords: View {
         NavigationStack{
             VStack{
                 VStack(alignment: .leading){
-                    Text("All Health Documents").font(.system(size: 20)).bold()
+                    Text("All Health Documents")
+                        .font(.title3.bold())
                         .hLeading()
-                        .padding(.all, 20)
+                        .padding(20)
                         .padding(.top, 40)
-                        .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 346, height: 340)
-                            .foregroundColor(Color("Secondary"))
-                            .cornerRadius(15)
-                            .hCenter()
-                            .padding(.horizontal,20)
+                        .foregroundColor(Color("Heading"))
+                    
+                    VStack(alignment: .center, spacing: 16){
                         
-                        VStack(alignment: .center, spacing: 16){
-                            
-                            ForEach(tableHeadings, id: \.self) { item in
-                                Button {
-                                    
-                                    ButtonClicked = item.title
-                                    print(ButtonClicked)
-                                    
-                                    
-                                } label: {
-                                    NavigationLink(destination: PHealthRecordsUploadView(healthrecord: healthRecords, heading: item.title) ) {
-                                        HStack(alignment: .center, spacing: 12){
-                                            
-                                            Image(systemName: item.image).resizable()
-                                                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                                .frame(width: 40, height: 40)
-                                            
-                                            VStack(alignment: .leading){
-                                                Text(item.title).font(.system(size: 17)).bold()
-                                                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                                                    .padding(1)
-                                                Text(item.description).font(.system(size: 15)).foregroundColor(Color.gray)
-                                                
-                                            }
-                                        }
-                                        Image(systemName: "chevron.right").foregroundColor(Color.gray).padding(.leading, 35)
+                        ForEach(tableHeadings, id: \.self) { item in
+                            Button {
+                                
+                                ButtonClicked = item.title
+                                print(ButtonClicked)
+                                
+                            } label: {
+                                NavigationLink(destination: PHealthRecordsUploadView(healthrecord: healthRecords, heading: item.title) ) {
+                                    HStack(alignment: .center, spacing: 12){
                                         
-                                    }.padding(.leading, 10)//tableviewcell
-                                    
-                                }
-                                Divider().frame(width: 314)
-                                    .padding(.leading, 30)
+                                        Image(systemName: item.image)
+                                            .resizable()
+                                            .foregroundColor(Color("Heading"))
+                                            .frame(width: 40, height: 40)
+                                        
+                                        VStack(alignment: .leading){
+                                            Text(item.title)
+                                                .font(.headline.bold())
+                                                .foregroundColor(Color("Heading"))
+                                                .padding(1)
+                                            Text(item.description)
+                                                .font(.subheadline)
+                                                .foregroundColor(Color("Subheadings"))
+                                        }
+                                    }
+                                    .padding(.leading, 20)
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundColor(Color("Subheadings"))
+                                        .padding(.leading, 35)
+                                        .padding(.trailing, 20)
+                                }//tableviewcell
                             }
+                            Divider()
+                                .padding(.horizontal, 30)
                         }//tableView
                     }
+                    .padding(.vertical, 20)
+                    .background(Color("Secondary"))
+                    .cornerRadius(15)
+                    .padding(.horizontal, 20)
                 }
                 Spacer(minLength: 200)
                 
             }//main VStack
             .navigationTitle("Health Records")
         }
-    }
-    func HeaderView() -> some View {
-        HStack{
-            VStack(alignment: .leading) {
-                Text("Health Records").font(.largeTitle.bold())
-                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    .padding(.all, 10)
-            }
-            .hLeading()
-        }// end of HeaderView() function
     }
     
     struct DetailView: View {
@@ -95,7 +87,7 @@ struct PHealthRecords: View {
     }
     struct PHealthRecords_Previews: PreviewProvider {
         static var previews: some View {
-            var sectionHeadings : [HealthRecordType] = [
+            let sectionHeadings : [HealthRecordType] = [
                 HealthRecordType(id: 1, title: "Prescriptions", category: .prescription, image: "stethoscope.circle.fill" , description: "All your details in one place"),
                 HealthRecordType(id: 2, title: "Lab Reports", category: .labreports, image: "doc.circle.fill" , description: "All your details in one place"),
                 HealthRecordType(id: 3, title: "Vaccination Reports", category: .vaccinationreports, image: "syringe.fill" , description: "All your details in one place"),

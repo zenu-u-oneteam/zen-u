@@ -14,7 +14,7 @@ struct PHealthRecordsUploadView: View {
     var healthrecord: [HealthRecord]
     var selections = ["Pending", "Past"]
     
-   var heading: String
+    var heading: String
     
     @State var statusIndex: Int = 1
     @State private var searchText = ""
@@ -31,17 +31,17 @@ struct PHealthRecordsUploadView: View {
     }
     
     var body: some View {
-        NavigationStack{
-            VStack(alignment: .leading){
+        NavigationStack {
+            VStack {
                 
-                SegmentedPicker($statusIndex, selections: selections).padding()
-                    .padding(.bottom, 20)
-                    .padding(.top, 20)
+                SegmentedPicker($statusIndex, selections: selections)
+                    .padding()
+                    .padding(.vertical, 20)
                 
                 ScrollView {
                     ZStack {
                         Rectangle()
-                            .frame(width: .infinity, height: 400)
+                            .frame(height: 400)
                             .foregroundColor(Color("Secondary"))
                             .cornerRadius(15)
                             .hLeading()
@@ -52,31 +52,32 @@ struct PHealthRecordsUploadView: View {
                             ForEach(healthrecord, id: \.self) { item in
                                 
                                 Button {
-                                    
                                     ButtonClicked = item.name
-                                   
                                     print(ButtonClicked)
-                                    
                                 } label: {
                                     NavigationLink(destination:  CustomPDFView(title: item.name, url: item.document)) {
                                         HStack(alignment: .center, spacing: 12){
                                             
                                             Image(systemName: "doc.circle.fill").resizable()
-                                                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                                                .foregroundColor(Color("Heading"))
                                                 .frame(width: 40, height: 40)
                                             
                                             VStack(alignment: .leading){
-                                                Text(item.name).font(.system(size: 17)).bold()
-                                                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                                                Text(item.name)
+                                                    .font(.headline.bold())
+                                                    .foregroundColor(Color("Heading"))
                                                     .padding(1)
                                                 
-                                                Text(formattedDateComponents(dateComponents: item.appointmentTime)).font(.system(size: 15)).foregroundColor(Color.gray).padding(.leading, 2)
-                                                
+                                                Text(formattedDateComponents(dateComponents: item.appointmentTime))
+                                                    .font(.subheadline)
+                                                    .foregroundColor(Color("Subheadings"))
+                                                    .padding(.leading, 2)
                                             }
                                             
                                             Spacer()
                                             
-                                            Image(systemName: "chevron.right").foregroundColor(Color.gray)
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(Color("Subheadings"))
                                         }
                                         
                                     }
@@ -89,18 +90,19 @@ struct PHealthRecordsUploadView: View {
                         }.padding(.top, 12)
                     }//tableView
                 }//Scrollview end
-                DocumentPickerCustom().padding()
+                DocumentPickerCustom()
+                    .padding()
                     .padding(.bottom, 20)
                 
             }//initial Vstack
-            .navigationTitle(heading).foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+            .navigationTitle(heading).foregroundColor(Color("Heading"))
         }
     }
 }
 
 struct PHealthRecordsUploadView_Previews: PreviewProvider {
     static var previews: some View {
-        var healthRecords : [HealthRecord] = [
+        let healthRecords : [HealthRecord] = [
             HealthRecord(id: 1, name: "Lipid Profile", appointmentTime: DateComponents(year: 2023, month: 3, day: 12, hour: 09, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
             HealthRecord(id: 1, name: "Complete Blood Count", appointmentTime: DateComponents(year: 2022, month: 12, day: 4, hour: 16, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
             HealthRecord(id: 1, name: "Cholestrol-Serum", appointmentTime: DateComponents(year: 2022, month: 10, day: 8, hour: 13, minute: 34, second: 0) , patient: Patient(id: 1, age: 28 , gender: .female, bloodGroup: "AB+", height: 160.0, weight: 80), doctor: Doctor(id: 1, age: 65, gender: .male), type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
