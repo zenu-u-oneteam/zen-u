@@ -28,6 +28,5 @@ struct SegmentedPicker: View {
             }
             .pickerStyle(.segmented)
         }
-        .frame(width: .infinity)
     }
 }
