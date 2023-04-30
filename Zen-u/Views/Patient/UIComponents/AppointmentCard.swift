@@ -8,34 +8,46 @@
 import SwiftUI
 
 struct AppointmentCard: View {
-    var name: String
-    var tags : [String]
-    var time: String
-    var doctorName: String
+    var appointmentDetails: Appointment
     var highlited: Bool = false
     
+    func formatDate(_ date: Date) -> String {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "HH:mm"
+        return dateFormat.string(from: date)
+    }
+    
+    func checkStatus(_ date: Date) -> Bool {
+        let appointmentTime = Int(date.timeIntervalSince1970)
+        let currentTime = Int(Date().timeIntervalSince1970)
+        let interval = 30 * 60
+        if ((currentTime - appointmentTime) <= interval && (currentTime - appointmentTime) >= 0) {
+            return true
+        }
+        return false
+    }
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(name)
+                Text(appointmentDetails.type!.name)
                     .font(.body.weight(.semibold))
                 HStack {
-                    ForEach(tags, id:  \.self) {tag in
-                        Tag(text: tag, highlited: highlited)
+                    Tag(text: appointmentDetails.type!.category, highlited: highlited)
+                    if (checkStatus(appointmentDetails.appointmentTime)) {
+                        Tag(text: "Live", highlited: highlited)
                     }
                 }
                 .padding(.top, 3.0)
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(time)
+                Text(formatDate(appointmentDetails.appointmentTime))
                     .font(.largeTitle.bold())
-                Text(doctorName)
+                Text(appointmentDetails.doctor!.name)
                     .font(.subheadline.bold())
             }
         }
         .padding()
-        .frame(width: 350)
         .foregroundColor(highlited ? .white : Color("Heading"))
         .background(highlited ? Color("Accent") : Color("Secondary"))
         .cornerRadius(17)
@@ -65,6 +77,7 @@ struct AppointmentCard: View {
 
 struct AppointmentCard_Previews: PreviewProvider {
     static var previews: some View {
-        AppointmentCard(name: "PSV23 (Pneumo)", tags: ["Live", "General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
+        let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
+        AppointmentCard(appointmentDetails: appointmentDetails)
     }
 }

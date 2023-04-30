@@ -10,8 +10,8 @@ import Foundation
 import Foundation
 
 struct LabTest: Hashable, Codable, Identifiable {
-    var id: Int
-    var appointment: Appointment
+    var id: String
+    var appointment: String
     var type: String
     var package: String
     var organs: String

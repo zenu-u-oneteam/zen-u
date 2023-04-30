@@ -16,6 +16,7 @@ struct PAppointment: View {
     var appointments: [Int] = [0, 1]
     @State private var searchText = ""
     @State private var book: Bool = false
+    let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
     
     var body: some View {
         NavigationStack {
@@ -32,15 +33,10 @@ struct PAppointment: View {
                     }
                     
                     ScrollView {
-                        ForEach(appointments.indices, id: \.self) {appointment in
-                            AppointmentCard(name: "PSV23 (Pneumo)", tags: ["Live", "General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
-                                .padding(.bottom, 10)
-                            AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
-                                .padding(.bottom, 10)
-                        }
+                        AppointmentCard(appointmentDetails: appointmentDetails)
                     }
                 }
-//                .searchable(text: $searchText)
+                .searchable(text: $searchText)
                 .navigationTitle("Booked Appointments")
                 VStack {
                     if book == true {
@@ -89,7 +85,7 @@ struct PAppointment: View {
                 }
                 
             }
-            .padding()
+            .padding(20)
         }
         .accentColor(Color("Accent"))
     }
