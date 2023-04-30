@@ -28,8 +28,8 @@ class ViewModel: ObservableObject{
      }
     
     func fetchCurrentMonth(){
-        print("\nThe current calendar is \(Calendar.current).")
-        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
+//        print("\nThe current calendar is \(Calendar.current).")
+//        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale

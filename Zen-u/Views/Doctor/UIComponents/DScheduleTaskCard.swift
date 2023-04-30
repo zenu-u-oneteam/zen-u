@@ -15,7 +15,7 @@ struct DScheduleTaskCard: View {
     var gender: String
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .top ) {
             VStack(alignment: .leading, spacing: 15) {
                 Text(time)
                     .font(.largeTitle.weight(.heavy))

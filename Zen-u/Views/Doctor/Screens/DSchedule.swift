@@ -10,16 +10,28 @@ import SwiftUI
 struct DSchedule: View {
     @StateObject var appointmentViewModel: ViewModel = ViewModel()
 
+
     @State var selectedMonth: Int = ViewModel().currentMonthValue()
     @State var selectedDate: Int = 0
     @State var currentDate: Date = ViewModel().currentDay
     @State var currentDateIndex: Int = ViewModel().currentDateValue()
     @State var datesofMonth : [Date] = ViewModel().currentMonth
     @State var filterMode: String = "none"
-    var appList : [Appointment] = []
+    @State var displayList : [DocAppointment] = CustomDocData().appointmentList
+    @State var appliedFilter : Filter = Filter.none
+    
+    
+
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
 
+    
+//    init(){
+//        displayList = appList
+//        opdAppList = appList.filter({ $0.docAppointmentType == .opd})
+//        operationAppList = appList.filter({ $0.docAppointmentType == .opd})
+//        meetAppList = appList.filter({ $0.docAppointmentType == .opd})
+//    }
     var body: some View {
         
         NavigationView {
@@ -90,13 +102,11 @@ struct DSchedule: View {
                     
                     ScrollView(.vertical) {
                         LazyVStack (alignment: .leading, spacing: 10){
-                            ForEach(0...10, id: \.self) {
+                            ForEach(displayList.indices, id: \.self) {
                                 index in
-                                Button {
-                                    self.selectedMonth = index
-                                } label: {
-                                    DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "Operation"], time: "9:30", age: 30, gender: "Female")
-                                }
+                                
+                                    DScheduleTaskCard(patientName: displayList[index].patient.name, tags: [displayList[index].patientType.rawValue, displayList[index].docAppointmentType.rawValue ] , time: "9:30", age: 30, gender: "Female")
+                                
                             }
                         }
                     }
@@ -104,9 +114,31 @@ struct DSchedule: View {
                     Spacer()
                 }
                 HStack(alignment: .center, spacing: 10) {
-                    FilterButton(text: "OPD", selected: $filterMode)
-                    FilterButton(text: "Operation", selected: $filterMode)
-                    FilterButton(text: "Meeting", selected: $filterMode)
+                        
+//                        print(appliedFilter)
+//                        print(opdAppList)
+//                        if ( appliedFilter != Filter.none ){
+//                            appliedFilter = Filter.none
+//                            displayList = appList
+//                        }else{
+//                            appliedFilter = Filter.opd
+//                            displayList = opdAppList
+//                        }
+                        
+                        
+                    
+                    FilterButton(text: "OPD", selected: $filterMode, displayList: $displayList , selectedFilter: $appliedFilter)
+                    
+                   
+                        FilterButton(text: "Operation", selected: $filterMode , displayList: $displayList , selectedFilter: $appliedFilter)
+                    
+                  
+                    FilterButton(text: "Meeting", selected: $filterMode ,displayList: $displayList , selectedFilter: $appliedFilter )
+                    
+
+                   
+                    
+                
                 }
             }
             .padding()
@@ -117,15 +149,38 @@ struct DSchedule: View {
 
 struct FilterButton: View {
     var text: String
+    @State var appList : [DocAppointment] = CustomDocData().appointmentList
+    @State var opdAppList : [DocAppointment] = CustomDocData().appointmentList.filter({ $0.docAppointmentType == DocAppointment.DocAppType.opd})
+    @State var operationAppList : [DocAppointment] = CustomDocData().appointmentList.filter({ $0.docAppointmentType == DocAppointment.DocAppType.operation})
+    @State var meetAppList : [DocAppointment] = CustomDocData().appointmentList.filter({ $0.docAppointmentType == DocAppointment.DocAppType.meeting})
+   
     @Binding var selected: String
+    @Binding var displayList : [DocAppointment]
+    @Binding var selectedFilter : Filter
     
     var body: some View {
         Button(action: {
+            print("Hello")
             if (selected == text) {
                 selected = "none"
             } else {
                 selected = text
             }
+            if (selected == text) {
+                selectedFilter = Filter.none
+                displayList = appList
+            } else {
+                if(selectedFilter == Filter.opd ){
+                    displayList = opdAppList
+                }
+                if(selectedFilter == Filter.meeting ){
+                    displayList = meetAppList
+                }
+                if(selectedFilter == Filter.operation ){
+                    displayList = operationAppList
+                }
+            }
+            CustomDocData().update()
         }) {
             Text(text)
                 .font(.subheadline.weight(.semibold))
@@ -138,6 +193,12 @@ struct FilterButton: View {
     }
 }
 
+enum Filter {
+    case none
+    case opd
+    case operation
+    case meeting
+}
 struct DSchedule_Previews: PreviewProvider {
     static var previews: some View {
         DSchedule()
