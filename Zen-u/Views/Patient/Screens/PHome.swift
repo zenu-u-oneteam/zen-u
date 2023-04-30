@@ -216,9 +216,6 @@ struct PHome: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.large)
         .accentColor(Color("Accent"))
-        .onAppear {
-            viewModel.loadData()
-        }
     }
 }
 

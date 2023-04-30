@@ -17,7 +17,7 @@ extension PHome {
         
         let db = FirebaseConfig().db
         
-        func loadData() {
+        init() {
             isLoading = true
             
             guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
