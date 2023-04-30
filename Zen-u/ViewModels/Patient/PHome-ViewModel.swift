@@ -6,23 +6,34 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 extension PHome {
     @MainActor class ViewModel: ObservableObject {
+        @Published var isLoading = false
         @Published var userName: String = ""
-        @Published var greeting: String = "Hello"
+        @Published var greeting: String = ""
+        @Published var upcomingAppointments: [String] = []
         
-        init() {
-            if let currentUserData = UserDefaults.standard.data(forKey: "currentUser") {
-                let decoder = JSONDecoder()
-                if let currentUser = try? decoder.decode(User.self, from: currentUserData) {
-                    userName = currentUser.name
-                }
-            }
+        let db = FirebaseConfig().db
+        
+        func loadData() {
+            isLoading = true
+            
+            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
+            let decoder = JSONDecoder()
+            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
+            userName = currentUser.name
+            
             greeting = setGreeting()
+            
+            Task {
+                upcomingAppointments = await getUpcomingAppointment()
+                isLoading = false
+            }
         }
         
-        private func setGreeting() -> String {
+        func setGreeting() -> String {
             let hour = Calendar.current.component(.hour, from: Date())
             
             let newDay = 0
@@ -44,6 +55,16 @@ extension PHome {
             }
             
             return greetingText
+        }
+        
+        func getUpcomingAppointment() async -> [String]{
+            do {
+                let currentUserId = Auth.auth().currentUser!.uid
+                let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
+                return currentPatient.appointments!
+            } catch {
+                fatalError("\(error)")
+            }
         }
     }
 }
