@@ -11,7 +11,7 @@ struct AppointmentType: Hashable, Codable, Identifiable {
     var id: String
     var name: String
     var amount: Float
-    var category: String
+    var category: Category
     var department: String
     
     enum Category: String, CaseIterable, Codable {
@@ -19,4 +19,12 @@ struct AppointmentType: Hashable, Codable, Identifiable {
         case lab = "Lab"
         case vaccination = "Vaccination"
     }
+}
+
+struct AppointmentTypeRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var amount: Float
+    var category: String
+    var department: String
 }

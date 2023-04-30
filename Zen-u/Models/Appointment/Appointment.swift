@@ -9,7 +9,16 @@ import Foundation
 
 struct Appointment: Hashable, Codable, Identifiable {
     var id: String
-    var appointmentTime: Data
+    var appointmentTime: Date
+    var patient: Patient?
+    var doctor: DoctorRaw?
+    var type: AppointmentTypeRaw?
+    var bill: Bill?
+}
+
+struct AppointmentRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var appointmentTime: Int
     var patient: String
     var doctor: String
     var type: String

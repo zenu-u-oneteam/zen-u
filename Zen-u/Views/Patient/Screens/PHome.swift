@@ -136,13 +136,13 @@ struct PHome: View {
                             VStack(alignment: .leading,spacing: 20) {
                                 Text("Upcoming Appointments")
                                     .font(.body.weight(.semibold))
+                                    .padding(.top, 20)
                                 
-                                ForEach(viewModel.upcomingAppointments, id: \.self) { item in
-                                    AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel", highlited: true)
+                                ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
+                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
                                 }
                             }
-                            .padding(20)
-                            
+                            .padding(.horizontal, 20)
                         }
                         
                         Spacer()
@@ -151,6 +151,7 @@ struct PHome: View {
                             Text("Patient Education")
                                 .font(.body.weight(.semibold))
                                 .padding(.leading, 24)
+                                .padding(.top, 24)
                             ScrollView(.horizontal,showsIndicators: false){
                                 HStack(spacing: 20) {
                                     ForEach(items) { item in

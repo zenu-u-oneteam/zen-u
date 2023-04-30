@@ -12,11 +12,19 @@ struct Doctor: Hashable, Codable, Identifiable {
     var age: Int
     var gender: Gender
     var appointment: [String]?
+    var name: String
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"
         case female = "Female"
         case others = "Others"
     }
-    
+}
+
+struct DoctorRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var age: Int
+    var gender: String
+    var appointment: [String]?
+    var name: String
 }
