@@ -18,12 +18,7 @@ extension PAppointment {
         
         init() {
             isLoading = true
-
-            
-            
-            
-            
-            Task {
+         Task {
                 upcomingAppointments = await getUpcomingAppointment()
                 pastAppointments = await getPastAppointment()
                 isLoading = false
