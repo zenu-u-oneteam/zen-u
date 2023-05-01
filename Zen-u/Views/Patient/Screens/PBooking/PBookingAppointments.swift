@@ -15,7 +15,7 @@ struct PBookingAppointments: View {
     @State var selectedDeptText : String = "none"
     
     var body: some View {
-        NavigationView() {
+        
             ZStack {
                 VStack(alignment: .leading){
                     
@@ -76,7 +76,7 @@ struct PBookingAppointments: View {
                 SpecialistModelView(isShowing: $showModel , isDeptSelected: $isDeptSelected, selectedConsltType : $selectedConsltType , selectedDeptText : $selectedDeptText)
             }
             .navigationTitle("Booking Consultation")
-        }
+        
     }
 }
 enum consltType{

@@ -109,7 +109,7 @@ struct SpecalistContent: View {
                 .cornerRadius(10))
             .foregroundColor(.white)
             .hCenter()
-            .padding(.bottom , 30)
+            .padding(.bottom , 90 )
             
             
             
