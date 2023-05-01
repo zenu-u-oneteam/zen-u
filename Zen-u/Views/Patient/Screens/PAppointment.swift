@@ -18,8 +18,6 @@ struct PAppointment: View {
     @State private var book: Bool = false
     @StateObject private var viewModel = ViewModel()
     
-    let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
-    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
