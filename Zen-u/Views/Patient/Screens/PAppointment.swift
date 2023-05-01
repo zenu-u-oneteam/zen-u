@@ -16,12 +16,14 @@ struct PAppointment: View {
     var appointments: [Int] = [0, 1]
     @State private var searchText = ""
     @State private var book: Bool = false
+    @StateObject private var viewModel = ViewModel()
+    
     let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
     
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .center, spacing: 20) {
                     SegmentedPicker($statusIndex, selections: statusSelections)
                     
                     Menu {
@@ -33,7 +35,22 @@ struct PAppointment: View {
                     }
                     
                     ScrollView {
-                        AppointmentCard(appointmentDetails: appointmentDetails)
+                        if viewModel.isLoading {
+                            ProgressView("Loading...")
+                        } else{
+                            if statusIndex == 0 {
+                                ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
+                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                                }
+                            }
+                            else {
+                                ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
+                                    AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                                }
+                            }
+                        }
+                        
+                        
                     }
                 }
                 .searchable(text: $searchText)
