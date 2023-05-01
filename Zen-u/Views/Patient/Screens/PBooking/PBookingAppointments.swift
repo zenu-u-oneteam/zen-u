@@ -16,67 +16,67 @@ struct PBookingAppointments: View {
     
     var body: some View {
         
-            ZStack {
-                VStack(alignment: .leading){
-                    
-                    Text("Choose Type of Doctor")
-                        .fontWeight(.semibold)
-                        .font(.system(size: 20))
-                        .padding(.bottom , 20)
-                    
-                    HStack (spacing: 16){
-                        RoundedRectangle(cornerRadius: 60)
-                        
-                            .foregroundColor(selectedConsltType == consltType.general ? Color("Accent") : Color("Secondary"))
-                            .frame(width: 150 , height: 50)
-                            .overlay(Text("General")
-                                .font(.callout)
-                                .foregroundColor(selectedConsltType == consltType.general ? .white : Color("Heading"))).onTapGesture {
-                                    selectedConsltType = consltType.general
-                                    isDeptSelected = false
-                                    selectedDeptText = "none"
-                                }
-                        RoundedRectangle(cornerRadius: 60)
-                        
-                            .foregroundColor(selectedConsltType == consltType.specailist ? Color("Accent") : Color("Secondary"))
-                            .frame(width: 150 , height: 50)
-                            .overlay(Text("Specialist")
-                                .font(.callout)
-                                .foregroundColor(selectedConsltType == consltType.specailist ? .white : Color("Heading"))).onTapGesture {
-                                    self.selectedConsltType = consltType.specailist
-                                    self.showModel = true
-                                }
-                        
-                    }
-                    .padding(.bottom , 60)
-                    .onTapGesture {
-                        showModel = true
-                        print("Tapped")
-                    }
-                    if isDeptSelected {
-                        DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
-                        
-
-                    }else{
-                        GeneralDetails(symtomText: $symtomText)
-                    }
-                    
-                    
-                    Spacer()
-                    
-                    Button {
-                        
-                    } label: {
-                        NavigationLink(destination: PScheduleSettings()) {
-                            TabButton(text: "Continue")
+        ZStack {
+            VStack(alignment: .leading){
+                
+                Text("Choose Type of Doctor")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 20))
+                    .padding(.bottom , 20)
+                
+                HStack(spacing: 16){
+                    Text("General")
+                        .font(.callout.weight(.semibold))
+                        .foregroundColor(selectedConsltType == consltType.general ? .white : Color("Heading"))
+                        .frame(width: 150 , height: 50)
+                        .background(selectedConsltType == consltType.general ? Color("Accent") : Color("Secondary"))
+                        .cornerRadius(60)
+                        .onTapGesture {
+                            selectedConsltType = consltType.general
+                            isDeptSelected = false
+                            selectedDeptText = "none"
                         }
+
+                    Text("Specialist")
+                        .font(.callout.weight(.semibold))
+                        .foregroundColor(selectedConsltType == consltType.specailist ? .white : Color("Heading"))
+                        .frame(width: 150 , height: 50)
+                        .background(selectedConsltType == consltType.specailist ? Color("Accent") : Color("Secondary"))
+                        .cornerRadius(60)
+                        .onTapGesture {
+                            self.selectedConsltType = consltType.specailist
+                            self.showModel = true
+                        }
+                }
+                .padding(.bottom, 60)
+                .onTapGesture {
+                    showModel = true
+                    print("Tapped")
+                }
+                if isDeptSelected {
+                    DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
+                    
+                    
+                }else{
+                    GeneralDetails(symtomText: $symtomText)
+                }
+                
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    NavigationLink(destination: PScheduleSettings()) {
+                        TabButton(text: "Continue")
                     }
                 }
-                .padding(24)
-                SpecialistModelView(isShowing: $showModel , isDeptSelected: $isDeptSelected, selectedConsltType : $selectedConsltType , selectedDeptText : $selectedDeptText)
             }
-            .navigationTitle("Booking Consultation")
-        
+            .padding(24)
+            SpecialistModelView(isShowing: $showModel , isDeptSelected: $isDeptSelected, selectedConsltType : $selectedConsltType , selectedDeptText : $selectedDeptText)
+        }
+        .navigationTitle("Booking Consultation")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 enum consltType{
@@ -90,19 +90,19 @@ struct DeptSummary: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("About Department")
-                                .fontWeight(.semibold)
-                                .font(.system(size: 20))
-                                .padding(.bottom,30)
-                            
-                            HStack {
-                                Circle().fill(Color("Subheadings")).frame(width: 75 , height: 75)
-                                VStack(alignment : .leading , spacing: 8){
-                                    Text("\(heading) Department").fontWeight(.bold)
-                                    Text(description)
-                                }.padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
-                            }
-                            .padding(.init(top: 24, leading: 16, bottom: 24, trailing: 16))
-                            .background(RoundedRectangle(cornerRadius: 15).fill(Color("Secondary")))
+                .fontWeight(.semibold)
+                .font(.system(size: 20))
+                .padding(.bottom,30)
+            
+            HStack {
+                Circle().fill(Color("Subheadings")).frame(width: 75 , height: 75)
+                VStack(alignment : .leading , spacing: 8){
+                    Text("\(heading) Department").fontWeight(.bold)
+                    Text(description)
+                }.padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+            }
+            .padding(.init(top: 24, leading: 16, bottom: 24, trailing: 16))
+            .background(RoundedRectangle(cornerRadius: 15).fill(Color("Secondary")))
         }
     }
 }
