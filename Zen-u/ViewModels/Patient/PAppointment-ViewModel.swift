@@ -18,11 +18,8 @@ extension PAppointment {
         
         init() {
             isLoading = true
+
             
-            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
-            let decoder = JSONDecoder()
-            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
-            userName = currentUser.name
             
             
             
