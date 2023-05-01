@@ -34,3 +34,12 @@ struct Patient: Hashable, Codable, Identifiable {
         case ONegative = "O-"
     }
 }
+struct PatientRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var age: Int
+    var gender: String
+    var bloodGroup: String
+    var height: Float
+    var weight: Float
+}
+
