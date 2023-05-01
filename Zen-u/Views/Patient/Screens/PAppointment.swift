@@ -23,7 +23,7 @@ struct PAppointment: View {
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottomTrailing) {
-                VStack(alignment: .center, spacing: 20) {
+                VStack(alignment: .leading, spacing: 20) {
                     SegmentedPicker($statusIndex, selections: statusSelections)
                     
                     Menu {
@@ -36,7 +36,9 @@ struct PAppointment: View {
                     
                     ScrollView {
                         if viewModel.isLoading {
-                            ProgressView("Loading...")
+                            
+                            ProgressView("Loading...").hCenter()
+                            
                         } else{
                             if statusIndex == 0 {
                                 ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
