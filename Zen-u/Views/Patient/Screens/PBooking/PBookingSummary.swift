@@ -10,9 +10,8 @@ import SwiftUI
 struct PBookingSummary: View {
     var body: some View {
         VStack{
-            Spacer(minLength: 60)
             BookingInfoView()
-            Spacer(minLength: 100)
+            Spacer()
             PaymentView()
         }
         .navigationTitle("Summary")
@@ -24,7 +23,7 @@ func BookingInfoView() -> some View {
     VStack(spacing:20) {
         Text("Booking Information")
             .hLeading()
-            .font(.system(size: 20,weight: .semibold))
+            .font(.title3.weight(.semibold))
             .foregroundColor(Color("Heading"))
         
         ZStack(alignment: .leading) {
@@ -43,25 +42,27 @@ func BookingInfoView() -> some View {
                 VStack(alignment:.leading, spacing:5) {
                     Text("Date and Time")
                         .foregroundColor(Color("Subheadings"))
-                        .font(.system(size: 16,weight: .bold))
+                        .font(.callout.weight(.semibold))
                         .multilineTextAlignment(.leading)
                     Text("Thursday,1st July,2023")
-                        .font(.system(size: 13,weight: .semibold))
+                        .font(.footnote.weight(.semibold))
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(Color(red: 168/255, green: 166/255, blue: 166/255))
-                    Text("7:30 PM").font(.system(size: 13,weight: .semibold)).multilineTextAlignment(.leading).foregroundColor(Color(red: 168/255, green: 166/255, blue: 166/255))
+                        .foregroundColor(Color("Tag"))
+                    Text("7:30 PM")
+                        .font(.footnote.weight(.semibold))
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(Color("tag"))
                 }
             }
             .padding(.leading,40)
         }
-        
-        Spacer()
+        .padding(.bottom, 40)
         
         Text("Doctor Information")
-            .hLeading()
-            .font(.system(size: 20,weight: .semibold))
+            .font(.title3.weight(.semibold))
             .foregroundColor(Color("Heading"))
-        
+            .hLeading()
+
         ZStack(alignment: .leading) {
             Rectangle()
                 .foregroundColor(Color("Secondary"))
@@ -73,17 +74,17 @@ func BookingInfoView() -> some View {
                     .resizable()
                     .foregroundColor(Color.white)
                     .frame(width: 20,height: 20)
-                    .background(Circle().fill(.blue).frame(width: 54,height: 54))
+                    .background(Circle().fill(Color("Accent")).frame(width: 54,height: 54))
                 
                 VStack(alignment:.leading, spacing:5) {
                     Text("Oncology Department")
                         .foregroundColor(Color("Subheadings"))
-                        .font(.system(size: 16,weight: .bold))
+                        .font(.callout.weight(.semibold))
                         .multilineTextAlignment(.leading)
                     Text("Hospital Visit")
-                        .font(.system(size: 13,weight: .semibold))
+                        .font(.footnote.weight(.semibold))
                         .multilineTextAlignment(.leading)
-                        .foregroundColor(Color(red: 168/255, green: 166/255, blue: 166/255))
+                        .foregroundColor(Color("Tag"))
                 }
             }
             .padding(.leading,40)
