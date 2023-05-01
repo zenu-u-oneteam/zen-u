@@ -45,7 +45,7 @@ struct ProfileHeaderView: View {
                                 }
                             }
                             
-                            HStack(spacing: 10) {
+                            HStack(spacing: 1) {
                                 Text(viewModel.patientBloodGroup)
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
@@ -54,7 +54,7 @@ struct ProfileHeaderView: View {
                                 Text(String("\(viewModel.patientHeight) cm"))
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
-                                    .cornerRadius(30)
+                                    .cornerRadius(20)
                                 
                                 Text(String("\(viewModel.patientWeight) kg"))
                                     .padding(10)
