@@ -9,25 +9,19 @@ import SwiftUI
 
 
 struct ProfileHeaderView: View {
-    
-    @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
-    
-//    var image = Image(viewModel.userProfileImage)
-
     
     var body: some View {
         
         VStack(alignment: .leading, spacing: 32) {
             
-            NavigationStack(path: $path){
                 if viewModel.isLoading {
                     ProgressView("Loading...")
                 }
                 else{
                     
                     HStack(spacing: 16) {
-                        Image(viewModel.userProfileImage)
+                        Image(viewModel.user.profileImage)
                             .resizable()
                             .aspectRatio(1.5, contentMode: .fill)
                             .frame(width: 120, height: 120)
@@ -35,28 +29,28 @@ struct ProfileHeaderView: View {
                         VStack(alignment: .leading, spacing: 18) {
                             VStack(alignment: .leading, spacing: 5) {
                                 
-                                Text(viewModel.patientName)
+                                Text(viewModel.user.name)
                                     .font(.callout.bold())
                                 
                                 VStack(alignment: .leading, spacing: 3) {
-                                    Text(String(viewModel.patientAge) + " years old")
-                                    Text(viewModel.patientGender)
+                                    Text(String(viewModel.patient.age) + " years old")
+                                    Text(viewModel.patient.gender)
                                     
                                 }
                             }
                             
                             HStack(spacing: 1) {
-                                Text(viewModel.patientBloodGroup)
+                                Text(viewModel.patient.bloodGroup)
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
                                     .cornerRadius(30)
                                 
-                                Text(String("\(viewModel.patientHeight) cm"))
+                                Text(String("\(viewModel.patient.height) cm"))
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
                                     .cornerRadius(20)
                                 
-                                Text(String("\(viewModel.patientWeight) kg"))
+                                Text(String("\(viewModel.patient.weight) kg"))
                                     .padding(10)
                                     .background(Color(red: 1.0, green: 1.0, blue: 1.0))
                                     .cornerRadius(30)
@@ -88,7 +82,7 @@ struct ProfileHeaderView: View {
                                     .frame(width: 25, height: 25)
                             }
                             
-                            Text(viewModel.userPhoneNumber)
+                            Text(viewModel.user.mobileNumber)
                                 .font(.footnote)
                                 .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                                 .padding(5)
@@ -110,7 +104,7 @@ struct ProfileHeaderView: View {
                                 
                             }
                             
-                            Text(viewModel.userEmail)
+                            Text(viewModel.user.email)
                                 .font(.footnote)
                                 .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                                 .padding(5)
@@ -122,7 +116,6 @@ struct ProfileHeaderView: View {
                     .cornerRadius(15)
                     .padding(10)
                     .navigationTitle("Profile")
-                }
             }
         }
     }

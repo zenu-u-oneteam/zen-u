@@ -27,7 +27,7 @@ struct PProfile: View {
             }
         }
         .padding(2)
-        
+        .navigationBarTitleDisplayMode(.large)
     }
     
     func HeaderView() -> some View {

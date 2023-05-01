@@ -12,16 +12,8 @@ import Firebase
 extension ProfileHeaderView{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
-        @Published var userName: String = ""
-        @Published var userPhoneNumber: String = ""
-        @Published var userEmail: String = ""
-        @Published var userProfileImage: String = ""
-        @Published var patientName : String = ""
-        @Published var patientAge: Int = 0
-        @Published var patientBloodGroup: String = ""
-        @Published var patientGender: String = ""
-        @Published var patientWeight: Float = 0.0
-        @Published var patientHeight: Float = 0.0
+        @Published var user: User = User(name: "", email: "", userType: .patient, profileImage: "", mobileNumber: "")
+        @Published var patient: PatientRaw = PatientRaw(age: 0, gender: "", bloodGroup: "", height: 0.0, weight: 0.0)
         
         let db = FirebaseConfig().db
         
@@ -31,8 +23,7 @@ extension ProfileHeaderView{
             guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
             let decoder = JSONDecoder()
             guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
-            userName = currentUser.name
-            
+            user = currentUser
             
             Task {
                await getProfileInformation()
@@ -42,21 +33,9 @@ extension ProfileHeaderView{
         
         func getProfileInformation() async -> Void {
             do {
-                
                 let currentUserId = Auth.auth().currentUser!.uid
-                let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
-                let currentUser = try await db.collection("Users").document(currentUserId).getDocument(as: User.self)
-                let PatientDetails = try await db.collection("Patient").document(currentUserId).getDocument(as: PatientRaw.self)
-                userEmail = currentUser.email
-                userPhoneNumber = currentUser.mobileNumber
-                userProfileImage = currentUser.profileImage
-                patientName = currentUser.name
-                patientBloodGroup = PatientDetails.bloodGroup
-                patientAge = PatientDetails.age
-                patientGender = PatientDetails.gender
-                patientWeight = PatientDetails.weight
-                patientHeight = PatientDetails.height
-                return
+                let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: PatientRaw.self)
+                patient = currentPatient
             } catch {
                 fatalError("\(error)")
             }
