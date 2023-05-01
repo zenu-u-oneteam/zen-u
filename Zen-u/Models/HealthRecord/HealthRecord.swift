@@ -7,11 +7,11 @@
 
 import Foundation
 struct HealthRecord: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var name: String
-    var appointmentTime: DateComponents
-    var patient: Patient
-    var doctor: Doctor
+    var appointmentTime: Date
+    var patient: String
+    var doctor: String
     var type: HealthCategory
     var document: String
 }
