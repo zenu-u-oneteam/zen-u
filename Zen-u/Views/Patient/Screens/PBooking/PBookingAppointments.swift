@@ -20,8 +20,7 @@ struct PBookingAppointments: View {
             VStack(alignment: .leading){
                 
                 Text("Choose Type of Doctor")
-                    .fontWeight(.semibold)
-                    .font(.system(size: 20))
+                    .font(.title3.weight(.semibold))
                     .padding(.bottom , 20)
                 
                 HStack(spacing: 16){
@@ -56,11 +55,9 @@ struct PBookingAppointments: View {
                 if isDeptSelected {
                     DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
                     
-                    
-                }else{
+                } else {
                     GeneralDetails(symtomText: $symtomText)
                 }
-                
                 
                 Spacer()
                 
@@ -90,19 +87,24 @@ struct DeptSummary: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("About Department")
-                .fontWeight(.semibold)
-                .font(.system(size: 20))
+                .font(.title3.weight(.semibold))
                 .padding(.bottom,30)
             
             HStack {
-                Circle().fill(Color("Subheadings")).frame(width: 75 , height: 75)
+                Circle()
+                    .fill(Color("Subheadings"))
+                    .frame(width: 75 , height: 75)
                 VStack(alignment : .leading , spacing: 8){
-                    Text("\(heading) Department").fontWeight(.bold)
+                    Text("\(heading) Department")
+                        .font(.callout.bold())
                     Text(description)
-                }.padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+                        .font(.footnote)
+                }
             }
-            .padding(.init(top: 24, leading: 16, bottom: 24, trailing: 16))
-            .background(RoundedRectangle(cornerRadius: 15).fill(Color("Secondary")))
+            .padding(.horizontal, 16)
+            .padding(.vertical, 24)
+            .background(Color("Secondary"))
+            .cornerRadius(15)
         }
     }
 }
@@ -112,9 +114,8 @@ struct GeneralDetails: View {
     var body: some View {
         VStack(alignment: .leading){
             Text("Specify Reason (if Any)")
-                .fontWeight(.semibold)
-                .font(.system(size: 20))
-                .padding(.bottom,30)
+                .font(.title3.weight(.semibold))
+                .padding(.bottom, 30)
             
             ZStack (alignment: .leading) {
                 
