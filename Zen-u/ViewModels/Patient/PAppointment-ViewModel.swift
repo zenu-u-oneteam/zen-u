@@ -11,7 +11,6 @@ import FirebaseAuth
 extension PAppointment {
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
-        @Published var userName: String = ""
         @Published var upcomingAppointments: [Appointment] = []
         @Published var pastAppointments: [Appointment] = []
         
