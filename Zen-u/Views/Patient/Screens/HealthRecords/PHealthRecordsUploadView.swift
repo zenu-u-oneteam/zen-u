@@ -44,14 +44,14 @@ struct PHealthRecordsUploadView: View {
                 ScrollView {
                     ZStack(alignment: .topLeading) {
                         Rectangle()
-                            .frame(height: 420)
+                            .frame(height: 385)
                             .foregroundColor(Color("Secondary"))
                             .cornerRadius(15)
                             .hLeading()
                             .padding(.horizontal,20)
                         if(statusIndex == 1) {
                             if(viewModel.healthRecords.count > 0 ){
-                                VStack(alignment: .leading, spacing: 16) {
+                                VStack(alignment: .center, spacing: 16) {
                                     
                                     ForEach(viewModel.healthRecords, id: \.self) { item in
                                         
@@ -63,11 +63,12 @@ struct PHealthRecordsUploadView: View {
                                                 //                                            print(item.type?.category)
                                             } label: {
                                                 NavigationLink(destination: CustomPDFView(title: item.name, url: item.document)) {
-                                                    HStack(alignment: .top, spacing: 12) {
+                                                    HStack(alignment: .center, spacing: 12) {
                                                         Image(systemName: item.type?.image ?? "doc.circle.fill").resizable()
                                                             .foregroundColor(Color("Heading"))
                                                             .frame(width: 40, height: 40)
                                                             .padding(.top, 10)
+                                                            
                                                         
                                                         
                                                         VStack(alignment: .leading) {
@@ -82,7 +83,7 @@ struct PHealthRecordsUploadView: View {
                                                                 .font(.subheadline)
                                                                 .foregroundColor(Color("Subheadings"))
                                                                 .padding(.leading, 2)
-                                                        }
+                                                        } .padding(.top, 15)
                                                         Spacer()
                                                         
                                                         Image(systemName: "chevron.right")
@@ -90,7 +91,7 @@ struct PHealthRecordsUploadView: View {
                                                             .padding(.top, 10)
                                                         
                                                     }
-                                                }//tableviewcell
+                                                }
                                                 .padding(.horizontal, 40)
                                                 
                                             }
@@ -99,7 +100,7 @@ struct PHealthRecordsUploadView: View {
                                                 .padding(.leading, 30)
                                         }
                                     }
-                                    .padding(.top, 12)
+//                                    .padding(.top, 9)
                                 }.hLeading()
                             }//tableView
                         }
@@ -118,11 +119,13 @@ struct PHealthRecordsUploadView: View {
                                                 //                                            print(item.type?.category)
                                             } label: {
 //                                                NavigationLink(destination: CustomPDFView(title: item.name, url: item.document)) {
-                                                    HStack(alignment: .top, spacing: 12) {
+                                                    HStack(alignment: .center, spacing: 12) {
                                                         Image(systemName: item.type?.image ?? "doc.circle.fill").resizable()
                                                             .foregroundColor(Color("Heading"))
                                                             .frame(width: 40, height: 40)
-                                                        
+                                                            .padding(.top, 10)
+                                                            .padding(.trailing, 10)
+//                                                            .hTrailing()
                                                         VStack(alignment: .leading) {
                                                             Text(item.name)
                                                                 .font(.headline.bold())
@@ -134,7 +137,7 @@ struct PHealthRecordsUploadView: View {
                                                                 .foregroundColor(Color("Subheadings"))
                                                                 .padding(.leading, 2)
                                                         }
-                                                        
+                                                        .padding(.top, 15)
                                                         Spacer()
                                                         
 //                                                        Image(systemName: "chevron.right")
@@ -143,13 +146,14 @@ struct PHealthRecordsUploadView: View {
                                                     
                                                 }//tableviewcell
                                                 .padding(.horizontal, 40)
+                                                .padding(.leading, 20)
                                             }
                                             Divider()
                                                 .frame(width: 314)
                                                 .padding(.leading, 30)
                                         }
                                     }
-                                    .padding(.top, 12)
+//                                    .padding(.top, 12)
                                 }.hLeading()
                             }//tableView
                             

@@ -32,7 +32,7 @@ struct PHealthRecords: View {
                                 
                             } label: {
                                 NavigationLink(destination: PHealthRecordsUploadView(heading: item.title) ) {
-                                    HStack(alignment: .center, spacing: 12){
+                                    HStack(alignment: .center, spacing: 12) {
                                         
                                         Image(systemName: item.image)
                                             .resizable()
