@@ -14,6 +14,7 @@ extension PHealthRecordsUploadView{
         @Published var isLoading = false
         @Published var healthRecords: [HealthRecord] = []
         @Published var pendingHealthRecords: [PendingHealthRecord] = []
+        @Published var appointmentReports: [AppointmentReports] = []
         
         let db = FirebaseConfig().db
         
@@ -30,6 +31,7 @@ extension PHealthRecordsUploadView{
             Task {
                 healthRecords = await getHealthRecords()
                 pendingHealthRecords = await getPendingHealthRecords()
+                appointmentReports = await getAppointmentReports()
                 isLoading = false
             }
         }
@@ -58,7 +60,7 @@ extension PHealthRecordsUploadView{
                     healthRecords.append(healthRecordDetails)
                     
                 }
-                return healthRecords
+                return healthRecords.sorted { $0.appointmentTime > $1.appointmentTime }
                 
             }catch {
                 print(error)
@@ -87,13 +89,44 @@ extension PHealthRecordsUploadView{
                                         pendinghealthRecords.append(healthRecordDetails)
 
                 }
-                return pendinghealthRecords
+                return pendinghealthRecords.sorted { $0.appointmentTime > $1.appointmentTime }
 
             }catch {
                 fatalError("\(error)")
             }
         }
         
+        
+        
+        func getAppointmentReports() async ->  [AppointmentReports]{
+            do{
+
+                var appointmentReports: [AppointmentReports] = []
+                let currentUserId = Auth.auth().currentUser!.uid
+                let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
+                for healthRecordId in currentPatient.appointmentReports ?? [] {
+                    let appointmentReportsRawDetails = try await db.collection("AppointmentReports").document(healthRecordId).getDocument(as: AppointmentReportsRaw.self)
+                    print(appointmentReportsRawDetails)
+                                        let AppointmentReportsDetails = try await AppointmentReports(
+                                            id: healthRecordId,
+                                            appointment: db.collection("Appointment").document(appointmentReportsRawDetails.appointment).getDocument(as: AppointmentRaw.self),
+                                            appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentReportsRawDetails.appointmentTime)),
+                                            patient: db.collection("Patient").document(appointmentReportsRawDetails.patient).getDocument(as: PatientRaw.self),
+                                            doctor: try await db.collection("Doctor").document(appointmentReportsRawDetails.doctor).getDocument(as: DoctorRaw.self),
+                                            type: try await db.collection("Health Record Type").document(appointmentReportsRawDetails.type).getDocument(as: HealthRecordTypeRaw.self),
+                                            symptoms: appointmentReportsRawDetails.symptoms,
+                                            medicalAdvice: appointmentReportsRawDetails.medicalAdvice
+                                        )
+
+                                       appointmentReports.append(AppointmentReportsDetails)
+
+                }
+                return appointmentReports.sorted { $0.appointmentTime > $1.appointmentTime }
+
+            }catch {
+                fatalError("\(error)")
+            }
+        }
         
         
         

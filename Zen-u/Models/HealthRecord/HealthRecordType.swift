@@ -23,7 +23,7 @@ struct HealthRecordTypeRaw: Hashable, Codable, Identifiable {
 
 }
 enum HealthCategory: String, CaseIterable, Codable {
-    case prescription = "Prescriptions"
+    case appointmentRecords = "Appointment Reports"
     case labreports = "Lab Reports"
     case vaccinationreports = "Vaccination Reports"
     case hospitalization = "Hospitalizations"
