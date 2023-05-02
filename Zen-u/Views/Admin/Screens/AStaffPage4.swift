@@ -50,11 +50,10 @@ struct AdminStaffPage4: View {
                                     }
                                     Divider()
                                 }
-                                
                                 .frame(width: 314)
                             }
                         }.padding(8)
-                    }.frame( height: 240)
+                    }.frame( height: 253)
                         .background(Color("Secondary"))
                         .cornerRadius(10)
                     Spacer()

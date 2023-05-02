@@ -41,7 +41,6 @@ struct DAppointmentDetails: View {
                             } label: {
                                 ViewButton(text: typeSelections[typeIndex], selectable: true, rIcon: "chevron.down")
                             }
-                            
                         }
                     }
                     .padding(.bottom, 35)
@@ -76,24 +75,23 @@ struct DAppointmentDetails: View {
                             HStack(spacing: 10) {
                                 Text(patient.bloodGroup)
                                     .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .background()
                                     .cornerRadius(30)
                                 
                                 Text(String(patient.height))
                                     .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .background()
                                     .cornerRadius(30)
                                 
                                 Text(String(patient.weight) + " kg")
                                     .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .background()
                                     .cornerRadius(30)
                             }
                         }
                         .font(.system(size: 12).weight(.light))
-                        .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                     }
-                    .frame(width: 347, height: 160)
+                    .frame(width: 355, height: 160)
                     .padding(2)
                     .background(Color(red: 0.94, green: 0.94, blue: 0.94))
                     .cornerRadius(15)
@@ -200,24 +198,23 @@ struct Active_Medication : View{
                     .frame(width: 314)
             }.padding(.top, 13)
         }
-        .frame(width: 346, height: 164)
+        .frame(width: 360, height: 188)
         .background(Color("Secondary"))
         .cornerRadius(10)
         .padding(.vertical, 20)
-        
     }
 }
 
 
 struct Records : View{
-    
+
     @State var typeIndex1: Int = 0
     var typeSelections1: [String] = ["All", "Lab Reports", "Vaccinations", "Prescriptions", "Follow-ups"]
-    
+
     var body: some View{
-        
+
         HStack(){
-            
+
             ZStack {
                 Menu {
                     ForEach(typeSelections1.indices, id: \.self) {type in
@@ -227,11 +224,12 @@ struct Records : View{
                     ViewButton(text: typeSelections1[typeIndex1], rIcon: "chevron.down")
                 }
             }
+
             Button(action: {}, label: {
-                ViewButton(text: "View All", selectable: true)})
+                ViewButton(text: "View All", selectable: true)}).hTrailing()
         }
         .padding(.top, 20)
-        
+
         ScrollView{
             ForEach(numberOfCapsules, id: \.self)
             {
@@ -240,11 +238,11 @@ struct Records : View{
                     HStack {
                         Image("doc.text.magnifyingglass")
                             .padding(.leading)
-                        
+
                         VStack(alignment: .leading, spacing: 3) {
                             Text("Lipid Profile")
                                 .font(.system(size: 17).weight(.semibold))
-                            
+
                             Text("12th March 2023")
                                 .font(.system(size: 15).weight(.regular))
                                 .foregroundColor(.gray)
@@ -252,7 +250,7 @@ struct Records : View{
                         Image(systemName: "chevron.forward")
                             .foregroundColor(Color(UIColor.tertiaryLabel))
                             .hTrailing()
-                        
+
                         Spacer()
                     }
                 }
@@ -260,13 +258,11 @@ struct Records : View{
                     .frame(width: 314)
             }.padding(.top, 13)
         }
-        .frame(width: 346, height: 154)
+        .frame(width: 360, height: 188)
         .background(Color("Secondary"))
         .cornerRadius(10)
         .padding(.vertical, 20)
-        
-        
+
+
     }
 }
-
-//doctor appointment details
