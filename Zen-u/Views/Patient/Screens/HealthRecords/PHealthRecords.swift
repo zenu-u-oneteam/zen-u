@@ -9,13 +9,6 @@ import SwiftUI
 
 struct PHealthRecords: View {
     var tableHeadings: [HealthRecordType]
-    var healthRecords : [HealthRecord] = [
-        HealthRecord(id: "1", name: "Lipid Profile", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
-        HealthRecord(id: "1", name: "Complete Blood Count", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
-        HealthRecord(id: "1", name: "Cholestrol-Serum", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: ""),
-        HealthRecord(id: "1", name: "H1PVC Test", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: ""),
-        HealthRecord(id: "1", name: "Gall Bladder Test", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "")
-    ]
     @State private var ButtonClicked = "Prescriptions"
     @State private var isActive: Bool = false
     var body: some View {
@@ -38,7 +31,7 @@ struct PHealthRecords: View {
                                 print(ButtonClicked)
                                 
                             } label: {
-                                NavigationLink(destination: PHealthRecordsUploadView(healthrecord: healthRecords, heading: item.title) ) {
+                                NavigationLink(destination: PHealthRecordsUploadView(heading: item.title) ) {
                                     HStack(alignment: .center, spacing: 12){
                                         
                                         Image(systemName: item.image)
