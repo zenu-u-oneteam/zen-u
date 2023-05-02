@@ -14,7 +14,7 @@ struct AMain: View {
         TabView(selection: $selectedTab) {
             AHome()
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label("Dashboard", systemImage: "list.dash")
                 }
                 .tag(0)
             
