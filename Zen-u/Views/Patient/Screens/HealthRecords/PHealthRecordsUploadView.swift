@@ -159,7 +159,7 @@ struct PHealthRecordsUploadView: View {
                         
                     }
                 }//Scrollview end
-                if(heading == "Lab Reports" || heading == "Vaccination Reports"){
+                if(statusIndex == 1 && (heading == "Lab Reports" || heading == "Vaccination Reports")) {
                     
                     DocumentPickerCustom()
                         .padding()
