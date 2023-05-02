@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-extension PHome {
+extension PHome{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         @Published var userName: String = ""
