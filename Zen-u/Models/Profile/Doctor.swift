@@ -27,7 +27,7 @@ struct DoctorRaw: Hashable, Codable, Identifiable {
     var id: String?
     var age: Int
     var gender: String
-    var appointment: [String]?
+    var appointments: [String]?
     var name: String
     var startTime: Int
     var endTime: Int

@@ -62,6 +62,7 @@ extension PHome {
                 var upcomingAppointment: [Appointment] = []
                 let currentUserId = Auth.auth().currentUser!.uid
                 let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
+                print(currentPatient)
                 for appointmentId in currentPatient.appointments ?? [] {
                     let appointmentRawDetails = try await db.collection("Appointment").document(appointmentId).getDocument(as: AppointmentRaw.self)
                     let appointmentDetails = Appointment(

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 extension PSlotSelection {
     @MainActor class ViewModel: ObservableObject {
@@ -44,7 +45,7 @@ extension PSlotSelection {
         }
         
         func getAvailableSlots(_ date: Date) {
-
+            
             let calendar = Calendar.current
             let endDate = calendar.date(byAdding: .day, value: 1, to: date)!
             
@@ -87,6 +88,8 @@ extension PSlotSelection {
                 var doctorDetails = try await db.collection("Doctor").document(doctorID).getDocument(as: DoctorRaw.self)
                 doctorDetails.id = doctorID
                 
+                let existingAppointmentDate: [Date] = await getPastAppointments(doctorDetails: doctorDetails)
+                
                 var calendar = Calendar.current
                 
                 calendar.timeZone = TimeZone(identifier: "Asia/Kolkata")!
@@ -97,7 +100,7 @@ extension PSlotSelection {
                 startDateComponents.year = calendar.component(.year, from: selectedDate)
                 startDateComponents.month = calendar.component(.month, from: selectedDate)
                 startDateComponents.day = calendar.component(.day, from: selectedDate)
-
+                
                 var endDateComponents = startDateComponents
                 endDateComponents.hour = doctorDetails.endTime
                 
@@ -105,7 +108,7 @@ extension PSlotSelection {
                 let endDate = calendar.date(from: endDateComponents)!
                 
                 for (key, value) in currentDateDictionary {
-                    if key >= startDate && key < endDate {
+                    if key >= startDate && key < endDate && !existingAppointmentDate.contains(key){
                         var currentValue: [String] = value
                         currentValue.append("\(key)")
                         currentDateDictionary[key] = currentValue
@@ -114,6 +117,26 @@ extension PSlotSelection {
                 
                 return currentDateDictionary
                 
+            } catch {
+                fatalError("\(error)")
+            }
+        }
+        
+        func getPastAppointments(doctorDetails: DoctorRaw) async -> [Date] {
+            do {
+                var bookedSlots: [Date] = []
+                if doctorDetails.appointments![0].isEmpty {
+                    return bookedSlots
+                }
+                
+                let appointmentDetailsSnapshort = try await db.collection("Appointment").whereField(FieldPath.documentID(), in: doctorDetails.appointments!).getDocuments()
+                
+                for appointment in appointmentDetailsSnapshort.documents {
+                    let jsonData = try JSONSerialization.data(withJSONObject: appointment.data(), options: .prettyPrinted)
+                    let appointmentData = try JSONDecoder().decode(AppointmentRaw.self, from: jsonData)
+                    bookedSlots.append(Date(timeIntervalSince1970: TimeInterval(appointmentData.appointmentTime)))
+                }
+                return bookedSlots
             } catch {
                 fatalError("\(error)")
             }
