@@ -10,6 +10,8 @@ import SwiftUI
 struct PReminders: View {
     @StateObject var appointmentViewModel: ViewModel = ViewModel()
     @Namespace var animation
+    @State var filterModes: String = "none"
+
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -63,16 +65,46 @@ struct PReminders: View {
                     
                 }
             }
-            Spacer()
+           
             //sort buttons
             HStack(spacing: 20){
+                FilterButtons(text: "Tablets", selected: $filterModes)
+                    FilterButtons(text: "Shots", selected: $filterModes)
+                    FilterButtons(text: "Tbsp", selected: $filterModes)
+            }.padding(.vertical, 10)
+            
+            VStack(spacing: 20){
                 
             }
+            Spacer()
         }
         .padding(20)
         
     }
     
+}
+
+struct FilterButtons: View {
+    var text: String
+    @Binding var selected: String
+    
+    var body: some View {
+        Button(action: {
+            if (selected == text) {
+                selected = "none"
+            } else {
+                selected = text
+            }
+        }) {
+            Text(text)
+                .font(.subheadline)
+                .foregroundColor(.white)
+                .padding(.horizontal, 20)
+                .frame(minWidth: 30, minHeight: 35)
+                .background(selected == text ? Color("Accent") : Color("Heading"))
+                .cornerRadius(8)
+        }
+    }
 }
 
 struct PReminders_Previews: PreviewProvider {
