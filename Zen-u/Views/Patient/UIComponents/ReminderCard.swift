@@ -33,10 +33,10 @@ struct ReminderCard: View {
             .cornerRadius(10)
         }
         .padding(15)
-        .frame(width: 350, height: 90)
+        .frame(height: 90)
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
-        .cornerRadius(10)
+        .cornerRadius(17)
     }
     
     private struct Tag: View {
@@ -48,7 +48,7 @@ struct ReminderCard: View {
                 .padding(5)
                 .background(Color("Tag"))
                 .foregroundColor(Color.white)
-                .cornerRadius(5)
+             
         }
     }
 }
