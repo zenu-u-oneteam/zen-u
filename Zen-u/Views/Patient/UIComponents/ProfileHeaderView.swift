@@ -13,7 +13,7 @@ struct ProfileHeaderView: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 32) {
+        VStack(alignment: .leading) {
             
                 if viewModel.isLoading {
                     ProgressView("Loading...")
@@ -39,20 +39,21 @@ struct ProfileHeaderView: View {
                                 }
                             }
                             
-                            HStack(spacing: 1) {
+                            HStack() {
                                 Text(viewModel.patient.bloodGroup)
-                                    .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .font(.footnote)
+                                    .padding(8)
+                                    .background(.white)
                                     .cornerRadius(30)
                                 
                                 Text(String("\(viewModel.patient.height) cm"))
-                                    .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .padding(8)
+                                    .background(.white)
                                     .cornerRadius(20)
                                 
                                 Text(String("\(viewModel.patient.weight) kg"))
-                                    .padding(10)
-                                    .background(Color(red: 1.0, green: 1.0, blue: 1.0))
+                                    .padding(8)
+                                    .background(.white)
                                     .cornerRadius(30)
                             }
                         }
@@ -70,7 +71,6 @@ struct ProfileHeaderView: View {
                         HStack(alignment: .center, spacing: 5) {
                             
                             ZStack{
-                                
                                 Rectangle()
                                     .frame(width: 28, height: 28)
                                     .foregroundColor(Color("Accent"))
@@ -113,7 +113,7 @@ struct ProfileHeaderView: View {
                     }
                     .padding(18)
                     .background(Color(red: 0.94, green: 0.94, blue: 0.94))
-                    .cornerRadius(15)
+                    .cornerRadius(13)
                     .padding(10)
                     .navigationTitle("Profile")
             }
