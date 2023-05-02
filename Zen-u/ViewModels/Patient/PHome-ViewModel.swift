@@ -14,6 +14,7 @@ extension PHome{
         @Published var userName: String = ""
         @Published var greeting: String = ""
         @Published var upcomingAppointments: [Appointment] = []
+        let emergencyNumber: String = "+917807041670"
         
         let db = FirebaseConfig().db
         

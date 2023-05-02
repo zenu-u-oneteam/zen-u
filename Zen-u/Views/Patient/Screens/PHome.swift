@@ -15,7 +15,6 @@ struct EducationTopics: Identifiable{
 }
 
 struct PHome: View {
-    let phoneNumber = "+917807041670"
     @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
     
@@ -60,7 +59,7 @@ struct PHome: View {
                             Spacer()
                             
                             Button {
-                                if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+                                if let phoneCallURL = URL(string: "tel://\(viewModel.emergencyNumber)") {
                                     if UIApplication.shared.canOpenURL(phoneCallURL) {
                                         UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
                                     }
