@@ -11,7 +11,6 @@ struct PReminders: View {
     @StateObject var appointmentViewModel: ViewModel = ViewModel()
     @Namespace var animation
     @State var filterModes: String = "none"
-
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -62,26 +61,27 @@ struct PReminders: View {
                             }
                         }
                     }
-                    
                 }
             }
-           
             //sort buttons
             HStack(spacing: 20){
                 FilterButtons(text: "Tablets", selected: $filterModes)
                     FilterButtons(text: "Shots", selected: $filterModes)
                     FilterButtons(text: "Tbsp", selected: $filterModes)
             }.padding(.vertical, 10)
-            
-            VStack(spacing: 20){
-                
+            ScrollView{
+                VStack(spacing: 15){
+                               ReminderCard(medType: "pills.fill",medName: "Rantadine 500mg", time: "Before breakfast", dose: "04", tags:"Tablet")
+                               ReminderCard(medType: "cross.vial",medName: "Septilin Syrup", time: "After Lunch", dose: "01", tags:"Tbsp")
+                               ReminderCard(medType: "pills.fill",medName: "Rantadine 500mg", time: "After Lunch", dose: "01", tags:"Tablet")
+                               ReminderCard(medType: "syringe",medName: "IV injections", time: "After Dinner", dose: "01", tags:"Shot")
+                               ReminderCard(medType: "cross.vial",medName: "Benadryll", time: "After Dinner", dose: "01", tags:"tbsp")
+                           }
             }
             Spacer()
         }
         .padding(20)
-        
     }
-    
 }
 
 struct FilterButtons: View {
