@@ -410,8 +410,16 @@
 			isa = PBXGroup;
 			children = (
 				231BD40929FCD4E10027A17B /* Patient */,
+				BE5AA7632A0031DC0052A81C /* Doctor */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BE5AA7632A0031DC0052A81C /* Doctor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Doctor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -683,7 +691,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ANRSX72L2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -719,7 +727,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ANRSX72L2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
