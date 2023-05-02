@@ -37,98 +37,9 @@ struct PAppointment: View {
                             
                             ProgressView("Loading...").hCenter()
                             
-                        } else{
-                            if typeIndex == 0 {
-                                if statusIndex == 0 {
-                                    if viewModel.upcomingAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Upcoming Appointments")
-                                    }else{
-                                        ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                                else {
-                                    if viewModel.pastAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Past Records")
-                                    }else{
-                                        ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                            else if typeIndex == 1 {
-                                if statusIndex == 0 {
-                                    if viewModel.vaccUpAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Upcoming Vaccinations")
-                                    }else{
-                                        ForEach(viewModel.vaccUpAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.vaccUpAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                                else {
-                                    if viewModel.vaccPastAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Past Records")
-                                    }else{
-                                        ForEach(viewModel.vaccPastAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.vaccPastAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                            else if typeIndex == 2 {
-                                if statusIndex == 0 {
-                                    if viewModel.consultUpAppointments.isEmpty {
-                                        emptyDisplayMessage(message: "No Upcoming Consultations")
-                                    }else{
-                                        ForEach(viewModel.consultUpAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.consultUpAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                                else {
-                                    if viewModel.consultPastAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Past Records")
-                                    }else{
-                                        ForEach(viewModel.consultPastAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.consultPastAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                            else if typeIndex == 3 {
-                                if statusIndex == 0 {
-                                    if viewModel.labUpAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Upcoming Lab Tests")
-                                    }else{
-                                        ForEach(viewModel.labUpAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.labUpAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                                else {
-                                    if viewModel.labPastAppointments.isEmpty{
-                                        emptyDisplayMessage(message: "No Past Records")
-                                    }else{
-                                        ForEach(viewModel.labPastAppointments.indices, id: \.self){ index in
-                                            AppointmentCard(appointmentDetails: viewModel.labPastAppointments[index])
-                                        }
-                                    }
-                                    
-                                }
-                            }
-                           
+                        }else{
+                            getBookedAppointments(viewModel: viewModel, statusIndex: $statusIndex, typeIndex: $typeIndex)
                         }
-                        
                         
                     }
                 }
@@ -186,6 +97,107 @@ struct PAppointment: View {
         .accentColor(Color("Accent"))
     }
 }
+
+struct getBookedAppointments: View {
+    @State var viewModel : PAppointment.ViewModel
+    @Binding var statusIndex : Int
+    @Binding var typeIndex : Int
+    var body: some View {
+        
+            if typeIndex == 0 {
+                if statusIndex == 0 {
+                    if viewModel.upcomingAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Upcoming Appointments")
+                    }else{
+                        ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                        }
+                    }
+                    
+                }
+                else {
+                    if viewModel.pastAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Past Records")
+                    }else{
+                        ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                        }
+                    }
+                    
+                }
+            }
+            else if typeIndex == 1 {
+                if statusIndex == 0 {
+                    if viewModel.vaccUpAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Upcoming Vaccinations")
+                    }else{
+                        ForEach(viewModel.vaccUpAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.vaccUpAppointments[index])
+                        }
+                    }
+                    
+                }
+                else {
+                    if viewModel.vaccPastAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Past Records")
+                    }else{
+                        ForEach(viewModel.vaccPastAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.vaccPastAppointments[index])
+                        }
+                    }
+                    
+                }
+            }
+            else if typeIndex == 2 {
+                if statusIndex == 0 {
+                    if viewModel.consultUpAppointments.isEmpty {
+                        emptyDisplayMessage(message: "No Upcoming Consultations")
+                    }else{
+                        ForEach(viewModel.consultUpAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.consultUpAppointments[index])
+                        }
+                    }
+                    
+                }
+                else {
+                    if viewModel.consultPastAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Past Records")
+                    }else{
+                        ForEach(viewModel.consultPastAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.consultPastAppointments[index])
+                        }
+                    }
+                    
+                }
+            }
+            else if typeIndex == 3 {
+                if statusIndex == 0 {
+                    if viewModel.labUpAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Upcoming Lab Tests")
+                    }else{
+                        ForEach(viewModel.labUpAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.labUpAppointments[index])
+                        }
+                    }
+                    
+                }
+                else {
+                    if viewModel.labPastAppointments.isEmpty{
+                        emptyDisplayMessage(message: "No Past Records")
+                    }else{
+                        ForEach(viewModel.labPastAppointments.indices, id: \.self){ index in
+                            AppointmentCard(appointmentDetails: viewModel.labPastAppointments[index])
+                        }
+                    }
+                    
+                }
+            }
+           
+        }
+
+    
+}
+
 struct emptyDisplayMessage: View {
     @State var message : String
     var body: some View {
