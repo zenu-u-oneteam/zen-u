@@ -42,13 +42,13 @@ struct PHealthRecordsUploadView: View {
                 }
                 
                 ScrollView {
-                    ZStack(alignment: .topLeading) {
-                        Rectangle()
-                            .frame(height: 385)
-                            .foregroundColor(Color("Secondary"))
-                            .cornerRadius(15)
-                            .hLeading()
-                            .padding(.horizontal,20)
+//                    ZStack(alignment: .topLeading) {
+//                        Rectangle()
+//                            .frame(height: 370)
+//                            .foregroundColor(Color("Secondary"))
+//                            .cornerRadius(15)
+//                            .hLeading()
+//                            .padding(.horizontal,20)
                         if(statusIndex == 1) {
                             if(viewModel.healthRecords.count > 0 ){
                                 VStack(alignment: .center, spacing: 16) {
@@ -67,7 +67,8 @@ struct PHealthRecordsUploadView: View {
                                                         Image(systemName: item.type?.image ?? "doc.circle.fill").resizable()
                                                             .foregroundColor(Color("Heading"))
                                                             .frame(width: 40, height: 40)
-                                                            .padding(.top, 10)
+//                                                            .padding(.trailing, 10)
+//                                                            .padding(.top, 10)
                                                             
                                                         
                                                         
@@ -76,14 +77,15 @@ struct PHealthRecordsUploadView: View {
                                                                 .font(.headline.bold())
                                                                 .foregroundColor(Color("Heading"))
                                                                 .padding(1)
-//                                                                .padding(.top, 10)
+                                                            //                                                                .padding(.top, 10)
                                                             
                                                             
                                                             Text(formattedDateComponents(dateComponents: item.appointmentTime))
                                                                 .font(.subheadline)
                                                                 .foregroundColor(Color("Subheadings"))
                                                                 .padding(.leading, 2)
-                                                        } .padding(.top, 15)
+                                                        }
+//                                                         .padding(.top, 12)
                                                         Spacer()
                                                         
                                                         Image(systemName: "chevron.right")
@@ -123,7 +125,6 @@ struct PHealthRecordsUploadView: View {
                                                         Image(systemName: item.type?.image ?? "doc.circle.fill").resizable()
                                                             .foregroundColor(Color("Heading"))
                                                             .frame(width: 40, height: 40)
-                                                            .padding(.top, 10)
                                                             .padding(.trailing, 10)
 //                                                            .hTrailing()
                                                         VStack(alignment: .leading) {
@@ -137,7 +138,6 @@ struct PHealthRecordsUploadView: View {
                                                                 .foregroundColor(Color("Subheadings"))
                                                                 .padding(.leading, 2)
                                                         }
-                                                        .padding(.top, 15)
                                                         Spacer()
                                                         
 //                                                        Image(systemName: "chevron.right")
@@ -146,7 +146,7 @@ struct PHealthRecordsUploadView: View {
                                                     
                                                 }//tableviewcell
                                                 .padding(.horizontal, 40)
-                                                .padding(.leading, 20)
+//                                                .padding(.leading, 20)
                                             }
                                             Divider()
                                                 .frame(width: 314)
@@ -154,14 +154,20 @@ struct PHealthRecordsUploadView: View {
                                         }
                                     }
 //                                    .padding(.top, 12)
-                                }.hLeading()
+                                }
                             }//tableView
+                                
+
                             
                            
                         }
                         
                         
-                    }
+                    }.padding(.vertical, 20)
+                        .background(Color("Secondary"))
+                        .cornerRadius(15)
+                        .padding(.horizontal, 15)
+                        .padding(.bottom, 30)
                 }//Scrollview end
                 if(statusIndex == 1 && (heading == "Lab Reports" || heading == "Vaccination Reports")) {
                     
@@ -169,6 +175,7 @@ struct PHealthRecordsUploadView: View {
                         .padding()
                         .padding(.bottom, 20)
                 }
+//                Spacer(minLength: 200)
                     
                 }//initial Vstack
                 .navigationTitle(heading)
@@ -176,7 +183,7 @@ struct PHealthRecordsUploadView: View {
             }
         
     }
-}
+
 
 struct PHealthRecordsUploadView_Previews: PreviewProvider {
     static var previews: some View {
