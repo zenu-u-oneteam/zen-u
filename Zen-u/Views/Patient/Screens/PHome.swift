@@ -15,6 +15,7 @@ struct EducationTopics: Identifiable{
 }
 
 struct PHome: View {
+    let phoneNumber = "+917807041670"
     @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
     
@@ -27,6 +28,7 @@ struct PHome: View {
     @State private var selectedItem: EducationTopics?
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             if viewModel.isLoading {
                 ProgressView("Loading...")
@@ -57,8 +59,12 @@ struct PHome: View {
                             }
                             Spacer()
                             
-                            Button(){
-                                
+                            Button {
+                                if let phoneCallURL = URL(string: "tel://\(phoneNumber)") {
+                                    if UIApplication.shared.canOpenURL(phoneCallURL) {
+                                        UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+                                    }
+                                }
                             } label: {
                                 
                                 Image(systemName: "phone.fill")
