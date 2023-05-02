@@ -25,11 +25,15 @@ extension PAppointment {
         init() {
             isLoading = true
          Task {
-                upcomingAppointments = await getUpcomingAppointment()
-                pastAppointments = await getPastAppointment()
-                consultPastAppointments = await getConsultPastAppointments()
-                consultUpAppointments = await getConsultUpAppointments()
-                isLoading = false
+            upcomingAppointments = await getUpcomingAppointment()
+            pastAppointments = await getPastAppointment()
+            consultPastAppointments = await getConsultPastAppointments()
+            consultUpAppointments = await getConsultUpAppointments()
+            labPastAppointments = await  getLabPastAppointments()
+            labUpAppointments = await getLabUpAppointments()
+            vaccPastAppointments = await getVaccPastAppointments()
+            vaccUpAppointments = await getVaccUpAppointments()
+            isLoading = false
             }
         }
         
@@ -96,38 +100,38 @@ extension PAppointment {
            
         }
         
-//        func getLabPastAppointments() async -> [Appointment]{
-//
-//                let pastAppointments =  await getPastAppointment()
-//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
-//                return consultPastAppointments
-//
-//        }
-//
-//        func getLabUpAppointments() async -> [Appointment]{
-//
-//                let upcomingAppointments =  await getUpcomingAppointment()
-//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
-//                return consultPastAppointments
-//
-//        }
-//
-//        func getVaccPastAppointments() async -> [Appointment]{
-//
-//                let pastAppointments =  await getPastAppointment()
-//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
-//                return consultPastAppointments
-//
-//        }
-//
-//        func getVaccUpAppointments() async -> [Appointment]{
-//
-//                let upcomingAppointments =  await getUpcomingAppointment()
-//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
-//                return consultPastAppointments
-//
-//        }
-//
+        func getLabPastAppointments() async -> [Appointment]{
+
+                let pastAppointments =  await getPastAppointment()
+                var labPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Lab"})
+                return labPastAppointments
+
+        }
+
+        func getLabUpAppointments() async -> [Appointment]{
+
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var labUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Lab"})
+                return labUpAppointments
+
+        }
+
+        func getVaccPastAppointments() async -> [Appointment]{
+
+                let pastAppointments =  await getPastAppointment()
+                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Vaccination"})
+                return consultPastAppointments
+
+        }
+
+        func getVaccUpAppointments() async -> [Appointment]{
+
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var vaccUpAppointments : [Appointment] = upcomingAppointments.filter({$0.type!.category == "Vaccination"})
+                return vaccUpAppointments
+
+        }
+
         
         
             
