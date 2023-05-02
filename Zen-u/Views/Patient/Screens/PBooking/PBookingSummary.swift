@@ -25,70 +25,70 @@ func BookingInfoView() -> some View {
             .hLeading()
             .font(.title3.weight(.semibold))
             .foregroundColor(Color("Heading"))
-        
-        ZStack(alignment: .leading) {
-            Rectangle()
-                .foregroundColor(Color("Secondary"))
-                .frame(width: 337,height: 104)
-                .cornerRadius(26)
-            
-            HStack(spacing: 40) {
-                Image(systemName: "calendar")
-                    .resizable()
-                    .foregroundColor(Color.white)
-                    .frame(width: 20,height: 20)
-                    .background(Circle().fill(.blue).frame(width: 54,height: 54))
                 
-                VStack(alignment:.leading, spacing:5) {
-                    Text("Date and Time")
-                        .foregroundColor(Color("Subheadings"))
-                        .font(.callout.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                    Text("Thursday,1st July,2023")
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("Tag"))
-                    Text("7:30 PM")
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("tag"))
-                }
+        HStack {
+            Image(systemName: "calendar")
+                .resizable()
+                .foregroundColor(Color.white)
+                .frame(width: 20,height: 20)
+                .frame(width: 60,height: 60)
+                .background(Color("Accent"))
+                .cornerRadius(30)
+                .padding(.horizontal, 20)
+            
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Date and Time")
+                    .font(.body.weight(.semibold))
+                    .padding(.vertical, 3.0)
+                Text("Thursday,1st July,2023")
+                    .font(.footnote.weight(.semibold))
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(Color("Tag"))
+                Text("7:30 PM")
+                    .font(.footnote.weight(.semibold))
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(Color("Tag"))
             }
-            .padding(.leading,40)
+            Spacer()
         }
-        .padding(.bottom, 40)
-        
+        .padding()
+        .padding(.vertical, 7)
+        .foregroundColor(Color("Heading"))
+        .background(Color("Secondary"))
+        .cornerRadius(17)
+                
         Text("Doctor Information")
             .font(.title3.weight(.semibold))
             .foregroundColor(Color("Heading"))
             .hLeading()
 
-        ZStack(alignment: .leading) {
-            Rectangle()
-                .foregroundColor(Color("Secondary"))
-                .frame(width: 337,height: 104)
-                .cornerRadius(26)
+        
+        HStack {
+            Image(systemName: "person")
+                .resizable()
+                .foregroundColor(Color.white)
+                .frame(width: 20,height: 20)
+                .frame(width: 60,height: 60)
+                .background(Color("Accent"))
+                .cornerRadius(30)
+                .padding(.horizontal, 20)
             
-            HStack(spacing: 40) {
-                Image(systemName: "person")
-                    .resizable()
-                    .foregroundColor(Color.white)
-                    .frame(width: 20,height: 20)
-                    .background(Circle().fill(Color("Accent")).frame(width: 54,height: 54))
-                
-                VStack(alignment:.leading, spacing:5) {
-                    Text("Oncology Department")
-                        .foregroundColor(Color("Subheadings"))
-                        .font(.callout.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                    Text("Hospital Visit")
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("Tag"))
-                }
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Oncology Department")
+                    .font(.body.weight(.semibold))
+                    .padding(.vertical, 3.0)
+                Text("Hospital Visit")
+                    .font(.footnote.weight(.semibold))
+                    .multilineTextAlignment(.leading)
+                    .foregroundColor(Color("Tag"))
             }
-            .padding(.leading,40)
+            Spacer()
         }
+        .padding()
+        .padding(.vertical, 7)
+        .foregroundColor(Color("Heading"))
+        .background(Color("Secondary"))
+        .cornerRadius(17)
     }
 }
 

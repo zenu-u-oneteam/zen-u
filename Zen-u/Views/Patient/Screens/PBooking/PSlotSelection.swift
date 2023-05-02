@@ -77,24 +77,28 @@ struct PSlotSelection: View {
                 .hLeading()
             
             VStack {
-                if (viewModel.availableSlots.count > 0) {
-                    ScrollView {
-                        ForEach(viewModel.availableSlots.chunked(into: 3), id: \.self) { row in
-                            HStack(spacing: 15) {
-                                ForEach(row, id: \.self) { slot in
-                                    Button {
-                                        viewModel.selectedSlot = slot
-                                        print(viewModel.selectedSlot!)
-                                    } label: {
-                                        PSpecialButton(buttonText: viewModel.extractDate(date: slot, format: "HH:mm"), buttonColor: Color("Accent"), active: (viewModel.selectedSlot == slot))
+                if viewModel.isLoading {
+                    ProgressView("Loading...")
+                } else {
+                    if (viewModel.availableSlots.count > 0) {
+                        ScrollView {
+                            ForEach(viewModel.availableSlots.chunked(into: 3), id: \.self) { row in
+                                HStack(spacing: 15) {
+                                    ForEach(row, id: \.self) { slot in
+                                        Button {
+                                            viewModel.selectedSlot = slot
+                                            print(viewModel.selectedSlot!)
+                                        } label: {
+                                            PSpecialButton(buttonText: viewModel.extractDate(date: slot, format: "HH:mm"), buttonColor: Color("Accent"), active: (viewModel.selectedSlot == slot))
+                                        }
                                     }
                                 }
                             }
                         }
+                    } else {
+                        Text("No Slots Svailable")
+                            .foregroundColor(Color("Heading"))
                     }
-                } else {
-                    Text("No Slots Svailable")
-                        .foregroundColor(Color("Heading"))
                 }
             }
             .frame(height: 225)

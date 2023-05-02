@@ -11,6 +11,7 @@ import FirebaseFirestore
 extension PSlotSelection {
     @MainActor class ViewModel: ObservableObject {
         private var department: DepartmentRaw
+        @Published var isLoading = false
         @Published var userLocale = Locale.autoupdatingCurrent
         @Published var availableSlotsWithDoctor: [Date: [String]] = [:]
         @Published var availableSlots: [Date] = []
@@ -46,6 +47,8 @@ extension PSlotSelection {
         
         func getAvailableSlots(_ date: Date) {
             
+            isLoading = true
+            
             let calendar = Calendar.current
             let endDate = calendar.date(byAdding: .day, value: 1, to: date)!
             
@@ -79,6 +82,8 @@ extension PSlotSelection {
                 
                 availableSlots = dateArray
                 availableSlotsWithDoctor = dateDictionary
+                
+                isLoading = false
             }
         }
         
