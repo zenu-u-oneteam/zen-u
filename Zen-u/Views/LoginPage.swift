@@ -6,22 +6,65 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginPage: View {
-    
+    @EnvironmentObject var appState: AppState
+
     @State private var email = ""
     @State private var password = ""
+    @State var isLoggedIn = false
+    @State var userType: UserType = .none
+    
+    let db = FirebaseConfig().db
+    
+    func passwordLogin() {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            } else {
+                let currentUserID = Auth.auth().currentUser?.uid
+                if let currentUserID = currentUserID {
+                    print(currentUserID)
+                    db.collection("Users").document(currentUserID).getDocument {
+                        (document, error) in
+                        if let document = document, document.exists {
+                            let dataDescription = document.data()!
+                            let currentUser = User(
+                                id: currentUserID,
+                                name: dataDescription["name"] as! String,
+                                email: dataDescription["email"] as! String,
+                                userType: UserType(rawValue: dataDescription["userType"] as! String) ?? .admin,
+                                profileImage: dataDescription["profileImage"] as! String,
+                                mobileNumber: dataDescription["mobileNumber"] as! String
+                            )
+                            print(currentUser)
+                            let encoder = JSONEncoder()
+                            if let currentUserData = try? encoder.encode(currentUser) {
+                                UserDefaults.standard.set(currentUserData, forKey: "currentUser")
+                                print(currentUser.userType)
+                                userType = currentUser.userType
+                                appState.rootViewId = UUID()
+                            }
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
+                }
+            }
+        }
+    }
     
     var body: some View {
         ZStack {
             VStack {
-                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "envelope")
                             .foregroundColor(.black)
                         TextField("Enter your email", text: $email)
                             .font(.system(size: 17, weight: .light))
+                            .textInputAutocapitalization(.never)
                     }
                     .padding()
                     .background(Color(.systemGray5))
@@ -35,6 +78,7 @@ struct LoginPage: View {
                         .foregroundColor(.black)
                     SecureField("Enter your password", text: $password)
                         .font(.system(size: 17, weight: .light))
+                        .textInputAutocapitalization(.never)
                 }
                 .padding()
                 .background(Color(.systemGray5))
@@ -51,12 +95,12 @@ struct LoginPage: View {
                 .padding(.trailing, 30)
                 
                 Button {
-                    // Perform login action here
+                    passwordLogin()
                 } label: {
                     ActionButton(text: "Log in")
                 }
                 .padding(.top, 20)
-                
+                                
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.gray)
@@ -88,12 +132,11 @@ struct LoginPage: View {
                 }
                 .padding(.vertical)
                 .padding(.bottom)
-                
-                //                    Spacer()
-                
+                                
                 VStack(spacing: 20) {
                     Button(action: {
                         // Perform Google sign-in action here
+                        appState.rootViewId = UUID()
                     }) {
                         HStack {
                             Image("google")
@@ -136,6 +179,7 @@ struct LoginPage: View {
                     }
                     Button(action: {
                         // Perform Facebook sign-in action here
+//                        popToRootViewController(animated: false)
                     }) {
                         HStack {
                             Image("facebook")
@@ -157,7 +201,6 @@ struct LoginPage: View {
                     }
                 }
                 .padding(.horizontal, 30)
-                
             }
             .navigationBarTitle("zen-u", displayMode: .inline)
         }

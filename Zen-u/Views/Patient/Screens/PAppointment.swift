@@ -16,9 +16,10 @@ struct PAppointment: View {
     var appointments: [Int] = [0, 1]
     @State private var searchText = ""
     @State private var book: Bool = false
+    let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack(alignment: .bottomTrailing) {
                 VStack(alignment: .leading, spacing: 20) {
                     SegmentedPicker($statusIndex, selections: statusSelections)
@@ -32,12 +33,7 @@ struct PAppointment: View {
                     }
                     
                     ScrollView {
-                        ForEach(appointments.indices, id: \.self) {appointment in
-                            AppointmentCard(name: "PSV23 (Pneumo)", tags: ["Live", "General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
-                                .padding(.bottom, 10)
-                            AppointmentCard(name: "PSV23 (Pneumo)", tags: ["General"], time: "9:30", doctorName: "Dr. Hanna Fiegel")
-                                .padding(.bottom, 10)
-                        }
+                        AppointmentCard(appointmentDetails: appointmentDetails)
                     }
                 }
                 .searchable(text: $searchText)
@@ -48,7 +44,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -56,7 +52,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -64,7 +60,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -81,7 +77,7 @@ struct PAppointment: View {
                             Image.init(systemName: "plus")
                                 .font(.title2)
                                 .frame(width: 50, height: 50)
-                                .background(Color.accentColor)
+                                .background(Color("Accent"))
                                 .foregroundColor(Color.white)
                                 .cornerRadius(25)
                         }
@@ -89,8 +85,9 @@ struct PAppointment: View {
                 }
                 
             }
-            .padding()
+            .padding(20)
         }
+        .accentColor(Color("Accent"))
     }
 }
 
