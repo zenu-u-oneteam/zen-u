@@ -22,7 +22,6 @@
 		2340535229F24E43003A0063 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535129F24E43003A0063 /* Doctor.swift */; };
 		2340535429F24E79003A0063 /* AppointmentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535329F24E79003A0063 /* AppointmentType.swift */; };
 		2340535629F24F09003A0063 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340535529F24F09003A0063 /* Department.swift */; };
-		23408A4B29F6E68C00E581ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */; };
 		23408A4E29F6E73200E581ED /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 23408A4D29F6E73200E581ED /* FirebaseAuth */; };
 		23408A5029F6E73200E581ED /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 23408A4F29F6E73200E581ED /* FirebaseFirestore */; };
 		23408A5229F6E73200E581ED /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 23408A5129F6E73200E581ED /* FirebaseStorage */; };
@@ -45,9 +44,9 @@
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
-		3054D5F429EE75D7000A8858 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* TabBar.swift */; };
-		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
 		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
+		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
+		30F810A72A00E06500E200F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30F810A62A00E06500E200F7 /* GoogleService-Info.plist */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
 		3874751529ED603800CCA151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751429ED603800CCA151 /* ContentView.swift */; };
 		3874751729ED603900CCA151 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3874751629ED603900CCA151 /* Assets.xcassets */; };
@@ -94,7 +93,6 @@
 		2340535129F24E43003A0063 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		2340535329F24E79003A0063 /* AppointmentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentType.swift; sourceTree = "<group>"; };
 		2340535529F24F09003A0063 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
-		23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConfig.swift; sourceTree = "<group>"; };
 		23408A5829F7AA7B00E581ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		23457E6F29F257A500715DD9 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -113,9 +111,9 @@
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
-		3054D5F329EE75D7000A8858 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
 		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
+		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
+		30F810A62A00E06500E200F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3874751229ED603800CCA151 /* Zen_uApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_uApp.swift; sourceTree = "<group>"; };
 		3874751429ED603800CCA151 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -271,8 +269,8 @@
 				3874752029ED604600CCA151 /* Views */,
 				3874751229ED603800CCA151 /* Zen_uApp.swift */,
 				3874751429ED603800CCA151 /* ContentView.swift */,
+				30F810A62A00E06500E200F7 /* GoogleService-Info.plist */,
 				3874751629ED603900CCA151 /* Assets.xcassets */,
-				23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */,
 				3874751829ED603900CCA151 /* Preview Content */,
 				23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */,
 				236D49D429FA712A00212E97 /* AppState.swift */,
@@ -488,8 +486,8 @@
 			files = (
 				23408A5929F7AA7B00E581ED /* .gitignore in Resources */,
 				3874751A29ED603900CCA151 /* Preview Assets.xcassets in Resources */,
+				30F810A72A00E06500E200F7 /* GoogleService-Info.plist in Resources */,
 				3874751729ED603900CCA151 /* Assets.xcassets in Resources */,
-				23408A4B29F6E68C00E581ED /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
