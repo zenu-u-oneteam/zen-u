@@ -38,16 +38,31 @@ struct PAppointment: View {
                             ProgressView("Loading...").hCenter()
                             
                         } else{
-                            if statusIndex == 0 {
-                                ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
-                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                            if typeIndex == 0 {
+                                if statusIndex == 0 {
+                                    ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
+                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                                    }
+                                }
+                                else {
+                                    ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
+                                        AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                                    }
                                 }
                             }
-                            else {
-                                ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
-                                    AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                            else if typeIndex == 2 {
+                                if statusIndex == 0 {
+                                    ForEach(viewModel.consultUpAppointments.indices, id: \.self){ index in
+                                        AppointmentCard(appointmentDetails: viewModel.consultUpAppointments[index])
+                                    }
+                                }
+                                else {
+                                    ForEach(viewModel.consultPastAppointments.indices, id: \.self){ index in
+                                        AppointmentCard(appointmentDetails: viewModel.consultPastAppointments[index])
+                                    }
                                 }
                             }
+                           
                         }
                         
                         

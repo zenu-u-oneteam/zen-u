@@ -13,6 +13,12 @@ extension PAppointment {
         @Published var isLoading = false
         @Published var upcomingAppointments: [Appointment] = []
         @Published var pastAppointments: [Appointment] = []
+        @Published var consultPastAppointments: [Appointment] = []
+        @Published var consultUpAppointments: [Appointment] = []
+        @Published var labPastAppointments: [Appointment] = []
+        @Published var labUpAppointments: [Appointment] = []
+        @Published var vaccPastAppointments: [Appointment] = []
+        @Published var vaccUpAppointments: [Appointment] = []
         
         let db = FirebaseConfig().db
         
@@ -21,9 +27,13 @@ extension PAppointment {
          Task {
                 upcomingAppointments = await getUpcomingAppointment()
                 pastAppointments = await getPastAppointment()
+                consultPastAppointments = await getConsultPastAppointments()
+                consultUpAppointments = await getConsultUpAppointments()
                 isLoading = false
             }
         }
+        
+    
         
         
         
@@ -69,5 +79,57 @@ extension PAppointment {
                 fatalError("\(error)")
             }
         }
+        
+        func getConsultPastAppointments() async -> [Appointment]{
+           
+                let pastAppointments =  await getPastAppointment()
+                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+                return consultPastAppointments
+           
+        }
+        
+        func getConsultUpAppointments() async -> [Appointment]{
+           
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var consultUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Consultation"})
+                return consultUpAppointments
+           
+        }
+        
+//        func getLabPastAppointments() async -> [Appointment]{
+//
+//                let pastAppointments =  await getPastAppointment()
+//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+//                return consultPastAppointments
+//
+//        }
+//
+//        func getLabUpAppointments() async -> [Appointment]{
+//
+//                let upcomingAppointments =  await getUpcomingAppointment()
+//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+//                return consultPastAppointments
+//
+//        }
+//
+//        func getVaccPastAppointments() async -> [Appointment]{
+//
+//                let pastAppointments =  await getPastAppointment()
+//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+//                return consultPastAppointments
+//
+//        }
+//
+//        func getVaccUpAppointments() async -> [Appointment]{
+//
+//                let upcomingAppointments =  await getUpcomingAppointment()
+//                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+//                return consultPastAppointments
+//
+//        }
+//
+        
+        
+            
     }
 }
