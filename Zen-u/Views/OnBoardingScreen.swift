@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct OnBoardingScreen: View {
-    
     var body: some View {
-        
-        NavigationView {
-            
+        NavigationStack {
             ZStack(alignment: .trailing) {
-            
+                
                 Image("Group 64")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .padding(.top, 42.0)
-            
+                
                 VStack(alignment: .center){
                     Text("zen-u")
                         .fontWeight(.heavy)
@@ -57,6 +54,8 @@ struct OnBoardingScreen: View {
                     }
                 }
             }
+            .navigationBarTitleDisplayMode(.large)
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
