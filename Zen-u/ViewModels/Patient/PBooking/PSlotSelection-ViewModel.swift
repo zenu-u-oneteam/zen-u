@@ -9,23 +9,27 @@ import Foundation
 
 extension PSlotSelection {
     @MainActor class ViewModel: ObservableObject {
+        private var department: DepartmentRaw
         @Published var userLocale = Locale.autoupdatingCurrent
-        @Published var availableSlots: [Date] = [Date()]
+        @Published var availableSlotsWithDoctor: [Date: [String]] = [:]
+        @Published var availableSlots: [Date] = []
         @Published var selectedSlot: Date?
         @Published var upcomingMonth: [Date] = []
         @Published var selectedDate: Date = Date()
         let todaysDate = Date()
-
-        init() {
+        
+        let db = FirebaseConfig().db
+        
+        init(department: DepartmentRaw) {
+            self.department = department
             fetchUpcomingMonth()
         }
         
         func fetchUpcomingMonth() {
-            
             var calendar = Calendar.current
             let today = calendar.startOfDay(for: Date())
             calendar.locale = userLocale
-
+            
             (0...30).forEach{ day in
                 if let weekday = calendar.date(byAdding: .day, value: day, to: today){
                     upcomingMonth.append(weekday)
@@ -40,21 +44,79 @@ extension PSlotSelection {
         }
         
         func getAvailableSlots(_ date: Date) {
-            
+
             let calendar = Calendar.current
             let endDate = calendar.date(byAdding: .day, value: 1, to: date)!
-
-            var dateArray = [Date]()
+            
+            var dateDictionary: [Date: [String]] = [:]
+            var dateArray: [Date] = []
             var currentDate = date
-
+            
             while currentDate < endDate {
                 if currentDate > todaysDate {
-                    dateArray.append(currentDate)
+                    dateDictionary[currentDate] = []
                 }
                 currentDate = calendar.date(byAdding: .minute, value: 30, to: currentDate)!
             }
+            
+            guard let doctors: [String] = department.doctors else { return }
+            
+            Task {
+                for doctor in doctors {
+                    dateDictionary = await findAvailableSlots(doctorID: doctor, selectedDate: date, dateDictionary: dateDictionary)
+                }
+                
+                for (key, value) in dateDictionary {
+                    if value.count == 0 {
+                        dateDictionary.removeValue(forKey: key)
+                    } else {
+                        dateArray.append(key)
+                    }
+                }
+                
+                dateArray = dateArray.sorted()
+                
+                availableSlots = dateArray
+                availableSlotsWithDoctor = dateDictionary
+            }
+        }
+        
+        func findAvailableSlots (doctorID: String, selectedDate: Date, dateDictionary: [Date: [String]]) async -> [Date: [String]] {
+            do {
+                var currentDateDictionary = dateDictionary
+                var doctorDetails = try await db.collection("Doctor").document(doctorID).getDocument(as: DoctorRaw.self)
+                doctorDetails.id = doctorID
+                
+                var calendar = Calendar.current
+                
+                calendar.timeZone = TimeZone(identifier: "Asia/Kolkata")!
+                
+                var startDateComponents = DateComponents()
+                startDateComponents.hour = doctorDetails.startTime
+                startDateComponents.minute = 0
+                startDateComponents.year = calendar.component(.year, from: selectedDate)
+                startDateComponents.month = calendar.component(.month, from: selectedDate)
+                startDateComponents.day = calendar.component(.day, from: selectedDate)
 
-            availableSlots = dateArray
+                var endDateComponents = startDateComponents
+                endDateComponents.hour = doctorDetails.endTime
+                
+                let startDate = calendar.date(from: startDateComponents)!
+                let endDate = calendar.date(from: endDateComponents)!
+                
+                for (key, value) in currentDateDictionary {
+                    if key >= startDate && key < endDate {
+                        var currentValue: [String] = value
+                        currentValue.append("\(key)")
+                        currentDateDictionary[key] = currentValue
+                    }
+                }
+                
+                return currentDateDictionary
+                
+            } catch {
+                fatalError("\(error)")
+            }
         }
         
         func extractDate(date: Date, format: String) -> String {
@@ -68,6 +130,5 @@ extension PSlotSelection {
             formatter.dateFormat = format
             return formatter.string(from: Date(timeIntervalSince1970: TimeInterval(timeStamp)))
         }
-
     }
 }

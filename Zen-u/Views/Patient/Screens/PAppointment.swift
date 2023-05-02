@@ -16,7 +16,7 @@ struct PAppointment: View {
     var appointments: [Int] = [0, 1]
     @State private var searchText = ""
     @State private var book: Bool = false
-    let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel"), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
+    let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel", startTime: 9, endTime: 17), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
     
     var body: some View {
         NavigationStack {

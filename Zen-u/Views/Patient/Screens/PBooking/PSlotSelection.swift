@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct PSlotSelection: View {
-    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
-    @StateObject private var viewModel = ViewModel()
+    let department: DepartmentRaw
+    @StateObject private var viewModel: ViewModel
     
     @Namespace var animation
-        
+    
+    init(department: DepartmentRaw) {
+        self.department = department
+        self._viewModel = StateObject(wrappedValue: ViewModel(department: department))
+    }
+    
     var body: some View{
         
         VStack{
@@ -137,6 +142,6 @@ extension Array {
 
 struct PSlotSelection_Previews: PreviewProvider {
     static var previews: some View {
-        PSlotSelection()
+        PSlotSelection(department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]))
     }
 }
