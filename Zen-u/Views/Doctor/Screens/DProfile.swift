@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct DoctorProfile: View {
+struct DProfile: View {
+    @StateObject private var viewModel = ViewModel()
     @State private var selectedOption = "Option 1"
     var body: some View {
         
@@ -31,7 +32,7 @@ struct DoctorProfile: View {
                     }
                 }
             label: {
-                Image(systemName: "line.horizontal.3")
+                Image(systemName: "list.dash")
                     .resizable()
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                     .frame(width: 15
@@ -44,7 +45,7 @@ struct DoctorProfile: View {
                 
                 HStack(spacing : 20) {
                     
-                    Image("ProfileImage")
+                    Image(viewModel.user.profileImage)
                         .resizable()
                         .frame(width: 105, height: 105)
                         .clipShape(Circle())
@@ -52,7 +53,7 @@ struct DoctorProfile: View {
                         .padding(.horizontal, 15)
                     
                     VStack(alignment: .leading){
-                        Text("Dr. P Lawrence")
+                        Text(viewModel.doctor.name)
                             .font(.title3.bold())
                         Text("Diabetology")
                             .font(.caption.weight(.semibold))
@@ -200,8 +201,8 @@ struct DoctorProfile: View {
     }
 }
 
-struct DoctorProfile_Previews: PreviewProvider {
+struct DProfile_Previews: PreviewProvider {
     static var previews: some View {
-        DoctorProfile()
+        DProfile()
     }
 }
