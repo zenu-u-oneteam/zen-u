@@ -143,5 +143,12 @@ class DateViewModel: ObservableObject{
             let formattedDateTime = dtFormatter.string(from: now)
             return dtFormatter.date(from: formattedDateTime)!
         }
+    
+    func getTimeFromDate(date : Date ) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let time = formatter.string(from: date)
+        return time
+    }
     }
 

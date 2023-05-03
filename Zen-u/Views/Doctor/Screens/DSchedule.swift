@@ -101,7 +101,7 @@ struct DSchedule: View {
                                     Button {
                                         
                                     } label: {
-                                        DScheduleTaskCard(patientName: viewModel.appList[index].patientUser.name, tags: ["New patient", "OPD"], time: "9:30", age: viewModel.appList[index].appointment.patient?.age ?? -1, gender: viewModel.appList[index].appointment.patient?.gender ?? "Not available")
+                                        DScheduleTaskCard(patientName: viewModel.appList[index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: viewModel.appList[index].appointment.appointmentTime), age: viewModel.appList[index].appointment.patient?.age ?? -1, gender: viewModel.appList[index].appointment.patient?.gender ?? "Not available")
                                     }
                                 }
                             }
