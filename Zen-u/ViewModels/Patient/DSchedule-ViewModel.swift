@@ -12,6 +12,7 @@ extension DSchedule {
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         @Published var appList : [AppointmentData] = []
+        @Published var monthAppMap : [Int : [AppointmentData]] = [:]
         
         
         let db = FirebaseConfig().db
@@ -19,8 +20,21 @@ extension DSchedule {
             isLoading = true
             Task{
                 appList = await getAppointmentList()
+                monthAppMap = await getMonthAppMap()
                 isLoading = false
                 print("List len : \(appList.count)")
+                for a in appList {
+                    print("Month and Date")
+                    print(DateViewModel().getMonthValue(date: a.appointment.appointmentTime))
+                    print(DateViewModel().getDateValue(date: a.appointment.appointmentTime))
+                    print(a.appointment.appointmentTime)
+
+                }
+                for (key,value) in monthAppMap{
+
+                    print("\(key) : \(value.count)")
+
+                }
             }
             
         }
@@ -46,6 +60,16 @@ extension DSchedule {
                 fatalError("\(error)")
             }
             
+        }
+        
+        func getMonthAppMap()  async -> [Int : [AppointmentData]] {
+            var monthAppMap : [Int : [AppointmentData]] = [:]
+            var appList : [AppointmentData] = await getAppointmentList()
+            for i in 0...11 {
+                var filterList : [AppointmentData] = appList.filter({ DateViewModel().getMonthValue(date: $0.appointment.appointmentTime) == i })
+                monthAppMap[i]=filterList
+            }
+            return monthAppMap
         }
     }
 }

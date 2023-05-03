@@ -109,6 +109,23 @@ class DateViewModel: ObservableObject{
         return day! - 1
         
     }
+    func getMonthValue(date : Date)-> Int {
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.month], from: date)
+        let month = components.month
+        return month! - 1
+        
+    }
+    
+    func getDateValue(date : Date )-> Int {
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.day], from: date)
+        let day = components.day
+        return day! - 1
+        
+    }
         func extractDate(date:Date, format:String)->String{
             let formatter = DateFormatter()
             

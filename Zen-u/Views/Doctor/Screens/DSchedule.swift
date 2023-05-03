@@ -11,7 +11,7 @@ struct DSchedule: View {
     @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
 
     @State var selectedMonth: Int = DateViewModel().currentMonthValue()
-    @State var selectedDate: Int = 0
+    @State var selectedDate: Int = DateViewModel().currentDateValue()
     @State var currentDate: Date = DateViewModel().currentDay
     @State var currentDateIndex: Int = DateViewModel().currentDateValue()
     @State var datesofMonth : [Date] = DateViewModel().currentMonth
@@ -67,17 +67,17 @@ struct DSchedule: View {
                                         VStack {
                                             Text(appointmentViewModel.extractDate(date: datesofMonth[day], format: "dd"))
                                                 .font(.title2.bold())
-                                                .foregroundColor(selectedDate == day || currentDateIndex == day ?  .white :
+                                                .foregroundColor(selectedDate == day ?  .white :
                                                                     Color("Subheadings"))
                                             
                                             Text(appointmentViewModel.extractDate(date: datesofMonth[day] , format: "EEE"))
                                                 .font(.callout.weight(.light))
-                                                .foregroundColor(selectedDate == day || currentDateIndex == day ? .white : Color("Subheadings"))
+                                                .foregroundColor(selectedDate == day ? .white : Color("Subheadings"))
                                         }
                                         .foregroundColor(Color("Subheadings"))
                                         .frame(width: 50 ,height: 70)
                                     }
-                                    .background(selectedDate == day || currentDateIndex == day ? Color("Accent") : .white)
+                                    .background(selectedDate == day ? Color("Accent") : .white)
                                     .cornerRadius(12)
                                 }
                             }
@@ -96,12 +96,13 @@ struct DSchedule: View {
                             ProgressView("Loading...").hCenter()
                         }else{
                             LazyVStack (alignment: .leading, spacing: 10){
-                                ForEach(viewModel.appList.indices, id: \.self) {
+                                var appList = viewModel.monthAppMap[selectedMonth]?.filter({DateViewModel().getDateValue(date: $0.appointment.appointmentTime) == selectedDate})
+                                ForEach(appList!.indices, id: \.self) {
                                     index  in
                                     Button {
-                                        
+                                        appointmentViewModel.update()
                                     } label: {
-                                        DScheduleTaskCard(patientName: viewModel.appList[index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: viewModel.appList[index].appointment.appointmentTime), age: viewModel.appList[index].appointment.patient?.age ?? -1, gender: viewModel.appList[index].appointment.patient?.gender ?? "Not available")
+                                        DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
                                     }
                                 }
                             }
