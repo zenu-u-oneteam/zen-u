@@ -41,7 +41,7 @@ struct AppointmentCard: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
-                Text(appointmentDetails.appointmentTime.addingTimeInterval(600),style: .date)
+                Text(appointmentDetails.appointmentTime, style: .date)
                     .font(.footnote).bold()
                 Text(formatDate(appointmentDetails.appointmentTime))
                     .font(.largeTitle.bold())
