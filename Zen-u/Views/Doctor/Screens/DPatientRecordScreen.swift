@@ -16,11 +16,8 @@ import Foundation
 
 struct DPatientRecordScreen: View {
     
-//    @State private var newPrescription = [
-//        Prescription(med: "Aspirin", dosage: "take"),
-//        Prescription(med: "Cough Syrup", dosage: "take"),
-//        Prescription(med: "Yes", dosage: "take")
-//    ]
+    @StateObject private var viewModel = ViewModel()
+
     
     @State private var symptoms = ""
     @State private var medicalAdvice = ""
@@ -98,7 +95,9 @@ struct DPatientRecordScreen: View {
                     
                 Spacer()
                 
-                Button(action: {}){
+                Button{
+                    viewModel.addAppointmentReport(symptoms: symptoms, medicalAdvice: medicalAdvice, prescription: prescription)
+                } label: {
                     Text("Done").foregroundColor(Color("Primary"))
                         .frame(width:335, height:47)
                         .background(Color("AccentColor"))
