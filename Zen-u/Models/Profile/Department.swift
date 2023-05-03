@@ -15,3 +15,12 @@ struct Department: Hashable, Codable, Identifiable {
     var appointmentType: [String]
     var pastAppointments: [String]?
 }
+
+struct DepartmentRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String?
+    var description: String?
+    var doctors: [String]?
+    var appointmentType: [String]?
+    var pastAppointments: [String]?
+}

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ViewModel: ObservableObject{
+class DateViewModel: ObservableObject{
     @Published var userLocale = Locale.autoupdatingCurrent
     @Published var currentMonth: [Date] = []
     
@@ -23,6 +23,7 @@ class ViewModel: ObservableObject{
         fetchCurrentMonth()
         fetchCurrentWeek()
     }
+    
     func update() {
         refresh.toggle()
      }
