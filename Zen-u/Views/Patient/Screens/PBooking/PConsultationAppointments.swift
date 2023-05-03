@@ -69,7 +69,7 @@ struct PConsultationAppointments: View {
         .navigationTitle("Booking Consultation")
         .navigationBarTitleDisplayMode(.large)
         .navigationDestination(isPresented: $viewModel.isSelected, destination: {
-            PSlotSelection(department: viewModel.department)
+            PSlotSelection(reason: viewModel.symtomText, department: viewModel.department, appointmentType: viewModel.appointmentType)
         })
     }
 }

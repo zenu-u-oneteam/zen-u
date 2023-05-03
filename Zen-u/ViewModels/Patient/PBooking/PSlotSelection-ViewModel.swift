@@ -12,6 +12,7 @@ extension PSlotSelection {
     @MainActor class ViewModel: ObservableObject {
         private var department: DepartmentRaw
         @Published var isLoading = false
+        @Published var canContinue = false
         @Published var userLocale = Locale.autoupdatingCurrent
         @Published var availableSlotsWithDoctor: [Date: [String]] = [:]
         @Published var availableSlots: [Date] = []
@@ -43,6 +44,12 @@ extension PSlotSelection {
         func setSelectedDate(_ date: Date) {
             selectedDate = date
             getAvailableSlots(date)
+        }
+        
+        func checkStatus() {
+            if selectedSlot != nil {
+                canContinue = true
+            }
         }
         
         func getAvailableSlots(_ date: Date) {

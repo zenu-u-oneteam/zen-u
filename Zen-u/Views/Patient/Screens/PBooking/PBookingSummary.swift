@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct PBookingSummary: View {
+    let reason: String
+    let department: DepartmentRaw
+    let appointmentType: AppointmentTypeRaw
+    let selectedSlot: Date
+    @StateObject private var viewModel: ViewModel = ViewModel()
+
     var body: some View {
         VStack{
             BookingInfoView()
@@ -56,6 +62,7 @@ func BookingInfoView() -> some View {
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
         .cornerRadius(17)
+        .padding(.bottom, 40)
                 
         Text("Doctor Information")
             .font(.title3.weight(.semibold))
@@ -121,6 +128,6 @@ func PaymentView() -> some View {
 
 struct PBookingSummary_Previews: PreviewProvider {
     static var previews: some View {
-        PBookingSummary()
+        PBookingSummary(reason: "", department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]), appointmentType: AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: ""), selectedSlot: Date())
     }
 }

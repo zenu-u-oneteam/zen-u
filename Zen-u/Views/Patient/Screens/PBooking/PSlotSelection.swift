@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct PSlotSelection: View {
+    let reason: String
     let department: DepartmentRaw
+    let appointmentType: AppointmentTypeRaw
     @StateObject private var viewModel: ViewModel
     
     @Namespace var animation
     
-    init(department: DepartmentRaw) {
+    init(reason: String, department: DepartmentRaw, appointmentType: AppointmentTypeRaw) {
+        self.reason = reason
+        self.appointmentType = appointmentType
         self.department = department
         self._viewModel = StateObject(wrappedValue: ViewModel(department: department))
     }
@@ -55,16 +59,19 @@ struct PSlotSelection: View {
                 
                 Spacer()
                 
-                Button { } label: {
-                    NavigationLink(destination: PBookingSummary()){
-                        TabButton(text: "Continue")
-                    }
+                Button {
+                    viewModel.checkStatus()
+                } label: {
+                    TabButton(text: "Continue")
                 }
             }
         }
         .ignoresSafeArea(.container, edges: .trailing)
         .padding(20)
         .navigationBarTitle("Booking Consultation", displayMode: .large)
+        .navigationDestination(isPresented: $viewModel.canContinue, destination: {
+            PBookingSummary(reason: reason, department: department, appointmentType: appointmentType, selectedSlot: viewModel.selectedSlot ?? Date())
+        })
     }
 
     func TaskView() -> some View {
@@ -87,7 +94,6 @@ struct PSlotSelection: View {
                                     ForEach(row, id: \.self) { slot in
                                         Button {
                                             viewModel.selectedSlot = slot
-                                            print(viewModel.selectedSlot!)
                                         } label: {
                                             PSpecialButton(buttonText: viewModel.extractDate(date: slot, format: "HH:mm"), buttonColor: Color("Accent"), active: (viewModel.selectedSlot == slot))
                                         }
@@ -146,6 +152,6 @@ extension Array {
 
 struct PSlotSelection_Previews: PreviewProvider {
     static var previews: some View {
-        PSlotSelection(department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]))
+        PSlotSelection(reason: "", department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]), appointmentType: AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: ""))
     }
 }

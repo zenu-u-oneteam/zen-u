@@ -16,11 +16,13 @@ extension PConsultationAppointments {
         @Published var selectedDeptText: String = "none"
         @Published var isSelected: Bool = false
         var department: DepartmentRaw
+        var appointmentType: AppointmentTypeRaw
         
         let db = FirebaseConfig().db
 
         init() {
             department = DepartmentRaw()
+            appointmentType = AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: "")
             Task {
                 await getDepartmentDetails("tv2znSbmMj")
             }
@@ -32,6 +34,10 @@ extension PConsultationAppointments {
                 departmentDetails.pastAppointments = nil
                 departmentDetails.id = departmentID
                 department = departmentDetails
+                
+                var appointmentTypeDetails = try await db.collection("AppointmentType").document(departmentDetails.appointmentType![0]).getDocument(as: AppointmentTypeRaw.self)
+                appointmentTypeDetails.id = departmentDetails.appointmentType![0]
+                appointmentType = appointmentTypeDetails
             } catch {
                 fatalError("\(error)")
             }
