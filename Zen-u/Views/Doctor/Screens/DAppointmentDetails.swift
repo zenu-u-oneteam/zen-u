@@ -9,8 +9,6 @@ import SwiftUI
 
 var numberOfCapsules: [Int] = [1, 2, 3, 4, 5]
 
-
-
 struct DAppointmentDetails: View {
     
     var user = User(id: "2023007", name: "Jonathan Cole", email: "jonathan@gmail.com", userType: .patient, profileImage: "dummy profile image", mobileNumber: "+91 8017217468")
@@ -264,7 +262,5 @@ struct Records : View{
         .background(Color("Secondary"))
         .cornerRadius(10)
         .padding(.vertical, 20)
-        
-        
     }
 }
