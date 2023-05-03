@@ -13,12 +13,12 @@ struct ProfileHeaderView: View {
     
     var body: some View {
         
-        VStack(spacing: 15) {
+        VStack(spacing: 20) {
             //loader
-//            if viewModel.isLoading {
-//                ProgressView("Loading...")
-//            }
-//            else{
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+            }
+            else{
                 HStack(spacing: 10) {
                     Spacer()
                     Image(viewModel.user.profileImage)
@@ -108,7 +108,7 @@ struct ProfileHeaderView: View {
                 .padding(.vertical, 10)
                 .background(Color("Secondary"))
                 .cornerRadius(13)
-//            }
+            }
         }
     }
 }

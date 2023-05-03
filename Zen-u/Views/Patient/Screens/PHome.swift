@@ -268,17 +268,22 @@ struct SheetView: View {
     @State var userType: UserType = .none
     
     var body: some View {
-        VStack{
+        //loader
+//            if viewModel.isLoading {
+//                ProgressView("Loading...")
+//            }
+//            else{
+        VStack(spacing: 10){
             HeaderView()
             ProfileHeaderView()
             SubHeadingView()
             ScrollView(.horizontal,showsIndicators: false){
-                HStack{
+                HStack(spacing: 15){
                     HealthKitView()
                     HealthKitView()
                     HealthKitView()
-                }
-            }
+                }.padding(.horizontal,15)
+            }.padding(.horizontal,-15)
             Spacer()
         }.padding(15)
     }
