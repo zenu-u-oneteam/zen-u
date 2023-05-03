@@ -42,7 +42,7 @@ struct ContentView: View {
                 if userType == .patient {
                     PMain()
                 } else if userType == .doctor {
-                    DHome()
+                    DMain()
                 } else if userType == .admin {
                     AMain()
                 } else {

@@ -52,6 +52,7 @@
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
 		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
+		30E199232A010FC00092C1BC /* DMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E199222A010FC00092C1BC /* DMain.swift */; };
 		386F14282A00AC2F00DFC667 /* PPayement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14272A00AC2F00DFC667 /* PPayement.swift */; };
 		386F142A2A00E4E800DFC667 /* ReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14292A00E4E800DFC667 /* ReminderCard.swift */; };
 		23408A4B29F6E68C00E581ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */; };
@@ -129,6 +130,7 @@
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
 		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
+		30E199222A010FC00092C1BC /* DMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMain.swift; sourceTree = "<group>"; };
 		386F14272A00AC2F00DFC667 /* PPayement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayement.swift; sourceTree = "<group>"; };
 		386F14292A00E4E800DFC667 /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
 		23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 				3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
 				C941A99729F6A90B0018069F /* DProfile.swift */,
+				30E199222A010FC00092C1BC /* DMain.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -540,8 +543,8 @@
 			files = (
 				23408A5929F7AA7B00E581ED /* .gitignore in Resources */,
 				3874751A29ED603900CCA151 /* Preview Assets.xcassets in Resources */,
-				3874751729ED603900CCA151 /* Assets.xcassets in Resources */,
 				23408A4B29F6E68C00E581ED /* GoogleService-Info.plist in Resources */,
+				3874751729ED603900CCA151 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +615,8 @@
 				2386C68729F29FE700CEA6F6 /* PrimaryButton.swift in Sources */,
 				BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */,
 				2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */,
+				30E199232A010FC00092C1BC /* DMain.swift in Sources */,
+				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,
 				3874753429ED638500CCA151 /* PConsultationAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
 				23408A5429F6EA6C00E581ED /* FirebaseConfig.swift in Sources */,
