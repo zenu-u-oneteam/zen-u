@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import UIKit
 
 extension PHome{
     @MainActor class ViewModel: ObservableObject {
@@ -76,6 +77,14 @@ extension PHome{
                 return upcomingAppointment
             } catch {
                 fatalError("\(error)")
+            }
+        }
+        
+        func emergencyCall() {
+            if let phoneCallURL = URL(string: "tel://\(emergencyNumber)") {
+                if UIApplication.shared.canOpenURL(phoneCallURL) {
+                    UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
+                }
             }
         }
     }

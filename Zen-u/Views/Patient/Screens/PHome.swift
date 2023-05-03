@@ -59,11 +59,7 @@ struct PHome: View {
                             Spacer()
                             
                             Button {
-                                if let phoneCallURL = URL(string: "tel://\(viewModel.emergencyNumber)") {
-                                    if UIApplication.shared.canOpenURL(phoneCallURL) {
-                                        UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
-                                    }
-                                }
+                                viewModel.emergencyCall()
                             } label: {
                                 
                                 Image(systemName: "phone.fill")
