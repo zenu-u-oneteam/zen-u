@@ -22,68 +22,73 @@ struct PBookingAppointments: View {
     
     var body: some View {
         
-        ScrollView {
+        
             ZStack {
-                VStack(alignment: .leading){
-                    
-                    Text("Choose Type of Doctor")
-                        .font(.title3.weight(.semibold))
-                        .padding(.bottom , 20)
-                    
-                    HStack(spacing: 16){
-                        Text("General")
-                            .font(.callout.weight(.semibold))
-                            .foregroundColor(selectedConsltType == consltType.general ? .white : Color("Heading"))
-                            .frame(width: 150 , height: 50)
-                            .background(selectedConsltType == consltType.general ? Color("Accent") : Color("Secondary"))
-                            .cornerRadius(60)
-                            .onTapGesture {
-                                selectedConsltType = consltType.general
-                                isDeptSelected = false
-                                selectedDeptText = "none"
+                VStack {
+                    ScrollView {
+                        VStack(alignment: .leading){
+                            
+                            Text("Choose Type of Doctor")
+                                .font(.title3.weight(.semibold))
+                                .padding(.bottom , 20)
+                            
+                            HStack(spacing: 16){
+                                Text("General")
+                                    .font(.callout.weight(.semibold))
+                                    .foregroundColor(selectedConsltType == consltType.general ? .white : Color("Heading"))
+                                    .frame(width: 150 , height: 50)
+                                    .background(selectedConsltType == consltType.general ? Color("Accent") : Color("Secondary"))
+                                    .cornerRadius(60)
+                                    .onTapGesture {
+                                        selectedConsltType = consltType.general
+                                        isDeptSelected = false
+                                        selectedDeptText = "none"
+                                    }
+                                
+                                Text("Specialist")
+                                    .font(.callout.weight(.semibold))
+                                    .foregroundColor(selectedConsltType == consltType.specailist ? .white : Color("Heading"))
+                                    .frame(width: 150 , height: 50)
+                                    .background(selectedConsltType == consltType.specailist ? Color("Accent") : Color("Secondary"))
+                                    .cornerRadius(60)
+                                    .onTapGesture {
+                                        self.selectedConsltType = consltType.specailist
+                                        self.showModel = true
+                                        self.hideKeyboard()
+                                    }
                             }
-                        
-                        Text("Specialist")
-                            .font(.callout.weight(.semibold))
-                            .foregroundColor(selectedConsltType == consltType.specailist ? .white : Color("Heading"))
-                            .frame(width: 150 , height: 50)
-                            .background(selectedConsltType == consltType.specailist ? Color("Accent") : Color("Secondary"))
-                            .cornerRadius(60)
+                            .padding(.bottom, 60)
                             .onTapGesture {
-                                self.selectedConsltType = consltType.specailist
-                                self.showModel = true
-                                self.hideKeyboard()
+                                showModel = true
+                                print("Tapped")
                             }
-                    }
-                    .padding(.bottom, 60)
-                    .onTapGesture {
-                        showModel = true
-                        print("Tapped")
-                    }
-                    if isDeptSelected {
-                        DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
-                        
-                    } else {
-                        GeneralDetails(symtomText: $symtomText)
-                    }
-                    
-                    Spacer()
-                        .padding(.top, 50)
-                    
-                    Button {
-                        
-                    } label: {
-                        NavigationLink(destination: PScheduleSettings()) {
-                            TabButton(text: "Continue")
+                            if isDeptSelected {
+                                DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
+                                
+                            } else {
+                                GeneralDetails(symtomText: $symtomText)
+                            }
+                            
+                            Spacer(minLength: 100)
+                                
+                            
+                            Button {
+                                
+                            } label: {
+                                NavigationLink(destination: PScheduleSettings()) {
+                                    TabButton(text: "Continue")
+                                }
+                            }
                         }
+                        
+                        .padding(24)
                     }
                 }
-                .padding(24)
                 SpecialistModelView(isShowing: $showModel , isDeptSelected: $isDeptSelected, selectedConsltType : $selectedConsltType , selectedDeptText : $selectedDeptText)
             }
             .navigationTitle("Booking Consultation")
             .navigationBarTitleDisplayMode(.large)
-        }
+     
         .onTapGesture {
             self.hideKeyboard()
         }
@@ -114,6 +119,7 @@ struct DeptSummary: View {
                         .font(.footnote)
                 }
             }
+            
             .padding(.horizontal, 16)
             .padding(.vertical, 24)
             .background(Color("Secondary"))
