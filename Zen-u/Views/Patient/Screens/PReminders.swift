@@ -19,7 +19,7 @@ struct PReminders: View {
                     Section{
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                ForEach(appointmentViewModel.currentWeek, id:  \.self){day in
+                                ForEach(appointmentViewModel.currentMonth, id:  \.self){day in
                                     VStack{
                                         VStack(spacing: 10) {
                                             Text(appointmentViewModel.extractDate(date: day, format: "dd"))
