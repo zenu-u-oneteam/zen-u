@@ -69,60 +69,61 @@ struct PAppointmentDetailsPast: View {
                     .cornerRadius(15)
                     .padding(.horizontal, -3)
                    
-                    
-                    Text("Record")
-                        .font(.title3.bold())
-                        .hLeading()
-                        .padding(.leading, 4)
-                        .padding(.top, 10)
-                        .foregroundColor(Color("Heading"))
-                
-                    VStack(alignment: .leading, spacing: 30){
-                        VStack(alignment: .leading){
-                            Text("Symptoms")
-                                .font(.system(size: 16))
-                                .fontWeight(.regular)
-                                .hLeading()
-                                .padding(.leading, 2)
-//                                .padding(20)
-//                                .padding(.top, 40)
-                                .foregroundColor(Color("Heading"))
-                            Text(appointmentDetails.appointmentRecord?.symptoms ?? "none")
-                                .font(.system(size: 14))
-                                .fontWeight(.regular)
-                                .hLeading()
-                                .padding()
-                                .foregroundColor(Color("Subheadings"))
-                                .background(Color("Secondary"))
-                                .cornerRadius(10)
+                    if (appointmentDetails.appointmentRecord != nil){
+                        Text("Record")
+                            .font(.title3.bold())
+                            .hLeading()
+                            .padding(.leading, 4)
+                            .padding(.top, 10)
+                            .foregroundColor(Color("Heading"))
+                        
+                        VStack(alignment: .leading, spacing: 30){
+                            VStack(alignment: .leading){
+                                Text("Symptoms")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.regular)
+                                    .hLeading()
+                                    .padding(.leading, 2)
+                                //                                .padding(20)
+                                //                                .padding(.top, 40)
+                                    .foregroundColor(Color("Heading"))
+                                Text(appointmentDetails.appointmentRecord?.symptoms ?? "none")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.regular)
+                                    .hLeading()
+                                    .padding()
+                                    .foregroundColor(Color("Subheadings"))
+                                    .background(Color("Secondary"))
+                                    .cornerRadius(10)
                                 
-                            
-                        }
-                        VStack(alignment: .leading){
-                            Text("Medical Advice")
-                                .font(.system(size: 16))
-                                .fontWeight(.regular)
-                                .hLeading()
-                                .padding(.leading, 2)
-//                                .padding(20)
-//                                .padding(.top, 40)
-                                .foregroundColor(Color("Heading"))
-                            Text(appointmentDetails.appointmentRecord?.medicalAdvice ?? "none")
-                                .font(.system(size: 14))
-                                .fontWeight(.regular)
-                                .hLeading()
-                                .padding()
-                                .foregroundColor(Color("Subheadings"))
-                                .background(Color("Secondary"))
-                                .cornerRadius(10)
                                 
+                            }
+                            VStack(alignment: .leading){
+                                Text("Medical Advice")
+                                    .font(.system(size: 16))
+                                    .fontWeight(.regular)
+                                    .hLeading()
+                                    .padding(.leading, 2)
+                                //                                .padding(20)
+                                //                                .padding(.top, 40)
+                                    .foregroundColor(Color("Heading"))
+                                Text(appointmentDetails.appointmentRecord?.medicalAdvice ?? "none")
+                                    .font(.system(size: 14))
+                                    .fontWeight(.regular)
+                                    .hLeading()
+                                    .padding()
+                                    .foregroundColor(Color("Subheadings"))
+                                    .background(Color("Secondary"))
+                                    .cornerRadius(10)
+                                
+                                
+                            }
                             
-                        }
-                        
-                        
-                        
-                        
-                    }//Record details VStack
+                            
+                            
+                            
+                        }//Record details VStack
+                    }
                 }
                 .padding(.vertical, 24)
                 
@@ -136,6 +137,6 @@ struct PAppointmentDetailsPast: View {
 }
 struct PAppointmentDetailsPast_Previews: PreviewProvider {
     static var previews: some View {
-        PAppointmentDetailsPast(appointmentDetails: Appointment(id: "1200", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", department: "Cardiology Department"), appointmentRecord: AppointmentReportsRaw(appointment: "0", appointmentTime: 1650000, patient: "" , doctor: "" , type: "" , symptoms: "Nausea, Diarrhoea, Death", medicalAdvice: "Nausea, Diarrhoea, Death")))
+        PAppointmentDetailsPast(appointmentDetails: Appointment(id: "1200", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", department: "Cardiology Department"), appointmentRecord: AppointmentReportsRaw(appointment: "1", appointmentTime: 16785900, patient: "" , doctor: "" , type: "" , symptoms: "yay yay yay ya ya", medicalAdvice: "yay yay yay ya ya" )))
     }
 }

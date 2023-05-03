@@ -61,15 +61,33 @@ struct PAppointmentDetailsUpcoming: View {
                     .background(Color("Secondary"))
                     .cornerRadius(15)
                     .padding(.horizontal, -3)
-                    
-                    Button(action: {
+                
+                    HStack(spacing: 20){
                         
-                    }) {
-                        Text("Re-Schedule")
-                           
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Cancel")
+                                .frame(maxWidth: .infinity)
+                                .font(.body.weight(.semibold))
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 165 , height: 50)
+                                .background(Color("Secondary"))
+                                .cornerRadius(10)
+                        })
                         
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Re-Schedule")
+                                .frame(maxWidth: .infinity)
+                                .font(.body.weight(.semibold))
+                                .foregroundColor(.white)
+                                .frame(width: 165 , height: 50)
+                                .background(Color("Accent"))
+                                .cornerRadius(10)
+                        })
                     }
-                   
                 
                 }
                 .padding(.vertical, 24)
