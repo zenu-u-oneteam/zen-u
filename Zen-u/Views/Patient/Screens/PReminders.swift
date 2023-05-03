@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PReminders: View {
-    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
     @Namespace var animation
     @State var filterModes: String = "none"
     
@@ -19,7 +19,7 @@ struct PReminders: View {
                     Section{
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 12) {
-                                ForEach(appointmentViewModel.currentMonth, id:  \.self){day in
+                                ForEach(appointmentViewModel.existingWeek, id:  \.self){day in
                                     VStack{
                                         VStack(spacing: 10) {
                                             Text(appointmentViewModel.extractDate(date: day, format: "dd"))
