@@ -97,14 +97,19 @@ struct DSchedule: View {
                         }else{
                             LazyVStack (alignment: .leading, spacing: 10){
                                 var appList = viewModel.monthAppMap[selectedMonth]?.filter({DateViewModel().getDateValue(date: $0.appointment.appointmentTime) == selectedDate})
-                                ForEach(appList!.indices, id: \.self) {
-                                    index  in
-                                    Button {
-                                        appointmentViewModel.update()
-                                    } label: {
-                                        DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
+                                if appList!.isEmpty {
+                                    emptyDisplayMessage(message: "No Scheduled Appointments")
+                                }else{
+                                    ForEach(appList!.indices, id: \.self) {
+                                        index  in
+                                        Button {
+                                            appointmentViewModel.update()
+                                        } label: {
+                                            DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
+                                        }
                                     }
                                 }
+                                
                             }
                         }
                         

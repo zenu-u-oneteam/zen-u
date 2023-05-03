@@ -22,19 +22,6 @@ extension DSchedule {
                 appList = await getAppointmentList()
                 monthAppMap = await getMonthAppMap()
                 isLoading = false
-                print("List len : \(appList.count)")
-                for a in appList {
-                    print("Month and Date")
-                    print(DateViewModel().getMonthValue(date: a.appointment.appointmentTime))
-                    print(DateViewModel().getDateValue(date: a.appointment.appointmentTime))
-                    print(a.appointment.appointmentTime)
-
-                }
-                for (key,value) in monthAppMap{
-
-                    print("\(key) : \(value.count)")
-
-                }
             }
             
         }
