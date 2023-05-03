@@ -1,7 +1,8 @@
+
 import SwiftUI
 
 
-struct PAppointmentDetailsUpcoming: View {
+struct PAppointmentDetailsPast: View {
     var appointmentDetails: Appointment
     func formattedDateComponents(dateComponents: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -62,35 +63,52 @@ struct PAppointmentDetailsUpcoming: View {
                     .cornerRadius(15)
                     .padding(.horizontal, -3)
                 
-                    HStack(spacing: 20){
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Cancel")
-                                .frame(maxWidth: .infinity)
-                                .font(.body.weight(.semibold))
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 165 , height: 50)
-                                .background(Color("Secondary"))
-                                .cornerRadius(10)
-                        })
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            Text("Re-Schedule")
-                                .frame(maxWidth: .infinity)
-                                .font(.body.weight(.semibold))
-                                .foregroundColor(.white)
-                                .frame(width: 165 , height: 50)
-                                .background(Color("Accent"))
-                                .cornerRadius(10)
-                        })
-                    }
                 
                 }
                 .padding(.vertical, 24)
+                
+                VStack(alignment: .leading){
+                    Text("Record")
+                        .font(.title3.bold())
+                        .hLeading()
+                        .padding(13)
+                        .foregroundColor(Color("Heading"))
+                    VStack(alignment: .leading){
+                        Text("Symptoms")
+                            .font(.system(size: 16))
+                            .fontWeight(.semibold)
+                            .padding(20)
+                            .foregroundColor(Color("Heading"))
+                        Text(appointmentDetails.appointmentRecord?.symptoms ?? "none")
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
+                            .hLeading()
+                            .padding(20)
+                            .foregroundColor(Color("Subheadings"))
+                            .background(Color("Secondary"))
+                            .cornerRadius(15)
+                            .padding(.horizontal, 15)
+                        
+                    }.hLeading()
+                    
+                    VStack(alignment: .leading){
+                        Text("Medical Advice")
+                            .font(.system(size: 16))
+                            .hLeading()
+                            .padding(20)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Heading"))
+                        Text(appointmentDetails.appointmentRecord?.medicalAdvice ?? "none")
+                            .font(.system(size: 14))
+                            .fontWeight(.regular)
+                            .hLeading()
+                            .padding(20)
+                            .foregroundColor(Color("Subheadings"))
+                            .background(Color("Secondary"))
+                            .cornerRadius(15)
+                            .padding(.horizontal, 15)
+                    }.hLeading()
+                }
                 
                
                 
@@ -100,10 +118,8 @@ struct PAppointmentDetailsUpcoming: View {
         }
     }
 }
-struct PAppointmentDetailsUpcoming_Previews: PreviewProvider {
+struct PAppointmentDetailsPast_Previews: PreviewProvider {
     static var previews: some View {
-        PAppointmentDetailsUpcoming(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24, cabin: 123, department: "Cardiology Department") ))
+        PAppointmentDetailsPast(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24, cabin: 123, department: "Cardiology Department") ))
     }
 }
-
-
