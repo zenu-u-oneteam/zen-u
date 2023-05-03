@@ -17,7 +17,7 @@ struct PVaccineCard: View {
     @State var isShowingPopover = false
     
     var body: some View {
-       
+        
         if(expanded)
         {
             expandedForm()
@@ -32,89 +32,105 @@ struct PVaccineCard: View {
     
     func collapsedForm() -> some View
     {
-        VStack(alignment: .center){
+        Button{
             
-            VStack(alignment: .center) {
-                Text(vaccineName)
-                    .font(.headline.weight(.semibold))
-                
-                Text(companyName ?? "")
-                    .font(.subheadline.weight(.regular))
-                
-            }
-            Spacer()
-            VStack(alignment: .center) {
-                Text(numberOfAvailableDoses)
-                    .font(.title.weight(.bold))
-                
-                Text(Status)
-                    .font(.subheadline.weight(.bold))
-            }
         }
-        .frame(height: height)
-        .padding()
-        .background(Color("Secondary"))
-        .cornerRadius(10)
-        .contextMenu(){
-            Text("Book")
-                .frame(minWidth: 230, minHeight: 60)
-                .onLongPressGesture {
-                    isShowingPopover = true
+    label: {
+        NavigationLink(destination: Vdetails()){
+            VStack(alignment: .center){
+                
+                VStack(alignment: .center) {
+                    Text(vaccineName)
+                        .font(.headline.weight(.semibold))
+                    
+                    Text(companyName ?? "")
+                        .font(.subheadline.weight(.regular))
+                    
                 }
-                .popover(isPresented: $isShowingPopover) {
-                    VStack {
-                        Text("Popover title")
-                            .font(.headline)
-                        Text("Popover message")
-                            .font(.subheadline)
+                Spacer()
+                VStack(alignment: .center) {
+                    Text(numberOfAvailableDoses)
+                        .font(.title.weight(.bold))
+                    
+                    Text(Status)
+                        .font(.subheadline.weight(.bold))
+                }
+            }
+            .frame(height: height)
+            .padding()
+            .foregroundColor(Color("Heading"))
+            .background(Color("Secondary"))
+            .cornerRadius(10)
+            .contextMenu(){
+                Text("Book")
+                    .frame(minWidth: 230, minHeight: 60)
+                    .onLongPressGesture {
+                        isShowingPopover = true
                     }
-                    .padding()
-                }
+                    .popover(isPresented: $isShowingPopover) {
+                        VStack {
+                            Text("Popover title")
+                                .font(.headline)
+                            Text("Popover message")
+                                .font(.subheadline)
+                        }
+                        .padding()
+                    }
+            }
         }
+    }
     }
     
     
     func expandedForm() -> some View
     {
-        HStack{
+        Button{
             
-            VStack(alignment: .leading) {
-                Text(vaccineName)
-                    .font(.title2.weight(.semibold))
-                
-                Text(companyName ?? "")
-                    .font(.subheadline.weight(.regular))
-                
-            }
-            Spacer()
-            VStack(alignment: .center) {
-                Text(numberOfAvailableDoses)
-                    .font(.title.weight(.bold))
-                
-                Text(Status)
-                    .font(.subheadline)
-            }
         }
-        .frame(height: height)
-        .padding()
-        .background(Color("Secondary"))
-        .cornerRadius(10)
-        .contextMenu(){
-            Text("Book")
-                .frame(height: height)
-                .onLongPressGesture {
-                    isShowingPopover = true
+    label: {
+        NavigationLink(destination: Vdetails()){
+            HStack{
+                
+                VStack(alignment: .leading) {
+                    Text(vaccineName)
+                        .font(.title2.weight(.semibold))
+                    
+                    Text(companyName ?? "")
+                        .font(.subheadline.weight(.regular))
+                    
                 }
-                .popover(isPresented: $isShowingPopover) {
-                    VStack {
-                        Text("Popover title")
-                            .font(.headline)
-                        Text("Popover message")
-                            .font(.subheadline)
+                Spacer()
+                VStack(alignment: .center) {
+                    Text(numberOfAvailableDoses)
+                        .font(.title.weight(.bold))
+                    
+                    Text(Status)
+                        .font(.subheadline)
+                }
+            }
+            .frame(height: height)
+            .padding()
+            .foregroundColor(Color("Heading"))
+            .background(Color("Secondary"))
+            .cornerRadius(10)
+            .contextMenu(){
+                Text("Book")
+                    .frame(height: height)
+                    .onLongPressGesture {
+                        isShowingPopover = true
                     }
-                    .padding()
-                }
+                    .popover(isPresented: $isShowingPopover) {
+                        VStack {
+                            Text("Popover title")
+                                .font(.headline)
+                            Text("Popover message")
+                                .font(.subheadline)
+                        }
+                        .padding()
+                    }
+            }
         }
+    }
     }
 }
 struct PVaccineCard_Previews: PreviewProvider {

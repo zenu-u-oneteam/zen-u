@@ -28,6 +28,7 @@ struct Vdetails: View {
 
 
 func headerView() -> some View{
+    
     Text("Vaccinations\nDetails")
         .frame(maxWidth: .infinity, alignment: .leading)
         .font(.largeTitle.weight(.heavy))
@@ -107,17 +108,24 @@ func listOfSideEffectsView() -> some View{
 }
 
 func summaryView() -> some View{
-    HStack {
-        Text("INR 1299")
-            .font(.title.weight(.semibold))
-        Spacer()
+    Button{
         
-        TabButton(text: "Continue", fullWidth: false)
     }
-    .padding()
-    .padding(.leading, 20)
-    .frame(width: .infinity)
-    .background(Color("Secondary"))
+label: {
+    NavigationLink(destination: PScheduleSettings()){
+        HStack {
+            Text("INR 1299")
+                .font(.title.weight(.semibold))
+            Spacer()
+            
+            TabButton(text: "Continue", fullWidth: false)
+        }
+        .padding()
+        .padding(.leading, 20)
+        .foregroundColor(Color("Heading"))
+        .background(Color("Secondary"))
+    }
+}
     
 }
 
