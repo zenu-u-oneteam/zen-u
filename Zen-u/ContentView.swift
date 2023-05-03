@@ -9,6 +9,10 @@ import SwiftUI
 import FirebaseAuth
 
 func getUsetType() -> UserType {
+    let currentUserId = Auth.auth().currentUser
+    if currentUserId == nil {
+        return .none
+    }
     if let currentUserData = UserDefaults.standard.data(forKey: "currentUser") {
         let decoder = JSONDecoder()
         if let currentUser1 = try? decoder.decode(User.self, from: currentUserData) {
@@ -40,7 +44,7 @@ struct ContentView: View {
                 } else if userType == .doctor {
                     DHome()
                 } else if userType == .admin {
-                    AHome()
+                    AMain()
                 } else {
                     OnBoardingScreen()
                 }

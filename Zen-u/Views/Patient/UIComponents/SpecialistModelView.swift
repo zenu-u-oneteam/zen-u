@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct SpecialistModelView: View {
-    @Binding var isShowing : Bool
-    @Binding var isDeptSelected : Bool
-    @Binding var selectedConsltType : consltType
-    @Binding var selectedDeptText : String
+    @Binding var isShowing: Bool
+    @Binding var isDeptSelected: Bool
+    @Binding var selectedConsltType: ConsltType
+    @Binding var selectedDeptText: String
     @State private var offset: CGFloat = 200.0
     
     var body: some View {
@@ -19,12 +19,12 @@ struct SpecialistModelView: View {
             if isShowing {
                 Color.black.opacity(0.3).ignoresSafeArea()
                     .onTapGesture {
-                        selectedConsltType = consltType.general
+                        selectedConsltType = ConsltType.general
                         isDeptSelected = false
                         isShowing = false
                         selectedDeptText = "none"
                     }
-                SpecalistContent(isShowing: $isShowing , isDeptSelected: $isDeptSelected  ,selectedDeptText : $selectedDeptText )
+                SpecalistContent(isShowing: $isShowing, isDeptSelected: $isDeptSelected, selectedDeptText: $selectedDeptText )
             }
         }
         .frame(maxWidth: .infinity ,maxHeight: .infinity ,alignment: .bottom)
@@ -34,9 +34,9 @@ struct SpecialistModelView: View {
 }
 
 struct SpecalistContent: View {
-    @Binding var isShowing : Bool
-    @Binding var isDeptSelected : Bool
-    @Binding var selectedDeptText : String
+    @Binding var isShowing: Bool
+    @Binding var isDeptSelected: Bool
+    @Binding var selectedDeptText: String
     
     let departments = ["Skin Specialist" , "Neurology" , "Oncology", "Allergist and Clinical Immunologist" , "Psychiatry" ,"Sexual Health" ,"Gyanecology", "ENT" , "Cardiology" , "Diabetology" , "Othopaedics" , "Urology" , "Pediatrics" ]
     
@@ -66,7 +66,7 @@ struct SpecalistContent: View {
                     }
                 }
             }
-
+            
             Spacer()
             Button {
                 if isDeptSelected {
@@ -85,7 +85,7 @@ struct SpecalistContent: View {
                 RoundedRectangle(cornerRadius: 30)
                 Rectangle().frame(height: 450/2)
             }
-            .foregroundColor(.white)
+                .foregroundColor(.white)
         )
         .transition(.move(edge: .bottom))
     }
@@ -118,6 +118,6 @@ struct DepartmentLabel: View {
 
 struct SpecialistModelView_Previews: PreviewProvider {
     static var previews: some View {
-        PBookingAppointments()
+        PConsultationAppointments()
     }
 }

@@ -89,7 +89,7 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            NavigationLink(destination: PBookingAppointments()) {
+                            NavigationLink(destination: PConsultationAppointments()) {
                                 Text("Consult")
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color("Heading"))
