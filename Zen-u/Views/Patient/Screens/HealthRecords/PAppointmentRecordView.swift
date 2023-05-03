@@ -10,8 +10,6 @@ import SwiftUI
 struct PAppointmentRecordView: View {
     var appointmentRecord: AppointmentReports
     var body: some View {
-        
-        
         NavigationStack{
             ScrollView{
                 VStack{
@@ -28,7 +26,6 @@ struct PAppointmentRecordView: View {
                             .hLeading()
                             .padding(20)
                             .foregroundColor(Color("Subheadings"))
-//                            .padding(.vertical, 20)
                             .background(Color("Secondary"))
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
@@ -52,17 +49,12 @@ struct PAppointmentRecordView: View {
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                     }
-                    
-                    
-                    
                 }
             }
             
             
-        }.navigationTitle("Report")
-            
-        
-        
+        }
+        .navigationTitle("Report")
     }
 }
 

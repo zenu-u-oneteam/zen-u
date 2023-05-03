@@ -24,8 +24,6 @@ struct PDFKitViewRepresantable: UIViewRepresentable {
         let request = URLRequest(url: documentURL)
         webView.load(request)
     }
-    
-    
 }
 
 struct CustomPDFView: View {
@@ -35,9 +33,9 @@ struct CustomPDFView: View {
     var body: some View {
         VStack{
             HStack{
-                Text(title) .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    .fontWeight(.semibold)
-                    .font(.system(size: 20))
+                Text(title)
+                    .foregroundColor(Color("Heading"))
+                    .font(.title3.weight(.semibold))
                 Button(action: share){
                     
                     Image(systemName: "square.and.arrow.up")
@@ -89,21 +87,11 @@ struct CustomPDFView: View {
     }
     
 }
-    
-    
-
-
-
-
-
-
 
 struct CustomPDFView_Previews: PreviewProvider {
     static var previews: some View {
-    let pdfPath = "https://www.africau.edu/images/default/sample.pdf"
-    CustomPDFView(title: "Title", url: pdfPath)
-            
-            
-        }
+        let pdfPath = "https://www.africau.edu/images/default/sample.pdf"
+        CustomPDFView(title: "Title", url: pdfPath)        
     }
+}
 

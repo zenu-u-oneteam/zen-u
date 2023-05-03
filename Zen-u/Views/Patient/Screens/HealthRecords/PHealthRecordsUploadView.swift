@@ -178,15 +178,12 @@ struct PHealthRecordsUploadView: View {
                                             Button {
                                                 ButtonClicked = item.name
                                                 print(ButtonClicked)
-                                                //                                            print(item.type?.category)
                                             } label: {
-                                                //                                                NavigationLink(destination: CustomPDFView(title: item.name, url: item.document)) {
                                                 HStack(alignment: .center, spacing: 12) {
                                                     Image(systemName: item.type?.image ?? "doc.circle.fill").resizable()
                                                         .foregroundColor(Color("Heading"))
                                                         .frame(width: 40, height: 40)
                                                         .padding(.trailing, 10)
-                                                    //                                                            .hTrailing()
                                                     VStack(alignment: .leading) {
                                                         Text(item.name)
                                                             .font(.headline.bold())
