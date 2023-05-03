@@ -15,13 +15,15 @@ class DateViewModel: ObservableObject{
     @Published var currentWeek: [Date] = []
     @Published var requestedWeek: [Date] = []
     @Published var currentDay: Date = Date()
-    
+    @Published var existingWeek: [Date] = []
+
     @State var refresh: Bool = false
 
     
     init(){
         fetchCurrentMonth()
         fetchCurrentWeek()
+        fetchExistingWeek()
     }
     
     func update() {
@@ -70,6 +72,20 @@ class DateViewModel: ObservableObject{
             }
         }
         return requestedMonth
+    }
+    
+    func fetchExistingWeek() {
+        
+        let today = Date()
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        
+        (0...6).forEach{ day in
+            
+            if let weekday = calendar.date(byAdding: .day, value: day, to: today){
+                existingWeek.append(weekday)
+            }
+        }
     }
     
     func fetchCurrentWeek() {
