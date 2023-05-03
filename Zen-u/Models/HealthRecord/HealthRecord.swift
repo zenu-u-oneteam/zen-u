@@ -10,15 +10,40 @@ struct HealthRecord: Hashable, Codable, Identifiable {
     var id: String
     var name: String
     var appointmentTime: Date
-    var patient: String
-    var doctor: String
-    var type: HealthCategory
+    var patient: PatientRaw?
+    var doctor: DoctorRaw?
+    var type: HealthRecordTypeRaw?
     var document: String
 }
 
-enum HealthCategory: String, CaseIterable, Codable {
-    case prescription = "Prescription"
-    case labreports = "Lab Reports"
-    case vaccinationreports = "Vaccination Reports"
-    case hospitalization = "Hospitalization"
+struct PendingHealthRecord: Hashable, Codable, Identifiable {
+    var id: String
+    var name: String
+    var appointmentTime: Date
+    var patient: PatientRaw?
+    var doctor: DoctorRaw?
+    var type: HealthRecordTypeRaw?
 }
+
+
+
+
+struct HealthRecordRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var appointmentTime: Int
+    var patient: String
+    var doctor: String
+    var type: String
+    var document: String
+}
+struct PendingHealthRecordRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var appointmentTime: Int
+    var patient: String
+    var doctor: String
+    var type: String
+}
+
+
