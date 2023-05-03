@@ -13,8 +13,7 @@ struct PVaccineCard: View {
     var numberOfAvailableDoses: String
     var Status : String
     var expanded: Bool = true
-    var w: CGFloat? = 300
-    var h: CGFloat? = 75
+    var height: CGFloat = 75
     @State var isShowingPopover = false
     
     var body: some View {
@@ -33,9 +32,9 @@ struct PVaccineCard: View {
     
     func collapsedForm() -> some View
     {
-        VStack(alignment: .leading){
+        VStack(alignment: .center){
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 Text(vaccineName)
                     .font(.headline.weight(.semibold))
                 
@@ -44,7 +43,7 @@ struct PVaccineCard: View {
                 
             }
             Spacer()
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 Text(numberOfAvailableDoses)
                     .font(.title.weight(.bold))
                 
@@ -52,12 +51,12 @@ struct PVaccineCard: View {
                     .font(.subheadline.weight(.bold))
             }
         }
-        .frame(height: h)
+        .frame(height: height)
         .padding()
         .background(Color("Secondary"))
         .cornerRadius(10)
         .contextMenu(){
-            Text(" asfjka\ndsafjajs\nkajfkasj")
+            Text("Book")
                 .frame(minWidth: 230, minHeight: 60)
                 .onLongPressGesture {
                     isShowingPopover = true
@@ -81,28 +80,28 @@ struct PVaccineCard: View {
             
             VStack(alignment: .leading) {
                 Text(vaccineName)
-                    .font(.headline.weight(.semibold))
+                    .font(.title2.weight(.semibold))
                 
                 Text(companyName ?? "")
                     .font(.subheadline.weight(.regular))
                 
             }
             Spacer()
-            VStack(alignment: .leading) {
+            VStack(alignment: .center) {
                 Text(numberOfAvailableDoses)
                     .font(.title.weight(.bold))
                 
                 Text(Status)
-                    .font(.subheadline.weight(.bold))
+                    .font(.subheadline)
             }
         }
-        .frame(width: w, height: h)
+        .frame(height: height)
         .padding()
         .background(Color("Secondary"))
         .cornerRadius(10)
         .contextMenu(){
-            Text(" asfjka\ndsafjajs\nkajfkasj")
-                .frame(width: w, height: h)
+            Text("Book")
+                .frame(height: height)
                 .onLongPressGesture {
                     isShowingPopover = true
                 }
