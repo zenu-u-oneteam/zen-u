@@ -8,8 +8,6 @@
 import SwiftUI
 struct PProfile: View {
     @EnvironmentObject var appState: AppState
-   
-    
     @State var showMenu = false
     @State private var selectedOption = "Option 1"
     @State var userType: UserType = .none
