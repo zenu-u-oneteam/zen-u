@@ -1,5 +1,5 @@
 //
-//  BookingAppointments.swift
+//  PConsultationAppointments.swift
 //  Zen-u
 //
 //  Created by Sitanshu Pokalwar on 17/04/23.
@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-struct PBookingAppointments: View {
-    @State var symtomText: String = ""
-    @State var showModel: Bool = false
-    @State var selectedConsltType : consltType = consltType.general
-    @State var isDeptSelected : Bool = false
-    @State var selectedDeptText : String = "none"
+struct PConsultationAppointments: View {
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         
@@ -21,62 +17,64 @@ struct PBookingAppointments: View {
                 
                 Text("Choose Type of Doctor")
                     .font(.title3.weight(.semibold))
-                    .padding(.bottom , 20)
+                    .padding(.bottom, 20)
                 
                 HStack(spacing: 16){
                     Text("General")
                         .font(.callout.weight(.semibold))
-                        .foregroundColor(selectedConsltType == consltType.general ? .white : Color("Heading"))
+                        .foregroundColor(viewModel.selectedConsltType == ConsltType.general ? .white : Color("Heading"))
                         .frame(width: 150 , height: 50)
-                        .background(selectedConsltType == consltType.general ? Color("Accent") : Color("Secondary"))
+                        .background(viewModel.selectedConsltType == ConsltType.general ? Color("Accent") : Color("Secondary"))
                         .cornerRadius(60)
                         .onTapGesture {
-                            selectedConsltType = consltType.general
-                            isDeptSelected = false
-                            selectedDeptText = "none"
+                            viewModel.selectedConsltType = ConsltType.general
+                            viewModel.isDeptSelected = false
+                            viewModel.selectedDeptText = "none"
                         }
 
                     Text("Specialist")
                         .font(.callout.weight(.semibold))
-                        .foregroundColor(selectedConsltType == consltType.specailist ? .white : Color("Heading"))
+                        .foregroundColor(viewModel.selectedConsltType == ConsltType.specailist ? .white : Color("Heading"))
                         .frame(width: 150 , height: 50)
-                        .background(selectedConsltType == consltType.specailist ? Color("Accent") : Color("Secondary"))
+                        .background(viewModel.selectedConsltType == ConsltType.specailist ? Color("Accent") : Color("Secondary"))
                         .cornerRadius(60)
                         .onTapGesture {
-                            self.selectedConsltType = consltType.specailist
-                            self.showModel = true
+                            viewModel.selectedConsltType = ConsltType.specailist
+                            viewModel.showModel = true
                         }
                 }
                 .padding(.bottom, 60)
                 .onTapGesture {
-                    showModel = true
+                    viewModel.showModel = true
                     print("Tapped")
                 }
-                if isDeptSelected {
-                    DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
+                if viewModel.isDeptSelected {
+                    DeptSummary(heading: $viewModel.selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
                     
                 } else {
-                    GeneralDetails(symtomText: $symtomText)
+                    GeneralDetails(symtomText: $viewModel.symtomText)
                 }
                 
                 Spacer()
                 
                 Button {
-                    
+                    viewModel.slotSelection()
                 } label: {
-                    NavigationLink(destination: PScheduleSettings()) {
-                        TabButton(text: "Continue")
-                    }
+                    TabButton(text: "Continue")
                 }
             }
             .padding(24)
-            SpecialistModelView(isShowing: $showModel , isDeptSelected: $isDeptSelected, selectedConsltType : $selectedConsltType , selectedDeptText : $selectedDeptText)
+            SpecialistModelView(isShowing: $viewModel.showModel , isDeptSelected: $viewModel.isDeptSelected, selectedConsltType : $viewModel.selectedConsltType , selectedDeptText : $viewModel.selectedDeptText)
         }
         .navigationTitle("Booking Consultation")
         .navigationBarTitleDisplayMode(.large)
+        .navigationDestination(isPresented: $viewModel.isSelected, destination: {
+            PSlotSelection(reason: viewModel.symtomText, department: viewModel.department, appointmentType: viewModel.appointmentType)
+        })
     }
 }
-enum consltType{
+
+enum ConsltType{
     case general
     case specailist
 }
@@ -158,8 +156,8 @@ extension View {
     }
 }
 
-struct PBookingAppointments_Previews: PreviewProvider {
+struct PConsultationAppointments_Previews: PreviewProvider {
     static var previews: some View {
-        PBookingAppointments()
+        PConsultationAppointments()
     }
 }

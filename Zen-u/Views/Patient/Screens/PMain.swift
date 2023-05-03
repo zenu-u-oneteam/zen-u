@@ -35,7 +35,7 @@ struct PMain: View {
             }
             .tag(2)
             
-            Text("Fourth View")
+            PReminders()
                 .tabItem {
                     Label("Reminder", systemImage: "bell")
                 }
