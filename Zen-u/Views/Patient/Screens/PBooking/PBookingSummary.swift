@@ -25,16 +25,20 @@ struct PBookingSummary: View {
     }
     
     var body: some View {
-        VStack{
-            BookingInfoView(slot: selectedSlot, department: department)
-            Spacer()
-            PaymentView(appointmentType: appointmentType)
+        if viewModel.isLoading {
+            ProgressView()
+        } else {
+            VStack{
+                BookingInfoView(slot: selectedSlot, department: department)
+                Spacer()
+                PaymentView(appointmentType: appointmentType)
+            }
+            .navigationTitle("Summary")
+            .padding(24)
+            .navigationDestination(isPresented: $viewModel.hasPaied, destination: {
+                PPayment()
+            })
         }
-        .navigationTitle("Summary")
-        .padding(24)
-        .navigationDestination(isPresented: $viewModel.hasPaied, destination: {
-            PPayment()
-        })
     }
     
     func BookingInfoView(slot: Date, department: DepartmentRaw) -> some View {

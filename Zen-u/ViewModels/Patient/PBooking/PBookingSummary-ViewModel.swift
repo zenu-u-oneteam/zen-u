@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 extension PBookingSummary {
     @MainActor class ViewModel: ObservableObject {
+        @Published var isLoading = false
         @Published var hasPaied = false
         private let reason: String
         private let department: DepartmentRaw
@@ -30,6 +31,7 @@ extension PBookingSummary {
         
         func makePayment() async {
             do {
+                isLoading = true
                 print(allotedDoctor)
                 let billId = makeid(length: 35)
                 let bill = BillRaw(
@@ -57,6 +59,7 @@ extension PBookingSummary {
                 
                 try await db.collection("Patient").document(currentUserId).updateData(["appointments": FieldValue.arrayUnion([appointmentId])])
 
+                isLoading = false
                 hasPaied = true
 
             } catch {
