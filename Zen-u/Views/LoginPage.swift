@@ -9,9 +9,12 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginPage: View {
+    @EnvironmentObject var appState: AppState
     
     @State private var email = ""
     @State private var password = ""
+    @State var isLoggedIn = false
+    @State var userType: UserType = .none
     
     let db = FirebaseConfig().db
     
@@ -26,13 +29,26 @@ struct LoginPage: View {
                     db.collection("Users").document(currentUserID).getDocument {
                         (document, error) in
                         if let document = document, document.exists {
-                            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                            print(dataDescription)
-                            UserDefaults.standard.set(dataDescription, forKey: "currentUser")
+                            let dataDescription = document.data()!
+                            let currentUser = User(
+                                id: currentUserID,
+                                name: dataDescription["name"] as! String,
+                                email: dataDescription["email"] as! String,
+                                userType: UserType(rawValue: dataDescription["userType"] as! String) ?? .admin,
+                                profileImage: dataDescription["profileImage"] as! String,
+                                mobileNumber: dataDescription["mobileNumber"] as! String
+                            )
+                            print(currentUser)
+                            let encoder = JSONEncoder()
+                            if let currentUserData = try? encoder.encode(currentUser) {
+                                UserDefaults.standard.set(currentUserData, forKey: "currentUser")
+                                print(currentUser.userType)
+                                userType = currentUser.userType
+                                appState.rootViewId = UUID()
+                            }
                         } else {
                             print("Document does not exist")
                         }
-                        
                     }
                 }
             }
@@ -40,9 +56,8 @@ struct LoginPage: View {
     }
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack {
-                
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
                         Image(systemName: "envelope")
@@ -50,6 +65,8 @@ struct LoginPage: View {
                         TextField("Enter your email", text: $email)
                             .font(.system(size: 17, weight: .light))
                             .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled(true)
+                            .keyboardType(.emailAddress)
                     }
                     .padding()
                     .background(Color(.systemGray5))
@@ -64,6 +81,7 @@ struct LoginPage: View {
                     SecureField("Enter your password", text: $password)
                         .font(.system(size: 17, weight: .light))
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled(true)
                 }
                 .padding()
                 .background(Color(.systemGray5))
@@ -82,9 +100,7 @@ struct LoginPage: View {
                 Button {
                     passwordLogin()
                 } label: {
-                    NavigationLink(destination: PMain()) {
-                        ActionButton(text: "Log in")
-                    }
+                    ActionButton(text: "Log in")
                 }
                 .padding(.top, 20)
                 
@@ -120,11 +136,10 @@ struct LoginPage: View {
                 .padding(.vertical)
                 .padding(.bottom)
                 
-                //                    Spacer()
-                
                 VStack(spacing: 20) {
                     Button(action: {
                         // Perform Google sign-in action here
+                        appState.rootViewId = UUID()
                     }) {
                         HStack {
                             Image("google")
@@ -136,7 +151,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 51)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -157,7 +172,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 56)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -167,6 +182,7 @@ struct LoginPage: View {
                     }
                     Button(action: {
                         // Perform Facebook sign-in action here
+                        //                        popToRootViewController(animated: false)
                     }) {
                         HStack {
                             Image("facebook")
@@ -178,7 +194,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 40)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -188,9 +204,13 @@ struct LoginPage: View {
                     }
                 }
                 .padding(.horizontal, 30)
-                
             }
-            .navigationBarTitle("zen-u", displayMode: .inline)
+            .padding(.top, 50)
+        }
+        .ignoresSafeArea(.keyboard)
+        .navigationBarTitle("zen-u", displayMode: .inline)
+        .onTapGesture {
+            self.hideKeyboard()
         }
     }
 }
