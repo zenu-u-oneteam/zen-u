@@ -109,7 +109,7 @@ struct ProfileHeaderView: View {
                 .background(Color("Secondary"))
                 .cornerRadius(13)
 //            }
-        }.padding(.horizontal, 10)
+        }
     }
 }
 

@@ -14,30 +14,25 @@ struct PProfile: View {
     
     var body: some View {
         VStack{
-           HeaderView()
-            
+            HeaderView()
             ProfileHeaderView()
-            SubHeadingView().padding(.bottom, 17)
-            HStack{
-                
-                HealthKitView().hLeading().padding()
-                HealthKitView().hLeading().padding()
+            SubHeadingView()
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack{
+                    HealthKitView()
+                    HealthKitView()
+                    HealthKitView()
+                }
             }
-        }
-        .padding(2)
-        .navigationBarTitleDisplayMode(.large)
+            Spacer()
+        }.padding(.horizontal,15)
     }
     
     func HeaderView() -> some View {
         HStack{
-            VStack(alignment: .leading) {
-                Text(" ").font(.largeTitle.bold())
-                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    .padding(.all, 10)
-            }
-            .hLeading()
-            
-            
+            Text("Profile").font(.largeTitle.bold())
+                .foregroundColor(Color("Heading"))
+            Spacer()
             Menu {
                 Button("Edit") {
                     self.selectedOption = "Option 1"
@@ -55,24 +50,21 @@ struct PProfile: View {
         label: {
             Image(systemName: "line.horizontal.3")
                 .resizable()
-                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .foregroundColor(Color("Heading"))
                 .frame(width: 15, height: 13)
-                .padding(.all, 20)
-        }
-            
+                .padding(.vertical)
+        } 
         }
     }
     
     
     func SubHeadingView() -> some View {
-        VStack(alignment: .leading){
-            Text("Data from Healthkit").font(.system(size: 20)).bold()
-                .hLeading()
-                .padding(.all, 10)
-                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-            
-            
-        }.padding(.top, 43)
+        HStack(){
+            Text("Data from Healthkit").font(.title3).bold()
+                .foregroundColor(Color("Heading"))
+            Spacer()
+        }
+        .padding(.vertical, 10)
     }
 }
 

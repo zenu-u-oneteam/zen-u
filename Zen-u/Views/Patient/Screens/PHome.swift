@@ -17,6 +17,7 @@ struct EducationTopics: Identifiable{
 struct PHome: View {
     @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
+    @State private var showingSheet = false
     
     let items: [EducationTopics] = [
         EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "Ayurveda is an ancient system of medicine that originated in India more than 5000 years ago. The word Ayurveda is derived from Sanskrit, and it means knowledge of life or science of life. It is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit.", educzationImage: "ayurveda"),
@@ -27,193 +28,196 @@ struct PHome: View {
     @State private var selectedItem: EducationTopics?
     
     var body: some View {
-        NavigationStack(path: $path) {
-            if viewModel.isLoading {
-                ProgressView("Loading...")
-            } else {
-                VStack(spacing: 0) {
-                    VStack(alignment: .leading) {
-                        HStack(spacing:40){
-                            Button{
-                                
-                            } label: {
-                                NavigationLink(destination: PProfile()) {
-                                    Image(systemName: "person.fill")
-                                        .foregroundColor(Color("Heading"))
-                                        .frame(width: 18,height: 18)
-                                        .background(Circle()
-                                            .stroke(Color.white,lineWidth: 3)
-                                            .background(Circle().fill(Color("Secondary")))
-                                            .frame(width: 40,height: 40)
-                                        )
-                                }
-                            }
-                            
-                            VStack(alignment: .leading){
-                                Text(viewModel.greeting)
-                                    .font(.caption2)
-                                Text(viewModel.userName)
-                                    .font(.title3.bold())
-                            }
-                            Spacer()
-                            
-                            Button(){
-                                
-                            } label: {
-                                
-                                Image(systemName: "phone.fill")
-                                    .resizable()
-                                    .foregroundColor(Color("Accent"))
-                                    .frame(width: 20,height: 20.03)
-                                    .background(Circle()
-                                        .stroke(Color.white,lineWidth: 3)
-                                        .background(Circle().fill(Color("Secondary")))
-                                        .frame(width: 40,height: 40)
-                                    )
-                                    .padding(.leading)
-                            }
-                        }
-                        .padding(.horizontal, 30)
-                        .padding(.top, 10)
-                        
-                        Text("How are you feeling today?")
-                            .font(.largeTitle.weight(.semibold))
-                            .padding(.horizontal, 20)
+        //        NavigationStack(path: $path) {
+        //            if viewModel.isLoading {
+        //                ProgressView("Loading...")
+        //            } else {
+        VStack(spacing: 0) {
+            VStack(alignment: .leading) {
+                HStack(spacing:40){
+                    Button{
+                        showingSheet.toggle()
                     }
-                    .background(Color("Secondary"))
-                    
-                    HStack(alignment: .center,spacing: 20) {
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            NavigationLink(destination: PBookingAppointments()) {
-                                Text("Consult")
-                                    .fontWeight(.semibold)
-                                    .foregroundColor(Color("Heading"))
-                                    .frame(width: 99,height: 50)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .fill(.white)
-                                    )
-                                    .font(.callout.weight(.semibold))
-                            }
-                        }
-                        Button {
-                            
-                        } label: {
-                            Text("Lab")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 68,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
-                        }
-                        Button {
-                            
-                        } label: {
-                            Text("Vaccination")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 128,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
-                        }
-                        Spacer()
-                    }
-                    .padding(.vertical, 30)
-                    .background(Color("Secondary"))
-                    .roundedCorner(50, corners: [.bottomLeft, .bottomRight])
-                    
-                    ScrollView {
-                        if(viewModel.upcomingAppointments.count > 0) {
-                            VStack(alignment: .leading,spacing: 20) {
-                                Text("Upcoming Appointments")
-                                    .font(.body.weight(.semibold))
-                                    .padding(.top, 20)
-                                
-                                ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
-                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
-                                }
-                            }
-                            .padding(.horizontal, 20)
-                        }
-                        
-                        Spacer()
-                        
-                        VStack(alignment: .leading,spacing: 20) {
-                            Text("Patient Education")
-                                .font(.body.weight(.semibold))
-                                .padding(.leading, 24)
-                                .padding(.top, 24)
-                            ScrollView(.horizontal,showsIndicators: false){
-                                HStack(spacing: 20) {
-                                    ForEach(items) { item in
-                                        Rectangle()
-                                            .foregroundColor(Color("Secondary"))
-                                            .frame(width: 165, height: 100)
-                                            .cornerRadius(20)
-                                            .overlay(
-                                                ZStack(alignment: .topLeading) {
-                                                    Image(item.educzationImage)
-                                                        .resizable()
-                                                        .frame(width: 165, height: 100)
-                                                        .cornerRadius(20)
-                                                    Text(item.educationTitle).padding(4)
-                                                        .frame(width: 165,height: 55)
-                                                        .foregroundColor(.black)
-                                                        .background(.thinMaterial)
-                                                        .font(.headline.weight(.semibold))
-                                                        .opacity(0.6)
-                                                    Spacer()
-                                                }.cornerRadius(20)
-                                            )
-                                            .onTapGesture {
-                                                self.selectedItem = item
-                                            }
-                                    }
-                                }
-                                .padding(.horizontal, 20)
-                            }
-                            .sheet(item: $selectedItem) { item in
-                                VStack {
-                                    Image(item.educzationImage)
-                                        .resizable()
-                                        .scaledToFit()
-                                        .padding()
-                                        .shadow(radius: 10)
-                                    
-                                    ZStack() {
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .foregroundColor(Color("Secondary"))
-                                        
-                                        VStack{
-                                            
-                                            Text(item.educationTitle)
-                                                .font(.headline)
-                                                .padding()
-                                            
-                                            Text(item.educationContent)
-                                                .font(.body)
-                                                .padding()
-                                            Spacer()
-                                        }
-                                    }
-                                }
-                                .padding()
-                            }
-                        }
-                        .hLeading()
+                label: {
+                    NavigationLink(destination: PProfile()) {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(Color("Heading"))
+                            .frame(width: 18,height: 18)
+                            .background(Circle()
+                                .stroke(Color.white,lineWidth: 3)
+                                .background(Circle().fill(Color("Secondary")))
+                                .frame(width: 40,height: 40)
+                            )
                     }
                 }
+                .sheet(isPresented: $showingSheet) {
+                    SheetView()
+                }
+                    VStack(alignment: .leading){
+                        Text(viewModel.greeting)
+                            .font(.caption2)
+                        Text(viewModel.userName)
+                            .font(.title3.bold())
+                    }
+                    Spacer()
+                    
+                    Button(){
+                        
+                    } label: {
+                        
+                        Image(systemName: "phone.fill")
+                            .resizable()
+                            .foregroundColor(Color("Accent"))
+                            .frame(width: 20,height: 20.03)
+                            .background(Circle()
+                                .stroke(Color.white,lineWidth: 3)
+                                .background(Circle().fill(Color("Secondary")))
+                                .frame(width: 40,height: 40)
+                            )
+                            .padding(.leading)
+                    }
+                }
+                .padding(.horizontal, 30)
+                .padding(.top, 10)
+                
+                Text("How are you feeling today?")
+                    .font(.largeTitle.weight(.semibold))
+                    .padding(.horizontal, 20)
+            }
+            .background(Color("Secondary"))
+            
+            HStack(alignment: .center,spacing: 20) {
+                Spacer()
+                Button {
+                    
+                } label: {
+                    NavigationLink(destination: PBookingAppointments()) {
+                        Text("Consult")
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("Heading"))
+                            .frame(width: 99,height: 50)
+                            .background(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(.white)
+                            )
+                            .font(.callout.weight(.semibold))
+                    }
+                }
+                Button {
+                    
+                } label: {
+                    Text("Lab")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("Heading"))
+                        .frame(width: 68,height: 50)
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(.white)
+                        )
+                        .font(.callout.weight(.semibold))
+                }
+                Button {
+                    
+                } label: {
+                    Text("Vaccination")
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("Heading"))
+                        .frame(width: 128,height: 50)
+                        .background(
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(.white)
+                        )
+                        .font(.callout.weight(.semibold))
+                }
+                Spacer()
+            }
+            .padding(.vertical, 30)
+            .background(Color("Secondary"))
+            .roundedCorner(50, corners: [.bottomLeft, .bottomRight])
+            
+            ScrollView {
+                if(viewModel.upcomingAppointments.count > 0) {
+                    VStack(alignment: .leading,spacing: 20) {
+                        Text("Upcoming Appointments")
+                            .font(.body.weight(.semibold))
+                            .padding(.top, 20)
+                        
+                        ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
+                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                }
+                
+                Spacer()
+                
+                VStack(alignment: .leading,spacing: 20) {
+                    Text("Patient Education")
+                        .font(.body.weight(.semibold))
+                        .padding(.leading, 24)
+                        .padding(.top, 24)
+                    ScrollView(.horizontal,showsIndicators: false){
+                        HStack(spacing: 20) {
+                            ForEach(items) { item in
+                                Rectangle()
+                                    .foregroundColor(Color("Secondary"))
+                                    .frame(width: 165, height: 100)
+                                    .cornerRadius(20)
+                                    .overlay(
+                                        ZStack(alignment: .topLeading) {
+                                            Image(item.educzationImage)
+                                                .resizable()
+                                                .frame(width: 165, height: 100)
+                                                .cornerRadius(20)
+                                            Text(item.educationTitle).padding(4)
+                                                .frame(width: 165,height: 55)
+                                                .foregroundColor(.black)
+                                                .background(.thinMaterial)
+                                                .font(.headline.weight(.semibold))
+                                                .opacity(0.6)
+                                            Spacer()
+                                        }.cornerRadius(20)
+                                    )
+                                    .onTapGesture {
+                                        self.selectedItem = item
+                                    }
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    .sheet(item: $selectedItem) { item in
+                        VStack {
+                            Image(item.educzationImage)
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                                .shadow(radius: 10)
+                            
+                            ZStack() {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color("Secondary"))
+                                
+                                VStack{
+                                    
+                                    Text(item.educationTitle)
+                                        .font(.headline)
+                                        .padding()
+                                    
+                                    Text(item.educationContent)
+                                        .font(.body)
+                                        .padding()
+                                    Spacer()
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                }
+                .hLeading()
             }
         }
+        //            }
+        //        }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.large)
         .accentColor(Color("Accent"))
@@ -255,3 +259,67 @@ struct AppTypeTag: View {
             )
     }
 }
+
+struct SheetView: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var appState: AppState
+    @State var showMenu = false
+    @State private var selectedOption = "Option 1"
+    @State var userType: UserType = .none
+    
+    var body: some View {
+        VStack{
+            HeaderView()
+            ProfileHeaderView()
+            SubHeadingView()
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack{
+                    HealthKitView()
+                    HealthKitView()
+                    HealthKitView()
+                }
+            }
+            Spacer()
+        }.padding(15)
+    }
+    
+    func HeaderView() -> some View {
+        HStack{
+            Text("Profile").font(.largeTitle.bold())
+                .foregroundColor(Color("Heading"))
+            Spacer()
+            Menu {
+                Button("Edit") {
+                    self.selectedOption = "Option 1"
+                }
+                Button("Settings") {
+                    self.selectedOption = "Option 2"
+                }
+                Button("Log Out") {
+                    self.selectedOption = "Option 3"
+                    print("LOGOUT!!!")
+                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    appState.rootViewId = UUID()
+                }
+            }
+        label: {
+            Image(systemName: "line.horizontal.3")
+                .resizable()
+                .foregroundColor(Color("Heading"))
+                .frame(width: 15, height: 13)
+                .padding(.vertical)
+        }
+        }
+    }
+    
+    
+    func SubHeadingView() -> some View {
+        HStack(){
+            Text("Data from Healthkit").font(.title3).bold()
+                .foregroundColor(Color("Heading"))
+            Spacer()
+        }
+        .padding(.vertical, 10)
+    }
+}
+
