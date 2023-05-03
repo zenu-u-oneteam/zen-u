@@ -32,7 +32,6 @@ extension PBookingSummary {
         func makePayment() async {
             do {
                 isLoading = true
-                print(allotedDoctor)
                 let billId = makeid(length: 35)
                 let bill = BillRaw(
                     timestamp: Int(Date().timeIntervalSince1970),
@@ -40,10 +39,8 @@ extension PBookingSummary {
                     status: true
                 )
                 try db.collection("Bill").document(billId).setData(from: bill)
-                print(billId)
 
                 let appointmentId = makeid(length: 15)
-                print(appointmentId)
                 let currentUserId = Auth.auth().currentUser!.uid
                 let appointment: AppointmentRaw = AppointmentRaw(
                     appointmentTime: Int(selectedSlot.timeIntervalSince1970),
