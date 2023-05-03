@@ -14,6 +14,7 @@ struct Appointment: Hashable, Codable, Identifiable {
     var doctor: DoctorRaw?
     var type: AppointmentTypeRaw?
     var bill: Bill?
+    var message: String?
 }
 
 struct AppointmentRaw: Hashable, Codable, Identifiable {
@@ -23,4 +24,5 @@ struct AppointmentRaw: Hashable, Codable, Identifiable {
     var doctor: String
     var type: String
     var bill: String
+    var message: String?
 }

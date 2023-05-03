@@ -50,7 +50,8 @@ extension PBookingSummary {
                     patient: currentUserId,
                     doctor: allotedDoctor,
                     type: appointmentType.id!,
-                    bill: billId
+                    bill: billId,
+                    message: reason
                 )
                 try db.collection("Appointment").document(appointmentId).setData(from: appointment)
                 print(appointment)
