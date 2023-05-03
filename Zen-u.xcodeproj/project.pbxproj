@@ -51,7 +51,6 @@
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
-		3029F5262A010EF40026689E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3029F5252A010EF40026689E /* GoogleService-Info.plist */; };
 		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
 		30E199232A010FC00092C1BC /* DMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E199222A010FC00092C1BC /* DMain.swift */; };
 		386F14282A00AC2F00DFC667 /* PPayement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14272A00AC2F00DFC667 /* PPayement.swift */; };
@@ -130,7 +129,6 @@
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
-		3029F5252A010EF40026689E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
 		30E199222A010FC00092C1BC /* DMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMain.swift; sourceTree = "<group>"; };
 		386F14272A00AC2F00DFC667 /* PPayement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayement.swift; sourceTree = "<group>"; };
@@ -319,7 +317,7 @@
 				3874751229ED603800CCA151 /* Zen_uApp.swift */,
 				3874751429ED603800CCA151 /* ContentView.swift */,
 				3874751629ED603900CCA151 /* Assets.xcassets */,
-				3029F5252A010EF40026689E /* GoogleService-Info.plist */,
+				23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */,
 				3874751829ED603900CCA151 /* Preview Content */,
 				234475682A02000A00E0EB77 /* Utils */,
 			);
@@ -545,7 +543,7 @@
 			files = (
 				23408A5929F7AA7B00E581ED /* .gitignore in Resources */,
 				3874751A29ED603900CCA151 /* Preview Assets.xcassets in Resources */,
-				3029F5262A010EF40026689E /* GoogleService-Info.plist in Resources */,
+				23408A4B29F6E68C00E581ED /* GoogleService-Info.plist in Resources */,
 				3874751729ED603900CCA151 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
