@@ -25,9 +25,13 @@ struct Zen_uApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    @ObservedObject var appState = AppState()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appState)
+                .id(appState.rootViewId)
         }
     }
 }

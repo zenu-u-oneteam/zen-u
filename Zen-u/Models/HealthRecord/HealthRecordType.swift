@@ -7,17 +7,24 @@
 
 import Foundation
 struct HealthRecordType: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var title: String
     var category: HealthCategory
     var image: String
     var description: String
 
-    
-    enum HealthCategory: String, CaseIterable, Codable {
-        case prescription = "Prescription"
-        case labreports = "Lab Reports"
-        case vaccinationreports = "Vaccination Reports"
-        case hospitalization = "Hospitalization"
-    }
+}
+struct HealthRecordTypeRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var title: String
+    var category: String
+    var image: String
+    var description: String
+
+}
+enum HealthCategory: String, CaseIterable, Codable {
+    case appointmentRecords = "Appointment Reports"
+    case labreports = "Lab Reports"
+    case vaccinationreports = "Vaccination Reports"
+    case hospitalization = "Hospitalizations"
 }

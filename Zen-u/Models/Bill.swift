@@ -8,8 +8,15 @@
 import Foundation
 
 struct Bill: Hashable, Codable, Identifiable {
-    var id: Int
-    var timestamp: DateComponents
+    var id: String
+    var timestamp: Date
+    var amount: Float
+    var status: Bool
+}
+
+struct BillRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var timestamp: Int
     var amount: Float
     var status: Bool
 }

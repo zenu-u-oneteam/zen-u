@@ -8,11 +8,19 @@
 import Foundation
 
 struct Department: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var name: String
     var description: String
-    var doctors: [Doctor]
-    var appointmentType: [AppointmentType]
-    var timeSlotAvailable: [DateComponents: Doctor]
-    var bookedSlots: [DateComponents: Appointment]
+    var doctors: [String]
+    var appointmentType: [String]
+    var pastAppointments: [String]?
+}
+
+struct DepartmentRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String?
+    var description: String?
+    var doctors: [String]?
+    var appointmentType: [String]?
+    var pastAppointments: [String]?
 }
