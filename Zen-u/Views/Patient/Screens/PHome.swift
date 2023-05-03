@@ -95,7 +95,6 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            NavigationLink(destination: PBookingAppointments()) {
                                 Text("Lab")
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color("Heading"))
@@ -105,7 +104,6 @@ struct PHome: View {
                                             .fill(.white)
                                     )
                                     .font(.callout.weight(.semibold))
-                            }
                         }
                         Button {
                         } label: {
