@@ -9,13 +9,6 @@ import SwiftUI
 
 struct PHealthRecords: View {
     var tableHeadings: [HealthRecordType]
-    var healthRecords : [HealthRecord] = [
-        HealthRecord(id: "1", name: "Lipid Profile", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
-        HealthRecord(id: "1", name: "Complete Blood Count", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "https://www.africau.edu/images/default/sample.pdf"),
-        HealthRecord(id: "1", name: "Cholestrol-Serum", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: ""),
-        HealthRecord(id: "1", name: "H1PVC Test", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: ""),
-        HealthRecord(id: "1", name: "Gall Bladder Test", appointmentTime: Date() , patient: "123", doctor: "123", type: .labreports, document: "")
-    ]
     @State private var ButtonClicked = "Prescriptions"
     @State private var isActive: Bool = false
     var body: some View {
@@ -38,8 +31,8 @@ struct PHealthRecords: View {
                                 print(ButtonClicked)
                                 
                             } label: {
-                                NavigationLink(destination: PHealthRecordsUploadView(healthrecord: healthRecords, heading: item.title) ) {
-                                    HStack(alignment: .center, spacing: 12){
+                                NavigationLink(destination: PHealthRecordsUploadView(heading: item.title) ) {
+                                    HStack(alignment: .center, spacing: 12) {
                                         
                                         Image(systemName: item.image)
                                             .resizable()
@@ -90,7 +83,7 @@ struct PHealthRecords: View {
 struct PHealthRecords_Previews: PreviewProvider {
     static var previews: some View {
         let sectionHeadings : [HealthRecordType] = [
-            HealthRecordType(id: "1", title: "Prescriptions", category: .prescription, image: "stethoscope.circle.fill" , description: "All your details in one place"),
+            HealthRecordType(id: "1", title: "Appointment Reports", category: .appointmentRecords, image: "stethoscope.circle.fill" , description: "All your details in one place"),
             HealthRecordType(id: "2", title: "Lab Reports", category: .labreports, image: "doc.circle.fill" , description: "All your details in one place"),
             HealthRecordType(id: "3", title: "Vaccination Reports", category: .vaccinationreports, image: "syringe.fill" , description: "All your details in one place"),
             HealthRecordType(id: "4", title: "Hospitalizations", category: .hospitalization, image: "bed.double.circle.fill" , description: "All your details in one place")

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct DSchedule: View {
-    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
 
-    @State var selectedMonth: Int = ViewModel().currentMonthValue()
+    @State var selectedMonth: Int = DateViewModel().currentMonthValue()
     @State var selectedDate: Int = 0
-    @State var currentDate: Date = ViewModel().currentDay
-    @State var currentDateIndex: Int = ViewModel().currentDateValue()
-    @State var datesofMonth : [Date] = ViewModel().currentMonth
+    @State var currentDate: Date = DateViewModel().currentDay
+    @State var currentDateIndex: Int = DateViewModel().currentDateValue()
+    @State var datesofMonth : [Date] = DateViewModel().currentMonth
     @State var filterMode: String = "none"
      
     
