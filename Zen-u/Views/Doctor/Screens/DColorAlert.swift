@@ -187,7 +187,7 @@ struct ConfirmModalView: View {
             
         }
         .frame(maxWidth: .infinity ,maxHeight: .infinity ,alignment: .bottom)
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
         .animation(Animation.easeInOut, value: offset)
     }
 }
