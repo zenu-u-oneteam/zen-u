@@ -72,6 +72,7 @@
 		A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */; };
 		A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F484FF29F25938009DA356 /* PSpecialButton.swift */; };
 		A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4850129F2595A009DA356 /* PViewModel.swift */; };
+		BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */; };
 		BE773F2729F2ACB200C3C6CF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE773F2629F2ACB200C3C6CF /* LoginPage.swift */; };
 		BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8567D929F12EEC00B7206B /* SplashScreen.swift */; };
 		BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */; };
@@ -144,6 +145,7 @@
 		A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestcard.swift; sourceTree = "<group>"; };
 		A9F484FF29F25938009DA356 /* PSpecialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSpecialButton.swift; sourceTree = "<group>"; };
 		A9F4850129F2595A009DA356 /* PViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PViewModel.swift; sourceTree = "<group>"; };
+		BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DHome-ViewModel.swift"; sourceTree = "<group>"; };
 		BE773F2629F2ACB200C3C6CF /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		BE8567D929F12EEC00B7206B /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		BE5AA7632A0031DC0052A81C /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
+				BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */,
 				A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */,
 				06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,

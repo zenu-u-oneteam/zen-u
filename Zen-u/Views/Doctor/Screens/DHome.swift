@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DHome: View {
+    @StateObject private var viewModel = ViewModel()
     var body: some View {
         VStack {
             HStack{
@@ -37,7 +38,7 @@ struct DHome: View {
             ZStack(alignment: .leading){
                 Rectangle()
                     .fill(Color("Secondary"))
-                    .frame(width: .infinity, height: 60)
+                    .frame(height: 60)
                     .cornerRadius(10)
                 
                 HStack{
@@ -122,7 +123,7 @@ struct DHome: View {
                         }
                         .padding(.horizontal, 15)
                     }
-                    .frame(width:.infinity, height: 90)
+                    .frame(height: 90)
                     .background(Color("Secondary"))
                     .cornerRadius(13)
                     
@@ -137,7 +138,7 @@ struct DHome: View {
                     ZStack{
                         Rectangle()
                             .fill(Color("Secondary"))
-                            .frame(width: .infinity, height: 140)
+                            .frame(height: 140)
                             .cornerRadius(13)
                         
                         HStack{
