@@ -14,3 +14,17 @@ struct HealthRecordType: Hashable, Codable, Identifiable {
     var description: String
 
 }
+struct HealthRecordTypeRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var title: String
+    var category: String
+    var image: String
+    var description: String
+
+}
+enum HealthCategory: String, CaseIterable, Codable {
+    case appointmentRecords = "Appointment Reports"
+    case labreports = "Lab Reports"
+    case vaccinationreports = "Vaccination Reports"
+    case hospitalization = "Hospitalizations"
+}

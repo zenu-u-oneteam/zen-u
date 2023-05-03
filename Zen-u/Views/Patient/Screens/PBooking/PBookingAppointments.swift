@@ -122,6 +122,7 @@ struct GeneralDetails: View {
                 TextEditor(text: $symtomText)
                     .font(.body.weight(.light))
                     .onTapGesture {
+                        self.hideKeyboard()
                         if symtomText == "Mention any symptoms..." {
                             symtomText = ""
                         }
@@ -145,8 +146,18 @@ struct GeneralDetails: View {
                     .stroke(Color("Secondary"), lineWidth: 1)
             )
         }
+        .onTapGesture {
+            self.hideKeyboard()
+        }
     }
 }
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
 struct PBookingAppointments_Previews: PreviewProvider {
     static var previews: some View {
         PBookingAppointments()
