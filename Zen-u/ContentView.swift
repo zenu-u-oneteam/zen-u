@@ -44,7 +44,7 @@ struct ContentView: View {
                 } else if userType == .doctor {
                     DHome()
                 } else if userType == .admin {
-                    AHome()
+                    AMain()
                 } else {
                     OnBoardingScreen()
                 }
