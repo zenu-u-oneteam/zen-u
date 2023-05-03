@@ -4,7 +4,10 @@ import SwiftUI
 
 import SwiftUI
 
+var selectedTestName: String?
+
 func PLabTestcard(Testname: [String], Testimage: [String], viewAll: Bool, selectedCardIndex: Binding<Int?>) -> some View {
+    
     let testCount = viewAll ? Testname.count : min(Testname.count, 3)
     let rows = (testCount + 2) / 3
     let columns = min(testCount, 3)
@@ -21,25 +24,33 @@ func PLabTestcard(Testname: [String], Testimage: [String], viewAll: Bool, select
                     .background(
                         RoundedRectangle(cornerRadius: 15)
                             .fill(Color.gray.opacity(0.2))
-                            .frame(width: 105, height: 105)
+                            .frame(width: 115, height: 115)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 15)
                                     .strokeBorder(selectedCardIndex.wrappedValue == index ? Color.blue : Color.clear, lineWidth: 2.5)
                             )
                     )
-                
                     .onTapGesture {
                         if selectedCardIndex.wrappedValue == index {
                             selectedCardIndex.wrappedValue = nil
+                            selectedTestName = nil
+                            
                         } else {
                             selectedCardIndex.wrappedValue = index
+                            selectedTestName = Testname[index]
+                            
                         }
+                        print(selectedTestName)
                     }
                 Text(Testname[index])
                     .font(.caption)
                     .fontWeight(.semibold)
             }
         }
+    }
+    // Return the selected test name as a @Binding variable
+    .onChange(of: selectedTestName) { newValue in
+        selectedTestName = newValue
     }
 }
 
@@ -59,7 +70,7 @@ func PVitalOrganTestcard(VitalOrganTestname: [String], VitalOrganTestimage: [Str
                     .background(
                         RoundedRectangle(cornerRadius: 15)
                             .fill(Color.gray.opacity(0.2))
-                            .frame(width: 105, height: 105)
+                            .frame(width: 115, height: 115)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 15)
                                     .strokeBorder(selectedCardIndex.wrappedValue == index ? Color.blue : Color.clear, lineWidth: 3)
