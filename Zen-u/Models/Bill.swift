@@ -8,7 +8,7 @@
 import Foundation
 
 struct Bill: Hashable, Codable, Identifiable {
-    var id: Int
+    var id: String
     var timestamp: DateComponents
     var amount: Float
     var status: Bool

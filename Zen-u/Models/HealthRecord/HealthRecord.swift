@@ -7,10 +7,43 @@
 
 import Foundation
 struct HealthRecord: Hashable, Codable, Identifiable {
-    var id: Int
-    var appointmentTime: DateComponents
-    var patient: Patient
-    var doctor: Doctor
-    var type: HealthRecordType
+    var id: String
+    var name: String
+    var appointmentTime: Date
+    var patient: PatientRaw?
+    var doctor: DoctorRaw?
+    var type: HealthRecordTypeRaw?
     var document: String
 }
+
+struct PendingHealthRecord: Hashable, Codable, Identifiable {
+    var id: String
+    var name: String
+    var appointmentTime: Date
+    var patient: PatientRaw?
+    var doctor: DoctorRaw?
+    var type: HealthRecordTypeRaw?
+}
+
+
+
+
+struct HealthRecordRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var appointmentTime: Int
+    var patient: String
+    var doctor: String
+    var type: String
+    var document: String
+}
+struct PendingHealthRecordRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var appointmentTime: Int
+    var patient: String
+    var doctor: String
+    var type: String
+}
+
+

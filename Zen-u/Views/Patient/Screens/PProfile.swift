@@ -6,13 +6,17 @@
 //
 
 import SwiftUI
-
 struct PProfile: View {
+    @EnvironmentObject var appState: AppState
+   
+    
     @State var showMenu = false
     @State private var selectedOption = "Option 1"
+    @State var userType: UserType = .none
+    
     var body: some View {
         VStack{
-            HeaderView()
+           HeaderView()
             
             ProfileHeaderView()
             SubHeadingView().padding(.bottom, 17)
@@ -23,42 +27,43 @@ struct PProfile: View {
             }
         }
         .padding(2)
-
+        .navigationBarTitleDisplayMode(.large)
     }
     
     func HeaderView() -> some View {
-        HStack() {
+        HStack{
             VStack(alignment: .leading) {
-                Text("Profile").font(.largeTitle.bold())
+                Text(" ").font(.largeTitle.bold())
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                     .padding(.all, 10)
             }
             .hLeading()
             
-                
+            
             Menu {
-                       Button("Edit") {
-                           self.selectedOption = "Option 1"
-                       }
-                       Button("Settings") {
-                           self.selectedOption = "Option 2"
-                       }
-                       Button("Log Out") {
-                           self.selectedOption = "Option 3"
-                       }
+                Button("Edit") {
+                    self.selectedOption = "Option 1"
+                }
+                Button("Settings") {
+                    self.selectedOption = "Option 2"
+                }
+                Button("Log Out") {
+                    self.selectedOption = "Option 3"
+                    print("LOGOUT!!!")
+                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    appState.rootViewId = UUID()
+                }
             }
         label: {
-                       Image(systemName: "line.horizontal.3")
-                           .resizable()
-                           .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-       //                        .aspectRatio(contentMode: .fit)
-                           .frame(width: 15
-                                  , height: 13)
-                           .padding(.all, 20)
+            Image(systemName: "line.horizontal.3")
+                .resizable()
+                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
+                .frame(width: 15, height: 13)
+                .padding(.all, 20)
         }
-               
-            }
+            
         }
+    }
     
     
     func SubHeadingView() -> some View {
