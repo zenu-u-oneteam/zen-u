@@ -27,6 +27,7 @@ struct PHome: View {
     @State private var selectedItem: EducationTopics?
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             if viewModel.isLoading {
                 ProgressView("Loading...")
@@ -57,8 +58,8 @@ struct PHome: View {
                             }
                             Spacer()
                             
-                            Button(){
-                                
+                            Button {
+                                viewModel.emergencyCall()
                             } label: {
                                 
                                 Image(systemName: "phone.fill")
