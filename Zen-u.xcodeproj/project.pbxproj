@@ -67,6 +67,7 @@
 		C941A99829F6A90B0018069F /* DProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941A99729F6A90B0018069F /* DProfile.swift */; };
 		C98ED56829FA741D00762A2C /* Vdetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98ED56729FA741D00762A2C /* Vdetails.swift */; };
 		C993EE4D29F926CB003DA95E /* VBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C993EE4C29F926CB003DA95E /* VBooking.swift */; };
+		C9FD0F6A2A011B9800300FF5 /* PVaccineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD0F692A011B9800300FF5 /* PVaccineCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		C941A99729F6A90B0018069F /* DProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DProfile.swift; sourceTree = "<group>"; };
 		C98ED56729FA741D00762A2C /* Vdetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vdetails.swift; sourceTree = "<group>"; };
 		C993EE4C29F926CB003DA95E /* VBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBooking.swift; sourceTree = "<group>"; };
+		C9FD0F692A011B9800300FF5 /* PVaccineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVaccineCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				2DECE12A29EDDAA10021BE41 /* PUIex.swift */,
+				C9FD0F692A011B9800300FF5 /* PVaccineCard.swift */,
 				A9F484FF29F25938009DA356 /* PSpecialButton.swift */,
 				A9F4850129F2595A009DA356 /* PViewModel.swift */,
 				A975854729F289670063A223 /* PAppointmentDetailsModel.swift */,
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2340535229F24E43003A0063 /* Doctor.swift in Sources */,
+				C9FD0F6A2A011B9800300FF5 /* PVaccineCard.swift in Sources */,
 				BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */,
 				A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */,
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
