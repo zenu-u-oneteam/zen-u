@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DSchedule: View {
-    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
 
-    @State var selectedMonth: Int = ViewModel().currentMonthValue()
+    @State var selectedMonth: Int = DateViewModel().currentMonthValue()
     @State var selectedDate: Int = 0
-    @State var currentDate: Date = ViewModel().currentDay
-    @State var currentDateIndex: Int = ViewModel().currentDateValue()
-    @State var datesofMonth : [Date] = ViewModel().currentMonth
+    @State var currentDate: Date = DateViewModel().currentDay
+    @State var currentDateIndex: Int = DateViewModel().currentDateValue()
+    @State var datesofMonth : [Date] = DateViewModel().currentMonth
     @State var filterMode: String = "none"
-     
+    @StateObject private var viewModel = ViewModel()
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
 
@@ -32,7 +32,10 @@ struct DSchedule: View {
                                 Button {
                                     self.selectedMonth = index
                                     self.datesofMonth = appointmentViewModel.fetchRequestedMonth(month: selectedMonth + 1)
+                                    currentDateIndex = 0
+                                    selectedDate = 0
                                     appointmentViewModel.update()
+                                    
                                     value.scrollTo(selectedMonth , anchor: .leading)
                                 } label: {
                                     Text(months[index])
@@ -82,23 +85,28 @@ struct DSchedule: View {
                         }.onAppear{
                             value.scrollTo(currentDateIndex , anchor: .top)
                         }.onChange(of: selectedMonth) { _ in
-                            value.scrollTo(0 , anchor: .top)
+                            value.scrollTo(selectedDate , anchor: .top)
                         }
                     }
                     
                     Spacer()
                     
                     ScrollView(.vertical) {
-                        LazyVStack (alignment: .leading, spacing: 10){
-                            ForEach(0...10, id: \.self) {
-                                index in
-                                Button {
-                                    self.selectedMonth = index
-                                } label: {
-                                    DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "OPD"], time: "9:30", age: 30, gender: "Female")
+                        if( viewModel.isLoading ){
+                            ProgressView("Loading...").hCenter()
+                        }else{
+                            LazyVStack (alignment: .leading, spacing: 10){
+                                ForEach(viewModel.appList.indices, id: \.self) {
+                                    index  in
+                                    Button {
+                                        
+                                    } label: {
+                                        DScheduleTaskCard(patientName: viewModel.appList[index].patientUser.name, tags: ["New patient", "OPD"], time: "9:30", age: viewModel.appList[index].appointment.patient?.age ?? -1, gender: viewModel.appList[index].appointment.patient?.gender ?? "Not available")
+                                    }
                                 }
                             }
                         }
+                        
                     }
                     .frame(width: 300)
                     Spacer()

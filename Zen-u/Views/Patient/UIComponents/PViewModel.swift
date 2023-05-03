@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ViewModel: ObservableObject{
+class DateViewModel: ObservableObject{
     @Published var userLocale = Locale.autoupdatingCurrent
     @Published var currentMonth: [Date] = []
     
@@ -28,8 +28,8 @@ class ViewModel: ObservableObject{
      }
     
     func fetchCurrentMonth(){
-        print("\nThe current calendar is \(Calendar.current).")
-        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
+//        print("\nThe current calendar is \(Calendar.current).")
+//        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale

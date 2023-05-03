@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PScheduleSettings: View {
-    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
     @Namespace var animation
     var availableSlots: [Int] = [1, 2, 3, 4, 5, 6]
     @State var selectedSlot: Int = 0
