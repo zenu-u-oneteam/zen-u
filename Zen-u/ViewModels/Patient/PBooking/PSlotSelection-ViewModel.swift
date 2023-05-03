@@ -19,6 +19,8 @@ extension PSlotSelection {
         @Published var selectedSlot: Date?
         @Published var upcomingMonth: [Date] = []
         @Published var selectedDate: Date = Date()
+        @Published var allotedDoctor: String?
+        
         let todaysDate = Date()
         
         let db = FirebaseConfig().db
@@ -44,6 +46,11 @@ extension PSlotSelection {
         func setSelectedDate(_ date: Date) {
             selectedDate = date
             getAvailableSlots(date)
+        }
+        
+        func selectSlot(_ date: Date) {
+            selectedSlot = date
+            allotedDoctor = availableSlotsWithDoctor[date]!.randomElement()!
         }
         
         func checkStatus() {
@@ -76,7 +83,7 @@ extension PSlotSelection {
                 for doctor in doctors {
                     dateDictionary = await findAvailableSlots(doctorID: doctor, selectedDate: date, dateDictionary: dateDictionary)
                 }
-                
+                                
                 for (key, value) in dateDictionary {
                     if value.count == 0 {
                         dateDictionary.removeValue(forKey: key)
@@ -122,7 +129,7 @@ extension PSlotSelection {
                 for (key, value) in currentDateDictionary {
                     if key >= startDate && key < endDate && !existingAppointmentDate.contains(key){
                         var currentValue: [String] = value
-                        currentValue.append("\(key)")
+                        currentValue.append("\(doctorID)")
                         currentDateDictionary[key] = currentValue
                     }
                 }
@@ -152,18 +159,6 @@ extension PSlotSelection {
             } catch {
                 fatalError("\(error)")
             }
-        }
-        
-        func extractDate(date: Date, format: String) -> String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            return formatter.string(from: date)
-        }
-        
-        func extractTime(timeStamp: Int, format: String) -> String {
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            return formatter.string(from: Date(timeIntervalSince1970: TimeInterval(timeStamp)))
         }
     }
 }

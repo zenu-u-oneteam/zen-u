@@ -39,9 +39,9 @@ struct PSlotSelection: View {
                                 viewModel.setSelectedDate(day)
                             } label: {
                                 VStack(spacing: 10) {
-                                    Text(viewModel.extractDate(date: day, format: "dd"))
+                                    Text(extractDate(date: day, format: "dd"))
                                         .font(.subheadline.weight(.semibold))
-                                    Text(viewModel.extractDate(date: day, format: "EEE"))
+                                    Text(extractDate(date: day, format: "EEE"))
                                         .font(.footnote)
                                 }
                                 .frame(width: 60, height: 80)
@@ -70,7 +70,7 @@ struct PSlotSelection: View {
         .padding(20)
         .navigationBarTitle("Booking Consultation", displayMode: .large)
         .navigationDestination(isPresented: $viewModel.canContinue, destination: {
-            PBookingSummary(reason: reason, department: department, appointmentType: appointmentType, selectedSlot: viewModel.selectedSlot ?? Date())
+            PBookingSummary(reason: reason, department: department, appointmentType: appointmentType, selectedSlot: viewModel.selectedSlot ?? Date(), allotedDoctor: viewModel.allotedDoctor ?? "")
         })
     }
 
@@ -93,9 +93,9 @@ struct PSlotSelection: View {
                                 HStack(spacing: 15) {
                                     ForEach(row, id: \.self) { slot in
                                         Button {
-                                            viewModel.selectedSlot = slot
+                                            viewModel.selectSlot(slot)
                                         } label: {
-                                            PSpecialButton(buttonText: viewModel.extractDate(date: slot, format: "HH:mm"), buttonColor: Color("Accent"), active: (viewModel.selectedSlot == slot))
+                                            PSpecialButton(buttonText: extractDate(date: slot, format: "HH:mm"), buttonColor: Color("Accent"), active: (viewModel.selectedSlot == slot))
                                         }
                                     }
                                 }

@@ -32,6 +32,7 @@
 		23408A5929F7AA7B00E581ED /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 23408A5829F7AA7B00E581ED /* .gitignore */; };
 		2342DA0029FFC21C00E0AB92 /* PConsultationAppointments-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342D9FF29FFC21C00E0AB92 /* PConsultationAppointments-ViewModel.swift */; };
 		2342DA0229FFD50F00E0AB92 /* PSlotSelection-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2342DA0129FFD50F00E0AB92 /* PSlotSelection-ViewModel.swift */; };
+		2344756A2A02003700E0EB77 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234475692A02003700E0EB77 /* Helpers.swift */; };
 		23457E7029F257A500715DD9 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23457E6F29F257A500715DD9 /* Bill.swift */; };
 		236D49D529FA712A00212E97 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D49D429FA712A00212E97 /* AppState.swift */; };
 		2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */; };
@@ -101,6 +102,7 @@
 		23408A5829F7AA7B00E581ED /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2342D9FF29FFC21C00E0AB92 /* PConsultationAppointments-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PConsultationAppointments-ViewModel.swift"; sourceTree = "<group>"; };
 		2342DA0129FFD50F00E0AB92 /* PSlotSelection-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PSlotSelection-ViewModel.swift"; sourceTree = "<group>"; };
+		234475692A02003700E0EB77 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		23457E6F29F257A500715DD9 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		236D49D429FA712A00212E97 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DScheduleTaskCard.swift; sourceTree = "<group>"; };
@@ -233,6 +235,16 @@
 			path = PBooking;
 			sourceTree = "<group>";
 		};
+		234475682A02000A00E0EB77 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */,
+				236D49D429FA712A00212E97 /* AppState.swift */,
+				234475692A02003700E0EB77 /* Helpers.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		2386C67B29F2841400CEA6F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,8 +299,7 @@
 				3874751629ED603900CCA151 /* Assets.xcassets */,
 				23408A4A29F6E68C00E581ED /* GoogleService-Info.plist */,
 				3874751829ED603900CCA151 /* Preview Content */,
-				23408A5329F6EA6C00E581ED /* FirebaseConfig.swift */,
-				236D49D429FA712A00212E97 /* AppState.swift */,
+				234475682A02000A00E0EB77 /* Utils */,
 			);
 			path = "Zen-u";
 			sourceTree = "<group>";
@@ -542,6 +553,7 @@
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
 				23457E7029F257A500715DD9 /* Bill.swift in Sources */,
 				06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */,
+				2344756A2A02003700E0EB77 /* Helpers.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
 				069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */,
 				061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */,
