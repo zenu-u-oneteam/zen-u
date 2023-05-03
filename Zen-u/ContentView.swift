@@ -28,7 +28,7 @@ struct ContentView: View {
     
     @State private var isShowingSplash = true
     @State var userType: UserType = getUsetType()
-    
+   
     var body: some View {
         ZStack {
             if isShowingSplash {

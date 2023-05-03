@@ -32,7 +32,7 @@ struct DScheduleTaskCard: View {
                 Text(patientName)
                     .font(.callout.bold())
                     .foregroundColor(Color("Heading"))
-                Text("Age: \(age) years")
+                Text(age == -1 ? "Not available" : "Age: \(age) years")
                     .font(.caption2)
                 Text("Gender: \(gender)")
                     .font(.caption2)
