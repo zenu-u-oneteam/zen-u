@@ -15,6 +15,7 @@ struct AppointmentReports: Hashable, Codable, Identifiable {
     var type: HealthRecordTypeRaw?
     var symptoms: String
     var medicalAdvice: String
+    var prescriptions: String?
     
 }
 struct AppointmentReportsRaw: Hashable, Codable, Identifiable {
@@ -26,5 +27,6 @@ struct AppointmentReportsRaw: Hashable, Codable, Identifiable {
     var type: String
     var symptoms: String
     var medicalAdvice: String
+    var prescriptions: String?
 }
 
