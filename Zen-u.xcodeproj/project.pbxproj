@@ -71,6 +71,9 @@
 		3874754329ED66DD00CCA151 /* DHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754229ED66DD00CCA151 /* DHome.swift */; };
 		3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */; };
 		3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754629ED673500CCA151 /* DPrescriptionsView.swift */; };
+		A72BE66A29FA5310008C624B /* AStaffOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72BE66929FA5310008C624B /* AStaffOverview.swift */; };
+		A73D754629FA78CA006F967A /* AStaffPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D754529FA78CA006F967A /* AStaffPage4.swift */; };
+		A73E214F29F0223800EDB68D /* PPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E214E29F0223800EDB68D /* PPayment.swift */; };
 		38AABDFB29F92E4C0028B6A9 /* PReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AABDFA29F92E4C0028B6A9 /* PReminders.swift */; };
 		A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */; };
 		A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */; };
@@ -152,6 +155,9 @@
 		3874754229ED66DD00CCA151 /* DHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHome.swift; sourceTree = "<group>"; };
 		3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppointmentDetails.swift; sourceTree = "<group>"; };
 		3874754629ED673500CCA151 /* DPrescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPrescriptionsView.swift; sourceTree = "<group>"; };
+		A72BE66929FA5310008C624B /* AStaffOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffOverview.swift; sourceTree = "<group>"; };
+		A73D754529FA78CA006F967A /* AStaffPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffPage4.swift; sourceTree = "<group>"; };
+		A73E214E29F0223800EDB68D /* PPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayment.swift; sourceTree = "<group>"; };
 		38AABDFA29F92E4C0028B6A9 /* PReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PReminders.swift; sourceTree = "<group>"; };
 		A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsUpcoming.swift; sourceTree = "<group>"; };
@@ -380,6 +386,8 @@
 			isa = PBXGroup;
 			children = (
 				2DECE12829EDDA830021BE41 /* AHome.swift */,
+				A72BE66929FA5310008C624B /* AStaffOverview.swift */,
+				A73D754529FA78CA006F967A /* AStaffPage4.swift */,
 				30D2508A2A01178300446196 /* AMain.swift */,
 			);
 			path = Screens;
@@ -585,6 +593,7 @@
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
 				C993EE4B29F916D8003DA95E /* Vaccination.swift in Sources */,
 				23457E7029F257A500715DD9 /* Bill.swift in Sources */,
+				A72BE66A29FA5310008C624B /* AStaffOverview.swift in Sources */,
 				06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */,
 				2344756A2A02003700E0EB77 /* Helpers.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
@@ -617,6 +626,7 @@
 				23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */,
 				BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */,
 				2386C68729F29FE700CEA6F6 /* PrimaryButton.swift in Sources */,
+				A73D754629FA78CA006F967A /* AStaffPage4.swift in Sources */,
 				BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */,
 				2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */,
 				30E199232A010FC00092C1BC /* DMain.swift in Sources */,
