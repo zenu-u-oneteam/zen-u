@@ -19,23 +19,16 @@ extension POnboarding{
         
         init() {
             isLoading = true
-            
-            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
-            let decoder = JSONDecoder()
-            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
-            userName = currentUser.name
-            
-            
             Task {
                 isLoading = false
             }
         }
         
-        func sendPatientInfo() async -> String {
+        func newPatient(){
             do {
-//                newPatient = db.collection("Patient")
+                newPatient = db.collection("Patient")
                 
-                return "User Updated!"
+                print("User Created!")
                 
             } catch {
                 fatalError("\(error)")

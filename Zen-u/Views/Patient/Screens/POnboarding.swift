@@ -12,18 +12,21 @@ struct POnboarding: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    @State private var name = ""
-    @State private var gender = ""
-    let genderSelection = ["Male", "Female", "Other"]
-    @State private var bloodGroup = ""
-    let bloodGroupSelection = ["A+"]
+    @State private var patient: Patient
+    @State private var user: User
+//    @State private var name = ""
+//    @State private var gender = ""
+//    let genderSelection = ["Male", "Female", "Other"]
+//    @State private var bloodGroup = ""
+//    let bloodGroupSelection = ["A+"]
     @State private var dateOfBirth =  Date()
-    @State private var height = ""
-    @State private var weight = ""
+//    @State private var height = ""
+//    @State private var weight = ""
     @State private var phoneNumber = ""
-    @State private var email = ""
+//    @State private var email = ""
     @State private var aadhaar = ""
-    @State private var records = "" // List??
+//    @State private var present = true
+//    @State private var records = []
     
     
     var body: some View {
@@ -34,7 +37,7 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Name")
-                            TextField("", text: $name).frame(height: 30)
+                            TextField("", text: $patient.name).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -43,8 +46,8 @@ struct POnboarding: View {
                     
                         HStack{
                             Text("Gender")
-                            Picker("Select", selection: $gender){
-                                ForEach(genderSelection, id: \.self) {
+                            Picker("Select", selection: $patient.gender){
+                                ForEach(patient.gender, id: \.self) {
                                                     Text($0)
                                 }
                             }.background(Color("Secondary"))
@@ -54,8 +57,8 @@ struct POnboarding: View {
                             Spacer()
                             
                             Text("Blood Group")
-                            Picker("Select", selection: $bloodGroup){
-                                ForEach(bloodGroupSelection, id: \.self) {
+                            Picker("Select", selection: $patient.bloodGroup){
+                                ForEach(patient.bloodGroup, id: \.self) {
                                                     Text($0)
                                 }
                             }.background(Color("Secondary"))
@@ -70,13 +73,13 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Height")
-                            TextField("", text: $height).frame(height: 30)
+                            TextField("", text: $patient.height).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
                             
                             Text("Weight")
-                            TextField("", text: $weight).frame(height: 30)
+                            TextField("", text: $patient.weight).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -84,7 +87,7 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Phone Number")
-                            TextField("", text: $phoneNumber).frame(height: 30)
+                            TextField("", text: $user.phoneNumber).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -92,7 +95,7 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Email id")
-                            TextField("", text: $email).frame(height: 30)
+                            TextField("", text: $user.email).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -108,10 +111,18 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Medical Records")
-                            TextField("", text: $records).frame(height: 30)
-                                .padding(5)
-                                .background(Color("Secondary"))
-                                .cornerRadius(5)
+                            Button (action: {
+                                // Perform signup action here
+                            }, label: {
+                                Text("Upload")
+                            }).fileImporter(isPresented: $present, allowedContentTypes: [.pdf], allowsMultipleSelection: true){ result in
+                                switch result {
+                                case .success(let url):
+                                    print(url)
+                                case .failure(let error):
+                                    print(error)
+                                }
+                            }
                         }
                         
                     }

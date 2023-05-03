@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PBookingAppointments: View {
-    @State var symtomText: String = ""
+    @State var symptomText: String = ""
     @State var showModel: Bool = false
     @State var selectedConsltType : consltType = consltType.general
     @State var isDeptSelected : Bool = false
@@ -56,7 +56,7 @@ struct PBookingAppointments: View {
                     DeptSummary(heading: $selectedDeptText , description: "The oncology department in a hospital is dedicated to the diagnosis, treatment, and management of cancer patients.")
                     
                 } else {
-                    GeneralDetails(symtomText: $symtomText)
+                    GeneralDetails(symptomText: $symptomText)
                 }
                 
                 Spacer()
@@ -110,7 +110,7 @@ struct DeptSummary: View {
 }
 
 struct GeneralDetails: View {
-    @Binding var symtomText: String
+    @Binding var symptomText: String
     var body: some View {
         VStack(alignment: .leading){
             Text("Specify Reason (if Any)")
@@ -119,15 +119,15 @@ struct GeneralDetails: View {
             
             ZStack (alignment: .leading) {
                 
-                TextEditor(text: $symtomText)
+                TextEditor(text: $symptomText)
                     .font(.body.weight(.light))
                     .onTapGesture {
-                        if symtomText == "Mention any symptoms..." {
-                            symtomText = ""
+                        if symptomText == "Mention any symptoms..." {
+                            symptomText = ""
                         }
                     }
                 
-                if symtomText.isEmpty {
+                if symptomText.isEmpty {
                     Text("Mention any symptoms...")
                         .foregroundColor(Color("Heading"))
                         .font(.body.weight(.light))

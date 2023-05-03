@@ -41,12 +41,13 @@ struct SignupPage: View {
                         .foregroundColor(.black)
                     TextField("Enter your email", text: $email)
                         .font(.system(size: 17, weight: .light))
+                        .textInputAutocapitalization(.never)
                 }
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(12)
             }
-            
+        
             
             HStack(alignment: .center, spacing: 13) {
                 Image(systemName: "lock")
@@ -73,7 +74,9 @@ struct SignupPage: View {
             Button {
                 // Perform signup action here
             } label: {
-                ActionButton(text: "Sign Up", disabled: !agreedToTerms)
+                NavigationLink(destination: POnboarding()){
+                    ActionButton(text: "Sign Up", disabled: !agreedToTerms)
+                }
             }
             .disabled(!agreedToTerms)
             
