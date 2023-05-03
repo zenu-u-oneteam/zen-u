@@ -23,7 +23,7 @@ struct DMain: View {
                     Label("Schedule", systemImage: "calendar")
                 }
                 .tag(1)
-            Text("Color Alerts")
+            DColorAlert()
                 .tabItem {
                     Label("Alerts", systemImage: "exclamationmark.triangle")
                 }
