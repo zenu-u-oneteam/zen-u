@@ -41,6 +41,8 @@ struct AppointmentCard: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
+                Text(appointmentDetails.appointmentTime, style: .date)
+                    .font(.footnote).bold()
                 Text(formatDate(appointmentDetails.appointmentTime))
                     .font(.largeTitle.bold())
                 Text(appointmentDetails.doctor!.name)
