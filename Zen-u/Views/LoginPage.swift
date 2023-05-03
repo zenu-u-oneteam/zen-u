@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct LoginPage: View {
     @EnvironmentObject var appState: AppState
-
+    
     @State private var email = ""
     @State private var password = ""
     @State var isLoggedIn = false
@@ -56,7 +56,7 @@ struct LoginPage: View {
     }
     
     var body: some View {
-        ZStack {
+        ScrollView {
             VStack {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack {
@@ -65,6 +65,8 @@ struct LoginPage: View {
                         TextField("Enter your email", text: $email)
                             .font(.system(size: 17, weight: .light))
                             .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled(true)
+                            .keyboardType(.emailAddress)
                     }
                     .padding()
                     .background(Color(.systemGray5))
@@ -79,6 +81,7 @@ struct LoginPage: View {
                     SecureField("Enter your password", text: $password)
                         .font(.system(size: 17, weight: .light))
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled(true)
                 }
                 .padding()
                 .background(Color(.systemGray5))
@@ -100,7 +103,7 @@ struct LoginPage: View {
                     ActionButton(text: "Log in")
                 }
                 .padding(.top, 20)
-                                
+                
                 HStack {
                     Text("Don't have an account?")
                         .foregroundColor(.gray)
@@ -132,7 +135,7 @@ struct LoginPage: View {
                 }
                 .padding(.vertical)
                 .padding(.bottom)
-                                
+                
                 VStack(spacing: 20) {
                     Button(action: {
                         // Perform Google sign-in action here
@@ -148,7 +151,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 51)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -169,7 +172,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 56)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -179,7 +182,7 @@ struct LoginPage: View {
                     }
                     Button(action: {
                         // Perform Facebook sign-in action here
-//                        popToRootViewController(animated: false)
+                        //                        popToRootViewController(animated: false)
                     }) {
                         HStack {
                             Image("facebook")
@@ -191,7 +194,7 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .padding(.horizontal, 40)
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 50)
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Color.white)
                         .cornerRadius(25)
                         .overlay(
@@ -202,7 +205,12 @@ struct LoginPage: View {
                 }
                 .padding(.horizontal, 30)
             }
-            .navigationBarTitle("zen-u", displayMode: .inline)
+            .padding(.top, 50)
+        }
+        .ignoresSafeArea(.keyboard)
+        .navigationBarTitle("zen-u", displayMode: .inline)
+        .onTapGesture {
+            self.hideKeyboard()
         }
     }
 }

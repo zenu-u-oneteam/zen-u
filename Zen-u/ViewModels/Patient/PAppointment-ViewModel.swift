@@ -13,17 +13,31 @@ extension PAppointment {
         @Published var isLoading = false
         @Published var upcomingAppointments: [Appointment] = []
         @Published var pastAppointments: [Appointment] = []
+        @Published var consultPastAppointments: [Appointment] = []
+        @Published var consultUpAppointments: [Appointment] = []
+        @Published var labPastAppointments: [Appointment] = []
+        @Published var labUpAppointments: [Appointment] = []
+        @Published var vaccPastAppointments: [Appointment] = []
+        @Published var vaccUpAppointments: [Appointment] = []
         
         let db = FirebaseConfig().db
         
         init() {
             isLoading = true
          Task {
-                upcomingAppointments = await getUpcomingAppointment()
-                pastAppointments = await getPastAppointment()
-                isLoading = false
+            upcomingAppointments = await getUpcomingAppointment()
+            pastAppointments = await getPastAppointment()
+            consultPastAppointments = await getConsultPastAppointments()
+            consultUpAppointments = await getConsultUpAppointments()
+            labPastAppointments = await  getLabPastAppointments()
+            labUpAppointments = await getLabUpAppointments()
+            vaccPastAppointments = await getVaccPastAppointments()
+            vaccUpAppointments = await getVaccUpAppointments()
+            isLoading = false
             }
         }
+        
+    
         
         
         
@@ -38,11 +52,10 @@ extension PAppointment {
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
                         doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
-                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
-                    )
+                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)                    )
                     upcomingAppointment.append(appointmentDetails)
                 }
-                return upcomingAppointment
+                return upcomingAppointment.sorted { $0.appointmentTime < $1.appointmentTime }
             } catch {
                 fatalError("\(error)")
             }
@@ -60,14 +73,68 @@ extension PAppointment {
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
                         doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
-                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
+                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self),
+                        appointmentRecord: try await db.collection("AppointmentReports").document(appointmentRawDetails.appointmentRecord ?? "1zfXzcErGmkbrcxoezTy" ).getDocument(as: AppointmentReportsRaw.self)
+
                     )
                     pastAppointment.append(appointmentDetails)
                 }
-                return pastAppointment
+                return pastAppointment.sorted { $0.appointmentTime > $1.appointmentTime }
             } catch {
                 fatalError("\(error)")
             }
         }
+        
+        func getConsultPastAppointments() async -> [Appointment]{
+           
+                let pastAppointments =  await getPastAppointment()
+                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
+            return consultPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
+           
+        }
+        
+        func getConsultUpAppointments() async -> [Appointment]{
+           
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var consultUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Consultation"})
+            return consultUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
+           
+        }
+        
+        func getLabPastAppointments() async -> [Appointment]{
+
+                let pastAppointments =  await getPastAppointment()
+                var labPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Lab"})
+            return labPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
+
+        }
+
+        func getLabUpAppointments() async -> [Appointment]{
+
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var labUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Lab"})
+            return labUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
+
+        }
+
+        func getVaccPastAppointments() async -> [Appointment]{
+
+                let pastAppointments =  await getPastAppointment()
+                var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Vaccination"})
+            return consultPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
+
+        }
+
+        func getVaccUpAppointments() async -> [Appointment]{
+
+                let upcomingAppointments =  await getUpcomingAppointment()
+                var vaccUpAppointments : [Appointment] = upcomingAppointments.filter({$0.type!.category == "Vaccination"})
+            return vaccUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
+
+        }
+
+        
+        
+            
     }
 }

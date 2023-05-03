@@ -1,8 +1,8 @@
 //
-//  PatientPayment.swift
+//  PPayment.swift
 //  Zen-u
 //
-//  Created by Debarghya Barik on 19/04/23.
+//  Created by Prakhar Singh on 04/05/23.
 //
 
 import SwiftUI
@@ -22,6 +22,8 @@ struct PPayment: View {
             .cornerRadius(30)
             .padding(.vertical, 30)
             
+            Spacer()
+            
             VStack(spacing: 14){
                 Button {
                     print(" Return to Home button")
@@ -38,9 +40,10 @@ struct PPayment: View {
                     }
                 }
             }
-            Spacer()
+            .padding(.bottom, 24)
         }
         .navigationTitle("Confirmation")
+        .navigationBarBackButtonHidden()
     }
 }
 
