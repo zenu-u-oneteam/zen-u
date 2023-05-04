@@ -11,6 +11,8 @@ import FirebaseAuth
 extension ConfirmModalView {
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
+        
+        
         let db = FirebaseConfig().db
         
         func sendAlert(code: String , desc : String ) async {
@@ -25,6 +27,8 @@ extension ConfirmModalView {
             }
            
         }
+        
+        
         
     }
 }

@@ -24,29 +24,52 @@ struct AAlerts: View {
 //                .pickerStyle(SegmentedPickerStyle())
 //                .padding()
                 SegmentedPicker($isResolvedIndex, selections: options)
+                    
+                    
+                
                 Spacer(minLength: 20)
-                ScrollView{
-                    LazyVStack(spacing : 30 ){
+                
                         if isResolvedIndex == 0 {
                             
-                            ForEach(viewModel.unResolvedalertList.indices, id: \.self) { index in
-                                AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
-                                
-                                
+                            ScrollViewReader {
+                                value in
+                                ScrollView {
+                                    
+                                    LazyVStack (spacing : 30 ){
+                                        ForEach(viewModel.unResolvedalertList.indices, id: \.self) { index in
+                                            AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
+                                            
+                                            
+                                        }
+                                    }.onChange(of: viewModel.unResolvedalertList.count) {
+                                        _ in
+                                        viewModel.update()
+                                        }
+                                }
                             }
                             
                         } else {
                             
                             
-                            ForEach(viewModel.resolvedalertList.indices, id: \.self) { index in
-                                AlertCard(code: viewModel.resolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.resolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.resolvedalertList[index].datetime), desc: viewModel.resolvedalertList[index].description)
-                                
-                                
+                            ScrollViewReader {
+                                value in
+                                ScrollView{
+                                    LazyVStack (spacing : 30 ){
+                                        ForEach(viewModel.resolvedalertList.indices, id: \.self) { index in
+                                            AlertCard(code: viewModel.resolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.resolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.resolvedalertList[index].datetime), desc: viewModel.resolvedalertList[index].description)
+                                            
+                                            
+                                        }
+                                    }.onChange(of: viewModel.unResolvedalertList.count) {
+                                        _ in
+                                        viewModel.update()
+                                       
+                                         }
+                                }
                             }
                         }
 
-                    }
-                }
+                    
                 
                 
             }

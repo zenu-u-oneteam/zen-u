@@ -7,6 +7,8 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
+
 
 extension AAlerts {
     @MainActor class ViewModel: ObservableObject {
@@ -15,6 +17,7 @@ extension AAlerts {
         @Published var resolvedalertList : [AlertModelMy] = []
         @Published var unResolvedalertList : [AlertModelMy] = []
         let db = FirebaseConfig().db
+        @State var refresh: Bool = false
         
         init() {
             isLoading = true
@@ -29,7 +32,9 @@ extension AAlerts {
             }
            
         }
-        
+        func update() {
+            refresh.toggle()
+         }
 
         func getAlertList() async -> [AlertModelMy] {
             do {
