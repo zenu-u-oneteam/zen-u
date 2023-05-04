@@ -29,12 +29,10 @@ struct AdminStaffPage4: View {
                     .padding(.bottom , 8)
                     
                     
-                    ScrollView{
+                    ScrollView {
                         LazyVStack {
-                            ForEach(0..<10)
-                            {
-                                numberOfCapsule in
-                                VStack (alignment: .center){
+                            ForEach(0..<6) { numberOfCapsule in
+                                VStack(alignment: .center) {
                                     HStack {
                                         Image(systemName: "person.circle.fill")
                                             .resizable()
@@ -42,20 +40,23 @@ struct AdminStaffPage4: View {
                                         
                                         Text("Medical Department")
                                             .frame(width: 163)
-                                            .font(.system(size: 17).weight(.semibold))
+                                            .font(.headline.weight(.semibold))
                                         
                                         Image(systemName: "chevron.forward")
-                                            .foregroundColor(Color(UIColor.tertiaryLabel))
-                                            .padding(.leading, 95)
+                                            .foregroundColor(Color("Tag"))
+                                            .padding(.leading, 100)
                                     }
                                     Divider()
                                 }
                                 .frame(width: 314)
                             }
-                        }.padding(8)
-                    }.frame( height: 253)
-                        .background(Color("Secondary"))
-                        .cornerRadius(10)
+                        }
+                        .padding(8)
+                    }
+                    .background(Color("Secondary"))
+                    .cornerRadius(10)
+                    .frame(maxHeight: .infinity)
+                    
                     Spacer()
                 }
                 

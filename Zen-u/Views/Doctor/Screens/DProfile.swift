@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct DoctorProfile: View {
+struct DProfile: View {
+    @EnvironmentObject var appState: AppState
+    @StateObject private var viewModel = ViewModel()
     @State private var selectedOption = "Option 1"
     var body: some View {
         
@@ -21,13 +23,14 @@ struct DoctorProfile: View {
                 
                 Menu {
                     Button("Edit") {
-                        self.selectedOption = "Option 1"
+                        viewModel.editDoctor()
                     }
                     Button("Settings") {
-                        self.selectedOption = "Option 2"
+                        viewModel.doctorSettings()
                     }
                     Button("Log Out") {
-                        self.selectedOption = "Option 3"
+                        viewModel.logout()
+                        appState.rootViewId = UUID()
                     }
                 }
             label: {
@@ -44,7 +47,7 @@ struct DoctorProfile: View {
                 
                 HStack(spacing : 20) {
                     
-                    Image("ProfileImage")
+                    Image(viewModel.user.profileImage)
                         .resizable()
                         .frame(width: 105, height: 105)
                         .clipShape(Circle())
@@ -52,15 +55,15 @@ struct DoctorProfile: View {
                         .padding(.horizontal, 15)
                     
                     VStack(alignment: .leading){
-                        Text("Dr. P Lawrence")
+                        Text(viewModel.doctor.name)
                             .font(.title3.bold())
-                        Text("Diabetology")
+                        Text("General")
                             .font(.caption.weight(.semibold))
                             .padding(.bottom, 10)
-                        Text("38 years experience")
+                        Text(viewModel.doctor.experience ?? "4")
                             .font(.caption.weight(.light))
                             .padding(.bottom, 2)
-                        Text("MD (General Med)")
+                        Text(viewModel.doctor.specialisation ?? "MD(General0")
                             .font(.caption.weight(.light))
                     }
                     Spacer()
@@ -80,7 +83,7 @@ struct DoctorProfile: View {
                         }
                         .frame(width: 95)
                         
-                        Text("MBBS, MRCP, MRCGP, PGD (Diabetology & Endocrinology)")
+                        Text(viewModel.doctor.education ?? "MBBS")
                             .font(.caption.weight(.light))
                             .lineLimit(nil)
                             .multilineTextAlignment(.leading)
@@ -100,7 +103,7 @@ struct DoctorProfile: View {
                         }
                         .frame(width: 95)
                         
-                        Text("English, Hindi, Malayalam")
+                        Text(viewModel.doctor.languages ?? "English")
                             .font(.caption.weight(.light))
                             .multilineTextAlignment(.leading)
                         
@@ -121,7 +124,7 @@ struct DoctorProfile: View {
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
                     
-                    Text("+91 7858897916")
+                    Text(viewModel.user.mobileNumber)
                         .font(.caption.weight(.light))
                         .foregroundColor(Color("Heading"))
                 }
@@ -131,7 +134,7 @@ struct DoctorProfile: View {
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
                     
-                    Text("i.haqcs@gmail.com")
+                    Text(viewModel.user.email)
                         .foregroundColor(Color("Heading"))
                         .font(.caption.weight(.light))
                 }
@@ -200,8 +203,8 @@ struct DoctorProfile: View {
     }
 }
 
-struct DoctorProfile_Previews: PreviewProvider {
+struct DProfile_Previews: PreviewProvider {
     static var previews: some View {
-        DoctorProfile()
+        DProfile()
     }
 }

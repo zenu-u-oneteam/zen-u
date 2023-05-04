@@ -17,6 +17,10 @@ struct Doctor: Hashable, Codable, Identifiable {
     var endTime: Int
     var cabin: Int?
     var department: String?
+    var experience: String?
+    var education: String?
+    var languages: String?
+    var specialisation: String?
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"
@@ -35,4 +39,8 @@ struct DoctorRaw: Hashable, Codable, Identifiable {
     var endTime: Int
     var cabin: Int?
     var department: String?
+    var experience: String?
+    var education: String?
+    var languages: String?
+    var specialisation: String?
 }
