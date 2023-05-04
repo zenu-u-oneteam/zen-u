@@ -25,24 +25,27 @@ struct PLabTestDetails: View {
                             
                             Button(action: { showModal = true}, label: {
                                 ViewButton(text: "View all", selected: false, selectable: true)})
-                        }
+                        }.padding(.horizontal, 15)
                         HStack{
                             Image(systemName: "syringe.fill").font(.callout)
                             Text(tests[0]).font(.callout)
                             Text("+ \(tests.count) more").font(.callout).foregroundColor(.accentColor)
                             
                         }.hLeading()
-                            .padding()
-                            .frame(width: 390, height: 49)
+                            .padding(8)
+                            .frame(height: 49)
                             .background(Color.gray.opacity(0.1))
                             .cornerRadius(15)
+                            .padding()
+
+                            
                         
                         VStack(alignment: .leading, spacing: 20){
-                            Text("About").font(.title3.weight(.semibold))
+                            Text("About").font(.title3.weight(.semibold)).padding(.horizontal, 15)
                             
-                            Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ").font(.caption)
+                            Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ").font(.caption).padding(.horizontal, 15)
                         }
-                    }.padding(24)
+                    }
                 }
                 Spacer()
                 

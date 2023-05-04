@@ -42,10 +42,15 @@ func PLabTestDetailsCard(tName:String, testType:String, tDuration:String, tSampl
                 Text(ageGroup).font(.footnote).foregroundColor(.secondary)
             }
         }
-    }.padding()
-        .frame(width: 390, height: 170)
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(15)
+    }
+    .padding(8)
+    .frame(height: 170)
+    .background(Color.gray.opacity(0.1))
+    .cornerRadius(15)
+    .padding()
+
+        
+        
 }
 struct PLabTestDetailsCard_Previews: PreviewProvider {
     static var previews: some View {
