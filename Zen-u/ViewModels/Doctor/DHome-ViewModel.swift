@@ -15,7 +15,7 @@ extension DHome{
         @Published var greeting: String = ""
         @Published var upcomingAppointments: [Appointment] = []
         @Published var numberOfAppointments: Int = 0
-        @Published var shiftTime: (startTime: String, endTime: String)?
+        @Published var shiftTime: [Int] = []
         
         let db = FirebaseConfig().db
         
@@ -36,7 +36,7 @@ extension DHome{
                 isLoading = false
                 print(upcomingAppointments)
                 print(numberOfAppointments)
-                print(shiftTime ?? 0)
+//                print(shiftTime ?? 0)
             }
         }
         
@@ -67,9 +67,9 @@ extension DHome{
         func getUpcomingAppointments() async -> [Appointment] {
             do {
                 let currentUserId = Auth.auth().currentUser!.uid
-                let currentPatient = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
+                let currentDoctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
                 var upcomingAppointments: [Appointment] = []
-                for appointmentId in currentPatient.appointments ?? [] {
+                for appointmentId in currentDoctor.appointments ?? [] {
                     let appointmentRawDetails = try await db.collection("Appointment").document(appointmentId).getDocument(as: AppointmentRaw.self)
                     let appointmentDetails = Appointment(
                         id: appointmentId,
@@ -96,37 +96,39 @@ extension DHome{
             }
         }
         
-        func getShiftTime() async -> (startTime: String, endTime: String)? {
+        func getShiftTime() async -> [Int] {
             do {
                 let currentUserId = Auth.auth().currentUser!.uid
                 let doctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
+                let shifttime = [doctor.startTime,doctor.endTime]
+                return shifttime
 
-                var calender = Calendar.current
-                calender.timeZone = TimeZone(identifier: "Asia/Kolkata")!
-                
-                let currentDate = Date()
-                let formatter = DateFormatter()
-                formatter.dateFormat = "h:mm a"
-                
-                var startTimeDateComponent = DateComponents(
-                    year: calender.component(.year, from: currentDate),
-                    month: calender.component(.month, from: currentDate),
-                    day: calender.component(.day, from: currentDate),
-                    hour: doctor.startTime,
-                    minute: 0,
-                    second: 0
-                )
-
-                var endTimeDateComponent = DateComponents(
-                    year: calender.component(.year, from: currentDate),
-                    month: calender.component(.month, from: currentDate),
-                    day: calender.component(.day, from: currentDate),
-                    hour: doctor.endTime,
-                    minute: 0,
-                    second: 0
-                )
-
-                return (formatter.string(from: calender.date(from: startTimeDateComponent)!), formatter.string(from: calender.date(from: endTimeDateComponent)!))
+//                var calender = Calendar.current
+//                calender.timeZone = TimeZone(identifier: "Asia/Kolkata")!
+//
+//                let currentDate = Date()
+//                let formatter = DateFormatter()
+//                formatter.dateFormat = "h:mm a"
+//
+//                var startTimeDateComponent = DateComponents(
+//                    year: calender.component(.year, from: currentDate),
+//                    month: calender.component(.month, from: currentDate),
+//                    day: calender.component(.day, from: currentDate),
+//                    hour: doctor.startTime,
+//                    minute: 0,
+//                    second: 0
+//                )
+//
+//                var endTimeDateComponent = DateComponents(
+//                    year: calender.component(.year, from: currentDate),
+//                    month: calender.component(.month, from: currentDate),
+//                    day: calender.component(.day, from: currentDate),
+//                    hour: doctor.endTime,
+//                    minute: 0,
+//                    second: 0
+//                )
+//
+//                return (formatter.string(from: calender.date(from: startTimeDateComponent)!), formatter.string(from: calender.date(from: endTimeDateComponent)!))
             } catch {
                 fatalError("\(error)")
 

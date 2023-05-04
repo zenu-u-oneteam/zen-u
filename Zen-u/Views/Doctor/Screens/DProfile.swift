@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DoctorProfile: View {
+    @EnvironmentObject var appState: AppState
     @State private var selectedOption = "Option 1"
     var body: some View {
         
@@ -28,6 +29,9 @@ struct DoctorProfile: View {
                     }
                     Button("Log Out") {
                         self.selectedOption = "Option 3"
+                        print("LOGOUT!!!")
+                        UserDefaults.standard.removeObject(forKey: "currentUser")
+                        appState.rootViewId = UUID()
                     }
                 }
             label: {
