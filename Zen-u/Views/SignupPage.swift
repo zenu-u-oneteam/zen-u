@@ -26,7 +26,7 @@ struct SignupPage: View {
                     HStack {
                         Image(systemName: "person")
                             .foregroundColor(.black)
-                        TextField("Enter your name", text: $viewModel.user.name)
+                        TextField("Enter your name", text: $viewModel.userName)
                             .font(.system(size: 17, weight: .light))
                             .autocorrectionDisabled(true)
                     }
@@ -39,7 +39,7 @@ struct SignupPage: View {
                     HStack {
                         Image(systemName: "envelope")
                             .foregroundColor(.black)
-                        TextField("Enter your email", text: $viewModel.useremail)
+                        TextField("Enter your email", text: $viewModel.email)
                             .font(.system(size: 17, weight: .light))
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled(true)
@@ -92,7 +92,7 @@ struct SignupPage: View {
             self.hideKeyboard()
         }
         .navigationDestination(isPresented: $viewModel.canContinue, destination: {
-            POnboarding()
+            POnboarding(userName: viewModel.userName, email: viewModel.email)
         })
     }
 }

@@ -9,25 +9,32 @@ import Foundation
 import SwiftUI
 
 struct POnboarding: View {
-    
-    @StateObject private var viewModel = ViewModel()
+    let userName: String
+    let email: String
     
     let bloodGroupSelection = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
+    @StateObject private var viewModel: ViewModel
     @State private var present = true
     @State private var isShowingImagePicker = false
+    
+    init(userName: String, email: String) {
+        self.userName = userName
+        self.email = email
+        self._viewModel = StateObject(wrappedValue: ViewModel(userName: userName, email: email))
+    }
     
     var body: some View {
         NavigationStack{
             VStack{
                 ScrollView{
                     VStack(alignment: .leading, spacing: 30){
-                    
                         HStack{
                             Text("Gender")
-                            Picker("Select", selection: $viewModel.patient.gender){
+                            Picker("Select", selection: $viewModel.patient.gender) {
                                 ForEach(Patient.Gender.allCases, id: \.self) {
                                     gender in
-                                    Text(gender.rawValue).tag(gender)
+                                    Text(gender.rawValue)
+                                        .tag(gender.rawValue)
                                 }
                             }.background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -38,7 +45,7 @@ struct POnboarding: View {
                             Text("Blood Group")
                             Picker("Select", selection: $viewModel.patient.bloodGroup){
                                 ForEach(bloodGroupSelection, id: \.self) {
-                                                    Text($0)
+                                    Text($0)
                                 }
                             }.background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -56,23 +63,24 @@ struct POnboarding: View {
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                             
                             Text("Weight")
                             TextField("", text:$viewModel.weight).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.decimalPad)
                         }
                         
                         HStack{
                             Text("Phone Number")
-                            TextField("", text: $viewModel.user.mobileNumber).frame(height: 30)
+                            TextField("", text: $viewModel.user.mobileNumber)
+                                .frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.phonePad)
                         }
                         
                         HStack{
@@ -104,14 +112,13 @@ struct POnboarding: View {
                 .navigationDestination(isPresented: $viewModel.canContinue, destination: {
                     PMain()
                 })
-
+            
         }
     }
 }
 
 struct POnboarding_Previews: PreviewProvider {
     static var previews: some View {
-        POnboarding()
+        POnboarding(userName: "", email: "")
     }
 }
-

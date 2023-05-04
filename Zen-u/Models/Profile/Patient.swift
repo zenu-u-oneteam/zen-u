@@ -40,6 +40,7 @@ struct Patient: Hashable, Codable, Identifiable {
         case ONegative = "O-"
     }
 }
+
 struct PatientRaw: Hashable, Codable, Identifiable {
     var name: String?
     var id: String?
@@ -49,5 +50,3 @@ struct PatientRaw: Hashable, Codable, Identifiable {
     var height: Float
     var weight: Float
 }
-
-

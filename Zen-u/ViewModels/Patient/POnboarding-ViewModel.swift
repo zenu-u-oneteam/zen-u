@@ -13,52 +13,39 @@ extension POnboarding{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         
-        @Published var patient: Patient = Patient(age: 1, gender: .male, bloodGroup: "A+", height: 0, weight: 0)
-        @Published var user: User = User(name: "", email: "", userType: .patient, profileImage: "", mobileNumber: "")
-        @Published var dateOfBirth =  Date()
+        @Published var patient: PatientRaw = PatientRaw(age: 0, gender: "Male", bloodGroup: "A+", height: 0, weight: 0)
+        @Published var user: UserRaw = UserRaw(name: "", email: "", userType: "Patient", profileImage: "", mobileNumber: "")
+        @Published var dateOfBirth = Date()
         @Published var aadhaar = ""
         @Published var height = ""
         @Published var weight = ""
         @Published var canContinue = false
-
-//        @Published private var records = []
         
+        let calendar = Calendar.current
         let db = FirebaseConfig().db
         
-        init() {
-            isLoading = true
-//            Task { 
-//                isLoading = false
-//            }
+        init(userName: String, email: String) {
+            user.name = userName
+            user.email = email
+            user.profileImage = "https://pbs.twimg.com/profile_images/1276567411240681472/8KdXHFdK_400x400.jpg"
+            patient.name = userName
         }
         
         func addingPatient(){
             do {
                 let currentUserId = Auth.auth().currentUser!.uid
-                let newPatient = db.collection("Patient").document(currentUserId)
-                let newUser = db.collection("Users").document(currentUserId)
-                
-                newUser.setData([
-                    "mobileNumber":user.mobileNumber,
-                    "userType": user.userType
-                ])
-                
-                newPatient.setData([
-                    "age": Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year!,
-                    "bloodGroup": patient.bloodGroup,
-                    "gender": patient.gender,
-                    "height": Float(height)!,
-                    "weight": Float(weight)!,
-                    "aadhaar": aadhaar
-                ])
-                
-                print("User Created!")
+                patient.age = calendar.dateComponents([.year], from: dateOfBirth, to: Date()).year!
+                patient.height = Float(height)!
+                patient.weight = Float(weight)!
+                print(user)
+                print(patient)
+                try db.collection("Users").document(currentUserId).setData(from: user)
+                try db.collection("Patient").document(currentUserId).setData(from: patient)
+                print("Patient Created!")
                 canContinue = true
+            } catch {
+                fatalError("\(error)")
             }
-//            catch {
-//                fatalError("\(error)")
-//            }
         }
-        
     }
 }

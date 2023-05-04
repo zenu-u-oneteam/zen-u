@@ -275,7 +275,6 @@
 		231BD40929FCD4E10027A17B /* Patient */ = {
 			isa = PBXGroup;
 			children = (
-				231BD40A29FCD4F10027A17B /* PHome-ViewModel.swift */,
 				042F38662A010F6F00BAEED2 /* POnboarding-ViewModel.swift */,
 				2D0B8C1229FFE71100B029B8 /* PAppointment-ViewModel.swift */,
 				2342D9FE29FFC1E700E0AB92 /* PBooking */,
