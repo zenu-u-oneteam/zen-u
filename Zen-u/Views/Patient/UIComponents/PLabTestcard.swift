@@ -12,7 +12,7 @@ func PLabTestcard(Testname: [String], Testimage: [String], viewAll: Bool, select
     let rows = (testCount + 2) / 3
     let columns = min(testCount, 3)
     
-    return LazyVGrid(columns: Array(repeating: .init(.flexible()), count: columns), spacing: 20) {
+    return LazyVGrid(columns: Array(repeating: .init(.flexible()), count: columns), spacing: 30) {
         ForEach(0..<testCount) { index in
             VStack {
                 Image(Testimage[index])
@@ -79,9 +79,12 @@ func PVitalOrganTestcard(VitalOrganTestname: [String], VitalOrganTestimage: [Str
                     .onTapGesture {
                         if selectedCardIndex.wrappedValue == index {
                             selectedCardIndex.wrappedValue = nil
+                            selectedTestName = nil
                         } else {
                             selectedCardIndex.wrappedValue = index
+                            selectedTestName = VitalOrganTestname[index]
                         }
+                        print(selectedTestName)
                     }
                 Text(VitalOrganTestname[index])
                     .font(.caption)
@@ -90,6 +93,7 @@ func PVitalOrganTestcard(VitalOrganTestname: [String], VitalOrganTestimage: [Str
         }
     }
 }
+
 
 struct LabTestsScreen: View {
     @State var selectedRecommendedCardIndex: Int? = nil

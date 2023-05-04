@@ -15,20 +15,21 @@ struct PLabTestRecommended: View {
     @State var searchableText = ""
     
     var body: some View {
-        NavigationView {
             ScrollView {
                 PLabTestcard(Testname: testNames, Testimage: testImages, viewAll: true, selectedCardIndex: $selectedRecommendedCardIndex).padding(.top, 30)
                 
                 Spacer(minLength: 120)
                 
                 Button(action: {}, label: {
-                    
-                    TabButton(text: "Continue")
+                    NavigationLink(destination: PLabTestDetails()){
+                        if selectedRecommendedCardIndex != nil{
+                            TabButton(text: "Continue")}
+                    }
                 })
             }
             .navigationTitle("Recommended Tests")
             .searchable(text: $searchableText)
-        }
+        
     }
 }
 

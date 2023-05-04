@@ -14,15 +14,19 @@ func PLabTestExpansionCard(tName:String, testType:String, tDuration: String, tPr
             HStack(spacing: 0){
                 Text(tName).font(.callout.weight(.semibold))
                 Spacer()
-                Text(testType)
-                    .font(.footnote)
-                    .foregroundColor(.accentColor)
-                    .frame(width: 74, height: 29)
-                    .background(Color.gray.opacity(0.3))
-                    .cornerRadius(10)
+                Button(action: {}, label: {
+                    
+                    
+                    Text(testType)
+                        .font(.footnote)
+                        .foregroundColor(.accentColor)
+                        .frame(width: 74, height: 29)
+                        .background(Color.gray.opacity(0.3))
+                        .cornerRadius(10)
+                })
             }
-            HStack{
-                Image(systemName: "clock.fill")
+            HStack(spacing:5){
+                Image(systemName: "clock.fill").font(.callout)
                 Text("Get reports by:").font(.caption)
                 Text(tDuration).foregroundColor(.accentColor).font(.caption)
             }
@@ -35,14 +39,15 @@ func PLabTestExpansionCard(tName:String, testType:String, tDuration: String, tPr
             HStack{
                 Text("inclusive of all taxes").font(.caption).foregroundColor(.secondary)
                 
+                Spacer()
                 Button(action: {}, label: {
                     Text("see details ->").font(.caption.weight(.semibold)).foregroundColor(.black)
-                }).hTrailing()
+                })
             }
         }
     }
     .padding(8)
-    .frame(width: 370, height: 170)
+    .frame(height: 170)
     .background(Color.gray.opacity(0.1))
     .cornerRadius(15)
     .padding()

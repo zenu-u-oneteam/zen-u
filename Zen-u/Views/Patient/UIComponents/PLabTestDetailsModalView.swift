@@ -40,7 +40,7 @@ struct PLabTestDetailsModalView: View {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .ignoresSafeArea()
+//        .ignoresSafeArea()
         .animation(.easeInOut)
     }
     
@@ -65,6 +65,7 @@ struct PLabTestDetailsModalView: View {
             }
             .frame(maxHeight: .infinity)
         }
+        .ignoresSafeArea()
         .frame(height: curHeight)
         .frame(maxWidth: .infinity)
         .background(

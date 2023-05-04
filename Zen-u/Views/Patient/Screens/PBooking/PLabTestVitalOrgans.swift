@@ -15,22 +15,24 @@ struct PLabTestVitalOrgans: View {
     @State var searchableText = ""
     
     var body: some View {
-        NavigationView {
             ScrollView {
                 PVitalOrganTestcard(VitalOrganTestname: testNames, VitalOrganTestimage: testImages, viewAll: true, selectedCardIndex: $selectedVitalOrganCardIndex).padding(.top, 30)
                 
                 Spacer(minLength: 120)
                 
                 Button(action: {}, label: {
-                    
-                    TabButton(text: "Continue")
+                    NavigationLink(destination: PLabTestDetails()){
+                        
+                        if selectedVitalOrganCardIndex != nil{
+                        TabButton(text: "Continue")}
+                }
                 })
             }
             .navigationTitle("Vital Organs")
             .searchable(text: $searchableText)
         }
     }
-}
+
 
 struct PLabTestVitalOrgans_Previews: PreviewProvider {
     static var previews: some View {
