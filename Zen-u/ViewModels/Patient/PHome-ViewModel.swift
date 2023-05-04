@@ -75,8 +75,6 @@ extension PHome{
                     )
                     if(appointmentDetails.appointmentTime > Date() && Calendar.current.isDateInToday(appointmentDetails.appointmentTime) ){
                         upcomingAppointment.append(appointmentDetails)
-                        print("YAY")
-                        print(appointmentDetails)
                     }
                 }
                 return upcomingAppointment

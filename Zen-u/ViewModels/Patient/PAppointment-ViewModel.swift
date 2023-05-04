@@ -37,17 +37,12 @@ extension PAppointment {
             }
         }
         
-    
-        
-        
-        
         func getUpcomingAppointment() async -> [Appointment]{
             do {
                 var upcomingAppointment: [Appointment] = []
                 let currentUserId = Auth.auth().currentUser!.uid
                 let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
 
-//                print(currentPatient.appointments ?? "none")
                 for appointmentId in currentPatient.appointments ?? [] {
                    
                     let appointmentRawDetails = try await db.collection("Appointment").document(appointmentId).getDocument(as: AppointmentRaw.self)
@@ -60,7 +55,6 @@ extension PAppointment {
                   
                     if(appointmentDetails.appointmentTime > Date()){
                         upcomingAppointment.append(appointmentDetails)
-                        print(appointmentDetails)
                     }
                 }
                 return upcomingAppointment.sorted { $0.appointmentTime < $1.appointmentTime }
