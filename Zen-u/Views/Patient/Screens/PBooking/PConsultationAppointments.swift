@@ -14,16 +14,13 @@ struct PConsultationAppointments: View {
         
         ZStack {
             VStack(alignment: .leading){
-                
                 Text("Choose Type of Doctor")
                     .font(.title3.weight(.semibold))
-                    .padding(.bottom, 20)
-                
                 HStack(spacing: 16){
                     Text("General")
                         .font(.callout.weight(.semibold))
                         .foregroundColor(viewModel.selectedConsltType == ConsltType.general ? .white : Color("Heading"))
-                        .frame(width: 150 , height: 50)
+                        .frame(width: 120 , height: 50)
                         .background(viewModel.selectedConsltType == ConsltType.general ? Color("Accent") : Color("Secondary"))
                         .cornerRadius(60)
                         .onTapGesture {
@@ -35,7 +32,7 @@ struct PConsultationAppointments: View {
                     Text("Specialist")
                         .font(.callout.weight(.semibold))
                         .foregroundColor(viewModel.selectedConsltType == ConsltType.specailist ? .white : Color("Heading"))
-                        .frame(width: 150 , height: 50)
+                        .frame(width: 140 , height: 50)
                         .background(viewModel.selectedConsltType == ConsltType.specailist ? Color("Accent") : Color("Secondary"))
                         .cornerRadius(60)
                         .onTapGesture {
@@ -43,7 +40,6 @@ struct PConsultationAppointments: View {
                             viewModel.showModel = true
                         }
                 }
-                .padding(.bottom, 60)
                 .onTapGesture {
                     viewModel.showModel = true
                     print("Tapped")
@@ -63,7 +59,7 @@ struct PConsultationAppointments: View {
                     TabButton(text: "Continue")
                 }
             }
-            .padding(24)
+            .padding(17)
             SpecialistModelView(isShowing: $viewModel.showModel , isDeptSelected: $viewModel.isDeptSelected, selectedConsltType : $viewModel.selectedConsltType , selectedDeptText : $viewModel.selectedDeptText)
         }
         .navigationTitle("Booking Consultation")
@@ -86,8 +82,6 @@ struct DeptSummary: View {
         VStack(alignment: .leading){
             Text("About Department")
                 .font(.title3.weight(.semibold))
-                .padding(.bottom,30)
-            
             HStack {
                 Circle()
                     .fill(Color("Subheadings"))
@@ -103,7 +97,7 @@ struct DeptSummary: View {
             .padding(.vertical, 24)
             .background(Color("Secondary"))
             .cornerRadius(15)
-        }
+        }.padding(.top, 17)
     }
 }
 
@@ -113,7 +107,6 @@ struct GeneralDetails: View {
         VStack(alignment: .leading){
             Text("Specify Reason (if Any)")
                 .font(.title3.weight(.semibold))
-                .padding(.bottom, 30)
             
             ZStack (alignment: .leading) {
                 
@@ -138,12 +131,13 @@ struct GeneralDetails: View {
             .frame(height: 200.0)
             .colorMultiply(Color("Secondary"))
             .background(Color("Secondary"))
-            .cornerRadius(26)
+            .cornerRadius(15)
             .overlay(
-                RoundedRectangle(cornerRadius: 26)
+                RoundedRectangle(cornerRadius: 18)
                     .stroke(Color("Secondary"), lineWidth: 1)
             )
         }
+        .padding(.top)
         .onTapGesture {
             self.hideKeyboard()
         }
