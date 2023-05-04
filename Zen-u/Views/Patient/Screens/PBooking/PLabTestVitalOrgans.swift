@@ -1,14 +1,14 @@
 //
-//  PLabTestRecommended.swift
+//  PLabTestVitalOrgans.swift
 //  Zen-u
 //
-//  Created by Archit Khanna on 26/04/23.
+//  Created by Archit Khanna on 03/05/23.
 //
 
 import SwiftUI
 
-struct PLabTestRecommended: View {
-    @State var selectedRecommendedCardIndex: Int? = nil
+struct PLabTestVitalOrgans: View {
+    @State var selectedVitalOrganCardIndex: Int? = nil
     var testNames = ["Kidney", "Liver", "Heart", "Blood", "Thyroid", "Bone", "Lungs", "Joint"]
     var testImages = ["kidney_image", "liver_image", "heart_image", "blood_test", "lung_image", "bone_image", "lung_image", "joint-image"]
     
@@ -16,25 +16,26 @@ struct PLabTestRecommended: View {
     
     var body: some View {
             ScrollView {
-                PLabTestcard(Testname: testNames, Testimage: testImages, viewAll: true, selectedCardIndex: $selectedRecommendedCardIndex).padding(.top, 30)
+                PVitalOrganTestcard(VitalOrganTestname: testNames, VitalOrganTestimage: testImages, viewAll: true, selectedCardIndex: $selectedVitalOrganCardIndex).padding(.top, 30)
                 
                 Spacer(minLength: 120)
                 
                 Button(action: {}, label: {
                     NavigationLink(destination: PLabTestDetails()){
-                        if selectedRecommendedCardIndex != nil{
-                            TabButton(text: "Continue")}
-                    }
+                        
+                        if selectedVitalOrganCardIndex != nil{
+                        TabButton(text: "Continue")}
+                }
                 })
             }
-            .navigationTitle("Recommended Tests")
+            .navigationTitle("Vital Organs")
             .searchable(text: $searchableText)
-        
+        }
     }
-}
 
-struct PLabTestRecommended_Previews: PreviewProvider {
+
+struct PLabTestVitalOrgans_Previews: PreviewProvider {
     static var previews: some View {
-        PLabTestRecommended()
+        PLabTestVitalOrgans()
     }
 }

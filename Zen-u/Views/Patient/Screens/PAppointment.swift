@@ -111,21 +111,23 @@ struct getBookedAppointments: View {
                     }else{
                         
                         ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
-                            if(viewModel.upcomingAppointments[index].type?.category == "Consultation"){
-                                Button{
-                                    
-                                }label: {
-                                    NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[index])){
-                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                            if(viewModel.upcomingAppointments[index].appointmentTime > Date.now){
+                                if(viewModel.upcomingAppointments[index].type?.category == "Consultation"){
+                                    Button{
                                         
+                                    }label: {
+                                        NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[index])){
+                                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                                            
+                                        }
                                     }
+                                } else {
+                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
                                 }
-                            } else {
-                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
                             }
                         }
+                        
                     }
-                    
                 }
                 else {
                     if viewModel.pastAppointments.isEmpty{

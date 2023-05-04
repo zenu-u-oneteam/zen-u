@@ -54,6 +54,7 @@
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
+		30495C892A023CA300DE877B /* DProfile-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30495C882A023CA300DE877B /* DProfile-ViewModel.swift */; };
 		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
 		30D2508B2A01178300446196 /* AMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2508A2A01178300446196 /* AMain.swift */; };
 		30E199232A010FC00092C1BC /* DMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E199222A010FC00092C1BC /* DMain.swift */; };
@@ -77,6 +78,12 @@
 		A72BE66A29FA5310008C624B /* AStaffOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72BE66929FA5310008C624B /* AStaffOverview.swift */; };
 		A73D754629FA78CA006F967A /* AStaffPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D754529FA78CA006F967A /* AStaffPage4.swift */; };
 		A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */; };
+		A95468792A00E7530007C557 /* PLabTestExpansion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95468782A00E7530007C557 /* PLabTestExpansion.swift */; };
+		A954687B2A00E9860007C557 /* PLabTestExpansionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954687A2A00E9860007C557 /* PLabTestExpansionCard.swift */; };
+		A954687D2A0109BE0007C557 /* PLabTestDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954687C2A0109BE0007C557 /* PLabTestDetails.swift */; };
+		A954687F2A010BB60007C557 /* PLabTestDetailsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A954687E2A010BB60007C557 /* PLabTestDetailsCard.swift */; };
+		A95468812A011BB60007C557 /* PLabTestDetailsModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95468802A011BB60007C557 /* PLabTestDetailsModalView.swift */; };
+		A95468832A027D8C0007C557 /* PLabTestVitalOrgans.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95468822A027D8C0007C557 /* PLabTestVitalOrgans.swift */; };
 		A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */; };
 		A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854729F289670063A223 /* PAppointmentDetailsModel.swift */; };
 		A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9847CE829FA519000292A26 /* PLabTestRecommended.swift */; };
@@ -84,6 +91,9 @@
 		A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */; };
 		A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F484FF29F25938009DA356 /* PSpecialButton.swift */; };
 		A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4850129F2595A009DA356 /* PViewModel.swift */; };
+		BE6E94E02A030850000A2C77 /* PPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6E94DF2A030850000A2C77 /* PPayment.swift */; };
+		BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */; };
+		BE5D517C2A037F2A0038CCEE /* DProfileUpcomingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5D517B2A037F2A0038CCEE /* DProfileUpcomingCard.swift */; };
 		BE773F2729F2ACB200C3C6CF /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE773F2629F2ACB200C3C6CF /* LoginPage.swift */; };
 		BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8567D929F12EEC00B7206B /* SplashScreen.swift */; };
 		BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */; };
@@ -145,6 +155,7 @@
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
+		30495C882A023CA300DE877B /* DProfile-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DProfile-ViewModel.swift"; path = "Zen-u/ViewModels/DProfile-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
 		30D2508A2A01178300446196 /* AMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMain.swift; sourceTree = "<group>"; };
 		30E199222A010FC00092C1BC /* DMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMain.swift; sourceTree = "<group>"; };
@@ -170,6 +181,12 @@
 		A72BE66929FA5310008C624B /* AStaffOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffOverview.swift; sourceTree = "<group>"; };
 		A73D754529FA78CA006F967A /* AStaffPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffPage4.swift; sourceTree = "<group>"; };
 		A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
+		A95468782A00E7530007C557 /* PLabTestExpansion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestExpansion.swift; sourceTree = "<group>"; };
+		A954687A2A00E9860007C557 /* PLabTestExpansionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestExpansionCard.swift; sourceTree = "<group>"; };
+		A954687C2A0109BE0007C557 /* PLabTestDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestDetails.swift; sourceTree = "<group>"; };
+		A954687E2A010BB60007C557 /* PLabTestDetailsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestDetailsCard.swift; sourceTree = "<group>"; };
+		A95468802A011BB60007C557 /* PLabTestDetailsModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestDetailsModalView.swift; sourceTree = "<group>"; };
+		A95468822A027D8C0007C557 /* PLabTestVitalOrgans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestVitalOrgans.swift; sourceTree = "<group>"; };
 		A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsUpcoming.swift; sourceTree = "<group>"; };
 		A975854729F289670063A223 /* PAppointmentDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsModel.swift; sourceTree = "<group>"; };
 		A9847CE829FA519000292A26 /* PLabTestRecommended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestRecommended.swift; sourceTree = "<group>"; };
@@ -177,6 +194,9 @@
 		A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLabTestcard.swift; sourceTree = "<group>"; };
 		A9F484FF29F25938009DA356 /* PSpecialButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSpecialButton.swift; sourceTree = "<group>"; };
 		A9F4850129F2595A009DA356 /* PViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PViewModel.swift; sourceTree = "<group>"; };
+		BE6E94DF2A030850000A2C77 /* PPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayment.swift; sourceTree = "<group>"; };
+		BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DHome-ViewModel.swift"; sourceTree = "<group>"; };
+		BE5D517B2A037F2A0038CCEE /* DProfileUpcomingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DProfileUpcomingCard.swift; sourceTree = "<group>"; };
 		BE773F2629F2ACB200C3C6CF /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		BE8567D929F12EEC00B7206B /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialistModelView.swift; sourceTree = "<group>"; };
@@ -236,7 +256,10 @@
 				3874753729ED63AA00CCA151 /* PSlotSelection.swift */,
 				3874753A29ED662E00CCA151 /* PBookingSummary.swift */,
 				A9847CE829FA519000292A26 /* PLabTestRecommended.swift */,
-				386F14272A00AC2F00DFC667 /* PPayement.swift */,
+				A95468782A00E7530007C557 /* PLabTestExpansion.swift */,
+				A954687C2A0109BE0007C557 /* PLabTestDetails.swift */,
+				A95468822A027D8C0007C557 /* PLabTestVitalOrgans.swift */,
+				BE6E94DF2A030850000A2C77 /* PPayment.swift */,
 			);
 			path = PBooking;
 			sourceTree = "<group>";
@@ -435,6 +458,7 @@
 			children = (
 				3874753E29ED669100CCA151 /* example.swift */,
 				2370710D29F8351B0018ACAC /* DScheduleTaskCard.swift */,
+				BE5D517B2A037F2A0038CCEE /* DProfileUpcomingCard.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -468,6 +492,9 @@
 				06A06E5E29F282DA008DF13F /* ProfileHeaderView.swift */,
 				A9A85B0D29F8F880000D0FCF /* PLabTestcard.swift */,
 				BE94A55229F8538A00E4FBE5 /* SpecialistModelView.swift */,
+				A954687A2A00E9860007C557 /* PLabTestExpansionCard.swift */,
+				A954687E2A010BB60007C557 /* PLabTestDetailsCard.swift */,
+				A95468802A011BB60007C557 /* PLabTestDetailsModalView.swift */,
 				386F14292A00E4E800DFC667 /* ReminderCard.swift */,
 			);
 			path = UIComponents;
@@ -508,6 +535,8 @@
 		BE5AA7632A0031DC0052A81C /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */,
+				30495C882A023CA300DE877B /* DProfile-ViewModel.swift */,
 				2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */,
 			);
 			path = Doctor;
@@ -595,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2340535229F24E43003A0063 /* Doctor.swift in Sources */,
+				30495C892A023CA300DE877B /* DProfile-ViewModel.swift in Sources */,
 				BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */,
 				A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */,
 				A9F4850029F25938009DA356 /* PSpecialButton.swift in Sources */,
@@ -602,6 +632,7 @@
 				23B822432A037F26004D11D9 /* PProfile-ViewModel.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
 				C93F20992A03944B0089C445 /* MapView.swift in Sources */,
+				A95468812A011BB60007C557 /* PLabTestDetailsModalView.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
 				2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */,
 				C93F20A72A039A4F0089C445 /* Covid-19Center.swift in Sources */,
@@ -633,8 +664,10 @@
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
 				069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */,
 				C93F209F2A0399110089C445 /* CircleImage.swift in Sources */,
+				BE5D517C2A037F2A0038CCEE /* DProfileUpcomingCard.swift in Sources */,
 				061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */,
 				C93F20A12A0399C60089C445 /* VaccineView.swift in Sources */,
+				A95468832A027D8C0007C557 /* PLabTestVitalOrgans.swift in Sources */,
 				23B4BD3E29F4353F00665006 /* AppointmentCard.swift in Sources */,
 				C93F20A32A0399F40089C445 /* AilmentView.swift in Sources */,
 				2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */,
@@ -651,9 +684,11 @@
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
+				BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */,
 				A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */,
 				06A06E5F29F282DA008DF13F /* ProfileHeaderView.swift in Sources */,
 				3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */,
+				BE6E94E02A030850000A2C77 /* PPayment.swift in Sources */,
 				069BFE4D29FA55FB002F9534 /* DocumentPickerCustom.swift in Sources */,
 				061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */,
 				23BC07BF29F14059009FA528 /* Patient.swift in Sources */,
@@ -661,18 +696,21 @@
 				C93F20A52A039A200089C445 /* VBooking.swift in Sources */,
 				A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */,
 				23BC07BA29F13A61009FA528 /* User.swift in Sources */,
+				A95468792A00E7530007C557 /* PLabTestExpansion.swift in Sources */,
 				23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */,
 				BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */,
 				2386C68729F29FE700CEA6F6 /* PrimaryButton.swift in Sources */,
 				A73D754629FA78CA006F967A /* AStaffPage4.swift in Sources */,
 				BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */,
 				2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */,
+				A954687B2A00E9860007C557 /* PLabTestExpansionCard.swift in Sources */,
+				3874753429ED638500CCA151 /* PConsultationAppointments.swift in Sources */,
 				30E199232A010FC00092C1BC /* DMain.swift in Sources */,
 				3874753429ED638500CCA151 /* PConsultationAppointments.swift in Sources */,
-				3874753429ED638500CCA151 /* PConsultationAppointments.swift in Sources */,
 				2340535429F24E79003A0063 /* AppointmentType.swift in Sources */,
+				A954687D2A0109BE0007C557 /* PLabTestDetails.swift in Sources */,
 				23408A5429F6EA6C00E581ED /* FirebaseConfig.swift in Sources */,
-				386F14282A00AC2F00DFC667 /* PPayement.swift in Sources */,
+				A954687F2A010BB60007C557 /* PLabTestDetailsCard.swift in Sources */,
 				2342DA0029FFC21C00E0AB92 /* PConsultationAppointments-ViewModel.swift in Sources */,
 				236D49D529FA712A00212E97 /* AppState.swift in Sources */,
 				3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */,
@@ -815,8 +853,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -851,8 +889,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
