@@ -8,21 +8,27 @@
 import SwiftUI
 
 struct AAlerts: View {
-      @State var isResolvedIndex = 0
-       let options = ["Not Resolved", "Resolved"]
-       @StateObject private var viewModel = ViewModel()
-    var body: some View {
+  @State var isResolvedIndex = 0
+   let options = ["Not Resolved", "Resolved"]
+   @StateObject private var viewModel = ViewModel()
+  @State private var showAlert = false
+  @State var selectedIndex = -1
+  @State var refresh = false
+    @State var resolvedList : [AlertModelMy] = []
+    @State var unresolvedList : [AlertModelMy] = []
+    
+//    init(){
+//        Task {
+//            self.resolvedList = await viewModel.getResolvedList()
+//            self.unresolvedList = await viewModel.getUnResolvedList()
+//
+//        }
+//
+//
+//    }
+  var body: some View {
         NavigationView() {
             VStack{
-
-//                Picker(selection: $isResolvedIndex, label: Text("")) {
-//                    ForEach(0 ..< options.count) { index in
-//                        Text(self.options[index]).tag(index)
-//                        
-//                    }
-//                }
-//                .pickerStyle(SegmentedPickerStyle())
-//                .padding()
                 SegmentedPicker($isResolvedIndex, selections: options)
                     
                     
@@ -38,13 +44,44 @@ struct AAlerts: View {
                                     LazyVStack (spacing : 30 ){
                                         ForEach(viewModel.unResolvedalertList.indices, id: \.self) { index in
                                             AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
-                                            
+                                                .onTapGesture {
+                                                     showAlert = true
+                                                    selectedIndex = index
+                                                    refresh.toggle()
+                                                    viewModel.update()
+                                                }
+                                                .alert(isPresented: $showAlert) {
+                                                        Alert(
+                                                            title: Text("Mark as Resolved ?"),
+                                                            
+                                                            primaryButton: .default(
+                                                                Text("Yes"),
+                                                                action: {
+                                                                    Task {
+                                                                        let id = viewModel.unResolvedalertList[selectedIndex].id
+                                                                        await viewModel.setAsResolved(id: id!)
+                                                                        
+                                                                        
+                                                                        refresh.toggle()
+                                                                       
+                                                                    }
+                                                                }
+                                                            ), secondaryButton: .destructive(
+                                                                Text("Cancel"),
+                                                                action: {}
+                                                            )
+                                                        )
+                                                    }
+
                                             
                                         }
-                                    }.onChange(of: viewModel.unResolvedalertList.count) {
-                                        _ in
-                                        viewModel.update()
-                                        }
+                                    }
+//                                    .onChange(of: viewModel.unResolvedalertList.count) {
+//                                        _ in
+//                                        viewModel.update()
+//                                        }
+                                }.onChange(of: refresh) { _ in
+                                    value.scrollTo(0 , anchor: .top)
                                 }
                             }
                             
@@ -60,11 +97,14 @@ struct AAlerts: View {
                                             
                                             
                                         }
-                                    }.onChange(of: viewModel.unResolvedalertList.count) {
-                                        _ in
-                                        viewModel.update()
-                                       
-                                         }
+                                    }
+//                                    .onChange(of: viewModel.unResolvedalertList.count) {
+//                                        _ in
+//                                        viewModel.update()
+//
+//                                         }
+                                }.onChange(of: viewModel.refresh) { _ in
+                                    value.scrollTo(0 , anchor: .top)
                                 }
                             }
                         }

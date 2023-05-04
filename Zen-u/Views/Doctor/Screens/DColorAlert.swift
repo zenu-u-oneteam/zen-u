@@ -159,23 +159,21 @@ struct ConfirmModalView: View {
                         Button(action:  {
                             Task{
                                 await viewModel.sendAlert(code: title, desc: message)
-                            }
-                            if viewModel.isLoading == false {
-                                showAlert = true
+                                if viewModel.isLoading == false {
+                                    showAlert = true
+                                }
+                                message = ""
                             }
                             
+                           
                             
                         }) {
                             
                             Text(title)
                                 .padding()
                             
-                        }        .alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Alert Sent"),
-                                message: Text(message),
-                                dismissButton: .default(Text("OK"))
-                            )
+                        }       .alert("Alert Sent", isPresented: $showAlert) {
+                            Button("OK", role: .cancel) { isShowing = false }
                         }
                         .font(.callout .weight(.heavy))
                         .foregroundColor(.white) // 2

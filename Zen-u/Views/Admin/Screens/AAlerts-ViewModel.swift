@@ -43,7 +43,7 @@ extension AAlerts {
                 for alert in refDoc.documents {
                     let jsonData = try JSONSerialization.data(withJSONObject: alert.data(), options: .prettyPrinted)
                     let alertData = try JSONDecoder().decode(AlertRaw.self, from: jsonData)
-                    let alertFinal = AlertModelMy(code: alertData.code, datetime: Date(timeIntervalSince1970: TimeInterval(alertData.datetime)), description: alertData.description, isResolved: alertData.isResolved)
+                    let alertFinal = AlertModelMy(id: alertData.id , code: alertData.code, datetime: Date(timeIntervalSince1970: TimeInterval(alertData.datetime)), description: alertData.description, isResolved: alertData.isResolved)
                     alertList.append(alertFinal)
                 }
                 return alertList
@@ -67,6 +67,15 @@ extension AAlerts {
             var unresolvedAlerts : [AlertModelMy] = allalerts.filter({$0.isResolved == false })
             return unresolvedAlerts.sorted (by: { $0.datetime > $1.datetime })
            
+        }
+        
+        func setAsResolved(id : String) async {
+            do {
+                try await db.collection("Alerts").document(id).updateData(["isResolved": true ])
+            }catch {
+                print(error)
+            }
+            
         }
     }
 }
