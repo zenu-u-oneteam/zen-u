@@ -118,15 +118,18 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            Text("Vaccination")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 128,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
+                            NavigationLink(destination: VBooking()) {
+                                
+                                Text("Vaccination")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 128,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
                         }
                         Spacer()
                     }
