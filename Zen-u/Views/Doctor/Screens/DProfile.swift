@@ -32,7 +32,7 @@ struct DProfile: View {
                     }
                 }
             label: {
-                Image(systemName: "list.dash")
+                Image(systemName: "line.horizontal.3")
                     .resizable()
                     .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
                     .frame(width: 15
