@@ -17,6 +17,7 @@ struct EducationTopics: Identifiable{
 struct PHome: View {
     @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
+    @State private var showingSheet = false
     
     let items: [EducationTopics] = [
         EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "Ayurveda is an ancient system of medicine that originated in India more than 5000 years ago. The word Ayurveda is derived from Sanskrit, and it means knowledge of life or science of life. It is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit.", educzationImage: "ayurveda"),
@@ -36,20 +37,21 @@ struct PHome: View {
                     VStack(alignment: .leading) {
                         HStack(spacing:40){
                             Button{
-                                
-                            } label: {
-                                NavigationLink(destination: PProfile()) {
-                                    Image(systemName: "person.fill")
-                                        .foregroundColor(Color("Heading"))
-                                        .frame(width: 18,height: 18)
-                                        .background(Circle()
-                                            .stroke(Color.white,lineWidth: 3)
-                                            .background(Circle().fill(Color("Secondary")))
-                                            .frame(width: 40,height: 40)
-                                        )
-                                }
+                                showingSheet.toggle()
                             }
-                            
+                        label: {
+                            Image(systemName: "person.fill")
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 18,height: 18)
+                                .background(Circle()
+                                    .stroke(Color.white,lineWidth: 3)
+                                    .background(Circle().fill(Color("Secondary")))
+                                    .frame(width: 40,height: 40)
+                                )
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            PProfile()
+                        }
                             VStack(alignment: .leading){
                                 Text(viewModel.greeting)
                                     .font(.caption2)

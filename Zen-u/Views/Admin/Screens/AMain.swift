@@ -14,19 +14,24 @@ struct AMain: View {
         TabView(selection: $selectedTab) {
             AHome()
                 .tabItem {
-                    Label("Dashboard", systemImage: "list.dash")
+                    Label("Home", systemImage: "house")
                 }
                 .tag(0)
             
             Text("Staff")
                 .tabItem {
-                    Label("Staff", systemImage: "person.text.rectangle")
+                    Label("Patients", systemImage: "person.2.crop.square.stack")
                 }
                 .tag(1)
             
             Text("Patients")
                 .tabItem {
-                    Label("Patients", systemImage: "doc.text.below.ecg")
+                    Label("Staff", systemImage: "person.2.circle")
+                }
+                .tag(3)
+            Text("Alerts")
+                .tabItem {
+                    Label("Alerts", systemImage: "exclamationmark.triangle")
                 }
                 .tag(3)
         }
