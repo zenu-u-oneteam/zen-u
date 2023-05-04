@@ -52,11 +52,10 @@ extension PAppointment {
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
                         doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
-                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
-                    )
+                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)                    )
                     upcomingAppointment.append(appointmentDetails)
                 }
-                return upcomingAppointment
+                return upcomingAppointment.sorted { $0.appointmentTime < $1.appointmentTime }
             } catch {
                 fatalError("\(error)")
             }
@@ -74,11 +73,13 @@ extension PAppointment {
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
                         doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
-                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
+                        type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self),
+                        appointmentRecord: try await db.collection("AppointmentReports").document(appointmentRawDetails.appointmentRecord ?? "1zfXzcErGmkbrcxoezTy" ).getDocument(as: AppointmentReportsRaw.self)
+
                     )
                     pastAppointment.append(appointmentDetails)
                 }
-                return pastAppointment
+                return pastAppointment.sorted { $0.appointmentTime > $1.appointmentTime }
             } catch {
                 fatalError("\(error)")
             }
@@ -88,7 +89,7 @@ extension PAppointment {
            
                 let pastAppointments =  await getPastAppointment()
                 var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Consultation"})
-                return consultPastAppointments
+            return consultPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
            
         }
         
@@ -96,7 +97,7 @@ extension PAppointment {
            
                 let upcomingAppointments =  await getUpcomingAppointment()
                 var consultUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Consultation"})
-                return consultUpAppointments
+            return consultUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
            
         }
         
@@ -104,7 +105,7 @@ extension PAppointment {
 
                 let pastAppointments =  await getPastAppointment()
                 var labPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Lab"})
-                return labPastAppointments
+            return labPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
 
         }
 
@@ -112,7 +113,7 @@ extension PAppointment {
 
                 let upcomingAppointments =  await getUpcomingAppointment()
                 var labUpAppointments: [Appointment] = upcomingAppointments.filter({$0.type!.category == "Lab"})
-                return labUpAppointments
+            return labUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
 
         }
 
@@ -120,7 +121,7 @@ extension PAppointment {
 
                 let pastAppointments =  await getPastAppointment()
                 var consultPastAppointments: [Appointment] = pastAppointments.filter({$0.type!.category == "Vaccination"})
-                return consultPastAppointments
+            return consultPastAppointments.sorted { $0.appointmentTime > $1.appointmentTime }
 
         }
 
@@ -128,7 +129,7 @@ extension PAppointment {
 
                 let upcomingAppointments =  await getUpcomingAppointment()
                 var vaccUpAppointments : [Appointment] = upcomingAppointments.filter({$0.type!.category == "Vaccination"})
-                return vaccUpAppointments
+            return vaccUpAppointments.sorted { $0.appointmentTime < $1.appointmentTime }
 
         }
 
