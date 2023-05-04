@@ -23,15 +23,13 @@ struct DProfile: View {
                 
                 Menu {
                     Button("Edit") {
-                        self.selectedOption = "Option 1"
+                        viewModel.editDoctor()
                     }
                     Button("Settings") {
-                        self.selectedOption = "Option 2"
+                        viewModel.doctorSettings()
                     }
                     Button("Log Out") {
-                        self.selectedOption = "Option 3"
-                        print("LOGOUT!!!")
-                        UserDefaults.standard.removeObject(forKey: "currentUser")
+                        viewModel.logout()
                         appState.rootViewId = UUID()
                     }
                 }

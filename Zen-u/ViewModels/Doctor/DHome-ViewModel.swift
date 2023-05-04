@@ -16,6 +16,7 @@ extension DHome{
         @Published var upcomingAppointments: [Appointment] = []
         @Published var numberOfAppointments: Int = 0
         @Published var shiftTime: [Int] = []
+        let currentDate = Date()
         
         let db = FirebaseConfig().db
         
@@ -34,9 +35,6 @@ extension DHome{
                 numberOfAppointments = await getNumberOfAppointments()
                 shiftTime = await getShiftTime()
                 isLoading = false
-                print(upcomingAppointments)
-                print(numberOfAppointments)
-//                print(shiftTime ?? 0)
             }
         }
         
@@ -66,6 +64,10 @@ extension DHome{
         
         func getUpcomingAppointments() async -> [Appointment] {
             do {
+                let calendar = Calendar.current
+                let startTime = calendar.startOfDay(for: Date())
+                let endTime = calendar.date(byAdding: .day, value: 1, to: startTime)!
+
                 let currentUserId = Auth.auth().currentUser!.uid
                 let currentDoctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
                 var upcomingAppointments: [Appointment] = []
@@ -74,11 +76,17 @@ extension DHome{
                     let appointmentDetails = Appointment(
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
-                        doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
+                        patient: try await db.collection("Patient").document(appointmentRawDetails.patient).getDocument(as: PatientRaw.self),
                         type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
                     )
-                    upcomingAppointments.append(appointmentDetails)
+                    
+                    if appointmentDetails.appointmentTime <= endTime && appointmentDetails.appointmentTime >= currentDate {
+                        upcomingAppointments.append(appointmentDetails)
+                        print(appointmentDetails)
+                    }
                 }
+                
+                upcomingAppointments = upcomingAppointments.sorted(by: { $0.appointmentTime < $1.appointmentTime })
                 return upcomingAppointments
             } catch {
                 print(error)
@@ -102,36 +110,8 @@ extension DHome{
                 let doctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
                 let shifttime = [doctor.startTime,doctor.endTime]
                 return shifttime
-
-//                var calender = Calendar.current
-//                calender.timeZone = TimeZone(identifier: "Asia/Kolkata")!
-//
-//                let currentDate = Date()
-//                let formatter = DateFormatter()
-//                formatter.dateFormat = "h:mm a"
-//
-//                var startTimeDateComponent = DateComponents(
-//                    year: calender.component(.year, from: currentDate),
-//                    month: calender.component(.month, from: currentDate),
-//                    day: calender.component(.day, from: currentDate),
-//                    hour: doctor.startTime,
-//                    minute: 0,
-//                    second: 0
-//                )
-//
-//                var endTimeDateComponent = DateComponents(
-//                    year: calender.component(.year, from: currentDate),
-//                    month: calender.component(.month, from: currentDate),
-//                    day: calender.component(.day, from: currentDate),
-//                    hour: doctor.endTime,
-//                    minute: 0,
-//                    second: 0
-//                )
-//
-//                return (formatter.string(from: calender.date(from: startTimeDateComponent)!), formatter.string(from: calender.date(from: endTimeDateComponent)!))
             } catch {
                 fatalError("\(error)")
-
             }
         }
     }

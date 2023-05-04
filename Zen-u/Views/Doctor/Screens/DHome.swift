@@ -86,7 +86,7 @@ struct DHome: View {
                             ZStack{
                                 
                                 VStack{
-                                    Text("\(viewModel.numberOfAppointments)")
+                                    Text("\(viewModel.upcomingAppointments.count)")
                                         .font(.largeTitle.weight(.heavy))
                                         .foregroundColor(.accentColor)
                                     
@@ -101,7 +101,7 @@ struct DHome: View {
                             ZStack{
                                 HStack{
                                     VStack{
-                                        Text("08")
+                                        Text("\(viewModel.upcomingAppointments.count)")
                                             .font(.largeTitle.weight(.heavy))
                                             .foregroundColor(Color("Heading"))
                                         
@@ -117,7 +117,7 @@ struct DHome: View {
                                     Spacer()
                                     
                                     VStack{
-                                        Text("06")
+                                        Text("0")
                                             .font(.largeTitle.weight(.heavy))
                                             .foregroundColor(Color("Heading"))
                                         
@@ -131,7 +131,7 @@ struct DHome: View {
                                         .padding(.vertical, 20)
                                     Spacer()
                                     VStack{
-                                        Text("02")
+                                        Text("0")
                                             .font(.largeTitle.weight(.heavy))
                                             .foregroundColor(Color("Heading"))
                                         
@@ -147,77 +147,19 @@ struct DHome: View {
                             
                         }
                         // upcoming patient tile
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             if(viewModel.upcomingAppointments.count > 0) {
                                 VStack(alignment: .leading,spacing: 20) {
-                                    Text("Upcoming Appointments")
+                                    Text("Today's Appointments")
                                         .font(.body.weight(.semibold))
                                         .padding(.top, 20)
                                     
                                     ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
-                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
+                                        DProfileUpcomingCard(appointmentDetails: viewModel.upcomingAppointments[item])
                                     }
                                 }
-                            }
-                            
-                            ZStack{
-                                Rectangle()
-                                    .fill(Color("Secondary"))
-                                    .frame(height: 140)
-                                    .cornerRadius(13)
-                                
-                                HStack{
-                                    VStack{
-                                        ZStack{
-                                            Circle()
-                                                .fill(.white)
-                                                .frame(width: 70, height: 70)
-                                            Image("Image")
-                                                .resizable()
-                                                .frame(width: 55, height: 50)
-                                        }
-                                        .padding(.bottom,10)
-                                        ZStack{
-                                            Text("New Patient")
-                                                .foregroundColor(.white)
-                                                .font(.footnote)
-                                        }
-                                        .frame(width: 85, height: 22)
-                                        .background(.black.opacity(0.4))
-                                        .cornerRadius(5)
-                                    }
-                                    VStack(alignment: .leading){
-                                        Text("Jonathon Cole")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("Heading"))
-                                        Text("28 years old")
-                                            .font(.callout.weight(.thin))
-                                        Text("Male")
-                                            .font(.callout.weight(.thin))
-                                    }
-                                    .padding(.top, -30)
-                                    
-                                    VStack(alignment: .trailing){
-                                        HStack{
-                                            Image(systemName: "clock")
-                                            Text("09:30")
-                                                .font(.callout)
-                                        }
-                                        .foregroundColor(.accentColor)
-                                        .padding(.bottom, 65)
-                                        HStack{
-                                            Text("See Details")
-                                                .font(.footnote)
-                                            Image(systemName: "chevron.right")
-                                        }
-                                        
-                                    }
-                                    .padding(.leading, 20)
-                                }
-                                
                             }
                         }
-                        
                     }
                     Spacer()
                 }
