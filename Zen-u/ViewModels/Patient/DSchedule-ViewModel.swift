@@ -41,8 +41,9 @@ extension DSchedule {
                     )
                     let patientDetails = try await db.collection("Users").document(appointmentRawDetails.patient).getDocument(as: User.self)
                     appList.append(AppointmentData(appointment: appointmentDetails, patientUser: patientDetails))
+                    
                 }
-                return appList
+                return appList.sorted { $0.appointment.appointmentTime < $1.appointment.appointmentTime }
             }catch{
                 fatalError("\(error)")
             }
