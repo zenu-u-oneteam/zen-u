@@ -12,43 +12,22 @@ struct POnboarding: View {
     
     @StateObject private var viewModel = ViewModel()
     
-    @State private var patient: Patient
-    @State private var user: User
-//    @State private var name = ""
-//    @State private var gender = ""
-//    let genderSelection = ["Male", "Female", "Other"]
-//    @State private var bloodGroup = ""
-//    let bloodGroupSelection = ["A+"]
-    @State private var dateOfBirth =  Date()
-//    @State private var height = ""
-//    @State private var weight = ""
-    @State private var phoneNumber = ""
-//    @State private var email = ""
-    @State private var aadhaar = ""
-//    @State private var present = true
-//    @State private var records = []
-    
+    let bloodGroupSelection = ["A+","A-","B+","B-","AB+","AB-","O+","O-"]
+    @State private var present = true
+    @State private var isShowingImagePicker = false
     
     var body: some View {
         NavigationStack{
             VStack{
                 ScrollView{
                     VStack(alignment: .leading, spacing: 30){
-                        
-                        HStack{
-                            Text("Name")
-                            TextField("", text: $patient.name).frame(height: 30)
-                                .padding(5)
-                                .background(Color("Secondary"))
-                                .cornerRadius(5)
-                                
-                        }
                     
                         HStack{
                             Text("Gender")
-                            Picker("Select", selection: $patient.gender){
-                                ForEach(patient.gender, id: \.self) {
-                                                    Text($0)
+                            Picker("Select", selection: $viewModel.patient.gender){
+                                ForEach(Patient.Gender.allCases, id: \.self) {
+                                    gender in
+                                    Text(gender.rawValue).tag(gender)
                                 }
                             }.background(Color("Secondary"))
                                 .cornerRadius(5)
@@ -57,8 +36,8 @@ struct POnboarding: View {
                             Spacer()
                             
                             Text("Blood Group")
-                            Picker("Select", selection: $patient.bloodGroup){
-                                ForEach(patient.bloodGroup, id: \.self) {
+                            Picker("Select", selection: $viewModel.patient.bloodGroup){
+                                ForEach(bloodGroupSelection, id: \.self) {
                                                     Text($0)
                                 }
                             }.background(Color("Secondary"))
@@ -68,61 +47,41 @@ struct POnboarding: View {
                         
                         HStack{
                             Text("Date of Birth")
-                            DatePicker("Date of Birth", selection: $dateOfBirth, displayedComponents: .date).labelsHidden()
+                            DatePicker("Date of Birth", selection: $viewModel.dateOfBirth, displayedComponents: .date).labelsHidden()
                         }
                         
                         HStack{
                             Text("Height")
-                            TextField("", text: $patient.height).frame(height: 30)
+                            TextField("", text: $viewModel.height).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
+                                .keyboardType(.numberPad)
                             
                             Text("Weight")
-                            TextField("", text: $patient.weight).frame(height: 30)
+                            TextField("", text:$viewModel.weight).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
+                                .keyboardType(.numberPad)
                         }
                         
                         HStack{
                             Text("Phone Number")
-                            TextField("", text: $user.phoneNumber).frame(height: 30)
+                            TextField("", text: $viewModel.user.mobileNumber).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
-                        }
-                        
-                        HStack{
-                            Text("Email id")
-                            TextField("", text: $user.email).frame(height: 30)
-                                .padding(5)
-                                .background(Color("Secondary"))
-                                .cornerRadius(5)
+                                .keyboardType(.numberPad)
                         }
                         
                         HStack{
                             Text("Aadhaar Number")
-                            TextField("", text: $aadhaar).frame(height: 30)
+                            TextField("", text: $viewModel.aadhaar).frame(height: 30)
                                 .padding(5)
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
-                        }
-                        
-                        HStack{
-                            Text("Medical Records")
-                            Button (action: {
-                                // Perform signup action here
-                            }, label: {
-                                Text("Upload")
-                            }).fileImporter(isPresented: $present, allowedContentTypes: [.pdf], allowsMultipleSelection: true){ result in
-                                switch result {
-                                case .success(let url):
-                                    print(url)
-                                case .failure(let error):
-                                    print(error)
-                                }
-                            }
+                                .keyboardType(.numberPad)
                         }
                         
                     }
@@ -131,9 +90,7 @@ struct POnboarding: View {
                 Spacer()
                 
                 Button(action: {
-                    Task {
-                        await viewModel.sendPatientInfo()
-                    }
+                    viewModel.addingPatient()
                 }){
                     Text("Continue").foregroundColor(Color("Primary"))
                         .frame(width:335, height:47)
@@ -144,6 +101,9 @@ struct POnboarding: View {
             }.padding(.horizontal, 25)
                 .padding(.vertical, 20)
                 .navigationTitle("Patient Onboarding")
+                .navigationDestination(isPresented: $viewModel.canContinue, destination: {
+                    PMain()
+                })
 
         }
     }

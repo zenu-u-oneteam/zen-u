@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		042F38652A00E78900BAEED2 /* POnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F38642A00E78900BAEED2 /* POnboarding.swift */; };
 		042F38672A010F6F00BAEED2 /* POnboarding-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F38662A010F6F00BAEED2 /* POnboarding-ViewModel.swift */; };
+		042F386F2A03758C00BAEED2 /* SignupPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */; };
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
@@ -81,6 +82,7 @@
 /* Begin PBXFileReference section */
 		042F38642A00E78900BAEED2 /* POnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POnboarding.swift; sourceTree = "<group>"; };
 		042F38662A010F6F00BAEED2 /* POnboarding-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POnboarding-ViewModel.swift"; sourceTree = "<group>"; };
+		042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignupPage-ViewModel.swift"; sourceTree = "<group>"; };
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				231BD40929FCD4E10027A17B /* Patient */,
+				042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */,
 				BEF1315729F13A7E008A9432 /* SignupPage.swift in Sources */,
 				2386C68729F29FE700CEA6F6 /* PrimaryButton.swift in Sources */,
+				042F386F2A03758C00BAEED2 /* SignupPage-ViewModel.swift in Sources */,
 				BE94A55329F8538A00E4FBE5 /* SpecialistModelView.swift in Sources */,
 				2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */,
 				3874753429ED638500CCA151 /* PBookingAppointments.swift in Sources */,

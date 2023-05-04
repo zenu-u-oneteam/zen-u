@@ -16,6 +16,7 @@ struct Patient: Hashable, Codable, Identifiable {
     var weight: Float
     var appointments: [String]?
     var pastAppointments: [String]?
+    var aadhaar: String?
     
     enum Gender: String, CaseIterable, Codable {
         case male = "Male"

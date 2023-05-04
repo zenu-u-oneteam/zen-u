@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SignupPage: View {
     
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject private var viewModel = ViewModel()
     @State private var agreedToTerms = false
     
     var body: some View {
@@ -27,7 +25,7 @@ struct SignupPage: View {
                 HStack {
                     Image(systemName: "person")
                         .foregroundColor(.black)
-                    TextField("Enter your name", text: $name)
+                    TextField("Enter your name", text: $viewModel.user.name)
                         .font(.system(size: 17, weight: .light))
                 }
                 .padding()
@@ -39,7 +37,7 @@ struct SignupPage: View {
                 HStack {
                     Image(systemName: "envelope")
                         .foregroundColor(.black)
-                    TextField("Enter your email", text: $email)
+                    TextField("Enter your email", text: $viewModel.user.email)
                         .font(.system(size: 17, weight: .light))
                         .textInputAutocapitalization(.never)
                 }
@@ -52,7 +50,7 @@ struct SignupPage: View {
             HStack(alignment: .center, spacing: 13) {
                 Image(systemName: "lock")
                     .foregroundColor(.black)
-                SecureField("Enter your password", text: $password)
+                SecureField("Enter your password", text: $viewModel.password)
                     .font(.system(size: 17, weight: .light))
                 Spacer()
             }
@@ -71,20 +69,20 @@ struct SignupPage: View {
             }
             
             
-            Button {
-                // Perform signup action here
-            } label: {
-                NavigationLink(destination: POnboarding()){
+            Button(action: {
+                viewModel.addingUser()
+            }, label: {
                     ActionButton(text: "Sign Up", disabled: !agreedToTerms)
-                }
-            }
-            .disabled(!agreedToTerms)
+            }).disabled(!agreedToTerms)
             
             Spacer()  //remove for bringing everything down
             
         }
         .padding()
         .navigationBarTitle("zen-u", displayMode: .inline)
+        .navigationDestination(isPresented: $viewModel.canContinue, destination: {
+            POnboarding()
+        })
     }
 }
 
