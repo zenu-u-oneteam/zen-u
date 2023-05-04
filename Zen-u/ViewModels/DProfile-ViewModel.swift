@@ -18,7 +18,7 @@ extension DProfile{
         let db = FirebaseConfig().db
         
         init() {
-            print("HELLOOOOOO!!!!!")
+            print("Hello")
             isLoading = true
             
             guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
@@ -38,7 +38,6 @@ extension DProfile{
                 let currentUserId = Auth.auth().currentUser!.uid
                 let currentDoctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
                 doctor = currentDoctor
-                print("Yay")
                 print(doctor)
             } catch {
                 fatalError("\(error)")
