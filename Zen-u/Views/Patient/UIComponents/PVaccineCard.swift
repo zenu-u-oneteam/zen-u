@@ -15,13 +15,12 @@ struct PVaccineCard: View {
     var expanded: Bool = true
     var height: CGFloat = 75
     @State var isShowingPopover = false
-    
+    @State private var isModalPresented = false
     var body: some View {
         
         if(expanded)
         {
-            expandedForm()
-            
+          expandedForm()
         }
         else{
             collapsedForm()
@@ -62,19 +61,14 @@ struct PVaccineCard: View {
             .background(Color("Secondary"))
             .cornerRadius(10)
             .contextMenu(){
+                
                 Text("Book")
                     .frame(minWidth: 230, minHeight: 60)
                     .onLongPressGesture {
                         isShowingPopover = true
                     }
                     .popover(isPresented: $isShowingPopover) {
-                        VStack {
-                            Text("Popover title")
-                                .font(.headline)
-                            Text("Popover message")
-                                .font(.subheadline)
-                        }
-                        .padding()
+                        
                     }
             }
         }
@@ -120,18 +114,12 @@ struct PVaccineCard: View {
                         isShowingPopover = true
                     }
                     .popover(isPresented: $isShowingPopover) {
-                        VStack {
-                            Text("Popover title")
-                                .font(.headline)
-                            Text("Popover message")
-                                .font(.subheadline)
-                        }
-                        .padding()
+                        
                     }
             }
         }
-    }
-    }
+     }
+  }
 }
 struct PVaccineCard_Previews: PreviewProvider {
     static var previews: some View {

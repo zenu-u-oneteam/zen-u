@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Vdetails: View {
     var body: some View {
+        
         VStack{
             VStack(alignment: .leading, spacing: 20) {
                 headerView()
@@ -96,7 +97,7 @@ func listOfSideEffectsView() -> some View{
                     .font(.subheadline.weight(.regular))
                     .foregroundColor(.secondary)
                 
-    
+                
                 
             }
             Spacer()
@@ -112,20 +113,20 @@ func summaryView() -> some View{
         
     }
 label: {
-
-  NavigationLink(destination:  PSlotSelection(reason: "", department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]), appointmentType: AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: ""))){
+    
+    NavigationLink(destination:  PSlotSelection(reason: "", department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]), appointmentType: AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: ""))){
         HStack {
             Text("INR 1299")
                 .font(.title.weight(.semibold))
             Spacer()
             
-   //         TabButton(text: "Continue", fullWidth: false)
+            //         TabButton(text: "Continue", fullWidth: false)
         }
         .padding()
         .padding(.leading, 20)
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
-   }
+    }
 }
     
 }

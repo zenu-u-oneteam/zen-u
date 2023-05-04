@@ -92,6 +92,11 @@
 		C93F20992A03944B0089C445 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F20982A03944B0089C445 /* MapView.swift */; };
 		C93F209B2A0394880089C445 /* PVaccineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F209A2A0394880089C445 /* PVaccineCard.swift */; };
 		C93F209D2A0394BE0089C445 /* Vdetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F209C2A0394BE0089C445 /* Vdetails.swift */; };
+		C93F209F2A0399110089C445 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F209E2A0399110089C445 /* CircleImage.swift */; };
+		C93F20A12A0399C60089C445 /* VaccineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F20A02A0399C60089C445 /* VaccineView.swift */; };
+		C93F20A32A0399F40089C445 /* AilmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F20A22A0399F40089C445 /* AilmentView.swift */; };
+		C93F20A52A039A200089C445 /* VBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F20A42A039A200089C445 /* VBooking.swift */; };
+		C93F20A72A039A4F0089C445 /* Covid-19Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93F20A62A039A4F0089C445 /* Covid-19Center.swift */; };
 		C941A99829F6A90B0018069F /* DProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C941A99729F6A90B0018069F /* DProfile.swift */; };
 		C993EE4B29F916D8003DA95E /* Vaccination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C993EE4A29F916D8003DA95E /* Vaccination.swift */; };
 /* End PBXBuildFile section */
@@ -180,6 +185,11 @@
 		C93F20982A03944B0089C445 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C93F209A2A0394880089C445 /* PVaccineCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PVaccineCard.swift; sourceTree = "<group>"; };
 		C93F209C2A0394BE0089C445 /* Vdetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vdetails.swift; sourceTree = "<group>"; };
+		C93F209E2A0399110089C445 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		C93F20A02A0399C60089C445 /* VaccineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineView.swift; sourceTree = "<group>"; };
+		C93F20A22A0399F40089C445 /* AilmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AilmentView.swift; sourceTree = "<group>"; };
+		C93F20A42A039A200089C445 /* VBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBooking.swift; sourceTree = "<group>"; };
+		C93F20A62A039A4F0089C445 /* Covid-19Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Covid-19Center.swift"; sourceTree = "<group>"; };
 		C941A99729F6A90B0018069F /* DProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DProfile.swift; sourceTree = "<group>"; };
 		C993EE4A29F916D8003DA95E /* Vaccination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vaccination.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -449,6 +459,7 @@
 				2DECE12A29EDDAA10021BE41 /* PUIex.swift */,
 				A9F484FF29F25938009DA356 /* PSpecialButton.swift */,
 				C93F20982A03944B0089C445 /* MapView.swift */,
+				C93F209E2A0399110089C445 /* CircleImage.swift */,
 				C93F209A2A0394880089C445 /* PVaccineCard.swift */,
 				A9F4850129F2595A009DA356 /* PViewModel.swift */,
 				A975854729F289670063A223 /* PAppointmentDetailsModel.swift */,
@@ -474,7 +485,11 @@
 				06FAAE2B2A02B4FD00E1D5B6 /* PAppointmentDetailsPast.swift */,
 				23CBF1DD29F554F400318ED4 /* PAppointment.swift */,
 				06A06E6629F55DFF008DF13F /* PProfile.swift */,
+				C93F20A42A039A200089C445 /* VBooking.swift */,
+				C93F20A02A0399C60089C445 /* VaccineView.swift */,
+				C93F20A22A0399F40089C445 /* AilmentView.swift */,
 				C93F209C2A0394BE0089C445 /* Vdetails.swift */,
+				C93F20A62A039A4F0089C445 /* Covid-19Center.swift */,
 				38AABDFA29F92E4C0028B6A9 /* PReminders.swift */,
 				A9A85B0B29F8F874000D0FCF /* PLabTestBooking.swift */,
 			);
@@ -589,6 +604,7 @@
 				C93F20992A03944B0089C445 /* MapView.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
 				2370710E29F8351B0018ACAC /* DScheduleTaskCard.swift in Sources */,
+				C93F20A72A039A4F0089C445 /* Covid-19Center.swift in Sources */,
 				A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */,
 				231BD40B29FCD4F10027A17B /* PHome-ViewModel.swift in Sources */,
 				A9A85B0E29F8F880000D0FCF /* PLabTestcard.swift in Sources */,
@@ -616,8 +632,11 @@
 				2344756A2A02003700E0EB77 /* Helpers.swift in Sources */,
 				3874753F29ED669100CCA151 /* example.swift in Sources */,
 				069BFE4B29FA36B5002F9534 /* PHealthRecordsUploadView.swift in Sources */,
+				C93F209F2A0399110089C445 /* CircleImage.swift in Sources */,
 				061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */,
+				C93F20A12A0399C60089C445 /* VaccineView.swift in Sources */,
 				23B4BD3E29F4353F00665006 /* AppointmentCard.swift in Sources */,
+				C93F20A32A0399F40089C445 /* AilmentView.swift in Sources */,
 				2386C68329F2933300CEA6F6 /* TabButton.swift in Sources */,
 				2D37960D2A022AF300B73719 /* DSchedule-ViewModel.swift in Sources */,
 				3874751529ED603800CCA151 /* ContentView.swift in Sources */,
@@ -639,6 +658,7 @@
 				061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */,
 				23BC07BF29F14059009FA528 /* Patient.swift in Sources */,
 				30D2508B2A01178300446196 /* AMain.swift in Sources */,
+				C93F20A52A039A200089C445 /* VBooking.swift in Sources */,
 				A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */,
 				23BC07BA29F13A61009FA528 /* User.swift in Sources */,
 				23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */,
