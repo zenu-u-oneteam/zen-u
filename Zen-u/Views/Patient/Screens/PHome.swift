@@ -138,54 +138,23 @@ struct PHome: View {
                                 Text("Upcoming Appointments")
                                     .font(.body.weight(.semibold))
                                     .padding(.top, 20)
-                                if(viewModel.upcomingAppointments.count > 2) {
-                                    if(viewModel.upcomingAppointments[0].type?.category == "Consultation"){
+                                ForEach(viewModel.upcomingAppointments.indices , id: \.self) { index in
+                                    if(viewModel.upcomingAppointments[index].type?.category == "Consultation"){
                                         Button{
                                             
                                         }label: {
-                                            NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[0])){
-                                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[0], highlited: true)
-                                            }
-                                        }
-                                    }
-                                    else{
-                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[0], highlited: true)
-                                        
-                                    }
-//                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[1], highlited: false)
-                                    if(viewModel.upcomingAppointments[1].type?.category == "Consultation"){
-                                        Button{
-                                            
-                                        }label: {
-                                            NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[1])){
-                                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[1], highlited: false)
-                                            }
-                                        }
-                                    }
-                                    else{
-                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[1], highlited: true)
-                                        
-                                    }
-                                    
-                                    
-                                    
-                                } else{
-                                    ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
-                                        
-                                        if(viewModel.upcomingAppointments[item].type?.category == "Consultation"){
-                                            Button{
+                                            NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[index])){
+                                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
                                                 
-                                            }label: {
-                                                NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[item])){
-                                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
-                                                    
-                                                }
                                             }
-                                        } else {
-                                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item])
                                         }
+                                    } else {
+                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
                                     }
-                                }
+                                    
+   
+                                    }
+                                
                             }
                             .padding(.horizontal, 20)
                         }
