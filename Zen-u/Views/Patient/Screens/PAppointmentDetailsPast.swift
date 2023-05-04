@@ -108,6 +108,26 @@ struct PAppointmentDetailsPast: View {
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                     }.hLeading()
+                    
+                    if(appointmentDetails.appointmentRecord?.prescriptions != nil) {
+                        VStack(alignment: .leading){
+                            Text("Prescriptions")
+                                .font(.system(size: 16))
+                                .hLeading()
+                                .padding(20)
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color("Heading"))
+                            Text(appointmentDetails.appointmentRecord?.prescriptions ?? "none")
+                                .font(.system(size: 14))
+                                .fontWeight(.regular)
+                                .hLeading()
+                                .padding(20)
+                                .foregroundColor(Color("Subheadings"))
+                                .background(Color("Secondary"))
+                                .cornerRadius(15)
+                                .padding(.horizontal, 15)
+                        }.hLeading()
+                    }
                 }
                 
                
@@ -120,6 +140,6 @@ struct PAppointmentDetailsPast: View {
 }
 struct PAppointmentDetailsPast_Previews: PreviewProvider {
     static var previews: some View {
-        PAppointmentDetailsPast(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24, cabin: 123, department: "Cardiology Department") ))
+        PAppointmentDetailsPast(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24, cabin: 123, department: "Cardiology Department") , appointmentRecord: AppointmentReportsRaw(appointment: "" , appointmentTime: 120000, patient: "", doctor: "", type: "" , symptoms: "yada yada yada", medicalAdvice: "yada yada yada", prescriptions: "yada yada yada")))
     }
 }
