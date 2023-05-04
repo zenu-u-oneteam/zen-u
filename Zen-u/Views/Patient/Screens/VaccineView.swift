@@ -13,17 +13,22 @@ struct VaccineView: View {
         NavigationStack{
             VStack{
                 ScrollView{
-                    HStack(spacing:20){
-                        PVaccineCard(vaccineName: "PSV23", numberOfAvailableDoses: "123", Status: "Available", expanded: false, height: 80)
+                    VStack(spacing:20){
+                        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
                         
-                        PVaccineCard(vaccineName: "PSV23", numberOfAvailableDoses: "123", Status: "Available", expanded: false, height: 80)
+                        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
                         
-                        PVaccineCard(vaccineName: "PSV23", numberOfAvailableDoses: "123", Status: "Available", expanded: false, height: 80)
+                        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
+                        
+                        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
+                        
+                        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
+                        
                     }
                 }
             }
             .navigationTitle("Vaccine")
-            .padding(16)
+            .padding(.horizontal, 17)
         }
         
         .searchable(text: $searchText)

@@ -14,9 +14,7 @@ struct PVaccineCard: View {
     var Status : String
     var expanded: Bool = true
     var height: CGFloat = 75
-  //  @State var isShowingPopover = false
     @State private var isModalPresented = false
-    @State private var isShowingDetail = false
     
     var body: some View {
         
@@ -66,21 +64,6 @@ struct PVaccineCard: View {
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
         .cornerRadius(10)
-        .contextMenu(){
-            Text("Book")
-                .frame(minWidth: 230, minHeight: 60)
-                .onLongPressGesture {
-                 //   isModalPresented = true
-                    isShowingDetail=true
-                }
-//                .popover(isPresented: $isShowingPopover) {
-//
-//                }
-        }
-        .sheet(isPresented: $isShowingDetail) {
-            ModalView()
-        }
-        //  }
     }
     }
     
@@ -116,17 +99,6 @@ struct PVaccineCard: View {
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))
         .cornerRadius(10)
-        .contextMenu(){
-            Text("Book")
-                .frame(height: height)
-                .onLongPressGesture {
-                   isShowingDetail = true
-                }
-               
-        } .sheet(isPresented: $isShowingDetail) {
-            ModalView()
-        }
-        
     }
     }
 }
@@ -136,18 +108,10 @@ struct ModalView: View {
         Vdetails()
     }
 }
-//
-//struct DetailView: View {
-//    var body: some View {
-//        //Vdetails()
-//        Text("dkjfdk")
-//    }
-//}
-//
 
 struct PVaccineCard_Previews: PreviewProvider {
     static var previews: some View {
-        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: true)
+        PVaccineCard(vaccineName: "PSV23",companyName: "Pfizer", numberOfAvailableDoses: "123", Status: "Available", expanded: false)
     }
 }
 

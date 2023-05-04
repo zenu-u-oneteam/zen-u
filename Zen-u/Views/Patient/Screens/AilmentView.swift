@@ -14,20 +14,29 @@ struct AilmentView: View {
         NavigationStack{
             VStack{
                 ScrollView{
-                        PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "123", Status: "Available", height: 100)
-                        
-                        PVaccineCard(vaccineName: "Influenza", numberOfAvailableDoses: "131", Status: "Available", height: 100)
-                        
-                        
-                        PVaccineCard(vaccineName: "Covid-19", numberOfAvailableDoses: "99", Status: "Available",  height: 100)
-                        
-                        PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "37", Status: "Available",  height: 100)
+                    PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "123", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Influenza", numberOfAvailableDoses: "131", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Covid-19", numberOfAvailableDoses: "99", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "37", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Measles", numberOfAvailableDoses: "37", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Polio", numberOfAvailableDoses: "37", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "123", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Influenza", numberOfAvailableDoses: "131", Status: "Available\nVaccines")
+                    
+                    PVaccineCard(vaccineName: "Covid-19", numberOfAvailableDoses: "131", Status: "Available\nVaccines")
                 }
                 
             }
             .searchable(text: $searchText)
             .navigationTitle("Search by Ailment")
-            .padding(.horizontal,16)
+            .padding(.horizontal, 17)
         }
     }
 }

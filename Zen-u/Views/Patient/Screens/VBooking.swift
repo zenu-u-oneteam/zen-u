@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VBooking: View {
     @State var searchText = ""
+    @State private var isShowingDetail = false
     var body: some View {
         
         NavigationStack{
@@ -81,7 +82,7 @@ struct VBooking: View {
                     HStack(spacing: 20) {
                         
                         PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "123", Status: "Available", expanded: false, height: 100)
-                        
+
                         PVaccineCard(vaccineName: "Influenza", numberOfAvailableDoses: "131", Status: "Available", expanded: false, height: 100)
                         
                         
