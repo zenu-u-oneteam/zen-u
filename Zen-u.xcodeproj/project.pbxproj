@@ -51,13 +51,14 @@
 		23CBF1E029F55DC000318ED4 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */; };
 		2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B8C1229FFE71100B029B8 /* PAppointment-ViewModel.swift */; };
 		2D37960D2A022AF300B73719 /* DSchedule-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */; };
+		2D37960F2A0377F900B73719 /* AAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D37960E2A0377F900B73719 /* AAlerts.swift */; };
 		2DECE12729EDDA610021BE41 /* AUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12629EDDA610021BE41 /* AUIex.swift */; };
 		2DECE12929EDDA830021BE41 /* AHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12829EDDA830021BE41 /* AHome.swift */; };
 		2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECE12A29EDDAA10021BE41 /* PUIex.swift */; };
 		3054D5F429EE75D7000A8858 /* PMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054D5F329EE75D7000A8858 /* PMain.swift */; };
-		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
 		30D2508B2A01178300446196 /* AMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2508A2A01178300446196 /* AMain.swift */; };
 		30E199232A010FC00092C1BC /* DMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E199222A010FC00092C1BC /* DMain.swift */; };
+		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
 		386F14282A00AC2F00DFC667 /* PPayement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14272A00AC2F00DFC667 /* PPayement.swift */; };
 		386F142A2A00E4E800DFC667 /* ReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14292A00E4E800DFC667 /* ReminderCard.swift */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
@@ -73,10 +74,9 @@
 		3874754329ED66DD00CCA151 /* DHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754229ED66DD00CCA151 /* DHome.swift */; };
 		3874754529ED66FD00CCA151 /* DAppointmentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */; };
 		3874754729ED673500CCA151 /* DPrescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874754629ED673500CCA151 /* DPrescriptionsView.swift */; };
+		38AABDFB29F92E4C0028B6A9 /* PReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AABDFA29F92E4C0028B6A9 /* PReminders.swift */; };
 		A72BE66A29FA5310008C624B /* AStaffOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72BE66929FA5310008C624B /* AStaffOverview.swift */; };
 		A73D754629FA78CA006F967A /* AStaffPage4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73D754529FA78CA006F967A /* AStaffPage4.swift */; };
-		A73E214F29F0223800EDB68D /* PPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73E214E29F0223800EDB68D /* PPayment.swift */; };
-		38AABDFB29F92E4C0028B6A9 /* PReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AABDFA29F92E4C0028B6A9 /* PReminders.swift */; };
 		A7E9AD5329EE743100C2650E /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */; };
 		A975854629F267B60063A223 /* PAppointmentDetailsUpcoming.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */; };
 		A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A975854729F289670063A223 /* PAppointmentDetailsModel.swift */; };
@@ -135,13 +135,14 @@
 		23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		2D0B8C1229FFE71100B029B8 /* PAppointment-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PAppointment-ViewModel.swift"; sourceTree = "<group>"; };
 		2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DSchedule-ViewModel.swift"; path = "Zen-u/ViewModels/Patient/DSchedule-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		2D37960E2A0377F900B73719 /* AAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAlerts.swift; sourceTree = "<group>"; };
 		2DECE12629EDDA610021BE41 /* AUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUIex.swift; sourceTree = "<group>"; };
 		2DECE12829EDDA830021BE41 /* AHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AHome.swift; sourceTree = "<group>"; };
 		2DECE12A29EDDAA10021BE41 /* PUIex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUIex.swift; sourceTree = "<group>"; };
 		3054D5F329EE75D7000A8858 /* PMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMain.swift; sourceTree = "<group>"; };
-		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
 		30D2508A2A01178300446196 /* AMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMain.swift; sourceTree = "<group>"; };
 		30E199222A010FC00092C1BC /* DMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMain.swift; sourceTree = "<group>"; };
+		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
 		386F14272A00AC2F00DFC667 /* PPayement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayement.swift; sourceTree = "<group>"; };
 		386F14292A00E4E800DFC667 /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,10 +160,9 @@
 		3874754229ED66DD00CCA151 /* DHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHome.swift; sourceTree = "<group>"; };
 		3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppointmentDetails.swift; sourceTree = "<group>"; };
 		3874754629ED673500CCA151 /* DPrescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPrescriptionsView.swift; sourceTree = "<group>"; };
+		38AABDFA29F92E4C0028B6A9 /* PReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PReminders.swift; sourceTree = "<group>"; };
 		A72BE66929FA5310008C624B /* AStaffOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffOverview.swift; sourceTree = "<group>"; };
 		A73D754529FA78CA006F967A /* AStaffPage4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStaffPage4.swift; sourceTree = "<group>"; };
-		A73E214E29F0223800EDB68D /* PPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayment.swift; sourceTree = "<group>"; };
-		38AABDFA29F92E4C0028B6A9 /* PReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PReminders.swift; sourceTree = "<group>"; };
 		A7E9AD5229EE743100C2650E /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
 		A975854529F267B60063A223 /* PAppointmentDetailsUpcoming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsUpcoming.swift; sourceTree = "<group>"; };
 		A975854729F289670063A223 /* PAppointmentDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsModel.swift; sourceTree = "<group>"; };
@@ -393,6 +393,7 @@
 				A72BE66929FA5310008C624B /* AStaffOverview.swift */,
 				A73D754529FA78CA006F967A /* AStaffPage4.swift */,
 				30D2508A2A01178300446196 /* AMain.swift */,
+				2D37960E2A0377F900B73719 /* AAlerts.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -614,6 +615,7 @@
 				2340535029F24D29003A0063 /* Appointment.swift in Sources */,
 				38AABDFB29F92E4C0028B6A9 /* PReminders.swift in Sources */,
 				2324FEFB2A017D0500E40CF4 /* PBookingSummary-ViewModel.swift in Sources */,
+				2D37960F2A0377F900B73719 /* AAlerts.swift in Sources */,
 				06A06E6529F52D7D008DF13F /* HealthKitView.swift in Sources */,
 				063DC34129FC1E4F00810542 /* CustomPDFView.swift in Sources */,
 				BE94A55729F932E500E4FBE5 /* LabTest.swift in Sources */,

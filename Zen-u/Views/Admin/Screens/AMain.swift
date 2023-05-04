@@ -29,6 +29,10 @@ struct AMain: View {
                     Label("Patients", systemImage: "doc.text.below.ecg")
                 }
                 .tag(3)
+            AAlerts()
+                .tabItem {
+                    Label("Alerts", systemImage: "exclamationmark.triangle")                }
+                .tag(3)
         }
         .accentColor(.black)
         .navigationBarBackButtonHidden(true)
