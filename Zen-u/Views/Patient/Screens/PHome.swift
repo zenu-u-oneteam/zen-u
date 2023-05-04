@@ -120,8 +120,7 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            NavigationLink(destination: VBooking()) {
-                                
+                            NavigationLink(destination: PVaccinationBooking()) {
                                 Text("Vaccination")
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color("Heading"))
@@ -158,10 +157,7 @@ struct PHome: View {
                                     } else {
                                         AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
                                     }
-                                    
-   
-                                    }
-                                
+                                }
                             }
                             .padding(.horizontal, 20)
                         }
