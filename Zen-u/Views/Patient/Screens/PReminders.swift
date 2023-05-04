@@ -47,7 +47,7 @@ struct PReminders: View {
                                         }
                                         VStack{
                                             Text(appointmentViewModel.extractDate(date: day, format: "EEE"))
-                                                .font(.system(size: 14)).fontWeight(.bold)
+                                                .font(.system(size: 14)).fontWeight(.semibold)
                                         }
                                         .foregroundStyle(appointmentViewModel.isToday(date: day) ? .primary : .secondary)
                                         .foregroundColor(appointmentViewModel.isToday(date: day) ? Color("Accent") : Color("Heading"))

@@ -31,30 +31,42 @@ struct PSlotSelection: View {
                     .font(.title3.weight(.semibold))
                     .foregroundColor(Color("Heading"))
                     .hLeading()
-
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
                         ForEach(viewModel.upcomingMonth, id:  \.self) {day in
                             Button {
                                 viewModel.setSelectedDate(day)
                             } label: {
-                                VStack(spacing: 10) {
-                                    Text(extractDate(date: day, format: "dd"))
-                                        .font(.subheadline.weight(.semibold))
-                                    Text(extractDate(date: day, format: "EEE"))
-                                        .font(.footnote)
+                                VStack{
+                                    VStack(spacing: 10) {
+                                        Text(extractDate(date: day, format: "dd"))
+                                            .font(.title3)
+                                            .fontWeight(.heavy)
+                                    }.frame(width: 60, height: 60)
+                                        .foregroundColor((viewModel.selectedDate == day) ? Color(uiColor: .white) : .secondary)
+                                        .background((viewModel.selectedDate == day) ? Color("Accent") : Color("Secondary"))
+                                        .cornerRadius(40)
+                                    
+                                    VStack {
+                                        Text(extractDate(date: day, format: "EEE"))
+                                            .font(.footnote)
+                                            .font(.system(size: 14)).fontWeight(.semibold)
+                                    }.foregroundStyle((viewModel.selectedDate == day) ? Color("Accent") : .secondary)
+                                    
+                                    //                                .background((viewModel.selectedDate == day) ? Color("Accent") : Color("Secondary"))
+                                    //                                .foregroundColor((viewModel.selectedDate == day) ? .white : Color("Subheadings"))
+                                    //                                .cornerRadius(20)
+                                    
                                 }
-                                .frame(width: 60, height: 80)
-                                .background((viewModel.selectedDate == day) ? Color("Accent") : Color("Secondary"))
-                                .foregroundColor((viewModel.selectedDate == day) ? .white : Color("Subheadings"))
-                                .cornerRadius(20)
                             }
                         }
-                    }
-                }
+                    }.padding(.horizontal, 17)
+                }.padding(.horizontal, -17)
+                
                 
                 Divider()
-                    .padding(.vertical, 30)
+                    .padding(.vertical, 17)
                 TaskView()
                 
                 Spacer()
@@ -73,10 +85,10 @@ struct PSlotSelection: View {
             PBookingSummary(reason: reason, department: department, appointmentType: appointmentType, selectedSlot: viewModel.selectedSlot ?? Date(), allotedDoctor: viewModel.allotedDoctor ?? "")
         })
     }
-
+    
     func TaskView() -> some View {
         
-        VStack(spacing:25) {
+        VStack() {
             
             Text("Select a slot")
                 .font(.title3.weight(.semibold))
@@ -90,7 +102,7 @@ struct PSlotSelection: View {
                     if (viewModel.availableSlots.count > 0) {
                         ScrollView {
                             ForEach(viewModel.availableSlots.chunked(into: 3), id: \.self) { row in
-                                HStack(spacing: 15) {
+                                HStack(spacing:17) {
                                     ForEach(row, id: \.self) { slot in
                                         Button {
                                             viewModel.selectSlot(slot)
@@ -107,7 +119,6 @@ struct PSlotSelection: View {
                     }
                 }
             }
-            .frame(height: 225)
         }
     }
     

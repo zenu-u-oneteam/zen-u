@@ -17,23 +17,23 @@ struct PSpecialButton: View {
         ZStack{
             
             if active {
-                RoundedRectangle(cornerRadius: 15)
+                RoundedRectangle(cornerRadius: 60)
                     .foregroundColor(buttonColor)
-                    .frame(width: 107, height: 35)
+                    .frame(width: 105, height: 44)
                     .background(Color.blue, in: RoundedRectangle(cornerRadius: 25))
-                Text(buttonText).bold().foregroundColor(.white)
+                Text(buttonText).fontWeight(.semibold).foregroundColor(.white)
                 
             } else {
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: 107, height: 35)
+                RoundedRectangle(cornerRadius: 60)
+                    .frame(width: 105, height: 44)
                     .foregroundColor(Color("Secondary"))
                 
                 Text(buttonText)
-                    .bold()
+                    .fontWeight(.semibold)
                     .foregroundColor(Color("Heading"))
                 
             }
-        }
+        }.padding(.vertical, 5)
     }
 }
 
