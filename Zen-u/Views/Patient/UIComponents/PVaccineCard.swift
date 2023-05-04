@@ -14,6 +14,7 @@ struct PVaccineCard: View {
     var Status : String
     var expanded: Bool = true
     var height: CGFloat = 75
+    var width: CGFloat = 100
     @State private var isModalPresented = false
     
     var body: some View {
@@ -59,7 +60,7 @@ struct PVaccineCard: View {
                     .font(.subheadline.weight(.bold))
             }
         }
-        .frame(height: height)
+        .frame(width: width, height: height)
         .padding()
         .foregroundColor(Color("Heading"))
         .background(Color("Secondary"))

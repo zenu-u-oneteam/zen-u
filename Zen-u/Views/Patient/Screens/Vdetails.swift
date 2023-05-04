@@ -32,7 +32,7 @@ func headerView() -> some View{
     
     Text("Vaccinations\nDetails")
         .frame(maxWidth: .infinity, alignment: .leading)
-        .font(.largeTitle.weight(.heavy))
+        .font(.largeTitle.weight(.semibold))
     
 }
 
@@ -117,7 +117,8 @@ label: {
     NavigationLink(destination:  PSlotSelection(reason: "", department: DepartmentRaw(doctors: ["L4KhoPHiaUUDSn2ep51mZtyqx2O2"]), appointmentType: AppointmentTypeRaw(name: "", amount: 0.0, category: "", department: ""))){
         HStack {
             Text("INR 1299")
-                .font(.title.weight(.semibold))
+                .font(.title3.weight(.semibold))
+                .foregroundColor(Color("Accent"))
             Spacer()
             
             TabButton(text: "Continue", fullWidth: false)

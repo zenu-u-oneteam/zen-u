@@ -13,7 +13,7 @@ struct AilmentView: View {
     var body: some View {
         NavigationStack{
             VStack{
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     PVaccineCard(vaccineName: "Chickenpox", numberOfAvailableDoses: "123", Status: "Available\nVaccines")
                     
                     PVaccineCard(vaccineName: "Influenza", numberOfAvailableDoses: "131", Status: "Available\nVaccines")
