@@ -58,10 +58,10 @@ struct DProfile: View {
                         Text("Diabetology")
                             .font(.caption.weight(.semibold))
                             .padding(.bottom, 10)
-                        Text("38 years experience")
+                        Text(viewModel.doctor.experience ?? "4")
                             .font(.caption.weight(.light))
                             .padding(.bottom, 2)
-                        Text("MD (General Med)")
+                        Text(viewModel.doctor.specialisation ?? "MD(General0")
                             .font(.caption.weight(.light))
                     }
                     Spacer()
@@ -81,7 +81,7 @@ struct DProfile: View {
                         }
                         .frame(width: 95)
                         
-                        Text("MBBS, MRCP, MRCGP, PGD (Diabetology & Endocrinology)")
+                        Text(viewModel.doctor.education ?? "MBBS")
                             .font(.caption.weight(.light))
                             .lineLimit(nil)
                             .multilineTextAlignment(.leading)
@@ -101,7 +101,7 @@ struct DProfile: View {
                         }
                         .frame(width: 95)
                         
-                        Text("English, Hindi, Malayalam")
+                        Text(viewModel.doctor.languages ?? "English")
                             .font(.caption.weight(.light))
                             .multilineTextAlignment(.leading)
                         
@@ -122,7 +122,7 @@ struct DProfile: View {
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
                     
-                    Text("+91 7858897916")
+                    Text(viewModel.user.mobileNumber)
                         .font(.caption.weight(.light))
                         .foregroundColor(Color("Heading"))
                 }
@@ -132,7 +132,7 @@ struct DProfile: View {
                         .font(.largeTitle)
                         .foregroundColor(.accentColor)
                     
-                    Text("i.haqcs@gmail.com")
+                    Text(viewModel.user.email)
                         .foregroundColor(Color("Heading"))
                         .font(.caption.weight(.light))
                 }

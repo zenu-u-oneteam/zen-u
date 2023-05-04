@@ -13,7 +13,7 @@ extension DProfile{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         @Published var user: User = User(name: "", email: "", userType: .doctor, profileImage: "", mobileNumber: "")
-        @Published var doctor: DoctorRaw = DoctorRaw(age: 0, gender: "", name: "")
+        @Published var doctor = DoctorRaw(age: 0, gender: "", name: "", startTime: 0, endTime: 0, experience: "", education: "", languages: "", specialisation: "")
         
         let db = FirebaseConfig().db
         
