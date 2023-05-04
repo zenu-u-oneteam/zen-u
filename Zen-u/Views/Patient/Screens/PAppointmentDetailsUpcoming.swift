@@ -45,15 +45,7 @@ struct PAppointmentDetailsUpcoming: View {
     
                                 
                             .padding(2)
-                                
-//                                Text("Cabin number: \(String(appointmentDetails.doctor?.cabin ?? 1224))")
-//                                    .font(.caption)
-//                                    .padding(8)
-//                                    .background(Color.white, in: RoundedRectangle(cornerRadius: 10))
-//                                    .padding(.bottom, 3)
-                                
-                               
-                            }
+                               }
                         
                     }.padding()
                     .hLeading()
