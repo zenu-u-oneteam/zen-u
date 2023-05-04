@@ -41,6 +41,8 @@ struct AppointmentCard: View {
             }
             Spacer()
             VStack(alignment: .trailing) {
+                Text(appointmentDetails.appointmentTime, style: .date)
+                    .font(.footnote).bold()
                 Text(formatDate(appointmentDetails.appointmentTime))
                     .font(.largeTitle.bold())
                 Text(appointmentDetails.doctor!.name)
@@ -77,7 +79,7 @@ struct AppointmentCard: View {
 
 struct AppointmentCard_Previews: PreviewProvider {
     static var previews: some View {
-        let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel", startTime: 0, endTime: 0), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
+        let appointmentDetails: Appointment = Appointment(id: "12345", appointmentTime: Date(), doctor: DoctorRaw(age: 45, gender: "Male", name: "Dr. Hanna Fiegel", startTime: 9, endTime: 17), type: AppointmentTypeRaw(name: "PSV23 (Pneumo)", amount: 123, category: "General", department: "General"))
         AppointmentCard(appointmentDetails: appointmentDetails)
     }
 }

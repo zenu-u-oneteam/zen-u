@@ -49,6 +49,25 @@ struct PAppointmentRecordView: View {
                             .cornerRadius(15)
                             .padding(.horizontal, 15)
                     }
+                    if(appointmentRecord.prescriptions != nil){
+                        VStack(alignment: .leading){
+                            Text("Prescriptions")
+                                .font(.title3.bold())
+                                .hLeading()
+                                .padding(20)
+                                .padding(.top, 40)
+                                .foregroundColor(Color("Heading"))
+                            Text(appointmentRecord.prescriptions ?? "none")
+                                .font(.system(size: 16))
+                                .fontWeight(.regular)
+                                .hLeading()
+                                .padding(20)
+                                .foregroundColor(Color("Subheadings"))
+                                .background(Color("Secondary"))
+                                .cornerRadius(15)
+                                .padding(.horizontal, 15)
+                        }
+                    }
                 }
             }
             
@@ -60,6 +79,6 @@ struct PAppointmentRecordView: View {
 
 struct PAppointmentRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        PAppointmentRecordView(appointmentRecord: AppointmentReports(id: "1", appointmentTime: Date.now, symptoms: "", medicalAdvice: ""))
+        PAppointmentRecordView(appointmentRecord: AppointmentReports(id: "1", appointmentTime: Date.now, symptoms: "", medicalAdvice: "", prescriptions: "yada yada yada"))
     }
 }

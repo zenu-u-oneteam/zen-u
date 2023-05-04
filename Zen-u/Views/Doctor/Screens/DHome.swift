@@ -45,7 +45,7 @@ struct DHome: View {
                                     )
                             }
                             .sheet(isPresented: $showingSheet) {
-                                DoctorProfile()
+                                DProfile()
                             }
                         }
                         .padding()

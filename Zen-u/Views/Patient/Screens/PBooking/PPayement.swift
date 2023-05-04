@@ -22,8 +22,6 @@ struct PPayment: View {
             .cornerRadius(30)
             .padding(.vertical, 30)
             
-            Spacer()
-            
             VStack(spacing: 14){
                 Button {
                     print(" Return to Home button")
@@ -40,10 +38,9 @@ struct PPayment: View {
                     }
                 }
             }
-            .padding(.bottom, 24)
+            Spacer()
         }
         .navigationTitle("Confirmation")
-        .navigationBarBackButtonHidden()
     }
 }
 

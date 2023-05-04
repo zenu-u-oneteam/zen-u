@@ -1,5 +1,5 @@
 //
-//  AMain.swift
+//  DMain.swift
 //  Zen-u
 //
 //  Created by Harsh Kelawala on 02/05/23.
@@ -7,29 +7,23 @@
 
 import SwiftUI
 
-struct AMain: View {
+struct DMain: View {
     @State private var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            AHome()
+           DHome()
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
                 .tag(0)
             
-            Text("Staff")
+            DSchedule()
                 .tabItem {
-                    Label("Patients", systemImage: "person.2.crop.square.stack")
+                    Label("Schedule", systemImage: "calendar")
                 }
                 .tag(1)
-            
-            Text("Patients")
-                .tabItem {
-                    Label("Staff", systemImage: "person.2.circle")
-                }
-                .tag(3)
-            Text("Alerts")
+            DColorAlert()
                 .tabItem {
                     Label("Alerts", systemImage: "exclamationmark.triangle")
                 }
@@ -41,8 +35,9 @@ struct AMain: View {
     }
 }
 
-struct AMain_Previews: PreviewProvider {
+
+struct DMain_Previews: PreviewProvider {
     static var previews: some View {
-        AMain()
+        DMain()
     }
 }
