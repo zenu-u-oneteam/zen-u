@@ -55,7 +55,7 @@ struct DProfile: View {
                     VStack(alignment: .leading){
                         Text(viewModel.doctor.name)
                             .font(.title3.bold())
-                        Text("Diabetology")
+                        Text("General")
                             .font(.caption.weight(.semibold))
                             .padding(.bottom, 10)
                         Text(viewModel.doctor.experience ?? "4")
