@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DProfile: View {
+    @EnvironmentObject var appState: AppState
     @StateObject private var viewModel = ViewModel()
     @State private var selectedOption = "Option 1"
     var body: some View {
@@ -22,13 +23,14 @@ struct DProfile: View {
                 
                 Menu {
                     Button("Edit") {
-                        self.selectedOption = "Option 1"
+                        viewModel.editDoctor()
                     }
                     Button("Settings") {
-                        self.selectedOption = "Option 2"
+                        viewModel.doctorSettings()
                     }
                     Button("Log Out") {
-                        self.selectedOption = "Option 3"
+                        viewModel.logout()
+                        appState.rootViewId = UUID()
                     }
                 }
             label: {
