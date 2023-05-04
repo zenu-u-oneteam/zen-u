@@ -8,14 +8,12 @@
 import SwiftUI
 struct PProfile: View {
     @EnvironmentObject var appState: AppState
-    @State var showMenu = false
-    @State private var selectedOption = "Option 1"
-    @State var userType: UserType = .none
+    @StateObject private var viewModel: ViewModel = ViewModel()
     
     var body: some View {
         VStack{
             HeaderView()
-            ProfileHeaderView()
+            ProfileHeaderView(user: viewModel.user, patient: viewModel.patient)
             SubHeadingView()
             ScrollView(.horizontal,showsIndicators: false){
                 HStack{
@@ -25,7 +23,8 @@ struct PProfile: View {
                 }
             }
             Spacer()
-        }.padding(.horizontal,15)
+        }
+        .padding(.horizontal,15)
     }
     
     func HeaderView() -> some View {
@@ -35,26 +34,24 @@ struct PProfile: View {
             Spacer()
             Menu {
                 Button("Edit") {
-                    self.selectedOption = "Option 1"
+                    viewModel.editPatient()
                 }
                 Button("Settings") {
-                    self.selectedOption = "Option 2"
+                    viewModel.patientSettings()
                 }
                 Button("Log Out") {
-                    self.selectedOption = "Option 3"
-                    print("LOGOUT!!!")
-                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    viewModel.logout()
                     appState.rootViewId = UUID()
                 }
-            }
-        label: {
-            Image(systemName: "line.horizontal.3")
-                .resizable()
-                .foregroundColor(Color("Heading"))
-                .frame(width: 15, height: 13)
-                .padding(.vertical)
-        } 
+            } label: {
+                Image(systemName: "line.horizontal.3")
+                    .resizable()
+                    .foregroundColor(Color("Heading"))
+                    .frame(width: 15, height: 13)
+                    .padding(.vertical)
+            } 
         }
+        .padding(.top, 30)
     }
     
     
