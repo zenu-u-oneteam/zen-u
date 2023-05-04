@@ -50,6 +50,7 @@
 		23CBF1DE29F554F400318ED4 /* PAppointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CBF1DD29F554F400318ED4 /* PAppointment.swift */; };
 		23CBF1E029F55DC000318ED4 /* SegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */; };
 		2D0B8C1329FFE71100B029B8 /* PAppointment-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0B8C1229FFE71100B029B8 /* PAppointment-ViewModel.swift */; };
+		2D33B67B2A03C7E40046FC5D /* ConfirmModalView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D33B67A2A03C7E40046FC5D /* ConfirmModalView-ViewModel.swift */; };
 		2D37960D2A022AF300B73719 /* DSchedule-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */; };
 		2D37960F2A0377F900B73719 /* AAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D37960E2A0377F900B73719 /* AAlerts.swift */; };
 		2D3796112A038B7300B73719 /* AAlerts-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3796102A038B7300B73719 /* AAlerts-ViewModel.swift */; };
@@ -136,6 +137,7 @@
 		23CBF1DD29F554F400318ED4 /* PAppointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointment.swift; sourceTree = "<group>"; };
 		23CBF1DF29F55DC000318ED4 /* SegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPicker.swift; sourceTree = "<group>"; };
 		2D0B8C1229FFE71100B029B8 /* PAppointment-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PAppointment-ViewModel.swift"; sourceTree = "<group>"; };
+		2D33B67A2A03C7E40046FC5D /* ConfirmModalView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ConfirmModalView-ViewModel.swift"; path = "Zen-u/Models/ConfirmModalView-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DSchedule-ViewModel.swift"; path = "Zen-u/ViewModels/Patient/DSchedule-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		2D37960E2A0377F900B73719 /* AAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAlerts.swift; sourceTree = "<group>"; };
 		2D3796102A038B7300B73719 /* AAlerts-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AAlerts-ViewModel.swift"; path = "Zen-u/Views/Admin/Screens/AAlerts-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -494,6 +496,7 @@
 			children = (
 				2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */,
 				2D3796102A038B7300B73719 /* AAlerts-ViewModel.swift */,
+				2D33B67A2A03C7E40046FC5D /* ConfirmModalView-ViewModel.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				3874753829ED63AA00CCA151 /* PSlotSelection.swift in Sources */,
 				3874754129ED66D400CCA151 /* DSchedule.swift in Sources */,
 				C941A99829F6A90B0018069F /* DProfile.swift in Sources */,
+				2D33B67B2A03C7E40046FC5D /* ConfirmModalView-ViewModel.swift in Sources */,
 				06A8712E2A0194060088CAAA /* PAppointmentRecordView.swift in Sources */,
 				06A8712A2A0177120088CAAA /* AppointmentReports.swift in Sources */,
 				A9F4850229F2595A009DA356 /* PViewModel.swift in Sources */,
