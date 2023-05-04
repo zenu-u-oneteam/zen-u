@@ -25,7 +25,6 @@ struct DAppointmentDetails: View {
         self.appointmentDetails = appointmentDetails
         self._viewModel = StateObject(wrappedValue: ViewModel(appointmentDetails: appointmentDetails))
     }
-    
     func formattedDateComponents(dateComponents: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d, yyyy 'at' h:mm a"
@@ -108,7 +107,8 @@ struct DAppointmentDetails: View {
                         
                         if statusIndex == 0 {
                             Active_Medication(medication: viewModel.activeMedications)
-                        } else if statusIndex == 1 && (typeIndex1 == 0 || typeIndex1 == 1) {
+                        }
+                        else if statusIndex == 1 && (typeIndex1 == 1) {
                             HStack{
                                 
                                 ZStack {
@@ -136,23 +136,98 @@ struct DAppointmentDetails: View {
                                 Button{
                                     
                                 } label: {
-                                    NavigationLink(destination: CustomPDFView(title: viewModel.patientRecords[0].name , url: viewModel.patientRecords[0].document, show: false)) {
+                                    NavigationLink(destination: CustomPDFView(title: viewModel.firstVaccinationReport.name , url: viewModel.firstVaccinationReport.document, show: false)) {
                                         HStack (alignment: .center, spacing: 12){
-                                            Image(systemName: viewModel.patientRecords[0].type?.image ?? "doc.text.magnifyingglass")
+                                            Image(systemName: viewModel.firstVaccinationReport.type?.image ?? "doc.text.magnifyingglass")
                                                 .resizable()
                                                 .frame(width: 40, height: 40)
                                                 .padding(.leading)
                                                 .foregroundColor(Color("Heading"))
                                             
                                             VStack(alignment: .leading, spacing: 10) {
-                                                Text(viewModel.patientRecords[0].name)
+                                                Text(viewModel.firstVaccinationReport.name)
                                                     .font(.system(size: 16).weight(.semibold))
                                                     .padding(.leading, 10)
                                                     .hLeading()
                                                     .foregroundColor(Color("Heading"))
                                                     .frame(width: 200)
                                                 
-                                                Text(formattedDateComponents(dateComponents: viewModel.patientRecords[0].appointmentTime))
+                                                Text(formattedDateComponents(dateComponents: viewModel.firstVaccinationReport.appointmentTime))
+                                                    .font(.system(size: 14).weight(.regular))
+                                                    .foregroundColor(.gray)
+                                                    .padding(.leading, 10)
+                                                    .hLeading()
+                                                    .frame(width: 200)
+                                            }
+                                            Image(systemName: "chevron.forward")
+                                                .foregroundColor(Color(UIColor.tertiaryLabel))
+                                                .padding(.trailing, 10)
+                                                .hTrailing()
+                                            
+                                            
+                                            Spacer()
+                                        }
+                                        .frame(width: 356)
+                                        .padding(.vertical, 20)
+                                        .background(Color("Secondary"))
+                                        .cornerRadius(10)
+                                        .padding(.vertical, 20)
+                                        .padding(.leading, 3)
+                                        
+                                    }
+                                }
+                            }
+                            else{
+                                emptyDisplayMessage(message: "No health Records to display")
+                            }
+                            
+                        }
+                        
+                        else if statusIndex == 1 && (typeIndex1 == 0) {
+                            HStack{
+                                
+                                ZStack {
+                                    Menu {
+                                        ForEach(typeSelections1.indices, id: \.self) {type in
+                                            Button(typeSelections1[type], action: {typeIndex1 = type})
+                                        }
+                                    } label: {
+                                        ViewButton(text: typeSelections1[typeIndex1], rIcon: "chevron.down")
+                                    }
+                                }
+                                
+                                Button {
+                                    
+                                } label: {
+                                    NavigationLink(destination: DAppointmentViewAll(heading: typeSelections1[typeIndex1] , patientRecords: viewModel.patientRecords, appointmentRecords: viewModel.appointmentReports)){
+                                        ViewButton(text: "View All", selectable: true).hTrailing()
+                                    }
+                                
+                                }
+                            }
+                            .padding(.top, 20)
+                            
+                            if(viewModel.patientRecords.count != 0) {
+                                Button{
+                                    
+                                } label: {
+                                    NavigationLink(destination: CustomPDFView(title: viewModel.firstLabReport.name , url: viewModel.firstLabReport.document, show: false)) {
+                                        HStack (alignment: .center, spacing: 12){
+                                            Image(systemName: viewModel.firstLabReport.type?.image ?? "doc.text.magnifyingglass")
+                                                .resizable()
+                                                .frame(width: 40, height: 40)
+                                                .padding(.leading)
+                                                .foregroundColor(Color("Heading"))
+                                            
+                                            VStack(alignment: .leading, spacing: 10) {
+                                                Text(viewModel.firstLabReport.name)
+                                                    .font(.system(size: 16).weight(.semibold))
+                                                    .padding(.leading, 10)
+                                                    .hLeading()
+                                                    .foregroundColor(Color("Heading"))
+                                                    .frame(width: 200)
+                                                
+                                                Text(formattedDateComponents(dateComponents: viewModel.firstLabReport.appointmentTime))
                                                     .font(.system(size: 14).weight(.regular))
                                                     .foregroundColor(.gray)
                                                     .padding(.leading, 10)

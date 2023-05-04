@@ -14,6 +14,8 @@ extension DAppointmentDetails {
         @Published var patientRecords : [HealthRecord] = []
         @Published var appointmentReports : [AppointmentReports] = []
         @Published var activeMedications : [String] = []
+        @Published var firstLabReport: HealthRecord = HealthRecord(id: "", name: "", appointmentTime: Date.now, document: "")
+        @Published var firstVaccinationReport: HealthRecord = HealthRecord(id: "", name: "", appointmentTime: Date.now, document: "")
         var appointmentDetails: AppointmentData
         
         let db = FirebaseConfig().db
@@ -25,10 +27,34 @@ extension DAppointmentDetails {
                 patientRecords = await getPatientRecords()
                 activeMedications = await getactiveMedications()
                 appointmentReports = await getAppointmentReports()
+                firstLabReport = await getfirstLabReport(record: patientRecords)
+                firstVaccinationReport = await getfirstVaccinationReport(record: patientRecords)
                 
                 isLoading = false
                 
             }
+        }
+        
+        func getfirstLabReport(record: [HealthRecord]) async -> HealthRecord {
+                if let index = record.firstIndex(where: { $0.type?.category == "Lab Reports" }) {
+                    return record[index]
+                } else {
+                    return HealthRecord(id: "", name: "", appointmentTime: Date.now, document: "")
+                }
+                
+           
+            
+        }
+        
+        func getfirstVaccinationReport(record: [HealthRecord]) async -> HealthRecord {
+                if let index = record.firstIndex(where: { $0.type?.category == "Vaccination Reports" }) {
+                    return record[index]
+                } else {
+                    return HealthRecord(id: "", name: "", appointmentTime: Date.now, document: "")
+                }
+                
+           
+            
         }
         
         func getPatientRecords() async -> [HealthRecord]  {
