@@ -1,8 +1,8 @@
 //
-//  PatientPayment.swift
+//  PPayment.swift
 //  Zen-u
 //
-//  Created by Debarghya Barik on 19/04/23.
+//  Created by Prakhar Singh on 04/05/23.
 //
 
 import SwiftUI

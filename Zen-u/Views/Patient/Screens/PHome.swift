@@ -105,15 +105,17 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            Text("Lab")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 68,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
+                            NavigationLink(destination: PLabTestBooking()) {
+                                Text("Lab")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 68,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
                         }
                         Button {
                             
