@@ -32,7 +32,7 @@ struct PAppointment: View {
                         ViewButton(text: typeSelections[typeIndex], rIcon: "chevron.down")
                     }
                     
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         if viewModel.isLoading {
                             
                             ProgressView("Loading...").hCenter()
@@ -109,18 +109,42 @@ struct getBookedAppointments: View {
                     if viewModel.upcomingAppointments.isEmpty{
                         emptyDisplayMessage(message: "No Upcoming Appointments")
                     }else{
+                        
                         ForEach(viewModel.upcomingAppointments.indices, id: \.self){ index in
-                            AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                            if(viewModel.upcomingAppointments[index].type?.category == "Consultation"){
+                                Button{
+                                    
+                                }label: {
+                                    NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[index])){
+                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                                        
+                                    }
+                                }
+                            } else {
+                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index])
+                            }
                         }
                     }
                     
                 }
                 else {
                     if viewModel.pastAppointments.isEmpty{
-                        emptyDisplayMessage(message: "No Past Records")
+                        emptyDisplayMessage(message: "No Past Appointments")
                     }else{
+                        
                         ForEach(viewModel.pastAppointments.indices, id: \.self){ index in
-                            AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                            if(viewModel.pastAppointments[index].type?.category == "Consultation"){
+                                Button{
+                                    
+                                }label: {
+                                    NavigationLink(destination: PAppointmentDetailsPast(appointmentDetails: viewModel.pastAppointments[index])){
+                                        AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                                        
+                                    }
+                                }
+                            } else {
+                                AppointmentCard(appointmentDetails: viewModel.pastAppointments[index])
+                            }
                         }
                     }
                     
@@ -154,7 +178,13 @@ struct getBookedAppointments: View {
                         emptyDisplayMessage(message: "No Upcoming Consultations")
                     }else{
                         ForEach(viewModel.consultUpAppointments.indices, id: \.self){ index in
-                            AppointmentCard(appointmentDetails: viewModel.consultUpAppointments[index])
+                            Button {
+                                
+                            } label: {
+                                NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.consultUpAppointments[index])){
+                                    AppointmentCard(appointmentDetails: viewModel.consultUpAppointments[index])
+                                }
+                            }
                         }
                     }
                     
@@ -164,7 +194,13 @@ struct getBookedAppointments: View {
                         emptyDisplayMessage(message: "No Past Records")
                     }else{
                         ForEach(viewModel.consultPastAppointments.indices, id: \.self){ index in
-                            AppointmentCard(appointmentDetails: viewModel.consultPastAppointments[index])
+                            Button {
+                                
+                            } label: {
+                                NavigationLink(destination: PAppointmentDetailsPast(appointmentDetails: viewModel.consultPastAppointments[index])){
+                                    AppointmentCard(appointmentDetails: viewModel.consultPastAppointments[index])
+                                }
+                            }
                         }
                     }
                     
