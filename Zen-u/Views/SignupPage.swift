@@ -13,73 +13,84 @@ struct SignupPage: View {
     @State private var agreedToTerms = false
     
     var body: some View {
-        VStack(spacing: 30) {
-            Image("signupImage")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 280)
-                .padding(.bottom, -60)
-            Spacer()
-            VStack(alignment: .leading, spacing: 10) {
+        ScrollView {
+            VStack(spacing: 30) {
+                Image("signupImage")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 280)
+                    .padding(.bottom, -60)
                 Spacer()
-                HStack {
-                    Image(systemName: "person")
-                        .foregroundColor(.black)
-                    TextField("Enter your name", text: $viewModel.user.name)
-                        .font(.system(size: 17, weight: .light))
+                VStack(alignment: .leading, spacing: 10) {
+                    Spacer()
+                    HStack {
+                        Image(systemName: "person")
+                            .foregroundColor(.black)
+                        TextField("Enter your name", text: $viewModel.user.name)
+                            .font(.system(size: 17, weight: .light))
+                            .autocorrectionDisabled(true)
+                    }
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(12)
                 }
-                .padding()
-                .background(Color(.systemGray5))
-                .cornerRadius(12)
-            }
-            
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Image(systemName: "envelope")
+                
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundColor(.black)
+                        TextField("Enter your email", text: $viewModel.useremail)
+                            .font(.system(size: 17, weight: .light))
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled(true)
+                            .keyboardType(.emailAddress)
+                    }
+                    .padding()
+                    .background(Color(.systemGray5))
+                    .cornerRadius(12)
+                }
+                
+                HStack(alignment: .center, spacing: 13) {
+                    Image(systemName: "lock")
                         .foregroundColor(.black)
-                    TextField("Enter your email", text: $viewModel.user.email)
+                    SecureField("Enter your password", text: $viewModel.password)
                         .font(.system(size: 17, weight: .light))
                         .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled(true)
+                    Spacer()
                 }
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(12)
-            }
-        
-            
-            HStack(alignment: .center, spacing: 13) {
-                Image(systemName: "lock")
-                    .foregroundColor(.black)
-                SecureField("Enter your password", text: $viewModel.password)
-                    .font(.system(size: 17, weight: .light))
-                Spacer()
-            }
-            .padding()
-            .background(Color(.systemGray5))
-            .cornerRadius(12)
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    CheckBoxView(checked: $agreedToTerms)
-                        .cornerRadius(5)
-                    Text("I agree to the zen-u Terms of Service and Privacy Policy")
-                        .foregroundColor(.gray)
-                        .fixedSize(horizontal: false, vertical: true)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        CheckBoxView(checked: $agreedToTerms)
+                            .cornerRadius(5)
+                        Text("I agree to the zen-u Terms of Service and Privacy Policy")
+                            .foregroundColor(.gray)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-            }
-            
-            
-            Button(action: {
-                viewModel.addingUser()
-            }, label: {
+                
+                
+                Button {
+                    viewModel.addingUser()
+                } label: {
                     ActionButton(text: "Sign Up", disabled: !agreedToTerms)
-            }).disabled(!agreedToTerms)
-            
-            Spacer()  //remove for bringing everything down
-            
+                }
+                .disabled(!agreedToTerms)
+                
+                Spacer()  //remove for bringing everything down
+                
+            }
         }
-        .padding()
+        .ignoresSafeArea(.keyboard)
         .navigationBarTitle("zen-u", displayMode: .inline)
+        .padding()
+        .onTapGesture {
+            self.hideKeyboard()
+        }
         .navigationDestination(isPresented: $viewModel.canContinue, destination: {
             POnboarding()
         })
@@ -99,9 +110,6 @@ struct CheckBoxView: View {
         }
     }
 }
-
-
-
 
 struct SignupPage_Previews: PreviewProvider {
     static var previews: some View {

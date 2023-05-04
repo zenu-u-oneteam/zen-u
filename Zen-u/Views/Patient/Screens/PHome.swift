@@ -17,6 +17,7 @@ struct EducationTopics: Identifiable{
 struct PHome: View {
     @State var path: NavigationPath = NavigationPath()
     @StateObject private var viewModel = ViewModel()
+    @State private var showingSheet = false
     
     let items: [EducationTopics] = [
         EducationTopics(educationTitle: "Ayurveda and its benefits", educationContent: "Ayurveda is an ancient system of medicine that originated in India more than 5000 years ago. The word Ayurveda is derived from Sanskrit, and it means knowledge of life or science of life. It is based on the belief that health and wellness depend on a delicate balance between the mind, body, and spirit.", educzationImage: "ayurveda"),
@@ -27,6 +28,7 @@ struct PHome: View {
     @State private var selectedItem: EducationTopics?
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             if viewModel.isLoading {
                 ProgressView("Loading...")
@@ -35,20 +37,21 @@ struct PHome: View {
                     VStack(alignment: .leading) {
                         HStack(spacing:40){
                             Button{
-                                
-                            } label: {
-                                NavigationLink(destination: PProfile()) {
-                                    Image(systemName: "person.fill")
-                                        .foregroundColor(Color("Heading"))
-                                        .frame(width: 18,height: 18)
-                                        .background(Circle()
-                                            .stroke(Color.white,lineWidth: 3)
-                                            .background(Circle().fill(Color("Secondary")))
-                                            .frame(width: 40,height: 40)
-                                        )
-                                }
+                                showingSheet.toggle()
                             }
-                            
+                        label: {
+                            Image(systemName: "person.fill")
+                                .foregroundColor(Color("Heading"))
+                                .frame(width: 18,height: 18)
+                                .background(Circle()
+                                    .stroke(Color.white,lineWidth: 3)
+                                    .background(Circle().fill(Color("Secondary")))
+                                    .frame(width: 40,height: 40)
+                                )
+                        }
+                        .sheet(isPresented: $showingSheet) {
+                            PProfile()
+                        }
                             VStack(alignment: .leading){
                                 Text(viewModel.greeting)
                                     .font(.caption2)
@@ -57,8 +60,8 @@ struct PHome: View {
                             }
                             Spacer()
                             
-                            Button(){
-                                
+                            Button {
+                                viewModel.emergencyCall()
                             } label: {
                                 
                                 Image(systemName: "phone.fill")
@@ -87,7 +90,7 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            NavigationLink(destination: PBookingAppointments()) {
+                            NavigationLink(destination: PConsultationAppointments()) {
                                 Text("Consult")
                                     .fontWeight(.semibold)
                                     .foregroundColor(Color("Heading"))
@@ -102,28 +105,32 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            Text("Lab")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 68,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
+                            NavigationLink(destination: PLabTestBooking()) {
+                                Text("Lab")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 68,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
                         }
                         Button {
                             
                         } label: {
-                            Text("Vaccination")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 128,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
+                            NavigationLink(destination: PVaccinationBooking()) {
+                                Text("Vaccination")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 128,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
                         }
                         Spacer()
                     }
@@ -137,9 +144,19 @@ struct PHome: View {
                                 Text("Upcoming Appointments")
                                     .font(.body.weight(.semibold))
                                     .padding(.top, 20)
-                                
-                                ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
-                                    AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[item], highlited: item == 0)
+                                ForEach(viewModel.upcomingAppointments.indices , id: \.self) { index in
+                                    if(viewModel.upcomingAppointments[index].type?.category == "Consultation"){
+                                        Button{
+                                            
+                                        }label: {
+                                            NavigationLink(destination: PAppointmentDetailsUpcoming(appointmentDetails: viewModel.upcomingAppointments[index])){
+                                                AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
+                                                
+                                            }
+                                        }
+                                    } else {
+                                        AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
+                                    }
                                 }
                             }
                             .padding(.horizontal, 20)
