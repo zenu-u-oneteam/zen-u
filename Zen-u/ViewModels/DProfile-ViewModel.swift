@@ -21,11 +21,11 @@ extension DProfile{
             print("Hello")
             isLoading = true
             
-            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
+            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { return }
             let decoder = JSONDecoder()
-            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
-            user = currentUser
+            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { return }
             
+            user = currentUser
             
             Task {
                await getDoctorInformation()
@@ -43,6 +43,24 @@ extension DProfile{
                 fatalError("\(error)")
             }
         }
+        
+        func editDoctor() {
+            print("Edit User")
+        }
+        
+        func doctorSettings() {
+            print("Patient Settings")
+        }
+        
+        func logout() {
+            do {
+                UserDefaults.standard.removeObject(forKey: "currentUser")
+                try Auth.auth().signOut()
+            } catch {
+                print(error)
+            }
+        }
+
 
     }
 }
