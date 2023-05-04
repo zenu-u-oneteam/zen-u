@@ -73,7 +73,9 @@ extension PHome{
                         doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
                         type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
                     )
-                    upcomingAppointment.append(appointmentDetails)
+                    if(appointmentDetails.appointmentTime > Date() && Calendar.current.isDateInToday(appointmentDetails.appointmentTime) ){
+                        upcomingAppointment.append(appointmentDetails)
+                    }
                 }
                 return upcomingAppointment
             } catch {
