@@ -34,7 +34,7 @@ struct PBookingSummary: View {
                 PaymentView(appointmentType: appointmentType)
             }
             .navigationTitle("Summary")
-            .padding(20)
+            .padding(17)
             .navigationDestination(isPresented: $viewModel.hasPaied, destination: {
                 PPayment()
             })

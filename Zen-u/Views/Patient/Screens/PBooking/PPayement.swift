@@ -10,17 +10,20 @@ import SwiftUI
 struct PPayment: View {
     var body: some View {
         VStack(spacing: 20) {
-            VStack {
-                Image("AppointmentConfirmed")
-                    .frame(width: 270, height: 270)
-                    .padding()
-                Text("Appointment Confirmed!")
-                    .font(.title3.bold())
-            }
-            .frame(width: 350, height: 380)
-            .background(Color("Secondary"))
-            .cornerRadius(30)
-            .padding(.vertical, 30)
+            HStack{
+                Spacer()
+                VStack {
+                    Image("AppointmentConfirmed")
+                        .frame(width: 270, height: 270)
+                        .padding()
+                    Text("Appointment Confirmed!")
+                        .font(.title3.bold())
+                }
+                Spacer()
+            } .frame(height: 380)
+                .background(Color("Secondary"))
+                .cornerRadius(30)
+            Spacer()
             
             VStack(spacing: 14){
                 Button {
@@ -38,9 +41,10 @@ struct PPayment: View {
                     }
                 }
             }
-            Spacer()
         }
         .navigationTitle("Confirmation")
+        .padding(16)
+        
     }
 }
 
