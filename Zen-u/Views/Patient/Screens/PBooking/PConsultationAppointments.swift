@@ -28,7 +28,7 @@ struct PConsultationAppointments: View {
                             viewModel.isDeptSelected = false
                             viewModel.selectedDeptText = "none"
                         }
-
+                    
                     Text("Specialist")
                         .font(.callout.weight(.semibold))
                         .foregroundColor(viewModel.selectedConsltType == ConsltType.specailist ? .white : Color("Heading"))

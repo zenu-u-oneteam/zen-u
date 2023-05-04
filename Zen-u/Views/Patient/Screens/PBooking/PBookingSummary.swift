@@ -34,7 +34,7 @@ struct PBookingSummary: View {
                 PaymentView(appointmentType: appointmentType)
             }
             .navigationTitle("Summary")
-            .padding(24)
+            .padding(20)
             .navigationDestination(isPresented: $viewModel.hasPaied, destination: {
                 PPayment()
             })
@@ -42,75 +42,76 @@ struct PBookingSummary: View {
     }
     
     func BookingInfoView(slot: Date, department: DepartmentRaw) -> some View {
-        VStack(spacing:20) {
-            Text("Booking Information")
-                .hLeading()
-                .font(.title3.weight(.semibold))
-                .foregroundColor(Color("Heading"))
+        VStack(spacing:25) {
             
-            HStack {
-                Image(systemName: "calendar")
-                    .resizable()
-                    .foregroundColor(Color.white)
-                    .frame(width: 20,height: 20)
-                    .frame(width: 60,height: 60)
-                    .background(Color("Accent"))
-                    .cornerRadius(30)
-                    .padding(.horizontal, 20)
-                
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Date and Time")
-                        .font(.body.weight(.semibold))
-                        .padding(.vertical, 3.0)
-                    Text(extractDate(date:slot, format:"EEEE, d MMMM, yyyy"))
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("Tag"))
-                    Text(extractDate(date:slot, format:"h:mm a"))
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("Tag"))
+            VStack {
+                Text("Booking Information")
+                    .hLeading()
+                    .font(.title3.weight(.semibold))
+                    .foregroundColor(Color("Heading"))
+                HStack {
+                    Image(systemName: "calendar")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: 20,height: 20)
+                        .frame(width: 60,height: 60)
+                        .background(Color("Accent"))
+                        .cornerRadius(30)
+                        .padding(.horizontal, 20)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(extractDate(date:slot, format:"EEEE, d MMMM, yyyy"))
+                            .font(.body.weight(.semibold))
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color("Heading"))
+                        Text(extractDate(date:slot, format:"h:mm a"))
+                            .font(.body.weight(.semibold))
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color("Heading"))
+                        Text("Date and Time")
+                            .font(.footnote.weight(.semibold))
+                            .foregroundColor(Color("Tag"))
+                    }
+                    Spacer()
                 }
-                Spacer()
-            }
-            .padding()
-            .padding(.vertical, 7)
-            .foregroundColor(Color("Heading"))
-            .background(Color("Secondary"))
-            .cornerRadius(17)
-            .padding(.bottom, 40)
-            
-            Text("Doctor Information")
-                .font(.title3.weight(.semibold))
+                .padding()
+                .padding(.vertical, 5)
                 .foregroundColor(Color("Heading"))
-                .hLeading()
-            
-            HStack {
-                Image(systemName: "person")
-                    .resizable()
-                    .foregroundColor(Color.white)
-                    .frame(width: 20,height: 20)
-                    .frame(width: 60,height: 60)
-                    .background(Color("Accent"))
-                    .cornerRadius(30)
-                    .padding(.horizontal, 20)
-                
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("\(department.name!) Department")
-                        .font(.body.weight(.semibold))
-                        .padding(.vertical, 3.0)
-                    Text("Hospital Visit")
-                        .font(.footnote.weight(.semibold))
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(Color("Tag"))
-                }
-                Spacer()
+                .background(Color("Secondary"))
+                .cornerRadius(15)
             }
-            .padding()
-            .padding(.vertical, 7)
-            .foregroundColor(Color("Heading"))
-            .background(Color("Secondary"))
-            .cornerRadius(17)
+            VStack{
+                Text("Doctor Information")
+                    .font(.title3.weight(.semibold))
+                    .foregroundColor(Color("Heading"))
+                    .hLeading()
+                
+                HStack {
+                    Image(systemName: "person")
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: 20,height: 20)
+                        .frame(width: 60,height: 60)
+                        .background(Color("Accent"))
+                        .cornerRadius(30)
+                        .padding(.horizontal, 20)
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("\(department.name!) Department")
+                            .font(.body.weight(.semibold))
+                            .padding(.vertical, 3.0)
+                        Text("Hospital Visit")
+                            .font(.footnote.weight(.semibold))
+                            .multilineTextAlignment(.leading)
+                            .foregroundColor(Color("Tag"))
+                    }
+                    Spacer()
+                }
+                .padding()
+                .padding(.vertical, 5)
+                .foregroundColor(Color("Heading"))
+                .background(Color("Secondary"))
+                .cornerRadius(15)
+            }
         }
     }
     
