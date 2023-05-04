@@ -105,7 +105,7 @@ struct PVaccinationBooking: View {
     }
 }
 
-struct VBooking_Previews: PreviewProvider {
+struct PVaccinationBooking_Previews: PreviewProvider {
     static var previews: some View {
         PVaccinationBooking()
     }

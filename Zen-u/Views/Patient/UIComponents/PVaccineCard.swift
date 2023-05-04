@@ -23,8 +23,7 @@ struct PVaccineCard: View {
                 .sheet(isPresented: $isModalPresented) {
                     ModalView()
                 }
-        }
-        else{
+        } else{
             collapsedForm()
                 .sheet(isPresented: $isModalPresented) {
                     ModalView()
@@ -33,8 +32,7 @@ struct PVaccineCard: View {
     }
     
     
-    func collapsedForm() -> some View
-    {
+    func collapsedForm() -> some View {
         Button{
             isModalPresented = true
         } label: {
@@ -66,8 +64,7 @@ struct PVaccineCard: View {
     }
     
     
-    func expandedForm() -> some View
-    {
+    func expandedForm() -> some View {
         Button{
             isModalPresented = true
         } label: {
