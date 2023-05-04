@@ -120,15 +120,17 @@ struct PHome: View {
                         Button {
                             
                         } label: {
-                            Text("Vaccination")
-                                .fontWeight(.semibold)
-                                .foregroundColor(Color("Heading"))
-                                .frame(width: 128,height: 50)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .fill(.white)
-                                )
-                                .font(.callout.weight(.semibold))
+                            NavigationLink(destination: PVaccinationBooking()) {
+                                Text("Vaccination")
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(Color("Heading"))
+                                    .frame(width: 128,height: 50)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .fill(.white)
+                                    )
+                                    .font(.callout.weight(.semibold))
+                            }
                         }
                         Spacer()
                     }
@@ -155,10 +157,7 @@ struct PHome: View {
                                     } else {
                                         AppointmentCard(appointmentDetails: viewModel.upcomingAppointments[index], highlited: index == 0)
                                     }
-                                    
-   
-                                    }
-                                
+                                }
                             }
                             .padding(.horizontal, 20)
                         }
