@@ -120,7 +120,7 @@ label: {
                 .font(.title.weight(.semibold))
             Spacer()
             
-            //         TabButton(text: "Continue", fullWidth: false)
+            TabButton(text: "Continue", fullWidth: false)
         }
         .padding()
         .padding(.leading, 20)

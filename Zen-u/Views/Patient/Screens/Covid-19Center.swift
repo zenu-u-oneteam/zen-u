@@ -11,7 +11,7 @@ struct Covid_19Center: View {
     var body: some View {
         VStack {
             MapView()
-                .ignoresSafeArea(edges: .top)
+                //.ignoresSafeArea(edges: .top)
                 .frame(height: 300)
             
             CircleImage()
