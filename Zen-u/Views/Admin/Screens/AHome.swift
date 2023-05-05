@@ -6,21 +6,54 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AHome: View {
+    @EnvironmentObject var appState: AppState
+
+    func logout() {
+        do {
+            UserDefaults.standard.removeObject(forKey: "currentUser")
+            try Auth.auth().signOut()
+        } catch {
+            print(error)
+        }
+    }
+    
     var body: some View {
         ScrollView{
             VStack(alignment: .leading) {
                 //Header
-                VStack(alignment: .leading) {
-                    Text("zen-u")
-                        .font(.largeTitle.bold())
-                        .foregroundColor(Color("Heading"))
-                    Text("zen for you")
-                        .fontWeight(.light)
-                        .foregroundColor(Color("Heading"))
-                    
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("zen-u")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(Color("Heading"))
+                        Text("zen for you")
+                            .fontWeight(.light)
+                            .foregroundColor(Color("Heading"))
+                        
+                    }
+                    Spacer()
+                    Menu {
+                        Button("Edit") {
+                        }
+                        Button("Settings") {
+                        }
+                        Button("Log Out") {
+                            logout()
+                            appState.rootViewId = UUID()
+                        }
+                    } label: {
+                        Image(systemName: "line.horizontal.3")
+                            .resizable()
+                            .foregroundColor(Color("Heading"))
+                            .frame(width: 15, height: 13)
+                            .padding(.vertical)
+                    }
+
                 }
+                
                 
                 //Graph
                 ZStack{
