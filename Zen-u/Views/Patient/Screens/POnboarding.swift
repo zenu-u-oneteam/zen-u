@@ -39,9 +39,9 @@ struct POnboarding: View {
                             }.background(Color("Secondary"))
                                 .cornerRadius(5)
                                 .accentColor(Color("Heading"))
+                        }
                             
-                            Spacer()
-                            
+                        HStack{
                             Text("Blood Group")
                             Picker("Select", selection: $viewModel.patient.bloodGroup){
                                 ForEach(bloodGroupSelection, id: \.self) {
@@ -64,7 +64,9 @@ struct POnboarding: View {
                                 .background(Color("Secondary"))
                                 .cornerRadius(5)
                                 .keyboardType(.decimalPad)
-                            
+                        }
+                        
+                        HStack{
                             Text("Weight")
                             TextField("", text:$viewModel.weight).frame(height: 30)
                                 .padding(5)
