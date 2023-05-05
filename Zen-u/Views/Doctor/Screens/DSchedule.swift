@@ -22,7 +22,7 @@ struct DSchedule: View {
 
     var body: some View {
         
-        NavigationView {
+        NavigationStack{
             VStack {
                 ScrollViewReader {
                     value in
@@ -91,7 +91,7 @@ struct DSchedule: View {
                     
                     Spacer()
                     
-                    ScrollView(.vertical) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         if( viewModel.isLoading ){
                             ProgressView("Loading...").hCenter()
                         }else{
@@ -105,7 +105,11 @@ struct DSchedule: View {
                                         Button {
                                             appointmentViewModel.update()
                                         } label: {
-                                            DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
+                                            NavigationLink(destination: DAppointmentDetails(appointmentDetails: appList![index])){
+                                                
+                                                
+                                                DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
+                                            }
                                         }
                                     }
                                 }

@@ -29,6 +29,7 @@ struct PDFKitViewRepresantable: UIViewRepresentable {
 struct CustomPDFView: View {
     let title: String
     let url : String
+    let show: Bool
     @State private var downloadProgress: Double = 0
     var body: some View {
         VStack{
@@ -36,21 +37,15 @@ struct CustomPDFView: View {
                 Text(title)
                     .foregroundColor(Color("Heading"))
                     .font(.title3.weight(.semibold))
-                Button(action: share){
-                    
-                    Image(systemName: "square.and.arrow.up")
-                    Text("Share")
-                    
-                }.hTrailing()
-                Button(action: downloadDocument
-                       
-                ){
-                    
-                    Image(systemName: "arrow.down.to.line.alt")
-                    Text("Download")
-                    
-                }.padding(.all, 5)
-                
+                    .hLeading()
+                if(show) {
+                    Button(action: share){
+                        
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Share")
+                        
+                    }.hTrailing()
+                }
             }.padding(.horizontal)
             PDFKitViewRepresantable(documentURL: URL(string: url)!)
             
@@ -59,8 +54,9 @@ struct CustomPDFView: View {
     }
     
     func share() {
-        let activityViewController = UIActivityViewController(activityItems: ["I am sharing my report with you."], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+            let activityViewController = UIActivityViewController(activityItems: ["I am sharing my report with you."], applicationActivities: nil)
+            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        
     }
     
     
@@ -91,7 +87,7 @@ struct CustomPDFView: View {
 struct CustomPDFView_Previews: PreviewProvider {
     static var previews: some View {
         let pdfPath = "https://www.africau.edu/images/default/sample.pdf"
-        CustomPDFView(title: "Title", url: pdfPath)        
+        CustomPDFView(title: "Title", url: pdfPath, show: false)        
     }
 }
 
