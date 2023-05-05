@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042F386B2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F386A2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift */; };
+		0444998B29FBA12200C9A8BB /* DPatientRecordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */; };
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
 		061DE92E29F96C8C00AB896A /* PHealthRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92D29F96C8C00AB896A /* PHealthRecords.swift */; };
@@ -118,6 +120,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042F386A2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DPatientRecordScreen-ViewModel.swift"; path = "Zen-u/ViewModels/Patient/DPatientRecordScreen-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPatientRecordScreen.swift; sourceTree = "<group>"; };
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
 		061DE92D29F96C8C00AB896A /* PHealthRecords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHealthRecords.swift; sourceTree = "<group>"; };
@@ -490,6 +494,7 @@
 				06BE8A552A04113300CDF280 /* DAppointmentViewAll.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
 				C941A99729F6A90B0018069F /* DProfile.swift */,
+				0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */,
 				30F810A029FB8CC700E200F7 /* DColorAlert.swift */,
 				30E199222A010FC00092C1BC /* DMain.swift */,
 			);
@@ -550,6 +555,7 @@
 		BE5AA7632A0031DC0052A81C /* Doctor */ = {
 			isa = PBXGroup;
 			children = (
+				042F386A2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift */,
 				BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */,
 				30495C882A023CA300DE877B /* DProfile-ViewModel.swift */,
 				2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */,
@@ -650,6 +656,7 @@
 				3874754329ED66DD00CCA151 /* DHome.swift in Sources */,
 				23B822432A037F26004D11D9 /* PProfile-ViewModel.swift in Sources */,
 				3874753229ED628200CCA151 /* PHome.swift in Sources */,
+				0444998B29FBA12200C9A8BB /* DPatientRecordScreen.swift in Sources */,
 				C93F20992A03944B0089C445 /* MapView.swift in Sources */,
 				A95468812A011BB60007C557 /* PLabTestDetailsModalView.swift in Sources */,
 				2DECE12B29EDDAA10021BE41 /* PUIex.swift in Sources */,
@@ -705,6 +712,7 @@
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
+				042F386B2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift in Sources */,
 				06BE8A562A04113300CDF280 /* DAppointmentViewAll.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
 				BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */,
