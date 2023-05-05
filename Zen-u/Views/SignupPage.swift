@@ -13,7 +13,7 @@ struct SignupPage: View {
     @State private var agreedToTerms = false
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 30) {
                 Image("signupImage")
                     .resizable()
