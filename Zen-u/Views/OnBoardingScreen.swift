@@ -12,10 +12,11 @@ struct OnBoardingScreen: View {
         NavigationStack {
             ZStack(alignment: .trailing) {
                 
-                Image("Group 64")
+                Image("ico")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.top, 42.0)
+                    .frame(width:510, height: 510)
+                    .aspectRatio(contentMode: .fill)
+                    .padding(.top, 50)
                 
                 VStack(alignment: .center){
                     Text("zen-u")
