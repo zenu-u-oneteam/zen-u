@@ -77,9 +77,9 @@ struct SignupPage: View {
                 Button {
                     viewModel.addingUser()
                 } label: {
-                    ActionButton(text: "Sign Up", disabled: !agreedToTerms)
+                    ActionButton(text: "Sign Up", disabled: (!agreedToTerms || viewModel.userName.isEmpty || viewModel.password.isEmpty || viewModel.email.isEmpty))
                 }
-                .disabled(!agreedToTerms)
+                .disabled(!agreedToTerms || viewModel.userName.isEmpty || viewModel.password.isEmpty || viewModel.email.isEmpty)
                 
                 Spacer()  //remove for bringing everything down
                 

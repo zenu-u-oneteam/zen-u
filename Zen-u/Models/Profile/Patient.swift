@@ -49,4 +49,5 @@ struct PatientRaw: Hashable, Codable, Identifiable {
     var bloodGroup: String
     var height: Float
     var weight: Float
+    var aadhaar: String?
 }

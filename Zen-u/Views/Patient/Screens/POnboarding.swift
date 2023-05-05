@@ -97,14 +97,12 @@ struct POnboarding: View {
                 
                 Spacer()
                 
-                Button(action: {
+                Button {
                     viewModel.addingPatient()
-                }){
-                    Text("Continue").foregroundColor(Color("Primary"))
-                        .frame(width:335, height:47)
-                        .background(Color("AccentColor"))
-                        .cornerRadius(14)
+                } label: {
+                    ActionButton(text: "Continue", disabled: (viewModel.height.isEmpty || viewModel.weight.isEmpty || viewModel.user.mobileNumber.isEmpty || viewModel.aadhaar.isEmpty))
                 }
+                .disabled(viewModel.height.isEmpty || viewModel.weight.isEmpty || viewModel.user.mobileNumber.isEmpty || viewModel.aadhaar.isEmpty)
                 
             }.padding(.horizontal, 25)
                 .padding(.vertical, 20)

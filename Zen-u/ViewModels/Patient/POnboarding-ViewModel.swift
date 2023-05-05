@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-extension POnboarding{
+extension POnboarding {
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         
@@ -31,12 +31,13 @@ extension POnboarding{
             patient.name = userName
         }
         
-        func addingPatient(){
+        func addingPatient() {
             do {
                 let currentUserId = Auth.auth().currentUser!.uid
                 patient.age = calendar.dateComponents([.year], from: dateOfBirth, to: Date()).year!
                 patient.height = Float(height)!
                 patient.weight = Float(weight)!
+                patient.aadhaar = aadhaar
                 print(user)
                 print(patient)
                 try db.collection("Users").document(currentUserId).setData(from: user)

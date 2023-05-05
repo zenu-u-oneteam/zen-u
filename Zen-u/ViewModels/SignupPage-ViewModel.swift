@@ -18,14 +18,7 @@ extension SignupPage {
         @Published var canContinue = false
         
         let db = FirebaseConfig().db
-        
-        init() {
-//            isLoading = true
-//            Task {
-//                isLoading = false
-//            }
-        }
-        
+                
         func addingUser(){
             Auth.auth().createUser(withEmail: email, password: password)
             print("User Created!")
