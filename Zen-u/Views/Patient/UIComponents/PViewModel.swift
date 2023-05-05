@@ -184,5 +184,13 @@ class DateViewModel: ObservableObject{
         let time = formatter.string(from: date)
         return time
     }
+    
+    func getDateFromDate(date : Date ) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let time = formatter.string(from: date)
+        return time
+    }
+    
     }
 

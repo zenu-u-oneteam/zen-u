@@ -29,11 +29,11 @@ struct AMain: View {
                     Label("Staff", systemImage: "person.2.circle")
                 }
                 .tag(3)
-            Text("Alerts")
+            AAlerts()
                 .tabItem {
                     Label("Alerts", systemImage: "exclamationmark.triangle")
                 }
-                .tag(3)
+                .tag(4)
         }
         .accentColor(.black)
         .navigationBarBackButtonHidden(true)

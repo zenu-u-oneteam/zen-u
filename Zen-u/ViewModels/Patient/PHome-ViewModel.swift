@@ -77,7 +77,7 @@ extension PHome{
                         upcomingAppointment.append(appointmentDetails)
                     }
                 }
-                return upcomingAppointment
+                return upcomingAppointment.sorted { $0.appointmentTime < $1.appointmentTime }
             } catch {
                 fatalError("\(error)")
             }

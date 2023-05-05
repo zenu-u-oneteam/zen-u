@@ -12,7 +12,7 @@ struct DColorAlert: View {
     @State private var searchText = ""
     @State private var selectedItem: GridData? = nil
     @State private var showModal = false
-    @State private var title = ""
+    @State private var title : String = ""
     @State private var color = ""
     let data = [
         GridData(id: 0, title: "Code Blue", description: "Hospital emergency code is used for critical status of a patient.",color: "CodeBlue" ) ,
@@ -115,6 +115,7 @@ struct ConfirmModalView: View {
     @State private var message: String = ""
     @Binding var isShowing: Bool
     @State private var offset: CGFloat = 200.0
+    @StateObject private var viewModel = ViewModel()
     let title: String
     let color: String
     var body: some View {
@@ -155,19 +156,24 @@ struct ConfirmModalView: View {
                         .frame(minHeight: 100)
                         .lineLimit(nil)
                         .disableAutocorrection(true)
-                        Button(action: {
-                            showAlert = true
+                        Button(action:  {
+                            Task{
+                                await viewModel.sendAlert(code: title, desc: message)
+                                if viewModel.isLoading == false {
+                                    showAlert = true
+                                }
+                                message = ""
+                            }
+                            
+                           
+                            
                         }) {
                             
                             Text(title)
                                 .padding()
                             
-                        }        .alert(isPresented: $showAlert) {
-                            Alert(
-                                title: Text("Alert Sent"),
-                                message: Text(message),
-                                dismissButton: .default(Text("OK"))
-                            )
+                        }       .alert("Alert Sent", isPresented: $showAlert) {
+                            Button("OK", role: .cancel) { isShowing = false }
                         }
                         .font(.callout .weight(.heavy))
                         .foregroundColor(.white) // 2

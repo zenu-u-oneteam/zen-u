@@ -73,6 +73,10 @@ struct DHome: View {
                             }
                             .padding(.trailing)
                         }
+                        .frame(height: 90)
+                        .background(Color("Secondary"))
+                        .cornerRadius(13)
+                        
                     }
                     
                     //today's agenda
