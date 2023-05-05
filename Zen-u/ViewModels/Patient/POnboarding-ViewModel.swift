@@ -40,8 +40,8 @@ extension POnboarding {
                 patient.aadhaar = aadhaar
                 print(user)
                 print(patient)
-//                try db.collection("Users").document(currentUserId).setData(from: user)
-//                try db.collection("Patient").document(currentUserId).setData(from: patient)
+                try db.collection("Users").document(currentUserId).setData(from: user)
+                try db.collection("Patient").document(currentUserId).setData(from: patient)
                 print("Patient Created!")
                 canContinue = true
             } catch {
