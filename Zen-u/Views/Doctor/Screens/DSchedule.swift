@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct DSchedule: View {
-    @StateObject var appointmentViewModel: ViewModel = ViewModel()
+    @StateObject var appointmentViewModel: DateViewModel = DateViewModel()
 
-    @State var selectedMonth: Int = ViewModel().currentMonthValue()
-    @State var selectedDate: Int = 0
-    @State var currentDate: Date = ViewModel().currentDay
-    @State var currentDateIndex: Int = ViewModel().currentDateValue()
-    @State var datesofMonth : [Date] = ViewModel().currentMonth
+    @State var selectedMonth: Int = DateViewModel().currentMonthValue()
+    @State var selectedDate: Int = DateViewModel().currentDateValue()
+    @State var currentDate: Date = DateViewModel().currentDay
+    @State var currentDateIndex: Int = DateViewModel().currentDateValue()
+    @State var datesofMonth : [Date] = DateViewModel().currentMonth
     @State var filterMode: String = "none"
-     
+    @StateObject private var viewModel = ViewModel()
     
     let months = ["January", "February", "March" , "April" , "May" , "June" , "July" , "August" , "September" ,"October" , "November" , "December"]
 
     var body: some View {
         
-        NavigationView {
+        NavigationStack{
             VStack {
                 ScrollViewReader {
                     value in
@@ -32,7 +32,10 @@ struct DSchedule: View {
                                 Button {
                                     self.selectedMonth = index
                                     self.datesofMonth = appointmentViewModel.fetchRequestedMonth(month: selectedMonth + 1)
+                                    currentDateIndex = 0
+                                    selectedDate = 0
                                     appointmentViewModel.update()
+                                    
                                     value.scrollTo(selectedMonth , anchor: .leading)
                                 } label: {
                                     Text(months[index])
@@ -64,17 +67,17 @@ struct DSchedule: View {
                                         VStack {
                                             Text(appointmentViewModel.extractDate(date: datesofMonth[day], format: "dd"))
                                                 .font(.title2.bold())
-                                                .foregroundColor(selectedDate == day || currentDateIndex == day ?  .white :
+                                                .foregroundColor(selectedDate == day ?  .white :
                                                                     Color("Subheadings"))
                                             
                                             Text(appointmentViewModel.extractDate(date: datesofMonth[day] , format: "EEE"))
                                                 .font(.callout.weight(.light))
-                                                .foregroundColor(selectedDate == day || currentDateIndex == day ? .white : Color("Subheadings"))
+                                                .foregroundColor(selectedDate == day ? .white : Color("Subheadings"))
                                         }
                                         .foregroundColor(Color("Subheadings"))
                                         .frame(width: 50 ,height: 70)
                                     }
-                                    .background(selectedDate == day || currentDateIndex == day ? Color("Accent") : .white)
+                                    .background(selectedDate == day ? Color("Accent") : .white)
                                     .cornerRadius(12)
                                 }
                             }
@@ -82,23 +85,38 @@ struct DSchedule: View {
                         }.onAppear{
                             value.scrollTo(currentDateIndex , anchor: .top)
                         }.onChange(of: selectedMonth) { _ in
-                            value.scrollTo(0 , anchor: .top)
+                            value.scrollTo(selectedDate , anchor: .top)
                         }
                     }
                     
                     Spacer()
                     
-                    ScrollView(.vertical) {
-                        LazyVStack (alignment: .leading, spacing: 10){
-                            ForEach(0...10, id: \.self) {
-                                index in
-                                Button {
-                                    self.selectedMonth = index
-                                } label: {
-                                    DScheduleTaskCard(patientName: "Stefania Keller", tags: ["New patient", "OPD"], time: "9:30", age: 30, gender: "Female")
+                    ScrollView(.vertical, showsIndicators: false) {
+                        if( viewModel.isLoading ){
+                            ProgressView("Loading...").hCenter()
+                        }else{
+                            LazyVStack (alignment: .leading, spacing: 10){
+                                var appList = viewModel.monthAppMap[selectedMonth]?.filter({DateViewModel().getDateValue(date: $0.appointment.appointmentTime) == selectedDate})
+                                if appList!.isEmpty {
+                                    emptyDisplayMessage(message: "No Scheduled Appointments")
+                                }else{
+                                    ForEach(appList!.indices, id: \.self) {
+                                        index  in
+                                        Button {
+                                            appointmentViewModel.update()
+                                        } label: {
+                                            NavigationLink(destination: DAppointmentDetails(appointmentDetails: appList![index])){
+                                                
+                                                
+                                                DScheduleTaskCard(patientName: appList![index].patientUser.name, tags: ["New patient", "OPD"], time: DateViewModel().getTimeFromDate(date: appList![index].appointment.appointmentTime), age: appList![index].appointment.patient?.age ?? -1, gender: appList![index].appointment.patient?.gender ?? "Not available")
+                                            }
+                                        }
+                                    }
                                 }
+                                
                             }
                         }
+                        
                     }
                     .frame(width: 300)
                     Spacer()

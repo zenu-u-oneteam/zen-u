@@ -8,6 +8,7 @@
 import Foundation
 
 struct Patient: Hashable, Codable, Identifiable {
+    var name: String?
     var id: String?
     var age: Int
     var gender: Gender
@@ -39,6 +40,7 @@ struct Patient: Hashable, Codable, Identifiable {
     }
 }
 struct PatientRaw: Hashable, Codable, Identifiable {
+    var name: String?
     var id: String?
     var age: Int
     var gender: String
@@ -46,4 +48,5 @@ struct PatientRaw: Hashable, Codable, Identifiable {
     var height: Float
     var weight: Float
 }
+
 

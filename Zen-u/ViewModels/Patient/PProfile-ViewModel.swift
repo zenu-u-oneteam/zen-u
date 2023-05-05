@@ -1,15 +1,14 @@
 //
-//  PProfile-View Model.swift
+//  PProfile-ViewModel.swift
 //  Zen-u
 //
-//  Created by Aindrila Ray on 01/05/23.
+//  Created by Vashist Agarwalla on 04/05/23.
 //
 
 import Foundation
 import FirebaseAuth
-import Firebase
 
-extension ProfileHeaderView{
+extension PProfile {
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         @Published var user: User = User(name: "", email: "", userType: .patient, profileImage: "", mobileNumber: "")
@@ -20,14 +19,15 @@ extension ProfileHeaderView{
         init() {
             isLoading = true
             
-            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { fatalError("No Active User!!!") }
+            guard let currentUserData = UserDefaults.standard.data(forKey: "currentUser") else { return }
             let decoder = JSONDecoder()
-            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { fatalError("Invalid User!!!") }
+            guard let currentUser = try? decoder.decode(User.self, from: currentUserData) else { return }
+            
             user = currentUser
             
             Task {
-               await getProfileInformation()
-               isLoading = false
+                await getProfileInformation()
+                isLoading = false
             }
         }
         
@@ -41,13 +41,21 @@ extension ProfileHeaderView{
             }
         }
         
+        func editPatient() {
+            print("Edit User")
+        }
         
+        func patientSettings() {
+            print("Patient Settings")
+        }
         
-        
-        
-        
+        func logout() {
+            do {
+                UserDefaults.standard.removeObject(forKey: "currentUser")
+                try Auth.auth().signOut()
+            } catch {
+                print(error)
+            }
+        }
     }
-    
-    
-    
 }

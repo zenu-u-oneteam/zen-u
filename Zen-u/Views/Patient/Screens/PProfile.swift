@@ -8,73 +8,60 @@
 import SwiftUI
 struct PProfile: View {
     @EnvironmentObject var appState: AppState
-   
-    
-    @State var showMenu = false
-    @State private var selectedOption = "Option 1"
-    @State var userType: UserType = .none
+    @StateObject private var viewModel: ViewModel = ViewModel()
     
     var body: some View {
         VStack{
-           HeaderView()
-            
-            ProfileHeaderView()
-            SubHeadingView().padding(.bottom, 17)
-            HStack{
-                
-                HealthKitView().hLeading().padding()
-                HealthKitView().hLeading().padding()
+            HeaderView()
+            ProfileHeaderView(user: viewModel.user, patient: viewModel.patient)
+            SubHeadingView()
+            ScrollView(.horizontal,showsIndicators: false){
+                HStack{
+                    HealthKitView()
+                    HealthKitView()
+                    HealthKitView()
+                }
             }
+            Spacer()
         }
-        .padding(2)
-        .navigationBarTitleDisplayMode(.large)
+        .padding(.horizontal,15)
     }
     
     func HeaderView() -> some View {
         HStack{
-            VStack(alignment: .leading) {
-                Text(" ").font(.largeTitle.bold())
-                    .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                    .padding(.all, 10)
-            }
-            .hLeading()
-            
-            
+            Text("Profile").font(.largeTitle.bold())
+                .foregroundColor(Color("Heading"))
+            Spacer()
             Menu {
                 Button("Edit") {
-                    self.selectedOption = "Option 1"
+                    viewModel.editPatient()
                 }
                 Button("Settings") {
-                    self.selectedOption = "Option 2"
+                    viewModel.patientSettings()
                 }
                 Button("Log Out") {
-                    self.selectedOption = "Option 3"
-                    print("LOGOUT!!!")
-                    UserDefaults.standard.removeObject(forKey: "currentUser")
+                    viewModel.logout()
                     appState.rootViewId = UUID()
                 }
-            }
-        label: {
-            Image(systemName: "line.horizontal.3")
-                .resizable()
-                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-                .frame(width: 15, height: 13)
-                .padding(.all, 20)
+            } label: {
+                Image(systemName: "line.horizontal.3")
+                    .resizable()
+                    .foregroundColor(Color("Heading"))
+                    .frame(width: 15, height: 13)
+                    .padding(.vertical)
+            } 
         }
-            
-        }
+        .padding(.top, 30)
     }
     
     
     func SubHeadingView() -> some View {
-        VStack(alignment: .leading){
-            Text("Data from Healthkit").font(.system(size: 20)).bold()
-                .hLeading()
-                .padding(.all, 10)
-                .foregroundColor(Color(red: 0.12, green: 0.12, blue: 0.12))
-            
-            
-        }.padding(.top, 43)
+        HStack(){
+            Text("Data from Healthkit").font(.title3).bold()
+                .foregroundColor(Color("Heading"))
+            Spacer()
+        }
+        .padding(.vertical, 10)
     }
 }
 

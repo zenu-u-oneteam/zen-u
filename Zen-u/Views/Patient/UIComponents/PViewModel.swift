@@ -8,28 +8,31 @@
 import Foundation
 import SwiftUI
 
-class ViewModel: ObservableObject{
+class DateViewModel: ObservableObject{
     @Published var userLocale = Locale.autoupdatingCurrent
     @Published var currentMonth: [Date] = []
     
     @Published var currentWeek: [Date] = []
     @Published var requestedWeek: [Date] = []
     @Published var currentDay: Date = Date()
-    
+    @Published var existingWeek: [Date] = []
+
     @State var refresh: Bool = false
 
     
     init(){
         fetchCurrentMonth()
         fetchCurrentWeek()
+        fetchExistingWeek()
     }
+    
     func update() {
         refresh.toggle()
      }
     
     func fetchCurrentMonth(){
-        print("\nThe current calendar is \(Calendar.current).")
-        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
+//        print("\nThe current calendar is \(Calendar.current).")
+//        print("The current calendar’s time zone is \(Calendar.current.timeZone) ")
         let today = Date()
         var calendar = Calendar.current
         calendar.locale = userLocale
@@ -71,6 +74,20 @@ class ViewModel: ObservableObject{
         return requestedMonth
     }
     
+    func fetchExistingWeek() {
+        
+        let today = Date()
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        
+        (0...6).forEach{ day in
+            
+            if let weekday = calendar.date(byAdding: .day, value: day, to: today){
+                existingWeek.append(weekday)
+            }
+        }
+    }
+    
     func fetchCurrentWeek() {
         
         let today = Date()
@@ -109,6 +126,23 @@ class ViewModel: ObservableObject{
         return day! - 1
         
     }
+    func getMonthValue(date : Date)-> Int {
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.month], from: date)
+        let month = components.month
+        return month! - 1
+        
+    }
+    
+    func getDateValue(date : Date )-> Int {
+        var calendar = Calendar.current
+        calendar.locale = userLocale
+        let components = calendar.dateComponents([.day], from: date)
+        let day = components.day
+        return day! - 1
+        
+    }
         func extractDate(date:Date, format:String)->String{
             let formatter = DateFormatter()
             
@@ -143,5 +177,20 @@ class ViewModel: ObservableObject{
             let formattedDateTime = dtFormatter.string(from: now)
             return dtFormatter.date(from: formattedDateTime)!
         }
+    
+    func getTimeFromDate(date : Date ) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let time = formatter.string(from: date)
+        return time
+    }
+    
+    func getDateFromDate(date : Date ) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yyyy"
+        let time = formatter.string(from: date)
+        return time
+    }
+    
     }
 
