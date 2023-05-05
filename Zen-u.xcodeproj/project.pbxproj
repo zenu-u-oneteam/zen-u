@@ -19,6 +19,8 @@
 		06A06E6729F55DFF008DF13F /* PProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A06E6629F55DFF008DF13F /* PProfile.swift */; };
 		06A8712A2A0177120088CAAA /* AppointmentReports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A871292A0177120088CAAA /* AppointmentReports.swift */; };
 		06A8712E2A0194060088CAAA /* PAppointmentRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A8712D2A0194060088CAAA /* PAppointmentRecordView.swift */; };
+		06BE8A542A03BBC900CDF280 /* DAppointmentDetails-View Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE8A532A03BBC900CDF280 /* DAppointmentDetails-View Model.swift */; };
+		06BE8A562A04113300CDF280 /* DAppointmentViewAll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BE8A552A04113300CDF280 /* DAppointmentViewAll.swift */; };
 		06FAAE2C2A02B4FD00E1D5B6 /* PAppointmentDetailsPast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FAAE2B2A02B4FD00E1D5B6 /* PAppointmentDetailsPast.swift */; };
 		231BD40B29FCD4F10027A17B /* PHome-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BD40A29FCD4F10027A17B /* PHome-ViewModel.swift */; };
 		2324FEFB2A017D0500E40CF4 /* PBookingSummary-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2324FEFA2A017D0500E40CF4 /* PBookingSummary-ViewModel.swift */; };
@@ -123,6 +125,8 @@
 		06A06E6629F55DFF008DF13F /* PProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PProfile.swift; sourceTree = "<group>"; };
 		06A871292A0177120088CAAA /* AppointmentReports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentReports.swift; sourceTree = "<group>"; };
 		06A8712D2A0194060088CAAA /* PAppointmentRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentRecordView.swift; sourceTree = "<group>"; };
+		06BE8A532A03BBC900CDF280 /* DAppointmentDetails-View Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DAppointmentDetails-View Model.swift"; path = "Zen-u/Views/Patient/Screens/DAppointmentDetails-View Model.swift"; sourceTree = SOURCE_ROOT; };
+		06BE8A552A04113300CDF280 /* DAppointmentViewAll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAppointmentViewAll.swift; sourceTree = "<group>"; };
 		06FAAE2B2A02B4FD00E1D5B6 /* PAppointmentDetailsPast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAppointmentDetailsPast.swift; sourceTree = "<group>"; };
 		231BD40A29FCD4F10027A17B /* PHome-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHome-ViewModel.swift"; sourceTree = "<group>"; };
 		2324FEFA2A017D0500E40CF4 /* PBookingSummary-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PBookingSummary-ViewModel.swift"; sourceTree = "<group>"; };
@@ -471,6 +475,7 @@
 				3874754029ED66D400CCA151 /* DSchedule.swift */,
 				3874754229ED66DD00CCA151 /* DHome.swift */,
 				3874754429ED66FD00CCA151 /* DAppointmentDetails.swift */,
+				06BE8A552A04113300CDF280 /* DAppointmentViewAll.swift */,
 				3874754629ED673500CCA151 /* DPrescriptionsView.swift */,
 				C941A99729F6A90B0018069F /* DProfile.swift */,
 				30F810A029FB8CC700E200F7 /* DColorAlert.swift */,
@@ -536,6 +541,7 @@
 				BE1D63212A018A5400801DDD /* DHome-ViewModel.swift */,
 				30495C882A023CA300DE877B /* DProfile-ViewModel.swift */,
 				2D37960C2A022AF300B73719 /* DSchedule-ViewModel.swift */,
+				06BE8A532A03BBC900CDF280 /* DAppointmentDetails-View Model.swift */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -622,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2340535229F24E43003A0063 /* Doctor.swift in Sources */,
+				06BE8A542A03BBC900CDF280 /* DAppointmentDetails-View Model.swift in Sources */,
 				30495C892A023CA300DE877B /* DProfile-ViewModel.swift in Sources */,
 				BE8567DA29F12EEC00B7206B /* SplashScreen.swift in Sources */,
 				A9847CE929FA519000292A26 /* PLabTestRecommended.swift in Sources */,
@@ -681,6 +688,7 @@
 				2386C67D29F2845300CEA6F6 /* ActionButton.swift in Sources */,
 				2DECE12929EDDA830021BE41 /* AHome.swift in Sources */,
 				A9A85B0C29F8F874000D0FCF /* PLabTestBooking.swift in Sources */,
+				06BE8A562A04113300CDF280 /* DAppointmentViewAll.swift in Sources */,
 				3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */,
 				BE1D63222A018A5400801DDD /* DHome-ViewModel.swift in Sources */,
 				A975854829F289670063A223 /* PAppointmentDetailsModel.swift in Sources */,
