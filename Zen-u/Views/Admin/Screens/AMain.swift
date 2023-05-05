@@ -34,6 +34,10 @@ struct AMain: View {
                     Label("Alerts", systemImage: "exclamationmark.triangle")
                 }
                 .tag(3)
+            AAlerts()
+                .tabItem {
+                    Label("Alerts", systemImage: "exclamationmark.triangle")                }
+                .tag(4)
         }
         .accentColor(.black)
         .navigationBarBackButtonHidden(true)
