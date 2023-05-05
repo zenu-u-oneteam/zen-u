@@ -12,8 +12,8 @@ struct AAlerts: View {
    let options = ["Not Resolved", "Resolved"]
    @StateObject private var viewModel = ViewModel()
   @State private var showAlert = false
-  @State var selectedIndex = -1
-  @State var refresh = false
+
+
     @State var resolvedList : [AlertModelMy] = []
     @State var unresolvedList : [AlertModelMy] = []
     
@@ -46,9 +46,6 @@ struct AAlerts: View {
                                             AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
                                                 .onTapGesture {
                                                      showAlert = true
-                                                    selectedIndex = index
-                                                    refresh.toggle()
-                                                    viewModel.update()
                                                 }
                                                 .alert(isPresented: $showAlert) {
                                                         Alert(
@@ -58,11 +55,9 @@ struct AAlerts: View {
                                                                 Text("Yes"),
                                                                 action: {
                                                                     Task {
-                                                                        let id = viewModel.unResolvedalertList[selectedIndex].id
-                                                                        await viewModel.setAsResolved(id: id!)
-                                                                        
-                                                                        
-                                                                        refresh.toggle()
+                                                                        let id = viewModel.unResolvedalertList[index].id!
+                                                                        print(id)
+                                                                        await viewModel.setAsResolved(id: id)
                                                                        
                                                                     }
                                                                 }
@@ -80,8 +75,6 @@ struct AAlerts: View {
 //                                        _ in
 //                                        viewModel.update()
 //                                        }
-                                }.onChange(of: refresh) { _ in
-                                    value.scrollTo(0 , anchor: .top)
                                 }
                             }
                             
@@ -103,8 +96,6 @@ struct AAlerts: View {
 //                                        viewModel.update()
 //
 //                                         }
-                                }.onChange(of: viewModel.refresh) { _ in
-                                    value.scrollTo(0 , anchor: .top)
                                 }
                             }
                         }
