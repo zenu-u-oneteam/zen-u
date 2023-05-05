@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct LoginPage: View {
     @EnvironmentObject var appState: AppState
-    
+    @State private var invalidCredentials = false
     @State private var email = ""
     @State private var password = ""
     @State var isLoggedIn = false
@@ -22,6 +22,7 @@ struct LoginPage: View {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
+                invalidCredentials = true
             } else {
                 let currentUserID = Auth.auth().currentUser?.uid
                 if let currentUserID = currentUserID {
@@ -204,6 +205,12 @@ struct LoginPage: View {
                     }
                 }
                 .padding(.horizontal, 30)
+            }.alert(isPresented: $invalidCredentials) {
+                Alert(
+                    title: Text("Invalid Credentials"),
+                    message: Text("The email address or password you entered is incorrect.\n Please try again."),
+                    dismissButton: .default(Text("OK"))
+                )
             }
             .padding(.top, 50)
         }
