@@ -19,7 +19,7 @@ struct ProfileHeaderView: View {
                 Spacer()
                 Image(user.profileImage)
                     .resizable()
-                    .aspectRatio(1.5, contentMode: .fill)
+                    .aspectRatio(1, contentMode: .fill)
                     .frame(width: 80, height: 80)
                     .cornerRadius(120)
                 Spacer()
