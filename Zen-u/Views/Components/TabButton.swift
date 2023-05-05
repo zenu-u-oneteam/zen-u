@@ -10,6 +10,7 @@ import SwiftUI
 struct TabButton: View {
     var text: String
     var selected: Bool = true
+    var fullWidth: Bool = true
     
     var body: some View {
         HStack{
@@ -19,7 +20,7 @@ struct TabButton: View {
                 .foregroundColor(selected ? .white : Color("Heading"))
                 .padding(.horizontal, 25)
         }
-        .frame(minWidth: 350, minHeight: 50)
+        .frame(minWidth: (fullWidth) ? 350 : 175, minHeight: 50)
         .background(selected ? Color("Accent") : Color("Secondary"))
         .cornerRadius(10)
     }

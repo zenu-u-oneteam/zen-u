@@ -7,7 +7,7 @@
 
 import Foundation
 
-import Foundation
+import SwiftUI
 
 struct LabTest: Hashable, Codable, Identifiable {
     var id: String
@@ -16,3 +16,5 @@ struct LabTest: Hashable, Codable, Identifiable {
     var package: String
     var organs: String
 }
+
+
