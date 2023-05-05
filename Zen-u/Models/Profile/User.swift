@@ -22,3 +22,12 @@ enum UserType: String, CaseIterable, Codable {
     case admin = "Admin"
     case none = "None"
 }
+
+struct UserRaw: Hashable, Codable, Identifiable {
+    var id: String?
+    var name: String
+    var email: String
+    var userType: String
+    var profileImage: String
+    var mobileNumber: String
+}

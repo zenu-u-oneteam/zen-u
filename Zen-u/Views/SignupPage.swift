@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SignupPage: View {
     
-    @State private var name = ""
-    @State private var email = ""
-    @State private var password = ""
+    @StateObject private var viewModel = ViewModel()
     @State private var agreedToTerms = false
     
     var body: some View {
@@ -28,7 +26,7 @@ struct SignupPage: View {
                     HStack {
                         Image(systemName: "person")
                             .foregroundColor(.black)
-                        TextField("Enter your name", text: $name)
+                        TextField("Enter your name", text: $viewModel.userName)
                             .font(.system(size: 17, weight: .light))
                             .autocorrectionDisabled(true)
                     }
@@ -41,7 +39,7 @@ struct SignupPage: View {
                     HStack {
                         Image(systemName: "envelope")
                             .foregroundColor(.black)
-                        TextField("Enter your email", text: $email)
+                        TextField("Enter your email", text: $viewModel.email)
                             .font(.system(size: 17, weight: .light))
                             .textInputAutocapitalization(.never)
                             .autocorrectionDisabled(true)
@@ -52,11 +50,10 @@ struct SignupPage: View {
                     .cornerRadius(12)
                 }
                 
-                
                 HStack(alignment: .center, spacing: 13) {
                     Image(systemName: "lock")
                         .foregroundColor(.black)
-                    SecureField("Enter your password", text: $password)
+                    SecureField("Enter your password", text: $viewModel.password)
                         .font(.system(size: 17, weight: .light))
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled(true)
@@ -78,11 +75,11 @@ struct SignupPage: View {
                 
                 
                 Button {
-                    // Perform signup action here
+                    viewModel.addingUser()
                 } label: {
-                    ActionButton(text: "Sign Up", disabled: !agreedToTerms)
+                    ActionButton(text: "Sign Up", disabled: (!agreedToTerms || viewModel.userName.isEmpty || viewModel.password.isEmpty || viewModel.email.isEmpty))
                 }
-                .disabled(!agreedToTerms)
+                .disabled(!agreedToTerms || viewModel.userName.isEmpty || viewModel.password.isEmpty || viewModel.email.isEmpty)
                 
                 Spacer()  //remove for bringing everything down
                 
@@ -90,10 +87,13 @@ struct SignupPage: View {
         }
         .ignoresSafeArea(.keyboard)
         .navigationBarTitle("zen-u", displayMode: .inline)
+        .padding()
         .onTapGesture {
             self.hideKeyboard()
         }
-        .padding()
+        .navigationDestination(isPresented: $viewModel.canContinue, destination: {
+            POnboarding(userName: viewModel.userName, email: viewModel.email)
+        })
     }
 }
 
@@ -110,9 +110,6 @@ struct CheckBoxView: View {
         }
     }
 }
-
-
-
 
 struct SignupPage_Previews: PreviewProvider {
     static var previews: some View {
