@@ -7,9 +7,49 @@
 
 import SwiftUI
 
+struct dept: Identifiable {
+    var id = UUID()
+    var name: String
+    var description: String
+}
+func departmentView(for department: dept) -> some View {
+    return
+    VStack{
+        HStack {
+            Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .padding(.leading, 10)
+            
+            VStack(alignment: .leading) {
+                Text(department.name)
+                    .font(.headline.weight(.semibold))
+
+                Text(department.description)
+                    .font(.subheadline.weight(.regular))
+                                        .foregroundColor(Color("Tag"))
+            }
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+        }
+        Divider()
+    }
+}
+
 struct AdminStaffOverview: View {
-//    var deptList = ["Medical", "Nursing", "Sanitation", "Pathology", "IT", "Security"]
-//    var deptDesc = ["Details of doctors categorised based on their specialised departments.", "Details of nursing staff categorised  on the departments they are currently working under.", "Details of sanitation workers and staff dispersed through the campus.", "Cool ones.", "Details of Security Personnel on campus."]
+    
+    var departments: [dept] = [
+        dept(name: "Medical", description: "Details of doctors categorised based on their specialised departments."),
+        dept(name: "Nursing", description: "Details of nursing staff categorised by current department of work."),
+        dept(name: "Sanitation", description: "Details of sanitation workers and staff dispersed through the campus."),
+        dept(name: "Pathology", description: "Details on Blood Bank and other Laboratory Tests."),
+        dept(name:  "IT", description: "Details of Technical workforce"),
+        
+        dept(name: "Security", description: "Details of security personnel on campus.")
+    ]
+    
     var body: some View {
         NavigationStack {
             VStack() {
@@ -77,46 +117,20 @@ struct AdminStaffOverview: View {
                     .background(Color("Secondary"))
                     .cornerRadius(13)
                 }
+                Spacer()
                 
-                //Departments details
-                ScrollView{
-                    ForEach(0..<6)
-                    {
-                        numberOfCapsule in
-                        VStack(alignment: .leading) {
-                            HStack {
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding(.leading)
-                                
-                                
-                                VStack(alignment: .leading, spacing: 3) {
-                                    Text("Medical Department")
-                                        .frame(width: 163, height: 22)
-                                        .font(.system(size: 17).weight(.semibold))
-                                    
-                                    Text("Details of Doctors categorised based on their specialised departments")
-                                        .frame(width: 257, height: 40)
-                                        .font(.system(size: 15).weight(.regular))
-                                        .foregroundColor(.gray)
-                                }
-                                Image(systemName: "chevron.forward")
-                                    .foregroundColor(Color(UIColor.tertiaryLabel))
-                                    .padding()
-                                
-                                Spacer()
-                            }
+                VStack(spacing: 0){
+                    ScrollView{
+                        ForEach(departments) { dept in
+                            
+                            departmentView(for: dept)
+                            
                         }
-                        Divider()
-                            .frame(width: 314)
-                    }.padding(.top, 13)
-                }
-                .frame(width: 360, height: 500
-                )
-                .background(Color("Secondary"))
-                .cornerRadius(10)
-                .padding(.vertical, 20)
+                    }
+                }.padding()
+                    .frame(width: 360, height: 500)
+                    .background(Color("Secondary"))
+                    .cornerRadius(20)
             }
             .navigationBarTitle("Staff")
             .padding()
@@ -129,3 +143,4 @@ struct AdminStaffOverview_Previews: PreviewProvider {
         AdminStaffOverview()
     }
 }
+

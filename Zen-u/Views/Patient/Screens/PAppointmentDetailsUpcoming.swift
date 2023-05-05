@@ -45,15 +45,7 @@ struct PAppointmentDetailsUpcoming: View {
     
                                 
                             .padding(2)
-                                
-                                Text("Cabin number: \(String(appointmentDetails.doctor?.cabin ?? 1224))")
-                                    .font(.caption)
-                                    .padding(8)
-                                    .background(Color.white, in: RoundedRectangle(cornerRadius: 10))
-                                    .padding(.bottom, 3)
-                                
-                               
-                            }
+                               }
                         
                     }.padding()
                     .hLeading()
@@ -102,7 +94,7 @@ struct PAppointmentDetailsUpcoming: View {
 }
 struct PAppointmentDetailsUpcoming_Previews: PreviewProvider {
     static var previews: some View {
-        PAppointmentDetailsUpcoming(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24, cabin: 123, department: "Cardiology Department") ))
+        PAppointmentDetailsUpcoming(appointmentDetails: Appointment(id: "1100", appointmentTime: Date.now, doctor: DoctorRaw(age: 45, gender: "Female", name: "Dr. Aindrila Ray", startTime: 17, endTime: 24) ))
     }
 }
 

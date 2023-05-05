@@ -1,21 +1,22 @@
 //
-//  PHome.swift
+//  DHome-ViewModel.swift
 //  Zen-u
 //
-//  Created by Vashist Agarwalla on 29/04/23.
+//  Created by Prakhar Singh on 02/05/23.
 //
 
 import Foundation
 import FirebaseAuth
-import UIKit
 
-extension PHome{
+extension DHome{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
         @Published var userName: String = ""
         @Published var greeting: String = ""
         @Published var upcomingAppointments: [Appointment] = []
-        let emergencyNumber: String = "+917807041670"
+        @Published var numberOfAppointments: Int = 0
+        @Published var shiftTime: [Int] = []
+        let currentDate = Date()
         
         let db = FirebaseConfig().db
         
@@ -30,7 +31,9 @@ extension PHome{
             greeting = setGreeting()
             
             Task {
-                upcomingAppointments = await getUpcomingAppointment()
+                upcomingAppointments = await getUpcomingAppointments()
+                numberOfAppointments = await getNumberOfAppointments()
+                shiftTime = await getShiftTime()
                 isLoading = false
             }
         }
@@ -59,36 +62,58 @@ extension PHome{
             return greetingText
         }
         
-        func getUpcomingAppointment() async -> [Appointment]{
+        func getUpcomingAppointments() async -> [Appointment] {
             do {
-                var upcomingAppointment: [Appointment] = []
+                let calendar = Calendar.current
+                let startTime = calendar.startOfDay(for: Date())
+                let endTime = calendar.date(byAdding: .day, value: 1, to: startTime)!
+
                 let currentUserId = Auth.auth().currentUser!.uid
-                let currentPatient = try await db.collection("Patient").document(currentUserId).getDocument(as: Patient.self)
-                print(currentPatient)
-                for appointmentId in currentPatient.appointments ?? [] {
+                let currentDoctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
+                var upcomingAppointments: [Appointment] = []
+                for appointmentId in currentDoctor.appointments ?? [] {
                     let appointmentRawDetails = try await db.collection("Appointment").document(appointmentId).getDocument(as: AppointmentRaw.self)
                     let appointmentDetails = Appointment(
                         id: appointmentId,
                         appointmentTime: Date(timeIntervalSince1970: TimeInterval(appointmentRawDetails.appointmentTime)),
-                        doctor: try await db.collection("Doctor").document(appointmentRawDetails.doctor).getDocument(as: DoctorRaw.self),
+                        patient: try await db.collection("Patient").document(appointmentRawDetails.patient).getDocument(as: PatientRaw.self),
                         type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
                     )
-                    if(appointmentDetails.appointmentTime > Date() && Calendar.current.isDateInToday(appointmentDetails.appointmentTime) ){
-                        upcomingAppointment.append(appointmentDetails)
+                    
+                    if appointmentDetails.appointmentTime <= endTime && appointmentDetails.appointmentTime >= currentDate {
+                        upcomingAppointments.append(appointmentDetails)
+                        print(appointmentDetails)
                     }
                 }
-                return upcomingAppointment
+                
+                upcomingAppointments = upcomingAppointments.sorted(by: { $0.appointmentTime < $1.appointmentTime })
+                return upcomingAppointments
+            } catch {
+                print(error)
+                fatalError("\(error)")
+            }
+        }
+        
+        func getNumberOfAppointments() async -> Int {
+            do {
+                let currentUserId = Auth.auth().currentUser!.uid
+                let doctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
+                return doctor.appointments?.count ?? 0
             } catch {
                 fatalError("\(error)")
             }
         }
         
-        func emergencyCall() {
-            if let phoneCallURL = URL(string: "tel://\(emergencyNumber)") {
-                if UIApplication.shared.canOpenURL(phoneCallURL) {
-                    UIApplication.shared.open(phoneCallURL, options: [:], completionHandler: nil)
-                }
+        func getShiftTime() async -> [Int] {
+            do {
+                let currentUserId = Auth.auth().currentUser!.uid
+                let doctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
+                let shifttime = [doctor.startTime,doctor.endTime]
+                return shifttime
+            } catch {
+                fatalError("\(error)")
             }
         }
     }
 }
+ 
