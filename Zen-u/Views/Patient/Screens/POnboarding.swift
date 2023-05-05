@@ -94,6 +94,8 @@ struct POnboarding: View {
                                 .keyboardType(.numberPad)
                         }
                         
+                    }.onTapGesture {
+                        self.hideKeyboard()
                     }
                 }
                 
@@ -106,7 +108,9 @@ struct POnboarding: View {
                 }
                 .disabled(viewModel.height.isEmpty || viewModel.weight.isEmpty || viewModel.user.mobileNumber.isEmpty || viewModel.aadhaar.isEmpty)
                 
-            }.padding(.horizontal, 25)
+            }
+            
+            .padding(.horizontal, 25)
                 .padding(.vertical, 20)
                 .navigationTitle("Patient Onboarding")
                 .navigationDestination(isPresented: $viewModel.canContinue, destination: {
