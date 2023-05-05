@@ -29,7 +29,6 @@ extension DAppointmentDetails {
                 appointmentReports = await getAppointmentReports()
                 firstLabReport = await getfirstLabReport(record: patientRecords)
                 firstVaccinationReport = await getfirstVaccinationReport(record: patientRecords)
-                
                 isLoading = false
                 
             }

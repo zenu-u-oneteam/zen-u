@@ -8,12 +8,6 @@
 import SwiftUI
 import Foundation
 
-//struct Prescription: Identifiable {
-//    let id = UUID()
-//    var med: String
-//    var dosage: String
-//}
-
 struct DPatientRecordScreen: View {
     
     @StateObject private var viewModel = ViewModel()
@@ -78,19 +72,6 @@ struct DPatientRecordScreen: View {
                             .background(Color("Secondary"))
                             .cornerRadius(15)
                     }
-                    
-//                    VStack(alignment: .leading){
-//                        Text("Prescription").bold()
-//                            .foregroundColor(Color("Subheadings"))
-//
-//                        Table(newPrescription) {
-//                            TableColumn("Medicine", value: \.med)
-//                            TableColumn("Dosage") { newPrescription in
-//                                Text(String(newPrescription.dosage))
-//                            }
-//                        }
-//                    }
-                    
                 }.padding(.top, 35)
                     
                 Spacer()

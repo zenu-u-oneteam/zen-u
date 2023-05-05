@@ -13,7 +13,7 @@ extension DHome{
         @Published var isLoading = false
         @Published var userName: String = ""
         @Published var greeting: String = ""
-        @Published var upcomingAppointments: [Appointment] = []
+        @Published var upcomingAppointments: [AppointmentData] = []
         @Published var numberOfAppointments: Int = 0
         @Published var shiftTime: [Int] = []
         let currentDate = Date()
@@ -62,7 +62,7 @@ extension DHome{
             return greetingText
         }
         
-        func getUpcomingAppointments() async -> [Appointment] {
+        func getUpcomingAppointments() async -> [AppointmentData] {
             do {
                 let calendar = Calendar.current
                 let startTime = calendar.startOfDay(for: Date())
@@ -70,7 +70,7 @@ extension DHome{
 
                 let currentUserId = Auth.auth().currentUser!.uid
                 let currentDoctor = try await db.collection("Doctor").document(currentUserId).getDocument(as: DoctorRaw.self)
-                var upcomingAppointments: [Appointment] = []
+                var upcomingAppointments: [AppointmentData] = []
                 for appointmentId in currentDoctor.appointments ?? [] {
                     let appointmentRawDetails = try await db.collection("Appointment").document(appointmentId).getDocument(as: AppointmentRaw.self)
                     let appointmentDetails = Appointment(
@@ -79,14 +79,15 @@ extension DHome{
                         patient: try await db.collection("Patient").document(appointmentRawDetails.patient).getDocument(as: PatientRaw.self),
                         type: try await db.collection("AppointmentType").document(appointmentRawDetails.type).getDocument(as: AppointmentTypeRaw.self)
                     )
+                    let patientUser = try await db.collection("Users").document(appointmentRawDetails.patient).getDocument(as: User.self)
                     
                     if appointmentDetails.appointmentTime <= endTime && appointmentDetails.appointmentTime >= currentDate {
-                        upcomingAppointments.append(appointmentDetails)
+                        upcomingAppointments.append(AppointmentData(appointment: appointmentDetails, patientUser: patientUser))
                         print(appointmentDetails)
                     }
                 }
                 
-                upcomingAppointments = upcomingAppointments.sorted(by: { $0.appointmentTime < $1.appointmentTime })
+                upcomingAppointments = upcomingAppointments.sorted(by: { $0.appointment.appointmentTime < $1.appointment.appointmentTime })
                 return upcomingAppointments
             } catch {
                 print(error)
