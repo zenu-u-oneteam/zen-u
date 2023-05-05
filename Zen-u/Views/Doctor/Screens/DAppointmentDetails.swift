@@ -42,8 +42,11 @@ struct DAppointmentDetails: View {
                             
                             ZStack {
                                 Menu {
-                                    ForEach(typeSelections.indices, id: \.self) {type in
-                                        Button(typeSelections[type], action: {typeIndex = type})
+                                    ForEach(typeSelections.indices, id: \.self) { type in
+                                        Button(typeSelections[type], action: {
+                                            typeIndex = type
+                                            
+                                        })
                                     }
                                 } label: {
                                     ViewButton(text: typeSelections[typeIndex], selectable: true, rIcon: "chevron.down")
@@ -56,7 +59,7 @@ struct DAppointmentDetails: View {
                         HStack(spacing: 12) {
                             Image(appointmentDetails.patientUser.profileImage)
                                 .resizable()
-                                .aspectRatio(1.5, contentMode: .fill)
+                                .aspectRatio(1, contentMode: .fill)
                                 .frame(width: 120, height: 120)
                                 .cornerRadius(120)
                             
@@ -127,7 +130,7 @@ struct DAppointmentDetails: View {
                                     NavigationLink(destination: DAppointmentViewAll(heading: typeSelections1[typeIndex1] , patientRecords: viewModel.patientRecords, appointmentRecords: viewModel.appointmentReports)){
                                         ViewButton(text: "View All", selectable: true).hTrailing()
                                     }
-                                
+                                    
                                 }
                             }
                             .padding(.top, 20)
@@ -202,7 +205,7 @@ struct DAppointmentDetails: View {
                                     NavigationLink(destination: DAppointmentViewAll(heading: typeSelections1[typeIndex1] , patientRecords: viewModel.patientRecords, appointmentRecords: viewModel.appointmentReports)){
                                         ViewButton(text: "View All", selectable: true).hTrailing()
                                     }
-                                
+                                    
                                 }
                             }
                             .padding(.top, 20)
@@ -276,7 +279,7 @@ struct DAppointmentDetails: View {
                                     NavigationLink(destination: DAppointmentViewAll(heading: typeSelections1[typeIndex1], typeIndex1: 2, patientRecords: viewModel.patientRecords, appointmentRecords: viewModel.appointmentReports)){
                                         ViewButton(text: "View All", selectable: true).hTrailing()
                                     }
-                                
+                                    
                                 }
                             }
                             .padding(.top, 20)
@@ -343,16 +346,17 @@ struct DAppointmentDetails: View {
             .navigationTitle("Appointment Details")
             VStack(alignment: .trailing) {
                 if typeSelections[typeIndex] == "Completed" {
-                    
                     Button {
                         
                     } label: {
-                        Image.init(systemName: "plus")
-                            .font(.title2)
-                            .frame(width: 50, height: 50)
-                            .background(Color("Accent"))
-                            .foregroundColor(Color.white)
-                            .cornerRadius(25)
+                        NavigationLink(destination: DPatientRecordScreen()){
+                            Image.init(systemName: "plus")
+                                .font(.title2)
+                                .frame(width: 50, height: 50)
+                                .background(Color("Accent"))
+                                .foregroundColor(Color.white)
+                                .cornerRadius(25)
+                        }
                         
                     }.hTrailing()
                         .padding(.vertical, 5)
@@ -364,7 +368,7 @@ struct DAppointmentDetails: View {
             
         }
         
-            
+        
         
     }
 }

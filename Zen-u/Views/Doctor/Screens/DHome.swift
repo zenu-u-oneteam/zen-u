@@ -159,7 +159,13 @@ struct DHome: View {
                                         .padding(.top, 20)
                                     
                                     ForEach(viewModel.upcomingAppointments.indices, id: \.self) { item in
-                                        DProfileUpcomingCard(appointmentDetails: viewModel.upcomingAppointments[item])
+                                        Button {
+                                            
+                                        } label: {
+                                            NavigationLink(destination: DAppointmentDetails(appointmentDetails: viewModel.upcomingAppointments[item])){
+                                                DProfileUpcomingCard(appointmentDetails: viewModel.upcomingAppointments[item].appointment)
+                                            }
+                                        }
                                     }
                                 }
                             }

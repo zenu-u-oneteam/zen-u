@@ -11,7 +11,6 @@ import Firebase
 extension DPatientRecordScreen{
     @MainActor class ViewModel: ObservableObject {
         @Published var isLoading = false
-        
         let db = FirebaseConfig().db
         
         init() {
@@ -25,10 +24,6 @@ extension DPatientRecordScreen{
             do {
                 let currentUserId = Auth.auth().currentUser!.uid
                 let newRecord = db.collection("AppointmentReports").document()
-                
-                //Requires to send back patient name and appointment number
-                
-                
                 newRecord.setData([
                     "appointment": "",
                     "appointmentTime": Int(Date().timeIntervalSince1970),
