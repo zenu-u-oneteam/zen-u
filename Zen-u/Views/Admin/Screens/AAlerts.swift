@@ -8,104 +8,96 @@
 import SwiftUI
 
 struct AAlerts: View {
-  @State var isResolvedIndex = 0
-   let options = ["Not Resolved", "Resolved"]
-   @StateObject private var viewModel = ViewModel()
-  @State private var showAlert = false
-
-
+    @State var isResolvedIndex = 0
+    let options = ["Not Resolved", "Resolved"]
+    @StateObject private var viewModel = ViewModel()
+    @State private var showAlert = false
+    @State var selectedIndex = -1
+    
+    
     @State var resolvedList : [AlertModelMy] = []
     @State var unresolvedList : [AlertModelMy] = []
-    
-//    init(){
-//        Task {
-//            self.resolvedList = await viewModel.getResolvedList()
-//            self.unresolvedList = await viewModel.getUnResolvedList()
-//
-//        }
-//
-//
-//    }
-  var body: some View {
-        NavigationView() {
-            VStack{
-                SegmentedPicker($isResolvedIndex, selections: options)
-                    
-                    
-                
-                Spacer(minLength: 20)
-                
-                        if isResolvedIndex == 0 {
-                            
-                            ScrollViewReader {
-                                value in
-                                ScrollView {
-                                    
-                                    LazyVStack (spacing : 30 ){
-                                        ForEach(viewModel.unResolvedalertList.indices, id: \.self) { index in
-                                            AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
-                                                .onTapGesture {
-                                                     showAlert = true
-                                                }
-                                                .alert(isPresented: $showAlert) {
-                                                        Alert(
-                                                            title: Text("Mark as Resolved ?"),
-                                                            
-                                                            primaryButton: .default(
-                                                                Text("Yes"),
-                                                                action: {
-                                                                    Task {
-                                                                        let id = viewModel.unResolvedalertList[index].id!
-                                                                        print(id)
-                                                                        await viewModel.setAsResolved(id: id)
-                                                                       
-                                                                    }
-                                                                }
-                                                            ), secondaryButton: .destructive(
-                                                                Text("Cancel"),
-                                                                action: {}
-                                                            )
-                                                        )
-                                                    }
 
-                                            
-                                        }
+    var body: some View {
+        NavigationStack {
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+            } else {
+                VStack{
+                    SegmentedPicker($isResolvedIndex, selections: options)
+                    
+                    
+                    
+                    Spacer(minLength: 20)
+                    
+                    if isResolvedIndex == 0 {
+                        
+                        ScrollViewReader {
+                            value in
+                            ScrollView {
+                                
+                                LazyVStack (spacing : 30 ){
+                                    ForEach(viewModel.unResolvedalertList.indices, id: \.self) { index in
+                                        AlertCard(code: viewModel.unResolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.unResolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.unResolvedalertList[index].datetime), desc: viewModel.unResolvedalertList[index].description)
+                                            .onTapGesture {
+                                                showAlert = true
+                                                selectedIndex = index
+                                            }
+                                            .alert(isPresented: $showAlert) {
+                                                Alert(
+                                                    title: Text("Mark as Resolved ?"),
+                                                    
+                                                    primaryButton: .default(
+                                                        Text("Yes"),
+                                                        action: {
+                                                            Task {
+                                                                let id = viewModel.unResolvedalertList[selectedIndex].id!
+                                                                print(id)
+                                                                await viewModel.setAsResolved(id: id)
+                                                                
+                                                                viewModel.update()
+                                                                
+                                                            }
+                                                        }
+                                                    ), secondaryButton: .destructive(
+                                                        Text("Cancel"),
+                                                        action: {}
+                                                    )
+                                                )
+                                            }
+                                        
+                                        
                                     }
-//                                    .onChange(of: viewModel.unResolvedalertList.count) {
-//                                        _ in
-//                                        viewModel.update()
-//                                        }
-                                }
-                            }
-                            
-                        } else {
-                            
-                            
-                            ScrollViewReader {
-                                value in
-                                ScrollView{
-                                    LazyVStack (spacing : 30 ){
-                                        ForEach(viewModel.resolvedalertList.indices, id: \.self) { index in
-                                            AlertCard(code: viewModel.resolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.resolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.resolvedalertList[index].datetime), desc: viewModel.resolvedalertList[index].description)
-                                            
-                                            
-                                        }
-                                    }
-//                                    .onChange(of: viewModel.unResolvedalertList.count) {
-//                                        _ in
-//                                        viewModel.update()
-//
-//                                         }
                                 }
                             }
                         }
-
-                    
-                
-                
+                        
+                    } else {
+                        
+                        
+                        ScrollViewReader {
+                            value in
+                            ScrollView{
+                                LazyVStack (spacing : 30 ){
+                                    ForEach(viewModel.resolvedalertList.indices, id: \.self) { index in
+                                        AlertCard(code: viewModel.resolvedalertList[index].code, date: DateViewModel().getDateFromDate(date: viewModel.resolvedalertList[index].datetime), time: DateViewModel().getTimeFromDate(date: viewModel.resolvedalertList[index].datetime), desc: viewModel.resolvedalertList[index].description)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .padding(24)
+                .navigationTitle("Raised Alerts")
+                .toolbar {
+                    Button {
+                        viewModel.update()
+                    } label: {
+                        Label("Refresh", systemImage: "arrow.clockwise" )
+                    }
+                }
+                .accentColor(Color("Accent"))
             }
-            .padding(24)
-            .navigationTitle("Raised Alerts")
         }
     }
 }
@@ -121,7 +113,7 @@ struct AlertCard: View {
                 .foregroundColor(.white)
                 .padding(.bottom,8)
             
-
+            
             HStack{
                 Text("Date: \(date)")
                     .font(.headline .weight(.bold))
@@ -138,12 +130,12 @@ struct AlertCard: View {
                 .frame(height: 2)
                 .overlay(.white)
                 .padding(.bottom, 8)
-        
+            
             
             Text("\(desc)")
                 .font(.title3 .weight(.semibold))
                 .foregroundColor(.white)
-
+            
         }
         .padding(24)
         .background(Color(setColor(codeString: code)))

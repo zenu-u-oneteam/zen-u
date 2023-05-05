@@ -2,7 +2,7 @@
 //  AAlerts-ViewModel.swift
 //  Zen-u
 //
-//  Created by Tanvi Gupta on 04/05/23.
+//  Created by Ta/Users/prakharsingh/Documents/zen-u/Zen-u/Views/Admin/Screens/AAlerts-ViewModel.swiftnvi Gupta on 04/05/23.
 //
 
 import Foundation
@@ -26,14 +26,16 @@ extension AAlerts {
                 resolvedalertList = await getResolvedList()
                 unResolvedalertList = await getUnResolvedList()
                 isLoading = false
-                print("Count \(alertList.count)")
-                print(resolvedalertList)
-                print(unResolvedalertList)
             }
-           
         }
         func update() {
-            refresh.toggle()
+            isLoading = true
+            Task{
+                alertList = await getAlertList()
+                resolvedalertList = await getResolvedList()
+                unResolvedalertList = await getUnResolvedList()
+                isLoading = false
+            }
          }
 
         func getAlertList() async -> [AlertModelMy] {
