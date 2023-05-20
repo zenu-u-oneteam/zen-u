@@ -43,6 +43,10 @@ extension POnboarding {
                 try db.collection("Users").document(currentUserId).setData(from: user)
                 try db.collection("Patient").document(currentUserId).setData(from: patient)
                 print("Patient Created!")
+                let encoder = JSONEncoder()
+                if let currentUserData = try? encoder.encode(user) {
+                    UserDefaults.standard.set(currentUserData, forKey: "currentUser")
+                }
                 canContinue = true
             } catch {
                 fatalError("\(error)")

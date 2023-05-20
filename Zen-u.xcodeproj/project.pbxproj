@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		042F38652A00E78900BAEED2 /* POnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F38642A00E78900BAEED2 /* POnboarding.swift */; };
 		042F38672A010F6F00BAEED2 /* POnboarding-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F38662A010F6F00BAEED2 /* POnboarding-ViewModel.swift */; };
-		042F386F2A03758C00BAEED2 /* SignupPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */; };
 		042F386B2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F386A2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift */; };
+		042F386F2A03758C00BAEED2 /* SignupPage-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */; };
 		0444998B29FBA12200C9A8BB /* DPatientRecordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */; };
 		061DE92A29F93D4100AB896A /* HealthRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92929F93D4100AB896A /* HealthRecord.swift */; };
 		061DE92C29F93D5900AB896A /* HealthRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DE92B29F93D5900AB896A /* HealthRecordType.swift */; };
@@ -70,7 +70,6 @@
 		30D2508B2A01178300446196 /* AMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D2508A2A01178300446196 /* AMain.swift */; };
 		30E199232A010FC00092C1BC /* DMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E199222A010FC00092C1BC /* DMain.swift */; };
 		30F810A129FB8CC700E200F7 /* DColorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F810A029FB8CC700E200F7 /* DColorAlert.swift */; };
-		386F14282A00AC2F00DFC667 /* PPayement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14272A00AC2F00DFC667 /* PPayement.swift */; };
 		386F142A2A00E4E800DFC667 /* ReminderCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386F14292A00E4E800DFC667 /* ReminderCard.swift */; };
 		3874751329ED603800CCA151 /* Zen_uApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751229ED603800CCA151 /* Zen_uApp.swift */; };
 		3874751529ED603800CCA151 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874751429ED603800CCA151 /* ContentView.swift */; };
@@ -125,8 +124,8 @@
 /* Begin PBXFileReference section */
 		042F38642A00E78900BAEED2 /* POnboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POnboarding.swift; sourceTree = "<group>"; };
 		042F38662A010F6F00BAEED2 /* POnboarding-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POnboarding-ViewModel.swift"; sourceTree = "<group>"; };
-		042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignupPage-ViewModel.swift"; sourceTree = "<group>"; };
 		042F386A2A021F5500BAEED2 /* DPatientRecordScreen-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DPatientRecordScreen-ViewModel.swift"; path = "Zen-u/ViewModels/Patient/DPatientRecordScreen-ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		042F386E2A03758C00BAEED2 /* SignupPage-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignupPage-ViewModel.swift"; sourceTree = "<group>"; };
 		0444998A29FBA12200C9A8BB /* DPatientRecordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPatientRecordScreen.swift; sourceTree = "<group>"; };
 		061DE92929F93D4100AB896A /* HealthRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecord.swift; sourceTree = "<group>"; };
 		061DE92B29F93D5900AB896A /* HealthRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthRecordType.swift; sourceTree = "<group>"; };
@@ -182,7 +181,6 @@
 		30D2508A2A01178300446196 /* AMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMain.swift; sourceTree = "<group>"; };
 		30E199222A010FC00092C1BC /* DMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMain.swift; sourceTree = "<group>"; };
 		30F810A029FB8CC700E200F7 /* DColorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DColorAlert.swift; sourceTree = "<group>"; };
-		386F14272A00AC2F00DFC667 /* PPayement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPayement.swift; sourceTree = "<group>"; };
 		386F14292A00E4E800DFC667 /* ReminderCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCard.swift; sourceTree = "<group>"; };
 		3874750F29ED603800CCA151 /* Zen-u.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zen-u.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3874751229ED603800CCA151 /* Zen_uApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zen_uApp.swift; sourceTree = "<group>"; };
@@ -891,7 +889,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = 24VQSR4D29;
+				DEVELOPMENT_TEAM = 6FS639K9VX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -906,7 +904,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tanvi.Zen-u";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.vashist.Zen-u";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -927,7 +925,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zen-u/Preview Content\"";
-				DEVELOPMENT_TEAM = 24VQSR4D29;
+				DEVELOPMENT_TEAM = 6FS639K9VX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -942,7 +940,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tanvi.Zen-u";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.vashist.Zen-u";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
